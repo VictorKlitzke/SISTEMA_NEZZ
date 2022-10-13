@@ -113,13 +113,13 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       TextHint = 'Raz'#227'o Social'
       Width = 222
     end
-    object edCNPJ: TcxTextEdit
+    object edCPF: TcxTextEdit
       Left = 22
       Top = 82
       Properties.OnValidate = edCNPJPropertiesValidate
       Style.BorderStyle = ebs3D
       TabOrder = 2
-      TextHint = 'CNPJ'
+      TextHint = 'CPF'
       Width = 216
     end
     object edTelefone: TcxTextEdit
@@ -281,9 +281,5 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       TabOrder = 2
       OnClick = btnDesfazerClick
     end
-  end
-  object dsClientes: TDataSource
-    Left = 240
-    Top = 152
   end
 end

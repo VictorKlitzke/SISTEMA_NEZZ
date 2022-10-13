@@ -34,7 +34,7 @@ type
   TNEZZViewsClienteAdicionar = class(TForm)
     edCliente: TcxTextEdit;
     edRazao: TcxTextEdit;
-    edCNPJ: TcxTextEdit;
+    edCPF: TcxTextEdit;
     edTelefone: TcxTextEdit;
     edCidade: TcxTextEdit;
     edBairro: TcxTextEdit;
@@ -43,7 +43,6 @@ type
     pnHeader: TPanel;
     lblCRUD: TLabel;
     btnClose: TcxButton;
-    dsClientes: TDataSource;
     procedure FormShow(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
@@ -84,13 +83,7 @@ type
   private
     FNEZZQuery: iNEZZServicesCadastrar;
 
-    FID: Integer;
-
-    function getEditando: Boolean;
-    procedure CarregarDados;
   public
-    property ID: Integer read FID write FID;
-    property Editando: Boolean read getEditando;
   end;
 
 var
@@ -116,8 +109,14 @@ end;
 
 procedure TNEZZViewsClienteAdicionar.btnSalvarClick(Sender: TObject);
 begin
-edCliente.ValidateEdit();
-edRazao.ValidateEdit();
+  inherited;
+  edCliente.ValidateEdit();
+  edRazao.ValidateEdit();
+  edCEP.ValidateEdit();
+  edTelefone.ValidateEdit();
+  edBairro.ValidateEdit();
+  edEndereco.ValidateEdit();
+  edCidade.ValidateEdit();
 
   try
      TNEZZFactoryCliente
@@ -127,7 +126,10 @@ edRazao.ValidateEdit();
         edRazao.Text,
         edCEP.Text,
         edTelefone.Text,
-        edBairro.Text
+        edCidade.Text,
+        edBairro.Text,
+        edTelefone.Text,
+        edCPF.Text
         );
 
     MessageDlg('Cliente registrado com sucesso' , mtInformation , [mbOk] , 0);
@@ -139,18 +141,6 @@ edRazao.ValidateEdit();
       edCliente.SetFocus;
     end;
   end;
-end;
-
-procedure TNEZZViewsClienteAdicionar.CarregarDados;
-begin
-  FNEZZQuery
-    .Parametro('ID', ID)
-    .Abrir;
-
-  if Editando then
-    FNEZZQuery.Editar
-  else
-    FNEZZQuery.Inserir;
 end;
 
 procedure TNEZZViewsClienteAdicionar.edBairroPropertiesValidate(Sender: TObject;
@@ -228,13 +218,4 @@ begin
   ErrorText := 'O usuário é obrigatório';
 end;
 
-procedure TNEZZViewsClienteAdicionar.FormShow(Sender: TObject);
-begin
-  CarregarDados;
-end;
-
-function TNEZZViewsClienteAdicionar.getEditando: Boolean;
-begin
-  Result := FID <> 0;
-end;
 end.
