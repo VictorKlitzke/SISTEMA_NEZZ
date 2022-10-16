@@ -45,7 +45,8 @@ uses
   NEZZ.Controllers.Sessao,
   NEZZ.Factory.Cliente,
   NEZZ.Models.Cliente,
-  NEZZViewBase;
+  NEZZViewBase,
+  ConexaoDados;
 
 type
   TNEZZViewsClientes = class(TForm)
@@ -64,12 +65,15 @@ type
     checkoutNome: TCheckBox;
     checkoutCodigo: TCheckBox;
     edPesquisar: TEdit;
+    GridDadosGrid1DBTableView1Column1: TcxGridDBColumn;
+    dsDadosClienteLevel1: TcxGridLevel;
     procedure btnAdicionarClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure edPesquisarChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
-    FNEZZConsulta: iNEZZServicesCadastrar;
+    FNEZZCliente: iNEZZServicesCadastrar;
     FNEZZFactoryCliente: iNEZZFactoryCliente;
 
   public
@@ -105,6 +109,7 @@ procedure TNEZZViewsClientes.btnCloseClick(Sender: TObject);
 begin
   Close;
 end;
+
 procedure TNEZZViewsClientes.CarregarDados;
 begin
   FNEZZFactoryCliente := TNEZZFactoryCliente
@@ -119,16 +124,33 @@ begin
     ApplyBestFit();
   end;
 end;
+
 procedure TNEZZViewsClientes.edPesquisarChange(Sender: TObject);
 begin
-  FNEZZFactoryCliente := TNEZZFactoryCliente
-    .New
-    .DataSource(dsClientes)
-    .FiltrarCliente(edPesquisar.Text);
+  if edPesquisar.Text = '' then
+  begin
+    FNEZZFactoryCliente := TNEZZFactoryCliente
+      .New
+      .DataSource(dsClientes)
+      .ListarCliente;
+  end
+  else
+  begin
+    FNEZZFactoryCliente := TNEZZFactoryCliente
+      .New
+      .DataSource(dsClientes)
+      .FiltrarCliente(edPesquisar.Text);
+  end;
 end;
 
 procedure TNEZZViewsClientes.FormCreate(Sender: TObject);
 begin
   CarregarDados;
 end;
+procedure TNEZZViewsClientes.FormShow(Sender: TObject);
+begin
+pnContent.Top :=  Trunc((ClientHeight/2) - (pnContent.Height/2));
+pnContent.Left:= Trunc((ClientWidth/2) - (pnContent.Width/2));
+end;
+
 end.

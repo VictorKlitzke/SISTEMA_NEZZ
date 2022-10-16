@@ -56,7 +56,7 @@ begin
     FNEZZConexao.Connect;
   except
   on e: Exception do
-     raise NEZZMSGERROR.Create('Falha ao tentar conectar-se no Banco de dados.' + #13 + e.Message);
+     raise NEZZMSGERROR.Create('Falha ao tentar conectar-se com Banco de dados.' + #13 + e.Message);
   end
 end;
 
@@ -75,7 +75,7 @@ begin
     Server := '127.0.0.1';
     Username := 'SYSDBA';
     Password := 'masterkey';
-    Database := FPath + 'C:\SISTEMA_NEZZ\Dados\NEZZ.FDB';
+    Database := FPath + 'C:\SISTEMA_NEZZ\Dados\NEZZ.fdb';
     Port := 3050;
     SpecificOptions.Values['Charset'] := 'UTF8';
     SpecificOptions.Values['ClientLibrary'] := 'fbclient.dll';
@@ -112,8 +112,4 @@ begin
 
   Result := GNEZZConexao;
 end;
-
-initialization
-  TNEZZServicesConexao.New.Conectar;
-
 end.

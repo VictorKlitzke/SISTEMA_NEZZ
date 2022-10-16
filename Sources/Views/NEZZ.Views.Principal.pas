@@ -19,7 +19,11 @@ uses
   Vcl.StdCtrls,
   cxButtons,
   dxGDIPlusClasses,
-  Vcl.ExtCtrls, NEZZ.Views.Clientes;
+  Vcl.ExtCtrls,
+  NEZZ.Views.Clientes,
+  NEZZ.Services.Conexao,
+  NEZZ.Services.Query,
+  System.UITypes;
 
 type
   TNEZZViewsPrincipal = class(TForm)
@@ -48,8 +52,9 @@ type
     procedure btnCloseKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure BtnClientesClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
-    { Private declarations }
+    FConexao : iNEZZServicesConexao;
   public
     { Public declarations }
   end;
@@ -90,6 +95,21 @@ begin
        mbYesNo,
        1
        ) = mrYes then Close;
+  end;
+end;
+
+procedure TNEZZViewsPrincipal.FormCreate(Sender: TObject);
+begin
+  try
+    FConexao := TNEZZServicesConexao
+      .New
+      .Conectar;
+  except
+    on e: NEZZMSGERROR do
+    begin
+      MessageDlg(e.Message, mtError, [mbOK], 0);
+      Application.Terminate;
+    end;
   end;
 end;
 

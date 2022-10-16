@@ -6,7 +6,8 @@ uses
   Data.DB,
   NEZZ.Controllers.Sessao,
   NEZZ.Services.Query,
-  BCrypt, NEZZ.Models.Cliente;
+  BCrypt,
+  NEZZ.Models.Cliente;
 
 type
   TNEZZFactoryTaskLog = procedure(AValue : string) of object;
@@ -14,13 +15,14 @@ type
   iNEZZFactoryCliente = interface
     ['{1592C510-8A28-408D-BD1A-F6430ADE3590}']
 
-    function AddCliente(ANome,ARazao,AContato,ACEP,AEmail,ACidade,ABairro,AEndereco,ACPF : string): iNEZZFactoryCliente;
+    function ClienteExiste(ANome : string): Boolean;
+    function AdicionarCliente(ANome,ARazao,AContato,ACEP,AEmail,ACidade,ABairro,AEndereco,ACPF : string): iNEZZFactoryCliente;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryCliente;
+    function DeletarCliente(ANome : integer): iNEZZFactoryCliente;
     function FiltrarCliente(ANome : string): iNEZZFactoryCliente;
 
     function ListarCliente: iNEZZFactoryCliente;
 
-    function Log(AValue: TNEZZFactoryTaskLog): iNEZZFactoryCliente;
   end;
 
   TNEZZFactoryCliente = class(TInterfacedObject, iNEZZFactoryCliente)
@@ -34,9 +36,11 @@ type
 
     class function New: iNEZZFactoryCliente;
 
-    function AddCliente(ANome,ARazao,AContato,ACEP,AEmail,ACidade,ABairro,AEndereco,ACPF : string): iNEZZFactoryCliente;
+    function ClienteExiste(ANome : string): Boolean;
+
+    function AdicionarCliente(ANome,ARazao,AContato,ACEP,AEmail,ACidade,ABairro,AEndereco,ACPF : string): iNEZZFactoryCliente;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryCliente;
-    function Log(AValue: TNEZZFactoryTaskLog): iNEZZFactoryCliente ;
+    function DeletarCliente(ANome : integer): iNEZZFactoryCliente;
     function FiltrarCliente(ANome : string): iNEZZFactoryCliente;
 
     function ListarCliente: iNEZZFactoryCliente;
@@ -46,7 +50,7 @@ implementation
 
 { TNEZZFactoryCliente }
 
-function TNEZZFactoryCliente.AddCliente(ANome,
+function TNEZZFactoryCliente.AdicionarCliente(ANome,
 ARazao,
 AContato,
 ACEP,
@@ -64,27 +68,47 @@ begin
     .Nome(ANome)
     .Razao(ARazao)
     .Contato(AContato)
-    .CEP(ACEP)
+    .CPF(ACPF)
     .Email(AEmail)
     .Bairro(ABairro)
     .Endereco(AEndereco)
     .Cidade(ACidade)
-    .CPF(ACPF)
+    .CEP(ACEP)
     .Salvar;
+end;
 
-  if not Assigned(FNEZZLog) then
-    FNEZZLog('LOG Funcionando!');
-
+function TNEZZFactoryCliente.ClienteExiste(ANome: string): Boolean;
+begin
+  Result := TNEZZServicesCadastrar
+    .New
+    .SQLLimpar
+    .SQL('SELECT')
+    .SQL('  COUNT(*) AS QTD')
+    .SQL('FROM')
+    .SQL('  CLIENTES C')
+    .SQL('WHERE')
+    .SQL('  UPPER(C.NOME) = UPPER(:NOME)')
+    .Parametro('NOME', ANome)
+    .Abrir
+    .Campo('QTD')
+    .AsInteger <> 0
 end;
 
 constructor TNEZZFactoryCliente.Create;
 begin
-  FNEZZSesao := TNEZZControllerSessao.New;
+
   FNEZZCliente := TNEZZServicesCadastrar
     .New
     .Apelido('ID', '#')
     .Apelido('NOME', 'CLIENTE')
     .Apelido('RAZAO_SOCIAL', 'RAZÃO SOCIAL')
+    .Apelido('CONTATO', 'CONTATO')
+    .Apelido('CEP', 'CEP')
+    .Apelido('EMAIL', 'EMAIL')
+    .Apelido('CIDADE', 'CIDADE')
+    .Apelido('BAIRRO', 'BAIRRO')
+    .Apelido('ENDERECO', 'ENDERECO')
+    .Apelido('CPF', 'CPF')
     .SQL('  SELECT')
     .SQL('    C.ID,')
     .SQL('    C.NOME,')
@@ -98,8 +122,6 @@ begin
     .SQL('    C.CPF')
     .SQL('  FROM')
     .SQL('    CLIENTES C')
-    .SQL('  WHERE')
-    .SQL('    C.ID = :ID');
 end;
 
 function TNEZZFactoryCliente.DataSource(
@@ -107,6 +129,18 @@ function TNEZZFactoryCliente.DataSource(
 begin
   Result := Self;
   ADataSource.DataSet := FNEZZCliente.DataSet;
+end;
+
+function TNEZZFactoryCliente.DeletarCliente(
+  ANome: integer): iNEZZFactoryCliente;
+begin
+  Result := Self;
+
+  TNEZZModelsCliente
+    .New
+    .Filtrar('ID' , ANome)
+    .Apagar
+    .Salvar;
 end;
 
 destructor TNEZZFactoryCliente.Destroy;
@@ -125,18 +159,10 @@ end;
 
 function TNEZZFactoryCliente.ListarCliente: iNEZZFactoryCliente;
 begin
-    Result := Self;
+  Result := Self;
 
   FNEZZCliente
-    .Parametro('NOME', FNEZZSesao.id)
     .Abrir;
-end;
-
-function TNEZZFactoryCliente.Log(
-  AValue: TNEZZFactoryTaskLog): iNEZZFactoryCliente;
-begin
-  Result := Self;
-  FNEZZLog := AValue;
 end;
 
 class function TNEZZFactoryCliente.New: iNEZZFactoryCliente;

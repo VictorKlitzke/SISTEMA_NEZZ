@@ -209,7 +209,7 @@ begin
   Result := Self;
 
   FNEZZCliente
-    .Filtrar(AValor, ACampo)
+    .Filtrar(ACampo, AValor)
     .Abrir;
 end;
 

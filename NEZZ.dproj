@@ -127,6 +127,11 @@
         <DCCReference Include="Sources\Controllers\NEZZ.Controllers.Sessao.pas"/>
         <DCCReference Include="Sources\Models\NEZZ.Models.Cliente.pas"/>
         <DCCReference Include="Sources\Factories\NEZZ.Factory.Cliente.pas"/>
+        <DCCReference Include="ConexaoDados.pas">
+            <Form>DataModule1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -27,23 +27,29 @@ uses
   NEZZ.Services.Query,
   Data.DB,
   NEZZ.Controllers.Sessao,
-  NEZZ.Factory.Cliente,
-  NEZZ.Models.Cliente;
+  NEZZ.Models.Cliente,
+  ConexaoDados,
+  dxLayoutcxEditAdapters,
+  dxLayoutContainer,
+  cxClasses,
+  dxLayoutLookAndFeels,
+  dxLayoutControl;
 
 type
   TNEZZViewsClienteAdicionar = class(TForm)
+    pnHeader: TPanel;
+    lblCRUD: TLabel;
+    btnClose: TcxButton;
+    dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList;
+    dxLayoutStandardLookAndFeel1: TdxLayoutStandardLookAndFeel;
     edCliente: TcxTextEdit;
     edRazao: TcxTextEdit;
     edCPF: TcxTextEdit;
-    edTelefone: TcxTextEdit;
+    edContato: TcxTextEdit;
     edCidade: TcxTextEdit;
     edBairro: TcxTextEdit;
     edEndereco: TcxTextEdit;
     edCEP: TcxTextEdit;
-    pnHeader: TPanel;
-    lblCRUD: TLabel;
-    btnClose: TcxButton;
-    procedure FormShow(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure edClientePropertiesValidate(Sender: TObject;
@@ -91,6 +97,9 @@ var
 
 implementation
 
+uses
+    NEZZ.Factory.Cliente;
+
 {$R *.dfm}
 
 { TNEZZViewsClienteForm }
@@ -103,7 +112,8 @@ end;
 procedure TNEZZViewsClienteAdicionar.btnDesfazerClick(Sender: TObject);
 begin
   FNEZZQuery
-  .Cancelar;
+    .Cancelar;
+
   ModalResult := mrCancel;
 end;
 
@@ -112,25 +122,26 @@ begin
   inherited;
   edCliente.ValidateEdit();
   edRazao.ValidateEdit();
-  edCEP.ValidateEdit();
-  edTelefone.ValidateEdit();
+  edCPF.ValidateEdit();
+  edContato.ValidateEdit();
+  edCidade.ValidateEdit();
   edBairro.ValidateEdit();
   edEndereco.ValidateEdit();
-  edCidade.ValidateEdit();
+  edCEP.ValidateEdit();
 
   try
      TNEZZFactoryCliente
       .New
-      .AddCliente(
+      .AdicionarCliente(
         edCliente.Text,
         edRazao.Text,
-        edCEP.Text,
-        edTelefone.Text,
+        edCPF.Text,
+        edContato.Text,
         edCidade.Text,
         edBairro.Text,
-        edTelefone.Text,
-        edCPF.Text
-        );
+        edEndereco.Text,
+        edCEP.Text
+      );
 
     MessageDlg('Cliente registrado com sucesso' , mtInformation , [mbOk] , 0);
     Close;
@@ -149,7 +160,7 @@ procedure TNEZZViewsClienteAdicionar.edBairroPropertiesValidate(Sender: TObject;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
-  ErrorText := 'O usuário é obrigatório';
+  ErrorText := 'O Bairro é obrigatório';
 end;
 
 procedure TNEZZViewsClienteAdicionar.edCEPPropertiesValidate(Sender: TObject;
@@ -158,7 +169,7 @@ procedure TNEZZViewsClienteAdicionar.edCEPPropertiesValidate(Sender: TObject;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
-  ErrorText := 'O usuário é obrigatório';
+  ErrorText := 'O CEP é obrigatório';
 end;
 
 procedure TNEZZViewsClienteAdicionar.edCidadePropertiesValidate(Sender: TObject;
@@ -167,7 +178,7 @@ procedure TNEZZViewsClienteAdicionar.edCidadePropertiesValidate(Sender: TObject;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
-  ErrorText := 'O usuário é obrigatório';
+  ErrorText := 'A Cidade é obrigatório';
 end;
 
 procedure TNEZZViewsClienteAdicionar.edClientePropertiesValidate(
@@ -177,7 +188,7 @@ procedure TNEZZViewsClienteAdicionar.edClientePropertiesValidate(
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
-  ErrorText := 'O usuário é obrigatório';
+  ErrorText := 'O Cliente é obrigatório';
 end;
 
 procedure TNEZZViewsClienteAdicionar.edCNPJPropertiesValidate(Sender: TObject;
@@ -186,7 +197,7 @@ procedure TNEZZViewsClienteAdicionar.edCNPJPropertiesValidate(Sender: TObject;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
-  ErrorText := 'O usuário é obrigatório';
+  ErrorText := 'O CPF é obrigatório';
 end;
 
 procedure TNEZZViewsClienteAdicionar.edEnderecoPropertiesValidate(
@@ -196,7 +207,7 @@ procedure TNEZZViewsClienteAdicionar.edEnderecoPropertiesValidate(
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
-  ErrorText := 'O usuário é obrigatório';
+  ErrorText := 'O Endereço é obrigatório';
 end;
 
 procedure TNEZZViewsClienteAdicionar.edRazaoPropertiesValidate(Sender: TObject;
@@ -205,7 +216,7 @@ procedure TNEZZViewsClienteAdicionar.edRazaoPropertiesValidate(Sender: TObject;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
-  ErrorText := 'O usuário é obrigatório';
+  ErrorText := 'O Razão Social é obrigatório';
 end;
 
 procedure TNEZZViewsClienteAdicionar.edTelefonePropertiesValidate(
@@ -215,7 +226,7 @@ procedure TNEZZViewsClienteAdicionar.edTelefonePropertiesValidate(
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
-  ErrorText := 'O usuário é obrigatório';
+  ErrorText := 'O Contato é obrigatório';
 end;
 
 end.

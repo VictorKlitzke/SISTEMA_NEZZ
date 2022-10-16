@@ -14,17 +14,21 @@ uses
   NEZZ.Views.Clientes in 'Sources\Views\Clientes\NEZZ.Views.Clientes.pas' {NEZZViewsClientes},
   NEZZ.Controllers.Sessao in 'Sources\Controllers\NEZZ.Controllers.Sessao.pas',
   NEZZ.Models.Cliente in 'Sources\Models\NEZZ.Models.Cliente.pas',
-  NEZZ.Factory.Cliente in 'Sources\Factories\NEZZ.Factory.Cliente.pas';
+  NEZZ.Factory.Cliente in 'Sources\Factories\NEZZ.Factory.Cliente.pas',
+  ConexaoDados in 'ConexaoDados.pas' {DataModule1: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+
   Application.CreateForm(TNEZZViewsPrincipal, NEZZViewsPrincipal);
   Application.CreateForm(TNEZZViewsClientes, NEZZViewsClientes);
   Application.CreateForm(TNEZZViewsBase, NEZZViewsBase);
   Application.CreateForm(TNEZZViewsClienteAdicionar, NEZZViewsClienteAdicionar);
   Application.CreateForm(TNEZZViewsClientes, NEZZViewsClientes);
+  Application.CreateForm(TDataModule1, DataModule1);
+
   Application.Run;
 end.
