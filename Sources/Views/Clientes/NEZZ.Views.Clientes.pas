@@ -97,7 +97,6 @@ begin
       Application.CreateForm(TNEZZViewsClienteAdicionar, NEZZViewsClienteAdicionar);
 
     NEZZViewsClienteAdicionar.ShowModal;
-    NEZZViewsClienteAdicionar.Free;
 
     CarregarDados;
   finally

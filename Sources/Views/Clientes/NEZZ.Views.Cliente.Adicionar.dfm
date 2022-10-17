@@ -25,7 +25,6 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
     Color = clNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 535
     object lblCRUD: TLabel
       Left = 0
       Top = 0
@@ -50,7 +49,6 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 484
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -99,11 +97,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
     Color = clNone
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -16
-    ExplicitTop = 35
-    ExplicitWidth = 535
-    ExplicitHeight = 267
-    object edCliente: TcxTextEdit
+    object edNome: TcxTextEdit
       Left = 14
       Top = 20
       Properties.OnValidate = edClientePropertiesValidate
@@ -179,8 +173,6 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 308
-    ExplicitWidth = 535
     object btnLimpar: TcxButton
       Left = 396
       Top = 0
@@ -217,7 +209,6 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
-      ExplicitLeft = 435
     end
     object btnSalvar: TcxButton
       Left = 296
@@ -252,7 +243,6 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = btnSalvarClick
-      ExplicitLeft = 329
     end
     object btnDesfazer: TcxButton
       Left = 196
@@ -290,7 +280,6 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 2
       OnClick = btnDesfazerClick
-      ExplicitLeft = 235
     end
   end
   object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList

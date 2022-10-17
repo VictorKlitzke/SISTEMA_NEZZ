@@ -42,7 +42,7 @@ type
     btnClose: TcxButton;
     dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList;
     dxLayoutStandardLookAndFeel1: TdxLayoutStandardLookAndFeel;
-    edCliente: TcxTextEdit;
+    edNome: TcxTextEdit;
     edRazao: TcxTextEdit;
     edCPF: TcxTextEdit;
     edContato: TcxTextEdit;
@@ -120,7 +120,7 @@ end;
 procedure TNEZZViewsClienteAdicionar.btnSalvarClick(Sender: TObject);
 begin
   inherited;
-  edCliente.ValidateEdit();
+  edNome.ValidateEdit();
   edRazao.ValidateEdit();
   edCPF.ValidateEdit();
   edContato.ValidateEdit();
@@ -133,14 +133,14 @@ begin
      TNEZZFactoryCliente
       .New
       .AdicionarCliente(
-        edCliente.Text,
+        edNome.Text,
         edRazao.Text,
-        edCPF.Text,
+        edCEP.Text,
         edContato.Text,
         edCidade.Text,
         edBairro.Text,
         edEndereco.Text,
-        edCEP.Text
+        edCPF.Text
       );
 
     MessageDlg('Cliente registrado com sucesso' , mtInformation , [mbOk] , 0);
@@ -149,7 +149,7 @@ begin
     on e: Exception do
     begin
       MessageDlg('Erro ao fazer registro do cliente!' + #13 + e.message , mtWarning , [mbOk] , 0);
-      edCliente.SetFocus;
+      edNome.SetFocus;
     end;
   end;
 end;
