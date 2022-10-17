@@ -25,13 +25,10 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
     Color = -1
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 104
-    ExplicitTop = 64
-    ExplicitWidth = 185
     object lbCRUD: TLabel
       Left = 0
       Top = 0
-      Width = 575
+      Width = 139
       Height = 41
       Align = alLeft
       Caption = 'EDITAR CLIENTE'
@@ -41,6 +38,7 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitHeight = 19
     end
     object pnClose: TPanel
       Left = 436
@@ -50,9 +48,6 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 528
-      ExplicitTop = 19
-      ExplicitHeight = 22
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -88,7 +83,6 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = btnCloseClick
-        ExplicitTop = 6
       end
     end
   end
@@ -102,8 +96,6 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 235
-    ExplicitWidth = 506
     object cxButton1: TcxButton
       Left = 383
       Top = 0
@@ -151,7 +143,6 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 431
     end
   end
   object pnContent: TPanel
@@ -164,10 +155,6 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 232
-    ExplicitTop = 160
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object edNome: TcxTextEdit
       Left = 6
       Top = 12
@@ -232,5 +219,9 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
       TextHint = 'Email'
       Width = 153
     end
+  end
+  object dsEditarCliente: TDataSource
+    Left = 224
+    Top = 120
   end
 end

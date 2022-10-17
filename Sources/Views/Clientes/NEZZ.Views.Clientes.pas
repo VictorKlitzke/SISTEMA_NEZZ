@@ -61,7 +61,6 @@ type
     btnClose: TcxButton;
     dsClientes: TDataSource;
     GridDadosGrid1DBTableView1: TcxGridDBTableView;
-    dsDadosGrid1Level1: TcxGridLevel;
     dsDadosCliente: TcxGrid;
     checkoutNome: TCheckBox;
     checkoutCodigo: TCheckBox;
@@ -76,6 +75,10 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
+    procedure GridDadosGrid1DBTableView1CellDblClick(
+      Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
   private
     FNEZZCliente: iNEZZServicesCadastrar;
     FNEZZFactoryCliente: iNEZZFactoryCliente;
@@ -120,16 +123,7 @@ end;
 
 procedure TNEZZViewsClientes.btnEditarClick(Sender: TObject);
 begin
-  try
-    if not Assigned(NEZZViewsClienteEditar) then
-      Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
-
-    NEZZViewsClienteEditar.ShowModal;
-
-    FreeAndNil(NEZZViewsClienteEditar);
-  finally
-    CarregarDados;
-  end;
+  MessageDlg('Para editar dar dois clique no para tela de edição', mtInformation, mbYesNo, 1);
 end;
 
 procedure TNEZZViewsClientes.CarregarDados;
@@ -174,5 +168,23 @@ begin
 pnContent.Top :=  Trunc((ClientHeight/2) - (pnContent.Height/2));
 pnContent.Left:= Trunc((ClientWidth/2) - (pnContent.Width/2));
 end;
+
+procedure TNEZZViewsClientes.GridDadosGrid1DBTableView1CellDblClick(
+  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
+  AButton: TMouseButton; AShift: TShiftState;
+  var AHandled: Boolean);
+begin
+  if not Assigned(NEZZViewsClienteEditar) then
+    Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
+
+  NEZZViewsClienteEditar.cliente(dsClientes.DataSet.FieldByName('ID').AsInteger);
+
+  NEZZViewsClienteEditar.ShowModal;
+
+  FreeAndNil(NEZZViewsClienteEditar);
+
+  CarregarDados;
+
+  end;
 
 end.

@@ -26,7 +26,7 @@ uses
   NEZZ.Factory.Cliente,
   NEZZ.Services.Conexao,
   NEZZ.Services.Query,
-  NEZZViewBase;
+  NEZZViewBase, Data.DB, NEZZ.Models.Cliente;
 
 type
   TNEZZViewsClienteEditar = class(TForm)
@@ -46,12 +46,13 @@ type
     edCEP: TcxTextEdit;
     edEmail: TcxTextEdit;
     cxButton1: TcxButton;
+    dsEditarCliente: TDataSource;
     procedure btnCloseClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
-    { Private declarations }
+    FNEZZModelsClientes : iNEZZModelsCliente;
   public
-    { Public declarations }
+    function cliente(UID: integer): Integer;
   end;
 
 var
@@ -64,6 +65,11 @@ implementation
 procedure TNEZZViewsClienteEditar.btnCloseClick(Sender: TObject);
 begin
   Close;
+end;
+
+function TNEZZViewsClienteEditar.cliente(UID: integer): Integer;
+begin
+  FNEZZModelsClientes.Filtrar('ID', UID).Editar;
 end;
 
 procedure TNEZZViewsClienteEditar.FormKeyDown(Sender: TObject; var Key: Word;
