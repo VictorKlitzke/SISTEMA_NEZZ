@@ -46,7 +46,8 @@ uses
   NEZZ.Factory.Cliente,
   NEZZ.Models.Cliente,
   NEZZViewBase,
-  ConexaoDados;
+  ConexaoDados,
+  NEZZ.Views.Cliente.Editar;
 
 type
   TNEZZViewsClientes = class(TForm)
@@ -67,15 +68,18 @@ type
     edPesquisar: TEdit;
     GridDadosGrid1DBTableView1Column1: TcxGridDBColumn;
     dsDadosClienteLevel1: TcxGridLevel;
+    btnBuscar: TcxButton;
     procedure btnAdicionarClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure edPesquisarChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnBuscarClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
   private
     FNEZZCliente: iNEZZServicesCadastrar;
     FNEZZFactoryCliente: iNEZZFactoryCliente;
-
+    FNEZZModelsCliente : iNEZZModelsCliente;
   public
     procedure CarregarDados;
   end;
@@ -92,11 +96,11 @@ implementation
 procedure TNEZZViewsClientes.btnAdicionarClick(Sender: TObject);
 begin
   try
-    if Assigned(NEZZViewsClienteAdicionar) then
     if not Assigned(NEZZViewsClienteAdicionar) then
       Application.CreateForm(TNEZZViewsClienteAdicionar, NEZZViewsClienteAdicionar);
 
     NEZZViewsClienteAdicionar.ShowModal;
+    NEZZViewsClienteAdicionar.Free;
 
     CarregarDados;
   finally
@@ -104,9 +108,28 @@ begin
   end;
 end;
 
+procedure TNEZZViewsClientes.btnBuscarClick(Sender: TObject);
+begin
+  CarregarDados;
+end;
+
 procedure TNEZZViewsClientes.btnCloseClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TNEZZViewsClientes.btnEditarClick(Sender: TObject);
+begin
+  try
+    if not Assigned(NEZZViewsClienteEditar) then
+      Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
+
+    NEZZViewsClienteEditar.ShowModal;
+
+    FreeAndNil(NEZZViewsClienteEditar);
+  finally
+    CarregarDados;
+  end;
 end;
 
 procedure TNEZZViewsClientes.CarregarDados;

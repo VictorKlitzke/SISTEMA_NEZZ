@@ -17,6 +17,7 @@ type
 
     function ClienteExiste(ANome : string): Boolean;
     function AdicionarCliente(ANome,ARazao,AContato,ACEP,AEmail,ACidade,ABairro,AEndereco,ACPF : string): iNEZZFactoryCliente;
+    function AtualizarCliente(ANome : string): iNEZZFactoryCliente;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryCliente;
     function DeletarCliente(ANome : integer): iNEZZFactoryCliente;
     function FiltrarCliente(ANome : string): iNEZZFactoryCliente;
@@ -29,7 +30,7 @@ type
   private
     FNEZZSesao : iNEZZControllerSessao;
     FNEZZCliente: iNEZZServicesCadastrar;
-    FNEZZLog: TNEZZFactoryTaskLog;
+
   public
     constructor Create;
     destructor Destroy;
@@ -39,6 +40,7 @@ type
     function ClienteExiste(ANome : string): Boolean;
 
     function AdicionarCliente(ANome,ARazao,AContato,ACEP,AEmail,ACidade,ABairro,AEndereco,ACPF : string): iNEZZFactoryCliente;
+    function AtualizarCliente(ANome : string): iNEZZFactoryCliente;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryCliente;
     function DeletarCliente(ANome : integer): iNEZZFactoryCliente;
     function FiltrarCliente(ANome : string): iNEZZFactoryCliente;
@@ -68,13 +70,25 @@ begin
     .Nome(ANome)
     .Razao(ARazao)
     .Contato(AContato)
-    .CPF(ACPF)
+    .CEP(ACEP)
     .Email(AEmail)
     .Bairro(ABairro)
     .Endereco(AEndereco)
     .Cidade(ACidade)
-    .CEP(ACEP)
+    .CPF(ACPF)
     .Salvar;
+end;
+
+function TNEZZFactoryCliente.AtualizarCliente(
+  ANome: string): iNEZZFactoryCliente;
+begin
+  Result := Self;
+
+  TNEZZModelsCliente
+    .New
+    .Filtrar('ID' , ANome)
+    .Editar
+    .Salvar
 end;
 
 function TNEZZFactoryCliente.ClienteExiste(ANome: string): Boolean;
@@ -162,6 +176,7 @@ begin
   Result := Self;
 
   FNEZZCliente
+    .SomenteLeitura
     .Abrir;
 end;
 

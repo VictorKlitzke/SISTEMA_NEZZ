@@ -50,6 +50,7 @@ type
     edBairro: TcxTextEdit;
     edEndereco: TcxTextEdit;
     edCEP: TcxTextEdit;
+    edEmail: TcxTextEdit;
     procedure btnCloseClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure edClientePropertiesValidate(Sender: TObject;
@@ -124,6 +125,7 @@ begin
   edRazao.ValidateEdit();
   edCPF.ValidateEdit();
   edContato.ValidateEdit();
+  edEmail.ValidateEdit();
   edCidade.ValidateEdit();
   edBairro.ValidateEdit();
   edEndereco.ValidateEdit();
@@ -137,6 +139,7 @@ begin
         edRazao.Text,
         edCEP.Text,
         edContato.Text,
+        edEmail.Text,
         edCidade.Text,
         edBairro.Text,
         edEndereco.Text,

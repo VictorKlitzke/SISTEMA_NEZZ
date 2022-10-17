@@ -4,7 +4,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
   BorderStyle = bsNone
   Caption = 'NEZZViewsClienteAdicionar'
   ClientHeight = 297
-  ClientWidth = 496
+  ClientWidth = 500
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,13 +18,14 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 496
+    Width = 500
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = clNone
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 496
     object lblCRUD: TLabel
       Left = 0
       Top = 0
@@ -42,13 +43,14 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       ExplicitHeight = 19
     end
     object pnClose: TPanel
-      Left = 445
+      Left = 449
       Top = 0
       Width = 51
       Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 445
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -90,20 +92,22 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
   object pnContent: TPanel
     Left = 0
     Top = 41
-    Width = 496
-    Height = 200
+    Width = 500
+    Height = 215
     Align = alClient
     BevelOuter = bvNone
     Color = clNone
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 496
+    ExplicitHeight = 200
     object edNome: TcxTextEdit
       Left = 14
       Top = 20
       Properties.OnValidate = edClientePropertiesValidate
       TabOrder = 0
       TextHint = 'Cliente'
-      Width = 216
+      Width = 226
     end
     object edRazao: TcxTextEdit
       Left = 256
@@ -111,7 +115,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Properties.OnValidate = edRazaoPropertiesValidate
       TabOrder = 1
       TextHint = 'Raz'#227'o Social'
-      Width = 222
+      Width = 226
     end
     object edCPF: TcxTextEdit
       Left = 14
@@ -120,7 +124,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Style.BorderStyle = ebs3D
       TabOrder = 2
       TextHint = 'CPF'
-      Width = 216
+      Width = 226
     end
     object edContato: TcxTextEdit
       Left = 256
@@ -128,7 +132,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Properties.OnValidate = edTelefonePropertiesValidate
       TabOrder = 3
       TextHint = 'Telefone'
-      Width = 222
+      Width = 226
     end
     object edCidade: TcxTextEdit
       Left = 14
@@ -136,7 +140,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Properties.OnValidate = edCidadePropertiesValidate
       TabOrder = 4
       TextHint = 'Cidade'
-      Width = 216
+      Width = 226
     end
     object edBairro: TcxTextEdit
       Left = 256
@@ -144,7 +148,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Properties.OnValidate = edBairroPropertiesValidate
       TabOrder = 5
       TextHint = 'Bairro'
-      Width = 222
+      Width = 226
     end
     object edEndereco: TcxTextEdit
       Left = 256
@@ -152,7 +156,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Properties.OnValidate = edEnderecoPropertiesValidate
       TabOrder = 6
       TextHint = 'Endere'#231'o'
-      Width = 222
+      Width = 226
     end
     object edCEP: TcxTextEdit
       Left = 14
@@ -160,24 +164,24 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Properties.OnValidate = edCEPPropertiesValidate
       TabOrder = 7
       TextHint = 'CEP'
-      Width = 216
+      Width = 67
     end
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 241
-    Width = 496
-    Height = 56
+    Top = 256
+    Width = 500
+    Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
     object btnLimpar: TcxButton
-      Left = 396
+      Left = 400
       Top = 0
       Width = 100
-      Height = 56
+      Height = 41
       Align = alRight
       Caption = 'Limpar'
       OptionsImage.Glyph.SourceDPI = 96
@@ -209,12 +213,14 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
+      ExplicitLeft = 396
+      ExplicitHeight = 56
     end
     object btnSalvar: TcxButton
-      Left = 296
+      Left = 300
       Top = 0
       Width = 100
-      Height = 56
+      Height = 41
       Align = alRight
       Caption = 'Salvar'
       OptionsImage.Glyph.SourceDPI = 96
@@ -243,12 +249,14 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = btnSalvarClick
+      ExplicitLeft = 296
+      ExplicitHeight = 56
     end
     object btnDesfazer: TcxButton
-      Left = 196
+      Left = 200
       Top = 0
       Width = 100
-      Height = 56
+      Height = 41
       Align = alRight
       Caption = 'Desfazer'
       OptionsImage.Glyph.SourceDPI = 96
@@ -280,7 +288,16 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 2
       OnClick = btnDesfazerClick
+      ExplicitLeft = 196
+      ExplicitHeight = 56
     end
+  end
+  object edEmail: TcxTextEdit
+    Left = 87
+    Top = 198
+    TabOrder = 3
+    TextHint = 'Email'
+    Width = 153
   end
   object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList
     Left = 152
