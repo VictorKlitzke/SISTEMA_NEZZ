@@ -59,7 +59,7 @@ type
   private
     FNEZZModelsClientes : iNEZZModelsCliente;
   public
-    function cliente(UID: integer): Integer;
+    function Cliente(UID: integer): Integer;
   end;
 
 var
@@ -74,7 +74,7 @@ begin
   Close;
 end;
 
-function TNEZZViewsClienteEditar.cliente(UID: integer): Integer;
+function TNEZZViewsClienteEditar.Cliente(UID: integer): Integer;
 begin
   FNEZZModelsClientes.Filtrar('ID', UID).Editar;
 end;
@@ -93,28 +93,10 @@ begin
   edCEP.ValidateEdit();
 
   try
-     TNEZZFactoryCliente
-      .New
-      .AdicionarCliente(
-        edNome.Text,
-        edRazao.Text,
-        edCEP.Text,
-        edContato.Text,
-        edEmail.Text,
-        edCidade.Text,
-        edBairro.Text,
-        edEndereco.Text,
-        edCPF.Text
-      );
-
-    MessageDlg('Cliente atualizado com sucesso' , mtInformation , [mbOk] , 0);
+    FNEZZModelsClientes.Salvar;
+  finally
+    MessageDlg('Show, Cliente atualizado com sucesso', mtInformation, [mbOK], 0);
     Close;
-  except
-    on e: Exception do
-    begin
-      MessageDlg('Atualização incompleta!!' + #13 + e.message , mtWarning , [mbOk] , 0);
-      edNome.SetFocus;
-    end;
   end;
 end;
 

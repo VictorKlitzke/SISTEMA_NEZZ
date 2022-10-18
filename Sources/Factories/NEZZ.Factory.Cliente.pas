@@ -176,7 +176,6 @@ begin
   Result := Self;
 
   FNEZZCliente
-    .SomenteLeitura
     .Abrir;
 end;
 

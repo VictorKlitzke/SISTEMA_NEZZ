@@ -134,7 +134,7 @@ end;
 
 procedure TNEZZViewsClientes.btnEditarClick(Sender: TObject);
 begin
-  MessageDlg('Para editar dar dois clique no para tela de edição', mtConfirmation, [mbOK], 1);
+  MessageDlg('Para editar dar dois clique no cliente para ir a tela de edição', mtConfirmation, [mbOK], 1);
 end;
 
 procedure TNEZZViewsClientes.CarregarDados;
@@ -156,17 +156,14 @@ procedure TNEZZViewsClientes.dsDadosClienteDBTableView1CellDblClick(
   Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
   AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
 begin
-  try
-      if not Assigned(NEZZViewsClienteEditar) then
+  if not Assigned(NEZZViewsClienteEditar) then
     Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
 
-  NEZZViewsClienteEditar.cliente(dsClientes.DataSet.FieldByName('ID').AsInteger);
+  NEZZViewsClienteEditar.Cliente(dsClientes.DataSet.FieldByName('ID').AsInteger);
   NEZZViewsClienteEditar.ShowModal;
   FreeAndNil(NEZZViewsClienteEditar);
 
-  finally
-    CarregarDados;
-  end;
+  CarregarDados;
 end;
 
 procedure TNEZZViewsClientes.edPesquisarChange(Sender: TObject);
