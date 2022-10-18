@@ -60,14 +60,13 @@ type
     lblClientes: TLabel;
     btnClose: TcxButton;
     dsClientes: TDataSource;
-    GridDadosGrid1DBTableView1: TcxGridDBTableView;
-    dsDadosCliente: TcxGrid;
     checkoutNome: TCheckBox;
     checkoutCodigo: TCheckBox;
     edPesquisar: TEdit;
-    GridDadosGrid1DBTableView1Column1: TcxGridDBColumn;
-    dsDadosClienteLevel1: TcxGridLevel;
     btnBuscar: TcxButton;
+    dsDadosClienteDBTableView1: TcxGridDBTableView;
+    dsDadosClienteLevel1: TcxGridLevel;
+    dsDadosCliente: TcxGrid;
     procedure btnAdicionarClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -75,10 +74,11 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
-    procedure GridDadosGrid1DBTableView1CellDblClick(
+    procedure dsDadosClienteDBTableView1CellDblClick(
       Sender: TcxCustomGridTableView;
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
       AShift: TShiftState; var AHandled: Boolean);
+    procedure btnDeletarClick(Sender: TObject);
   private
     FNEZZCliente: iNEZZServicesCadastrar;
     FNEZZFactoryCliente: iNEZZFactoryCliente;
@@ -121,9 +121,20 @@ begin
   Close;
 end;
 
+procedure TNEZZViewsClientes.btnDeletarClick(Sender: TObject);
+begin
+  inherited;
+  try
+    FNEZZModelsCliente.Apagar;
+  finally
+    MessageDlg('Deseja realmente deletar esse cliente?', mtInformation, mbYesNo, 0);
+    Close;
+  end;
+end;
+
 procedure TNEZZViewsClientes.btnEditarClick(Sender: TObject);
 begin
-  MessageDlg('Para editar dar dois clique no para tela de edição', mtInformation, mbYesNo, 1);
+  MessageDlg('Para editar dar dois clique no para tela de edição', mtConfirmation, [mbOK], 1);
 end;
 
 procedure TNEZZViewsClientes.CarregarDados;
@@ -133,11 +144,28 @@ begin
     .DataSource(dsClientes)
     .ListarCliente;
 
-  with GridDadosGrid1DBTableView1 do
+  with dsDadosClienteDBTableView1 do
   begin
     ClearItems;
     DataController.CreateAllItems();
     ApplyBestFit();
+  end;
+end;
+
+procedure TNEZZViewsClientes.dsDadosClienteDBTableView1CellDblClick(
+  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
+  AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+begin
+  try
+      if not Assigned(NEZZViewsClienteEditar) then
+    Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
+
+  NEZZViewsClienteEditar.cliente(dsClientes.DataSet.FieldByName('ID').AsInteger);
+  NEZZViewsClienteEditar.ShowModal;
+  FreeAndNil(NEZZViewsClienteEditar);
+
+  finally
+    CarregarDados;
   end;
 end;
 
@@ -168,23 +196,4 @@ begin
 pnContent.Top :=  Trunc((ClientHeight/2) - (pnContent.Height/2));
 pnContent.Left:= Trunc((ClientWidth/2) - (pnContent.Width/2));
 end;
-
-procedure TNEZZViewsClientes.GridDadosGrid1DBTableView1CellDblClick(
-  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
-  AButton: TMouseButton; AShift: TShiftState;
-  var AHandled: Boolean);
-begin
-  if not Assigned(NEZZViewsClienteEditar) then
-    Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
-
-  NEZZViewsClienteEditar.cliente(dsClientes.DataSet.FieldByName('ID').AsInteger);
-
-  NEZZViewsClienteEditar.ShowModal;
-
-  FreeAndNil(NEZZViewsClienteEditar);
-
-  CarregarDados;
-
-  end;
-
 end.

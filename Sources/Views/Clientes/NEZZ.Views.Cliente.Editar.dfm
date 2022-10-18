@@ -12,6 +12,7 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   PixelsPerInch = 96
   TextHeight = 13
@@ -143,6 +144,7 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      OnClick = cxButton1Click
     end
   end
   object pnContent: TPanel

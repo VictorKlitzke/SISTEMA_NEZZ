@@ -2,7 +2,9 @@ unit NEZZ.Models.Cliente;
 
 interface
 
-uses NEZZ.Services.Query;
+uses
+  NEZZ.Services.Query,
+  Data.DB;
 
 type
   iNEZZModelsCliente = interface
@@ -41,6 +43,7 @@ type
     function Apagar: iNEZZModelsCliente;
     function Salvar: iNEZZModelsCliente;
     function Filtrar(ACampo: string; AValor: Variant): iNEZZModelsCliente;
+    function DataSource(var ADataSource: TDataSource): iNEZZModelsCliente;
 
   end;
 
@@ -87,6 +90,7 @@ type
     function Apagar: iNEZZModelsCliente;
     function Salvar: iNEZZModelsCliente;
     function Filtrar(ACampo: string; AValor: Variant): iNEZZModelsCliente;
+    function DataSource(var ADataSource: TDataSource): iNEZZModelsCliente;
   end;
 
 implementation
@@ -167,6 +171,13 @@ begin
     .Gerador('GEN_CLIENTES_ID')
     .CampoChave('ID')
     .Tabela('CLIENTES');
+end;
+
+function TNEZZModelsCliente.DataSource(
+  var ADataSource: TDataSource): iNEZZModelsCliente;
+begin
+  Result := Self;
+  ADataSource.DataSet := FNEZZCliente.DataSet;
 end;
 
 destructor TNEZZModelsCliente.Destroy;

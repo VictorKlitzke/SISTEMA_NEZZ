@@ -16,8 +16,10 @@ uses
   cxLookAndFeels,
   cxLookAndFeelPainters,
   Vcl.Menus,
-  cxControls, cxContainer,
-  cxEdit, cxTextEdit,
+  cxControls,
+  cxContainer,
+  cxEdit,
+  cxTextEdit,
   Vcl.StdCtrls,
   cxButtons,
   Vcl.ExtCtrls,
@@ -26,7 +28,9 @@ uses
   NEZZ.Factory.Cliente,
   NEZZ.Services.Conexao,
   NEZZ.Services.Query,
-  NEZZViewBase, Data.DB, NEZZ.Models.Cliente;
+  NEZZViewBase,
+  Data.DB,
+  NEZZ.Models.Cliente;
 
 type
   TNEZZViewsClienteEditar = class(TForm)
@@ -48,7 +52,10 @@ type
     cxButton1: TcxButton;
     dsEditarCliente: TDataSource;
     procedure btnCloseClick(Sender: TObject);
-    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FormKeyDown(Sender: TObject;
+      var Key: Word; Shift: TShiftState);
+    procedure FormCreate(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
   private
     FNEZZModelsClientes : iNEZZModelsCliente;
   public
@@ -70,6 +77,50 @@ end;
 function TNEZZViewsClienteEditar.cliente(UID: integer): Integer;
 begin
   FNEZZModelsClientes.Filtrar('ID', UID).Editar;
+end;
+
+procedure TNEZZViewsClienteEditar.cxButton1Click(Sender: TObject);
+begin
+  inherited;
+  edNome.ValidateEdit();
+  edRazao.ValidateEdit();
+  edCPF.ValidateEdit();
+  edContato.ValidateEdit();
+  edEmail.ValidateEdit();
+  edCidade.ValidateEdit();
+  edBairro.ValidateEdit();
+  edEndereco.ValidateEdit();
+  edCEP.ValidateEdit();
+
+  try
+     TNEZZFactoryCliente
+      .New
+      .AdicionarCliente(
+        edNome.Text,
+        edRazao.Text,
+        edCEP.Text,
+        edContato.Text,
+        edEmail.Text,
+        edCidade.Text,
+        edBairro.Text,
+        edEndereco.Text,
+        edCPF.Text
+      );
+
+    MessageDlg('Cliente atualizado com sucesso' , mtInformation , [mbOk] , 0);
+    Close;
+  except
+    on e: Exception do
+    begin
+      MessageDlg('Atualização incompleta!!' + #13 + e.message , mtWarning , [mbOk] , 0);
+      edNome.SetFocus;
+    end;
+  end;
+end;
+
+procedure TNEZZViewsClienteEditar.FormCreate(Sender: TObject);
+begin
+  FNEZZModelsClientes := TNEZZModelsCliente.New.DataSource(dsEditarCliente);
 end;
 
 procedure TNEZZViewsClienteEditar.FormKeyDown(Sender: TObject; var Key: Word;
