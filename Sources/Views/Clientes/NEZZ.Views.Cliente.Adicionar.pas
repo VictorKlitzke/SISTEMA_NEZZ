@@ -85,7 +85,6 @@ type
       var DisplayValue: Variant;
       var ErrorText: TCaption;
       var Error: Boolean);
-    procedure btnDesfazerClick(Sender: TObject);
 
   private
     FNEZZQuery: iNEZZServicesCadastrar;
@@ -108,14 +107,6 @@ uses
 procedure TNEZZViewsClienteAdicionar.btnCloseClick(Sender: TObject);
 begin
   Close;
-end;
-
-procedure TNEZZViewsClienteAdicionar.btnDesfazerClick(Sender: TObject);
-begin
-  FNEZZQuery
-    .Cancelar;
-
-  ModalResult := mrCancel;
 end;
 
 procedure TNEZZViewsClienteAdicionar.btnSalvarClick(Sender: TObject);
