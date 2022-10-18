@@ -32,6 +32,7 @@ uses
   dxLayoutcxEditAdapters,
   dxLayoutContainer,
   cxClasses,
+  System.UITypes,
   dxLayoutLookAndFeels,
   dxLayoutControl;
 
@@ -85,6 +86,7 @@ type
       var DisplayValue: Variant;
       var ErrorText: TCaption;
       var Error: Boolean);
+    procedure btnLimparClick(Sender: TObject);
 
   private
     FNEZZQuery: iNEZZServicesCadastrar;
@@ -107,6 +109,19 @@ uses
 procedure TNEZZViewsClienteAdicionar.btnCloseClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TNEZZViewsClienteAdicionar.btnLimparClick(Sender: TObject);
+begin
+  edNome.Clear;
+  edRazao.Clear;
+  edContato.Clear;
+  edCPF.Clear;
+  edCEP.Clear;
+  edEmail.Clear;
+  edEndereco.Clear;
+  edCidade.Clear;
+  edBairro.Clear;
 end;
 
 procedure TNEZZViewsClienteAdicionar.btnSalvarClick(Sender: TObject);

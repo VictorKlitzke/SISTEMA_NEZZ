@@ -17,7 +17,8 @@ uses
   NEZZ.Factory.Cliente in 'Sources\Factories\NEZZ.Factory.Cliente.pas',
   ConexaoDados in 'ConexaoDados.pas' {DataModule1: TDataModule},
   NEZZ.Views.Cliente.Editar in 'Sources\Views\Clientes\NEZZ.Views.Cliente.Editar.pas' {NEZZViewsClienteEditar},
-  NEZZ.Views.MSG_CRUD in 'Sources\Views\MSG_CRUD\NEZZ.Views.MSG_CRUD.pas' {Form1};
+  NEZZ.Views.MSG_CRUD in 'Sources\Views\MSG_CRUD\NEZZ.Views.MSG_CRUD.pas' {Form1},
+  NEZZ.Views.Usuario in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.pas' {NEZZViewsUsuario};
 
 {$R *.res}
 
@@ -33,5 +34,6 @@ begin
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
   Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TNEZZViewsUsuario, NEZZViewsUsuario);
   Application.Run;
 end.
