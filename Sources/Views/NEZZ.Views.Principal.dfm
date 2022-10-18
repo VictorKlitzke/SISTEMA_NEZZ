@@ -259,6 +259,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         SpeedButtonOptions.CanBeFocused = False
         SpeedButtonOptions.Flat = True
         TabOrder = 0
+        OnClick = btnEnviarClick
       end
     end
     object pnNomeUsuario: TPanel

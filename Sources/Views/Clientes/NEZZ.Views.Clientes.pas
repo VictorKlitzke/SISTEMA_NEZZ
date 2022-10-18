@@ -154,7 +154,8 @@ end;
 
 procedure TNEZZViewsClientes.dsDadosClienteDBTableView1CellDblClick(
   Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
-  AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+  AButton: TMouseButton; AShift: TShiftState;
+  var AHandled: Boolean);
 begin
   if not Assigned(NEZZViewsClienteEditar) then
     Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);

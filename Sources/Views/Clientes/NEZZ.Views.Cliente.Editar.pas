@@ -93,20 +93,16 @@ begin
   edCEP.ValidateEdit();
 
   try
-    FNEZZModelsClientes.Salvar;
-
-    MessageDlg('Show! Cliente atualizado com sucesso', mtInformation, mbYesNo, 0); Close;
-  except
-    on e: Exception do
-    begin
-      MessageDlg('Ocorreu um erro ao atualizar o cliente' + #13 + e.message , mtWarning , [mbOk] , 0);
-      edNome.SetFocus;
-    end;
+    FNEZZModelsClientes.Editar;
+  finally
+    MessageDlg('Show! Cliente atualizado com sucesso', mtInformation, mbYesNo, 0);
+    Close;
   end;
 end;
 
 procedure TNEZZViewsClienteEditar.FormCreate(Sender: TObject);
 begin
+  inherited;
   FNEZZModelsClientes := TNEZZModelsCliente.New.DataSource(dsEditarCliente);
 end;
 

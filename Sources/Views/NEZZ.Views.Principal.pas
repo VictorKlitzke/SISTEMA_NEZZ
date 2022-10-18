@@ -53,6 +53,7 @@ type
       Shift: TShiftState);
     procedure BtnClientesClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnEnviarClick(Sender: TObject);
   private
     FConexao : iNEZZServicesConexao;
   public
@@ -63,6 +64,9 @@ var
   NEZZViewsPrincipal: TNEZZViewsPrincipal;
 
 implementation
+
+uses
+  NEZZ.Views.Usuario;
 
 {$R *.dfm}
 
@@ -96,6 +100,16 @@ begin
        1
        ) = mrYes then Close;
   end;
+end;
+
+procedure TNEZZViewsPrincipal.btnEnviarClick(Sender: TObject);
+begin
+  if Assigned(NEZZViewsUsuario) then
+  if not Assigned(NEZZViewsUsuario) then
+    Application.CreateForm(TNEZZViewsUsuario, NEZZViewsUsuario);
+
+  NEZZViewsUsuario.Parent := pnContent;
+  NEZZViewsUsuario.Show;
 end;
 
 procedure TNEZZViewsPrincipal.FormCreate(Sender: TObject);

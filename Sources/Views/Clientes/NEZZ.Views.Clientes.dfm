@@ -35,10 +35,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 744
-      ExplicitTop = 328
-      ExplicitWidth = 250
-      ExplicitHeight = 200
       object dsDadosClienteDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         OnCellDblClick = dsDadosClienteDBTableView1CellDblClick

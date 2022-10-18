@@ -87,11 +87,16 @@ type
       var ErrorText: TCaption;
       var Error: Boolean);
     procedure btnLimparClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     FNEZZQuery: iNEZZServicesCadastrar;
 
   public
+    procedure ValidarCliente(Sender: TObject;
+    var DisplayValue: Variant;
+    var ErrorText: TCaption;
+    var Error: Boolean);
   end;
 
 var
@@ -236,6 +241,42 @@ procedure TNEZZViewsClienteAdicionar.edTelefonePropertiesValidate(
 begin
   Error := DisplayValue = '';
   ErrorText := 'O Contato é obrigatório';
+end;
+
+procedure TNEZZViewsClienteAdicionar.FormCreate(Sender: TObject);
+begin
+  edNome.Properties.OnValidate := ValidarCliente;
+  edRazao.Properties.OnValidate := ValidarCliente;
+  edCPF.Properties.OnValidate := ValidarCliente;
+  edEmail.Properties.OnValidate := ValidarCliente;
+  edContato.Properties.OnValidate := ValidarCliente;
+end;
+
+procedure TNEZZViewsClienteAdicionar.ValidarCliente(Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
+
+var
+  LClienteEX : Boolean;
+begin
+
+  LClienteEX := TNEZZFactoryCliente.New.ClienteExiste(edNome.Text);
+  LClienteEX := TNEZZFactoryCliente.New.ClienteExiste(edRazao.Text);
+  LClienteEX := TNEZZFactoryCliente.New.ClienteExiste(edCPF.Text);
+  LClienteEX := TNEZZFactoryCliente.New.ClienteExiste(edEmail.Text);
+  LClienteEX := TNEZZFactoryCliente.New.ClienteExiste(edContato.Text);
+
+  if LClienteEX then
+  begin
+    Error := True;
+    ErrorText := 'Esse cliente já existe!!!';
+    Exit;
+  end;
+
+  Error := DisplayValue = '';
+  ErrorText := 'O campo é obrigatório'
+
 end;
 
 end.
