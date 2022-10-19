@@ -80,7 +80,7 @@ type
       AShift: TShiftState; var AHandled: Boolean);
     procedure btnDeletarClick(Sender: TObject);
   private
-    FNEZZCliente: iNEZZServicesCadastrar;
+    FNEZZServicesCliente: TNEZZServicesCadastrar;
     FNEZZFactoryCliente: iNEZZFactoryCliente;
     FNEZZModelsCliente : iNEZZModelsCliente;
   public
@@ -124,12 +124,20 @@ end;
 procedure TNEZZViewsClientes.btnDeletarClick(Sender: TObject);
 begin
   inherited;
+
   try
-    FNEZZModelsCliente.Apagar;
+    FNEZZServicesCliente
+    .New
+    .Parametro('ID', FNEZZServicesCliente.Campo('ID').AsInteger)
+    .Deletar
+    .Salvar;
+
   finally
     MessageDlg('Deseja realmente deletar esse cliente?', mtInformation, mbYesNo, 0);
     Close;
   end;
+
+  CarregarDados;
 end;
 
 procedure TNEZZViewsClientes.btnEditarClick(Sender: TObject);
@@ -191,7 +199,7 @@ begin
 end;
 procedure TNEZZViewsClientes.FormShow(Sender: TObject);
 begin
-pnContent.Top :=  Trunc((ClientHeight/2) - (pnContent.Height/2));
-pnContent.Left:= Trunc((ClientWidth/2) - (pnContent.Width/2));
+  pnContent.Top :=  Trunc((ClientHeight/2) - (pnContent.Height/2));
+  pnContent.Left:= Trunc((ClientWidth/2) - (pnContent.Width/2));
 end;
 end.

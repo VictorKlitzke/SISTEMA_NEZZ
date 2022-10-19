@@ -95,7 +95,7 @@ begin
   try
     FNEZZModelsClientes.Editar;
   finally
-    MessageDlg('Show! Cliente atualizado com sucesso', mtInformation, mbYesNo, 0);
+    MessageDlg('Otimo! Cliente atualizado com sucesso', mtInformation, mbYesNo, 0);
     Close;
   end;
 end;

@@ -3,8 +3,8 @@ object NEZZViewsClientes: TNEZZViewsClientes
   Top = 0
   BorderStyle = bsNone
   Caption = 'NEZZViewsClientes'
-  ClientHeight = 629
-  ClientWidth = 969
+  ClientHeight = 700
+  ClientWidth = 1145
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,21 +20,25 @@ object NEZZViewsClientes: TNEZZViewsClientes
   object pnContent: TPanel
     Left = 0
     Top = 65
-    Width = 969
-    Height = 516
+    Width = 1145
+    Height = 587
     Align = alClient
     BevelOuter = bvNone
     Color = clBlack
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 969
+    ExplicitHeight = 516
     object dsDadosCliente: TcxGrid
       Left = 0
       Top = 0
-      Width = 969
-      Height = 516
+      Width = 1145
+      Height = 587
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitWidth = 969
+      ExplicitHeight = 516
       object dsDadosClienteDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         OnCellDblClick = dsDadosClienteDBTableView1CellDblClick
@@ -53,16 +57,18 @@ object NEZZViewsClientes: TNEZZViewsClientes
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 581
-    Width = 969
+    Top = 652
+    Width = 1145
     Height = 48
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 581
+    ExplicitWidth = 969
     object btnEditar: TcxButton
-      Left = 765
+      Left = 941
       Top = 0
       Width = 102
       Height = 48
@@ -90,9 +96,10 @@ object NEZZViewsClientes: TNEZZViewsClientes
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnEditarClick
+      ExplicitLeft = 765
     end
     object btnDeletar: TcxButton
-      Left = 867
+      Left = 1043
       Top = 0
       Width = 102
       Height = 48
@@ -120,9 +127,10 @@ object NEZZViewsClientes: TNEZZViewsClientes
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = btnDeletarClick
+      ExplicitLeft = 867
     end
     object btnAdicionar: TcxButton
-      Left = 663
+      Left = 839
       Top = 0
       Width = 102
       Height = 48
@@ -165,18 +173,20 @@ object NEZZViewsClientes: TNEZZViewsClientes
       SpeedButtonOptions.Flat = True
       TabOrder = 2
       OnClick = btnAdicionarClick
+      ExplicitLeft = 663
     end
   end
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 969
+    Width = 1145
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
+    ExplicitWidth = 969
     object lblClientes: TLabel
       Left = 0
       Top = 0
@@ -193,13 +203,14 @@ object NEZZViewsClientes: TNEZZViewsClientes
       ExplicitHeight = 37
     end
     object pnClose: TPanel
-      Left = 917
+      Left = 1093
       Top = 0
       Width = 52
       Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 917
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -241,39 +252,43 @@ object NEZZViewsClientes: TNEZZViewsClientes
   object pnPesquisa: TPanel
     Left = 0
     Top = 41
-    Width = 969
+    Width = 1145
     Height = 24
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 3
+    ExplicitWidth = 969
     object checkoutNome: TCheckBox
-      Left = 797
+      Left = 973
       Top = 0
       Width = 60
       Height = 24
       Align = alRight
       Caption = 'Nome'
       TabOrder = 0
+      ExplicitLeft = 797
     end
     object checkoutCodigo: TCheckBox
-      Left = 857
+      Left = 1033
       Top = 0
       Width = 60
       Height = 24
       Align = alRight
       Caption = 'Codigo'
       TabOrder = 2
+      ExplicitLeft = 857
     end
     object checkoutCNPJ: TCheckBox
-      Left = 917
+      Left = 1093
       Top = 0
       Width = 52
       Height = 24
       Align = alRight
       Caption = 'CNPJ'
       TabOrder = 3
+      ExplicitLeft = 917
     end
     object edPesquisar: TEdit
       Left = 0
