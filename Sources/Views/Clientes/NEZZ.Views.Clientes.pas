@@ -123,8 +123,6 @@ end;
 
 procedure TNEZZViewsClientes.btnDeletarClick(Sender: TObject);
 begin
-  inherited;
-
   try
     FNEZZServicesCliente
     .New
@@ -136,7 +134,6 @@ begin
     MessageDlg('Deseja realmente deletar esse cliente?', mtInformation, mbYesNo, 0);
     Close;
   end;
-
   CarregarDados;
 end;
 
