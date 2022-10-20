@@ -2,8 +2,8 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  ClientHeight = 250
-  ClientWidth = 861
+  ClientHeight = 513
+  ClientWidth = 807
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,43 +17,26 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 861
-    Height = 41
+    Width = 807
+    Height = 48
     Align = alTop
     BevelOuter = bvNone
-    Color = clNone
+    Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 921
-    object lbusuarios: TLabel
-      Left = 0
+    object pnClone: TPanel
+      Left = 761
       Top = 0
-      Width = 921
-      Height = 41
-      Align = alLeft
-      Alignment = taCenter
-      Caption = 'Us'#250'arios'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object pnClose: TPanel
-      Left = 803
-      Top = 0
-      Width = 58
-      Height = 41
+      Width = 46
+      Height = 48
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 863
       object btnClose: TcxButton
         Left = 0
         Top = 0
-        Width = 58
-        Height = 41
+        Width = 46
+        Height = 48
         Align = alClient
         BiDiMode = bdRightToLeftReadingOnly
         OptionsImage.Glyph.SourceDPI = 96
@@ -87,236 +70,93 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       end
     end
   end
-  object pnGRID: TPanel
+  object pnFooter: TPanel
     Left = 0
-    Top = 41
-    Width = 505
-    Height = 209
-    Align = alLeft
+    Top = 465
+    Width = 807
+    Height = 48
+    Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitHeight = 191
-    object dsCridUsuarios: TcxGrid
-      Left = 0
+    object btnAdicionar: TcxButton
+      Left = 705
       Top = 0
-      Width = 505
-      Height = 209
-      Align = alClient
+      Width = 102
+      Height = 48
+      Align = alRight
+      Caption = 'Adicionar'
+      OptionsImage.Glyph.SourceDPI = 96
+      OptionsImage.Glyph.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200804000000D973B2
+        7F0000000467414D410000B18F0BFC6105000000206348524D00007A26000080
+        840000FA00000080E8000075300000EA6000003A98000017709CBA513C000000
+        02624B47440000AA8D23320000000970485973000000600000006000F06B42CF
+        0000000774494D4507E6090B15012607236268000002914944415448C78DD25F
+        68D57518C7F1D7EF9CE3E696461E3570385B5B277066F82761BA30480A11C2BA
+        99D824FF80DD9437C662E885034DA540E8CF85944A3776214A32BD50C874734B
+        C459176DE23F38EC0C274BDB70A542A9F3E29C6D6E67E79CDFE7EACBF37C3FEF
+        E7FB3CDF8789F4B6C35206F4EB77D745DBBC20B4A638A243DD8825EA755FE9B1
+        329CBD48ABBD2259F16AD7948701ECF67D8E4C202A5AC81E772B4FB71BED2C04
+        A877204FF62557B383B1719DFE6EA9E502D7B5F87BDCDD6E7193FC3F3638765C
+        71837E16C16A1775D8E92DA52836DF97DED72F9EFF0554EBB167E4BC4AA384A9
+        8ADC90542910E49FC17EF79DCE915BEA8127668D0F8F6D61B61D8672E2CFF9D5
+        ECFC80C0505653C38A7A5C780FEADC93CC91DBE0A10B8A0B218A5DB268C2CC09
+        1F1432A755EFF404B35EAEB37003C33A6EDF3844B5A49AB076263BE68C651948
+        5C839477C3DBD3FAC6803EBFE9F29787D9BF3FAA893F2DAE48931F95FB574A9F
+        E9FA3C0957F9150DDAA43C50978994E890D4EB80F7948049CF1A461729E10B9D
+        9A4D57E673B576DB8A0AED5A2DD263C826775C36A857CAB76377B2C47E37347A
+        1554B8698D197E7142CA879ED7AE49A966A7D40830C36752DE19052CB44BD133
+        C03462B3017FA8D2AE093FF95A8058A6F63CDDAAD3D76B4DC99A45852B5A94F9
+        C41DDBB1CC9F9912359A3377D6A64F81A4B282C3FDCE16C3E54E8ECCEF966931
+        09FD7AB14A8BFB3901F31C1458A74495393E46ABAB3A252266E9010D12795EF0
+        584454954A654A55AA3413114331318F42EC4797252E6B42AD691A41CC6BAE45
+        4298E1B04FB3B6F6236D0659E128386B415EC4213F88A2D412F0866E5504E63A
+        A30B8B5DF74F1EC0646F3A6F9773FEF3B2F536AAD74680722F866C648E4D167A
+        CE6DC7ED73179E023C76A026EED165340000002574455874646174653A637265
+        61746500323032322D30392D31315432313A30313A33382B30303A3030BB1B57
+        EF0000002574455874646174653A6D6F6469667900323032322D30392D313154
+        32313A30313A33382B30303A3030CA46EF530000002874455874646174653A74
+        696D657374616D7000323032322D30392D31315432313A30313A33382B30303A
+        30309D53CE8C0000000049454E44AE426082}
+      SpeedButtonOptions.CanBeFocused = False
+      SpeedButtonOptions.Flat = True
       TabOrder = 0
-      ExplicitLeft = 120
-      ExplicitTop = 80
-      ExplicitWidth = 250
-      ExplicitHeight = 200
-      object dsCridUsuariosDBTableView1: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        DataController.DataSource = dsUsuarios
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
-        DataController.Summary.SummaryGroups = <>
-        OptionsSelection.CellSelect = False
-        OptionsView.ColumnAutoWidth = True
-        OptionsView.GroupByBox = False
-      end
-      object dsCridUsuariosLevel1: TcxGridLevel
-        GridView = dsCridUsuariosDBTableView1
-      end
+      OnClick = btnAdicionarClick
     end
   end
   object pnContent: TPanel
-    Left = 505
-    Top = 41
-    Width = 356
-    Height = 209
+    Left = 0
+    Top = 48
+    Width = 807
+    Height = 417
     Align = alClient
     BevelOuter = bvNone
-    Color = clYellow
-    ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 616
-    ExplicitWidth = 305
-    ExplicitHeight = 364
-    object lbCadastrar: TLabel
+    object GridUsuarios: TcxGrid
       Left = 0
       Top = 0
-      Width = 356
-      Height = 17
-      Align = alTop
-      Alignment = taCenter
-      Caption = 'CADASTRAR US'#218'ARIOS'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object edNome: TcxTextEdit
-      Left = 6
-      Top = 32
-      TabOrder = 0
-      TextHint = 'Nome'
-      Width = 163
-    end
-    object edLogin: TcxTextEdit
-      Left = 182
-      Top = 32
-      TabOrder = 1
-      TextHint = 'Login'
-      Width = 163
-    end
-    object edSenha: TcxTextEdit
-      Left = 6
-      Top = 75
-      TabOrder = 2
-      TextHint = 'Senha'
-      Width = 163
-    end
-    object edCidade: TcxTextEdit
-      Left = 184
-      Top = 75
-      TabOrder = 3
-      TextHint = 'Cidade'
-      Width = 161
-    end
-    object edEndereco: TcxTextEdit
-      Left = 6
-      Top = 120
-      TabOrder = 4
-      TextHint = 'Endere'#231'o'
-      Width = 163
-    end
-    object edBairro: TcxTextEdit
-      Left = 184
-      Top = 120
-      TabOrder = 5
-      TextHint = 'Bairro'
-      Width = 161
-    end
-    object pnButtons: TPanel
-      Left = 0
-      Top = 168
-      Width = 356
-      Height = 41
-      Align = alBottom
+      Width = 807
+      Height = 417
+      Align = alClient
       BevelOuter = bvNone
-      Color = clYellow
-      ParentBackground = False
-      TabOrder = 6
-      ExplicitLeft = 315
-      ExplicitTop = 17
-      ExplicitWidth = 215
-      object btnLimpar: TcxButton
-        Left = 263
-        Top = 0
-        Width = 93
-        Height = 41
-        Align = alRight
-        Caption = 'Limpar'
-        OptionsImage.Glyph.SourceDPI = 96
-        OptionsImage.Glyph.Data = {
-          89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-          F40000000473424954080808087C0864880000000970485973000000B1000000
-          B101C62D498D0000001974455874536F667477617265007777772E696E6B7363
-          6170652E6F72679BEE3C1A00000271494441545885ED97BB6B545110C67F9335
-          46DD1583AEE06B8360C4455062ADE08A850816A22B28A8B1D05E2460FE040B21
-          58D845488A8085858520F1811104C54611AC344AC26AD6C2175189463316F78B
-          B97BDDCDDD4720CD0E1CE67C3B73CE7CE7CCDE73E6E0EED4DA8001C0A3AD9EB9
-          5A684C3E0063C09F7A276894C07177DF0C14168B40C3D224D024D024B0E8044C
-          476B79A35916E82D63DA036C01868122900792C06019DF47EEDE5F3148CC999F
-          A3CC995F631B982FC6928ACC4A6518B854A5EFAC74017D714ED51228BAFB482D
-          D1CDAC2ABF6A09E4CD2C570B0160D94210484927D5165CE23EC30EE93E7737E6
-          727A44F899F06A6095FA2F643B2AFCA9110219E937D29BA40B21FCC3DD3F97B1
-          754A8F2E0481D1082E98591BB03614F09F2D42E0752304665310DE81DF04A558
-          B9DD08E3AD11F27511C80033C05B334B00EB81F7EE3E5305814E825A71AC2E02
-          66D6026C04DEB9FB2F600790606E4B7749FF87CD6CB9C68EBBFB745D04809D40
-          2BF04AF8A0F49D08BE6B664B81FDC024F004C802464CFEE3089C92BE150978DB
-          CC56007B818FC05382CB2905DCD38AF3F27D1847A0D2259400260872B8016807
-          A68182EC87082E9A21E1CBC2E7B4A87182FF4E47EC232714F43C7045FD039AF0
-          BEF031E17EE1ABC227855F0A670852111EBB0E78006CAF48402B9C00BE11E46F
-          48939C95BD0D3801EC164E031780B4F036A047FD418D3D2D7C51F85ADC0E6495
-          CB95C077E027D05EE39B31A5454C02C9D0EFDD40ABFABDC008D0554220E47C46
-          8C6FD6F168ED26A60861EE619B73F7D292CC824BFC39C127F805F84A6DB246BB
-          B00F9802AE0337DCBD2714232D9FA2BB4F45D91DA6F112EC71A49C9BB724FB0B
-          C8584B54274A97840000000049454E44AE426082}
-        SpeedButtonOptions.CanBeFocused = False
-        SpeedButtonOptions.Flat = True
-        TabOrder = 0
-        ExplicitLeft = 170
-        ExplicitTop = 17
-        ExplicitHeight = 174
+      TabOrder = 0
+      object GridUsuariosDBTableView1: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsView.CellAutoHeight = True
+        OptionsView.GroupByBox = False
       end
-      object btnSalvar: TcxButton
-        Left = 170
-        Top = 0
-        Width = 93
-        Height = 41
-        Align = alRight
-        Caption = 'Salvar'
-        OptionsImage.Glyph.SourceDPI = 96
-        OptionsImage.Glyph.Data = {
-          89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-          F40000000473424954080808087C0864880000000970485973000000EC000000
-          EC01792871BD0000001974455874536F667477617265007777772E696E6B7363
-          6170652E6F72679BEE3C1A000001E7494441545885EDD7BB6B544114C7F1CFC6
-          D510044145C446417C21082660255AA5D142305DFE00255889DAD8051B1B2B3B
-          0BB1B4D44A8404E3A31015F1D1F90041414588168AC92A492C66AE5ED9C9CECD
-          AEBB58E407C3BCCECCF99EB93373EF25680877318B852EA5090C4868088D2E3A
-          6E09518B911F881097F1B5D43F82EDF8842B29FAA8516CC65B5C4DB4BDC3FED8
-          3E892398290617CB7E3131F1B5D8F7A48573988A76538BB40D08D137AD441FFA
-          E380CF19279D6846887A32D6877113ABFBBAE834077110D77B095086B817EBC3
-          F57F34F119ACC5978A10B7848D2F073017F3FE96563C4EB41563E6127DBF9503
-          781DF35D42944F33F68576625F2CBFCC191747633CD1B709D3DABF78BE615B62
-          DEF1C226B7093FE0105EE4A248E80D0EFBB38A4955D9840FB11B7BB0A1A2F369
-          3C9779FE5501601ECF2ADA2E4939808DD8217F0A16D34FBCC2FBA502ACC2799C
-          14AEEB4EB4804B388DEF5501CEE154878E0BD53016414E5401585372FE483832
-          3FDA745EC759E1DE1F1302FB9803D88295B17C0137DA745E683E02D4843BE12F
-          80D4F35D512AB71B7959E5399A02EEF5DBB049CB00CB00CB00FF05402396D7F5
-          D0EFFA9837EA78205C95C78517465923C2F75D27DA5A2A8FE2288EC5FA7D18D4
-          BB9FD3726A606F4136883BBAFB7B5EA459DC2E9CFF02A621D4B3801321E60000
-          000049454E44AE426082}
-        SpeedButtonOptions.CanBeFocused = False
-        SpeedButtonOptions.Flat = True
-        TabOrder = 1
-        ExplicitLeft = 263
-        ExplicitTop = 17
-        ExplicitHeight = 174
-      end
-      object btnDeletar: TcxButton
-        Left = 77
-        Top = 0
-        Width = 93
-        Height = 41
-        Align = alRight
-        Caption = 'Deletar'
-        OptionsImage.Glyph.SourceDPI = 96
-        OptionsImage.Glyph.Data = {
-          89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-          F40000000473424954080808087C0864880000000970485973000000F8000000
-          F801CFC1E6650000001974455874536F667477617265007777772E696E6B7363
-          6170652E6F72679BEE3C1A0000016E494441545885ED97BF4AC3501487BF535B
-          5B544497D2C1417D882E5DDCBBB988A3EEAE5D7C021FC14D70E9E8EA1F5C7C01
-          413BE9505D8552B58348F438E408E1725B93180395FCE072C397C339BF8473C9
-          09AA4AD2052C0387401F78052E8156AA5C298ACF017780021FC073E4BA9D8781
-          7D2B7801AC015560CFD8631E06CEAC58CBE137C6D793E42B915C75DB7B0EEF39
-          F763A90C2022E5EFEB1812DBAB22528BF019DB671D3E4E81AA06004D6044F8FA
-          F25C23A0590606C02DB064CEEA84C7EC0178F338AF0115C2E317550598078663
-          9E78D562EECDC01018F89AECC80236D29CEB09CDDBB7BCB5DF3661A62A0CC436
-          20226D116938AC21226D4FEC96882C646A0038063A0EEB188F165F04BAC06ED6
-          064A9EF8712C76EEE9E981C24061A030501800025B3FB14FC2EFBECBBD8A3B07
-          026C03D70E3B004EA340555F446493707ACECE80AA9E7BD813E0E32771F34E55
-          0FFC4F03937AA02B22BEB13CAD56BCD4333EEF00EFFCCDCFC8955BEF0BA5D50D
-          4D1D7D0D270000000049454E44AE426082}
-        SpeedButtonOptions.CanBeFocused = False
-        SpeedButtonOptions.Flat = True
-        TabOrder = 2
-        ExplicitLeft = 95
+      object GridUsuariosLevel1: TcxGridLevel
+        GridView = GridUsuariosDBTableView1
       end
     end
   end
   object dsUsuarios: TDataSource
-    Left = 120
-    Top = 137
+    Left = 400
+    Top = 120
   end
 end

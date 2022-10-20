@@ -43,31 +43,21 @@ uses
 type
   TNEZZViewsUsuario = class(TForm)
     pnHeader: TPanel;
-    pnGRID: TPanel;
+    pnFooter: TPanel;
     pnContent: TPanel;
-    pnButtons: TPanel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
-    lbusuarios: TLabel;
-    dsCridUsuariosDBTableView1: TcxGridDBTableView;
-    dsCridUsuariosLevel1: TcxGridLevel;
-    dsCridUsuarios: TcxGrid;
-    edNome: TcxTextEdit;
-    edLogin: TcxTextEdit;
-    edSenha: TcxTextEdit;
-    edCidade: TcxTextEdit;
-    edEndereco: TcxTextEdit;
-    edBairro: TcxTextEdit;
-    lbCadastrar: TLabel;
-    btnLimpar: TcxButton;
-    btnSalvar: TcxButton;
+    GridUsuariosDBTableView1: TcxGridDBTableView;
+    GridUsuariosLevel1: TcxGridLevel;
+    GridUsuarios: TcxGrid;
     dsUsuarios: TDataSource;
-    btnDeletar: TcxButton;
+    btnClose: TcxButton;
+    pnClone: TPanel;
+    btnAdicionar: TcxButton;
     procedure btnCloseClick(Sender: TObject);
+    procedure btnAdicionarClick(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
+    procedure CarregarDados;
   end;
 
 var
@@ -75,11 +65,33 @@ var
 
 implementation
 
+uses
+  NEZZ.Views.Usuario.Adicionar, NEZZ.Views.Clientes;
+
 {$R *.dfm}
+
+procedure TNEZZViewsUsuario.btnAdicionarClick(Sender: TObject);
+begin
+  try
+    if Assigned(NEZZViewsUsuarioAdicionar) then
+      if Assigned(NEZZViewsUsuarioAdicionar) then
+        Application.CreateForm(TNEZZViewsUsuarioAdicionar, NEZZViewsUsuarioAdicionar);
+
+  NEZZViewsUsuarioAdicionar.ShowModal;
+  NEZZViewsUsuarioAdicionar.Free;
+  finally
+    FreeAndNil(NEZZViewsUsuarioAdicionar);
+  end;
+end;
 
 procedure TNEZZViewsUsuario.btnCloseClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TNEZZViewsUsuario.CarregarDados;
+begin
+
 end;
 
 end.

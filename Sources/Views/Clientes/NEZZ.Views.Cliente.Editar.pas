@@ -49,13 +49,13 @@ type
     edEndereco: TcxTextEdit;
     edCEP: TcxTextEdit;
     edEmail: TcxTextEdit;
-    cxButton1: TcxButton;
+    btnSalvar: TcxButton;
     dsEditarCliente: TDataSource;
     procedure btnCloseClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject;
       var Key: Word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
-    procedure cxButton1Click(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
   private
     FNEZZModelsClientes : iNEZZModelsCliente;
   public
@@ -66,6 +66,9 @@ var
   NEZZViewsClienteEditar: TNEZZViewsClienteEditar;
 
 implementation
+
+uses
+  NEZZ.Views.Clientes;
 
 {$R *.dfm}
 
@@ -79,7 +82,7 @@ begin
   FNEZZModelsClientes.Filtrar('ID', UID).Editar;
 end;
 
-procedure TNEZZViewsClienteEditar.cxButton1Click(Sender: TObject);
+procedure TNEZZViewsClienteEditar.btnSalvarClick(Sender: TObject);
 begin
   inherited;
   edNome.ValidateEdit();
@@ -93,17 +96,25 @@ begin
   edCEP.ValidateEdit();
 
   try
-    FNEZZModelsClientes.Editar;
-  finally
+    TNEZZModelsCliente
+      .New
+      .Editar
+      .Salvar;
+
     MessageDlg('Otimo! Cliente atualizado com sucesso', mtInformation, mbYesNo, 0);
     Close;
+  except
+    on e: Exception do
+    begin
+      MessageDlg('Erro ao editar registro do cliente!' + #13 + e.message , mtWarning , [mbOk] , 0);
+    end;
   end;
 end;
 
 procedure TNEZZViewsClienteEditar.FormCreate(Sender: TObject);
 begin
   inherited;
-  FNEZZModelsClientes := TNEZZModelsCliente.New.DataSource(dsEditarCliente);
+//  FNEZZModelsClientes := TNEZZModelsCliente.New.DataSource(dsEditarCliente);
 end;
 
 procedure TNEZZViewsClienteEditar.FormKeyDown(Sender: TObject; var Key: Word;

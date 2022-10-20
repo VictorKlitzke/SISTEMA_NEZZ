@@ -109,11 +109,11 @@ function TNEZZServicesCadastrar.Abrir: iNEZZServicesCadastrar;
 begin
   Result := Self;
 
-  if FQuery.SQL.Text = '' then
-    raise NEZZMSGERROR.Create('Não é possível abrir uma query sem instrução SQL');
-
-  if FQuery.Active then
-    FQuery.Close;
+//  if FQuery.SQL.Text = '' then
+//    raise NEZZMSGERROR.Create('Não é possível abrir uma query sem instrução SQL');
+//
+//  if FQuery.Active then
+//    FQuery.Close;
 
   FQuery.Open;
 end;

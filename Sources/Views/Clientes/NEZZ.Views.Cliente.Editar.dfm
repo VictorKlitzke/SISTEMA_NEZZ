@@ -97,7 +97,7 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    object cxButton1: TcxButton
+    object btnSalvar: TcxButton
       Left = 383
       Top = 0
       Width = 100
@@ -144,7 +144,7 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      OnClick = cxButton1Click
+      OnClick = btnSalvarClick
     end
   end
   object pnContent: TPanel

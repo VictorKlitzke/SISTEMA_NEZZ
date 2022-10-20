@@ -47,7 +47,8 @@ uses
   NEZZ.Models.Cliente,
   NEZZViewBase,
   ConexaoDados,
-  NEZZ.Views.Cliente.Editar;
+  NEZZ.Views.Cliente.Editar,
+  System.UITypes;
 
 type
   TNEZZViewsClientes = class(TForm)
@@ -123,16 +124,20 @@ end;
 
 procedure TNEZZViewsClientes.btnDeletarClick(Sender: TObject);
 begin
+  inherited;
   try
     FNEZZServicesCliente
-    .New
     .Parametro('ID', FNEZZServicesCliente.Campo('ID').AsInteger)
     .Deletar
     .Salvar;
 
-  finally
     MessageDlg('Deseja realmente deletar esse cliente?', mtInformation, mbYesNo, 0);
-    Close;
+    Close
+  except
+   on e: Exception do
+   begin
+     MessageDlg('Erro ao deletar registro do cliente!' + #13 + e.message , mtWarning , [mbOk] , 0);
+   end;
   end;
   CarregarDados;
 end;
