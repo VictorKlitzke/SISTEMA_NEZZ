@@ -114,7 +114,7 @@ end;
 procedure TNEZZViewsClienteEditar.FormCreate(Sender: TObject);
 begin
   inherited;
-//  FNEZZModelsClientes := TNEZZModelsCliente.New.DataSource(dsEditarCliente);
+  FNEZZModelsClientes := TNEZZModelsCliente.New.DataSource(dsEditarCliente);
 end;
 
 procedure TNEZZViewsClienteEditar.FormKeyDown(Sender: TObject; var Key: Word;

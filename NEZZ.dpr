@@ -19,7 +19,8 @@ uses
   NEZZ.Views.Cliente.Editar in 'Sources\Views\Clientes\NEZZ.Views.Cliente.Editar.pas' {NEZZViewsClienteEditar},
   NEZZ.Views.MSG_CRUD in 'Sources\Views\MSG_CRUD\NEZZ.Views.MSG_CRUD.pas' {Form1},
   NEZZ.Views.Usuario in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.pas' {NEZZViewsUsuario},
-  NEZZ.Models.Usuario in 'Sources\Models\NEZZ.Models.Usuario.pas';
+  NEZZ.Models.Usuario in 'Sources\Models\NEZZ.Models.Usuario.pas',
+  NEZZ.Views.Usuario.Adicionar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Adicionar.pas';
 
 {$R *.res}
 
