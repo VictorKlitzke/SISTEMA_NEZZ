@@ -12,6 +12,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnHeader: TPanel
@@ -144,10 +145,12 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       TabOrder = 0
       object GridUsuariosDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
+        DataController.DataSource = dsUsuarios
+        DataController.DetailKeyFieldNames = 'NOME'
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
         DataController.Summary.SummaryGroups = <>
-        OptionsView.CellAutoHeight = True
+        OptionsView.ColumnAutoWidth = True
         OptionsView.GroupByBox = False
       end
       object GridUsuariosLevel1: TcxGridLevel

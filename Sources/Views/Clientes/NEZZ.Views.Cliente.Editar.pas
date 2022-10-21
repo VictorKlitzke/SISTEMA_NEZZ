@@ -30,7 +30,8 @@ uses
   NEZZ.Services.Query,
   NEZZViewBase,
   Data.DB,
-  NEZZ.Models.Cliente;
+  NEZZ.Models.Cliente,
+  System.UITypes;
 
 type
   TNEZZViewsClienteEditar = class(TForm)
@@ -50,7 +51,7 @@ type
     edCEP: TcxTextEdit;
     edEmail: TcxTextEdit;
     btnSalvar: TcxButton;
-    dsEditarCliente: TDataSource;
+    dsDadosEditar: TDataSource;
     procedure btnCloseClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject;
       var Key: Word; Shift: TShiftState);
@@ -96,9 +97,7 @@ begin
   edCEP.ValidateEdit();
 
   try
-    TNEZZModelsCliente
-      .New
-      .Editar
+    FNEZZModelsClientes
       .Salvar;
 
     MessageDlg('Otimo! Cliente atualizado com sucesso', mtInformation, mbYesNo, 0);
@@ -113,8 +112,7 @@ end;
 
 procedure TNEZZViewsClienteEditar.FormCreate(Sender: TObject);
 begin
-  inherited;
-  FNEZZModelsClientes := TNEZZModelsCliente.New.DataSource(dsEditarCliente);
+  FNEZZModelsClientes := TNEZZModelsCliente.New.DataSource(dsDadosEditar);
 end;
 
 procedure TNEZZViewsClienteEditar.FormKeyDown(Sender: TObject; var Key: Word;

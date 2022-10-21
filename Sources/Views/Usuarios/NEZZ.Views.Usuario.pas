@@ -38,7 +38,13 @@ uses
   cxGridCustomTableView,
   cxGridTableView,
   cxGridDBTableView,
-  cxGrid;
+  cxGrid,
+  NEZZ.Views.Usuario.Adicionar,
+  NEZZ.Views.Clientes,
+  NEZZ.Factory.Usuario,
+  NEZZ.Models.Usuario,
+  NEZZ.Services.Conexao,
+  NEZZ.Services.Query;
 
 type
   TNEZZViewsUsuario = class(TForm)
@@ -54,8 +60,9 @@ type
     btnAdicionar: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
-    { Private declarations }
+    FNEZZFactoryUsuario: iNEZZFactoryUsuario;
   public
     procedure CarregarDados;
   end;
@@ -65,20 +72,18 @@ var
 
 implementation
 
-uses
-  NEZZ.Views.Usuario.Adicionar, NEZZ.Views.Clientes;
-
 {$R *.dfm}
 
 procedure TNEZZViewsUsuario.btnAdicionarClick(Sender: TObject);
 begin
   try
-    if Assigned(NEZZViewsUsuarioAdicionar) then
-      if Assigned(NEZZViewsUsuarioAdicionar) then
-        Application.CreateForm(TNEZZViewsUsuarioAdicionar, NEZZViewsUsuarioAdicionar);
+    if not Assigned(NEZZViewsUsuarioAdicionar) then
+      Application.CreateForm(TNEZZViewsUsuarioAdicionar, NEZZViewsUsuarioAdicionar);
 
   NEZZViewsUsuarioAdicionar.ShowModal;
   NEZZViewsUsuarioAdicionar.Free;
+
+  CarregarDados;
   finally
     FreeAndNil(NEZZViewsUsuarioAdicionar);
   end;
@@ -91,7 +96,21 @@ end;
 
 procedure TNEZZViewsUsuario.CarregarDados;
 begin
+  FNEZZFactoryUsuario := TNEZZFactoryUsuario
+    .New
+    .DataSource(dsUsuarios)
+    .ListarUsuarios;
 
+  with GridUsuariosDBTableView1 do
+  begin
+    ClearItems;
+    DataController.CreateAllItems();
+    ApplyBestFit();
+  end;
+end;
+procedure TNEZZViewsUsuario.FormCreate(Sender: TObject);
+begin
+  CarregarDados;
 end;
 
 end.

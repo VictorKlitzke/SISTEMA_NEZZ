@@ -20,7 +20,9 @@ uses
   NEZZ.Views.MSG_CRUD in 'Sources\Views\MSG_CRUD\NEZZ.Views.MSG_CRUD.pas' {Form1},
   NEZZ.Views.Usuario in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.pas' {NEZZViewsUsuario},
   NEZZ.Models.Usuario in 'Sources\Models\NEZZ.Models.Usuario.pas',
-  NEZZ.Views.Usuario.Adicionar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Adicionar.pas';
+  NEZZ.Views.Usuario.Adicionar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Adicionar.pas',
+  NEZZ.Factory.Usuario in 'Sources\Factories\NEZZ.Factory.Usuario.pas',
+  NEZZ.Factory.Autenticacao in 'Sources\Factories\NEZZ.Factory.Autenticacao.pas';
 
 {$R *.res}
 

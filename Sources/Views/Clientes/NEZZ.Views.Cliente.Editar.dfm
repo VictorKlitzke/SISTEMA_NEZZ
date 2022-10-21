@@ -222,7 +222,7 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
       Width = 153
     end
   end
-  object dsEditarCliente: TDataSource
+  object dsDadosEditar: TDataSource
     Left = 224
     Top = 120
   end

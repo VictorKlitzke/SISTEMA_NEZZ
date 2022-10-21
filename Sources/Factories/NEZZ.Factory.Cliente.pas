@@ -26,7 +26,7 @@ type
 
   TNEZZFactoryCliente = class(TInterfacedObject, iNEZZFactoryCliente)
   private
-    FNEZZSesao : iNEZZControllerSessao;
+    FNEZZSessao : iNEZZControllerSessao;
     FNEZZCliente: iNEZZServicesCadastrar;
 
   public
@@ -92,14 +92,6 @@ begin
   TNEZZModelsCliente
     .New
     .Filtrar('ID' , ANome)
-    .Filtrar('ID' , ARazao)
-    .Filtrar('ID' , AContato)
-    .Filtrar('ID' , ACEP)
-    .Filtrar('ID' , AEmail)
-    .Filtrar('ID' , ACidade)
-    .Filtrar('ID' , ABairro)
-    .Filtrar('ID' , AEndereco)
-    .Filtrar('ID' , ACPF)
     .Editar
     .Salvar;
 end;
@@ -123,7 +115,6 @@ end;
 
 constructor TNEZZFactoryCliente.Create;
 begin
-
   FNEZZCliente := TNEZZServicesCadastrar
     .New
     .Apelido('ID', '#')
@@ -189,7 +180,6 @@ begin
   Result := Self;
 
   FNEZZCliente
-    .CampoChave('ID')
     .Abrir;
 end;
 
