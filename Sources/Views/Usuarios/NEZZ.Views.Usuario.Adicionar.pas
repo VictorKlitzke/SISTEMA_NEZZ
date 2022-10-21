@@ -43,12 +43,17 @@ type
     lbusuarios: TLabel;
     pnClose: TPanel;
     btnClose: TcxButton;
+    edCEP: TcxTextEdit;
     procedure btnCloseClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
+    procedure btnLimparClick(Sender: TObject);
   private
     { Private declarations }
   public
-
+    procedure ValidarUsuario(Sender: TObject;
+    var DisplayValue: Variant;
+    var ErrorText: TCaption;
+    var Error: Boolean);
   end;
 
 var
@@ -65,6 +70,16 @@ uses
 procedure TNEZZViewsUsuarioAdicionar.btnCloseClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TNEZZViewsUsuarioAdicionar.btnLimparClick(Sender: TObject);
+begin
+  edNome.Clear;
+  edLogin.Clear;
+  edSenha.Clear;
+  edCidade.Clear;
+  edEndereco.Clear;
+  edBairro.Clear;
 end;
 
 procedure TNEZZViewsUsuarioAdicionar.btnSalvarClick(Sender: TObject);
@@ -86,7 +101,8 @@ begin
         edSenha.Text,
         edCidade.Text,
         edEndereco.Text,
-        edBairro.Text
+        edBairro.Text,
+        edCEP.Text
       );
 
     MessageDlg('Cliente registrado com sucesso' , mtInformation , [mbOk] , 0);
@@ -99,6 +115,27 @@ begin
     end;
   end;
 
+end;
+
+procedure TNEZZViewsUsuarioAdicionar.ValidarUsuario(Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
+
+var
+  LUsuario: Boolean;
+begin
+  LUsuario := TNEZZFactoryUsuario.New.ExisteUsuario(edLogin.Text);
+  LUsuario := TNEZZFactoryUsuario.New.ExisteUsuario(edSenha.Text);
+
+  if LUsuario then
+  begin
+    Error := True;
+    ErrorText := 'Esse Usúario já existe!!!';
+    Exit;
+  end;
+    Error := DisplayValue = '';
+    ErrorText := 'O campo é obrigatório'
 end;
 
 end.

@@ -3,7 +3,7 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
   Top = 0
   BorderStyle = bsNone
   Caption = 'NEZZViewsUsuarioAdicionar'
-  ClientHeight = 238
+  ClientHeight = 232
   ClientWidth = 361
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,16 +20,17 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
     Left = 0
     Top = 41
     Width = 361
-    Height = 197
+    Height = 191
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
+    ExplicitHeight = 197
     object lbCadastrar: TLabel
       Left = 0
       Top = 0
-      Width = 149
+      Width = 361
       Height = 16
       Align = alTop
       Alignment = taCenter
@@ -40,52 +41,53 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitWidth = 149
     end
     object edNome: TcxTextEdit
       Left = 6
       Top = 32
       TabOrder = 0
       TextHint = 'Nome'
-      Width = 163
+      Width = 165
     end
     object edLogin: TcxTextEdit
-      Left = 182
+      Left = 177
       Top = 32
       TabOrder = 1
       TextHint = 'Login'
-      Width = 163
+      Width = 165
     end
     object edSenha: TcxTextEdit
       Left = 6
-      Top = 75
+      Top = 61
       TabOrder = 2
       TextHint = 'Senha'
-      Width = 163
+      Width = 165
     end
     object edCidade: TcxTextEdit
-      Left = 184
-      Top = 75
+      Left = 6
+      Top = 89
       TabOrder = 3
       TextHint = 'Cidade'
-      Width = 161
+      Width = 165
     end
     object edEndereco: TcxTextEdit
       Left = 6
-      Top = 120
+      Top = 117
       TabOrder = 4
       TextHint = 'Endere'#231'o'
-      Width = 163
+      Width = 165
     end
     object edBairro: TcxTextEdit
-      Left = 184
-      Top = 120
+      Left = 177
+      Top = 62
       TabOrder = 5
       TextHint = 'Bairro'
-      Width = 161
+      Width = 165
     end
     object pnButtons: TPanel
       Left = 0
-      Top = 156
+      Top = 150
       Width = 361
       Height = 41
       Align = alBottom
@@ -93,6 +95,7 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       Color = clYellow
       ParentBackground = False
       TabOrder = 6
+      ExplicitTop = 156
       object btnLimpar: TcxButton
         Left = 268
         Top = 0
@@ -129,6 +132,7 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
         SpeedButtonOptions.CanBeFocused = False
         SpeedButtonOptions.Flat = True
         TabOrder = 0
+        OnClick = btnLimparClick
       end
       object btnSalvar: TcxButton
         Left = 175
@@ -180,7 +184,7 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       Left = 0
       Top = 0
       Width = 66
-      Height = 21
+      Height = 41
       Align = alLeft
       Alignment = taCenter
       Caption = 'Us'#250'arios'
@@ -190,6 +194,7 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitHeight = 21
     end
     object pnClose: TPanel
       Left = 303
@@ -237,6 +242,13 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
         OnClick = btnCloseClick
       end
     end
+  end
+  object edCEP: TcxTextEdit
+    Left = 177
+    Top = 130
+    TabOrder = 2
+    TextHint = 'CEP'
+    Width = 165
   end
   object dsUsuarios: TDataSource
     Left = 488

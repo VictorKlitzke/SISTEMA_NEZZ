@@ -51,13 +51,13 @@ implementation
 { TNEZZFactoryCliente }
 
 function TNEZZFactoryCliente.AdicionarCliente(ANome,
-ARazao,
-AContato,
-ACEP,
-AEmail,
-ACidade,
-ABairro,
-AEndereco,
+  ARazao,
+  AContato,
+  ACEP,
+  AEmail,
+  ACidade,
+  ABairro,
+  AEndereco,
 ACPF: string): iNEZZFactoryCliente;
 begin
   Result := Self;
@@ -78,14 +78,14 @@ begin
 end;
 
 function TNEZZFactoryCliente.AtualizarCliente(ANome,
-ARazao,
-AContato,
-ACEP,
-AEmail,
-ACidade,
-ABairro,
-AEndereco,
-ACPF: string): iNEZZFactoryCliente;
+  ARazao,
+  AContato,
+  ACEP,
+  AEmail,
+  ACidade,
+  ABairro,
+  AEndereco,
+  ACPF: string): iNEZZFactoryCliente;
 begin
   Result := Self;
 

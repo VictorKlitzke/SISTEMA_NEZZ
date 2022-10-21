@@ -112,6 +112,7 @@ end;
 function TNEZZModelsUsuario.CampoChave(AValue: string): iNEZZModelsUsuario;
 begin
   Result := Self;
+  FNEZZServicesUsuario.CampoChave(AValue);
 end;
 
 function TNEZZModelsUsuario.CEP: string;
