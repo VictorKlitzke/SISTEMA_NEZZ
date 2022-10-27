@@ -48,6 +48,7 @@ type
     BtnFornecedores: TcxButton;
     BtnProdutos: TcxButton;
     BtnVendas: TcxButton;
+    cxButton1: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure btnCloseKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);

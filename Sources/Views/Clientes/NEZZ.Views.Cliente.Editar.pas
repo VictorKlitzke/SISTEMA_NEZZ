@@ -60,6 +60,7 @@ type
   private
     FNEZZModelsClientes : iNEZZModelsCliente;
   public
+    FNEZZFactoryUsuario: TNEZZFactoryCliente;
     function Cliente(UID: integer): Integer;
   end;
 

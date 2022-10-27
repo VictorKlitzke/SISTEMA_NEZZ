@@ -23,7 +23,8 @@ uses
   cxButtons,
   cxTextEdit,
   Vcl.ExtCtrls,
-  Data.DB;
+  Data.DB,
+  System.UITypes;
 
 type
   TNEZZViewsUsuarioAdicionar = class(TForm)
@@ -47,6 +48,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnLimparClick(Sender: TObject);
+    procedure pnContentClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,6 +82,7 @@ begin
   edCidade.Clear;
   edEndereco.Clear;
   edBairro.Clear;
+  edCEP.Clear;
 end;
 
 procedure TNEZZViewsUsuarioAdicionar.btnSalvarClick(Sender: TObject);
@@ -91,6 +94,7 @@ begin
   edCidade.ValidateEdit();
   edEndereco.ValidateEdit();
   edBairro.ValidateEdit();
+  edCEP.ValidateEdit();
 
   try
     TNEZZFactoryUsuario
@@ -105,12 +109,12 @@ begin
         edCEP.Text
       );
 
-    MessageDlg('Cliente registrado com sucesso' , mtInformation , [mbOk] , 0);
+    MessageDlg('Usúario registrado com sucesso' , mtInformation , [mbOk] , 0);
     Close;
   except
     on e: Exception do
     begin
-      MessageDlg('Erro ao fazer registro do cliente!' + #13 + e.message , mtWarning , [mbOk] , 0);
+      MessageDlg('Erro ao fazer registro do usúario!' + #13 + e.message , mtWarning , [mbOk] , 0);
       edNome.SetFocus;
     end;
   end;

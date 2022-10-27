@@ -132,6 +132,7 @@ end;
 procedure TNEZZViewsClienteAdicionar.btnSalvarClick(Sender: TObject);
 begin
   inherited;
+
   edNome.ValidateEdit();
   edRazao.ValidateEdit();
   edCPF.ValidateEdit();

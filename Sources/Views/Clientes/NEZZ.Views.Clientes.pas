@@ -127,7 +127,6 @@ begin
   inherited;
   try
     FNEZZServicesCliente
-    .Parametro('ID', FNEZZServicesCliente.Campo('ID').AsInteger)
     .Deletar
     .Salvar;
 

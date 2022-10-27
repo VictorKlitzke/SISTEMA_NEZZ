@@ -58,6 +58,7 @@ type
     btnClose: TcxButton;
     pnClone: TPanel;
     btnAdicionar: TcxButton;
+    cxButton1: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

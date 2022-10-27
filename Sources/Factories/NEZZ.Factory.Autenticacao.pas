@@ -66,7 +66,7 @@ end;
 
 class function TNEZZFactoryAutenticacao.New: iNEZZFactoryAutenticacao;
 begin
-
+  Result := Self.Create;
 end;
 
 end.

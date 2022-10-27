@@ -3,8 +3,8 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   Top = 0
   BorderStyle = bsNone
   Caption = 'NEZZViewsPrincipal'
-  ClientHeight = 622
-  ClientWidth = 921
+  ClientHeight = 642
+  ClientWidth = 932
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,19 +19,21 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   object pnContent: TPanel
     Left = 137
     Top = 57
-    Width = 784
-    Height = 512
+    Width = 795
+    Height = 532
     Align = alClient
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 784
+    ExplicitHeight = 512
     object imgNEZZ: TImage
       AlignWithMargins = True
       Left = 3
       Top = 3
-      Width = 778
-      Height = 506
+      Width = 789
+      Height = 526
       Align = alClient
       Anchors = []
       AutoSize = True
@@ -138,14 +140,16 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 569
-    Width = 921
+    Top = 589
+    Width = 932
     Height = 53
     Align = alBottom
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 569
+    ExplicitWidth = 921
     object pnVersao: TPanel
       Left = 0
       Top = 0
@@ -191,15 +195,16 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 921
+    Width = 932
     Height = 57
     Align = alTop
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 2
+    ExplicitWidth = 921
     object pnUsuario: TPanel
-      Left = 789
+      Left = 800
       Top = 0
       Width = 48
       Height = 57
@@ -207,6 +212,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       BevelOuter = bvNone
       Caption = 'pnUsuario'
       TabOrder = 0
+      ExplicitLeft = 789
       object btnEnviar: TcxButton
         Left = 0
         Top = 0
@@ -263,13 +269,14 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       end
     end
     object pnNomeUsuario: TPanel
-      Left = 709
+      Left = 720
       Top = 0
       Width = 80
       Height = 57
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 1
+      ExplicitLeft = 709
       object lbl3: TLabel
         Left = 0
         Top = 16
@@ -331,7 +338,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       end
     end
     object pnClose: TPanel
-      Left = 837
+      Left = 848
       Top = 0
       Width = 84
       Height = 57
@@ -339,6 +346,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       BevelOuter = bvNone
       Caption = 'pnClose'
       TabOrder = 3
+      ExplicitLeft = 837
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -382,15 +390,16 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Left = 0
     Top = 57
     Width = 137
-    Height = 512
+    Height = 532
     Align = alLeft
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 3
+    ExplicitHeight = 512
     object BtnClientes: TcxButton
       Left = 0
-      Top = 225
+      Top = 300
       Width = 137
       Height = 75
       Align = alTop
@@ -439,6 +448,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = BtnClientesClick
+      ExplicitTop = 225
     end
     object BtnFornecedores: TcxButton
       Left = 0
@@ -584,6 +594,58 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object cxButton1: TcxButton
+      Left = 0
+      Top = 225
+      Width = 137
+      Height = 75
+      Align = alTop
+      Caption = 'Faturar'
+      OptionsImage.Glyph.SourceDPI = 96
+      OptionsImage.Glyph.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000000473424954080808087C0864880000000970485973000000EC000000
+        EC01792871BD0000001974455874536F667477617265007777772E696E6B7363
+        6170652E6F72679BEE3C1A000003934944415458859DD76D6896551807F0DFC6
+        58AEDA2A6734CCB54824A1FA10165856F4A1779CBAA048A23E049511841F2208
+        297AC14890402222E8437D892C688BF546581AA5D58AB428890A8346CBCA9A56
+        5A36DDFA709D87DDDD9CFB7E36FF70F3DCCF39D7CB39E7BAAEFF75EE1633470B
+        96A01F8BD18B1E4C613F46F1093EC0FB982CE8EEC6063C9F33DA0C5D588B3B70
+        7A72F83DBEC61F388A6E2CC4A2A4F3039EC326FC9EE4776160465B2D2C6E2DF6
+        A5DDBC895B30B746A71BB7624B5AD83EDC8D97F0D36C9CCFC56B62B75B70FE6C
+        941396605BB2F14FFA3D73268AF3F15D525A6366612A63051EC763D8999C4F61
+        7533C579F80AE3B8FC181C373058705A7C6E2F0BB694DEDFC5325C8DAD350EFA
+        7091A802D88B1D22F9CA380EC78B3C3A50B7EABBD22AEFAC9159254A2DB7BB29
+        8C88E3AF432B4E2C0F9E264A6AAB7CCCBB305CE3B8FCBC8ACE8A05DC26423CAF
+        38F8A0289B732B9CEFAA70B43F3DB9B99D158B384F84E381C6403BC6F076C58A
+        EB76BE5C3063D5FC5085CDB744DEB4C11549F8C68CE0CA0AC3FFE23ECC41071E
+        C2910AD9FE8CDD1BD2DC25C4F14FE2948C6055C2358E6FA5697ADD58213B92B1
+        DB2D42FE2841B1BB33427D696139A3E7E0D2C2FF355857213B291A57195FE08D
+        36418FDF640496AA66C14EFC2AD8720E9EAE90936C2C15DDB28851F4B68A2C1F
+        CF28CEAF317A8FE8866789780ED6C8125DB48CBDE869154C75B88981325627A7
+        CBB01DD7E3C559DA68C3442B7E164454C6581303ABF032F6E06C3C5923FB6366
+        AC0B7FB626470B32021F8A24CA619DA06E22074EC55F15B253F82833BE50CA8B
+        0D989067AD11F9CCDE98E6074CD7F9C315B21F67EC9E24CAF011B8D234AB95B1
+        A2C2E884209F0E7102F7A7B12AB62C6320CD5D231919C72B1941A2B1D451F1F2
+        9AF92A9BC3F8451400220C47445CCAE8F4FF5BCD4C9BD167F2615D947CAD2F0E
+        2E1097851C6F37163154B3D3F23358E11C5EC74199C46FAF5028A25F24668EA2
+        2745C2E562DEC04D49F6DEC64015D59E5C9A3B2A2E2C0DF48A2B59832DC744D9
+        96E9B6880BF01EBEC4C5C96616D7C91FEBE735C69BE142F15DB04789E2DB32C2
+        BF15DEB789CB037C7B8CCE6FC6B32259AFD29C61B5E36FD33B1F96AF8E66582C
+        BE881A7782BED928EF1047BE1E8744DBDD2CC25397AC2788EEB85994DA41C176
+        B993AEC513A243CEC119A2DF37EAFD303EC50B784634A12171713D94640EA4F1
+        9EB2E199E232F17956BCBF7788DD6D12CD6534399C105FBFEFE0295CABC070CD
+        F01F1A575B6DBBBC98EB0000000049454E44AE426082}
+      SpeedButtonOptions.CanBeFocused = False
+      SpeedButtonOptions.Flat = True
+      TabOrder = 4
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
     end

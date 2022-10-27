@@ -14,10 +14,10 @@ type
     ['{1592C510-8A28-408D-BD1A-F6430ADE3590}']
 
     function ExisteUsuario(ALogin : string): Boolean;
-    function AdicionarUsuario(ALogin,ANome,ASenha,AStatus,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
+    function AdicionarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryUsuario;
-    function AtualizarUsuario(ALogin,ANome,ASenha,AStatus,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
-    function DeletarUsuario(ALogin,ANome,ASenha,AStatus,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
+    function AtualizarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
+    function DeletarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
     function FiltrarCliente(ALogin,ANome : string): iNEZZFactoryUsuario;
 
     function ListarUsuarios: iNEZZFactoryUsuario;
@@ -34,10 +34,10 @@ type
     class function New: iNEZZFactoryUsuario;
 
     function ExisteUsuario(ALogin : string): Boolean;
-    function AdicionarUsuario(ALogin,ANome,ASenha,AStatus,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
+    function AdicionarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryUsuario;
-    function AtualizarUsuario(ALogin,ANome,ASenha,AStatus,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
-    function DeletarUsuario(ALogin,ANome,ASenha,AStatus,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
+    function AtualizarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
+    function DeletarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
     function FiltrarCliente(ALogin,ANome : string): iNEZZFactoryUsuario;
 
     function ListarUsuarios: iNEZZFactoryUsuario;
@@ -51,7 +51,6 @@ function TNEZZFactoryUsuario.AdicionarUsuario(
   ALogin,
   ANome,
   ASenha,
-  AStatus,
   ACidade,
   ABairro,
   AEndereco,
@@ -64,7 +63,6 @@ begin
     .Nome(ANome)
     .Senha(ASenha)
     .Login(ALogin)
-    .Status(AStatus)
     .Cidade(ACidade)
     .Bairro(ABairro)
     .Endereco(AEndereco)
@@ -76,7 +74,6 @@ function TNEZZFactoryUsuario.AtualizarUsuario(
   ALogin,
   ANome,
   ASenha,
-  AStatus,
   ACidade,
   ABairro,
   AEndereco,
@@ -112,12 +109,12 @@ begin
     .SQL('      U.STATUS,')
     .SQL('      0, ''ATIVO'',')
     .SQL('      1, ''DESATIVADO'',')
-    .SQL('      ''ERROR404''')
+    .SQL('      ''ERRONOCODIGO''')
     .SQL('    ) AS STATUS_DESC,')
     .SQL('    U.STATUS,')
     .SQL('    U.CIDADE,')
     .SQL('    U.BAIRRO,')
-    .SQL('    U.ENDERECO')
+    .SQL('    U.ENDERECO,')
     .SQL('    U.CEP')
     .SQL('  FROM')
     .SQL('    USUARIOS U')
@@ -134,7 +131,6 @@ function TNEZZFactoryUsuario.DeletarUsuario(
   ALogin,
   ANome,
   ASenha,
-  AStatus,
   ACidade,
   ABairro,
   AEndereco,

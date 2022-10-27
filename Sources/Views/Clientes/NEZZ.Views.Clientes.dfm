@@ -39,6 +39,7 @@ object NEZZViewsClientes: TNEZZViewsClientes
         Navigator.Buttons.CustomButtons = <>
         OnCellDblClick = dsDadosClienteDBTableView1CellDblClick
         DataController.DataSource = dsClientes
+        DataController.DetailKeyFieldNames = 'NOME'
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
         DataController.Summary.SummaryGroups = <>

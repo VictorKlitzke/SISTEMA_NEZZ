@@ -18,7 +18,7 @@ type
     function Nome: string; overload;
     function Senha: string; overload;
     function Login: string; overload;
-    function Status: string; overload;
+    function Status: Integer; overload;
     function Cidade: string; overload;
     function Endereco: string; overload;
     function Bairro: string; overload;
@@ -29,7 +29,7 @@ type
     function Nome(AValue: string): iNEZZModelsUsuario; overload;
     function Senha(AValue: string): iNEZZModelsUsuario; overload;
     function Login(AValue: string): iNEZZModelsUsuario; overload;
-    function Status(AValue: string): iNEZZModelsUsuario; overload;
+    function Status(AValue: Integer): iNEZZModelsUsuario; overload;
     function Cidade(AValue: string): iNEZZModelsUsuario; overload;
     function Endereco(AValue: string): iNEZZModelsUsuario; overload;
     function Bairro(AValue: string): iNEZZModelsUsuario; overload;
@@ -65,7 +65,7 @@ type
     function Nome: string; overload;
     function Senha: string; overload;
     function Login: string; overload;
-    function Status: string; overload;
+    function Status: Integer; overload;
     function Cidade: string; overload;
     function Endereco: string; overload;
     function Bairro: string; overload;
@@ -76,7 +76,7 @@ type
     function Nome(AValue: string): iNEZZModelsUsuario; overload;
     function Senha(AValue: string): iNEZZModelsUsuario; overload;
     function Login(AValue: string): iNEZZModelsUsuario; overload;
-    function Status(AValue: string): iNEZZModelsUsuario; overload;
+    function Status(AValue: Integer): iNEZZModelsUsuario; overload;
     function Cidade(AValue: string): iNEZZModelsUsuario; overload;
     function Endereco(AValue: string): iNEZZModelsUsuario; overload;
     function Bairro(AValue: string): iNEZZModelsUsuario; overload;
@@ -199,7 +199,7 @@ end;
 
 function TNEZZModelsUsuario.Id: Integer;
 begin
-  Result := FNEZZServicesUsuario.Campo('SENHA').AsInteger;
+  Result := FNEZZServicesUsuario.Campo('ID').AsInteger;
 end;
 
 function TNEZZModelsUsuario.Inserir: iNEZZModelsUsuario;
@@ -252,12 +252,12 @@ begin
   FNEZZServicesUsuario.Campo('SENHA' , TBCrypt.GenerateHash(AValue));
 end;
 
-function TNEZZModelsUsuario.Status: string;
+function TNEZZModelsUsuario.Status: Integer;
 begin
-  Result := FNEZZServicesUsuario.Campo('STATUS').AsString;
+  Result := FNEZZServicesUsuario.Campo('STATUS').AsInteger;
 end;
 
-function TNEZZModelsUsuario.Status(AValue: string): iNEZZModelsUsuario;
+function TNEZZModelsUsuario.Status(AValue: integer): iNEZZModelsUsuario;
 begin
   Result := Self;
   FNEZZServicesUsuario.Campo('STATUS' , AValue);

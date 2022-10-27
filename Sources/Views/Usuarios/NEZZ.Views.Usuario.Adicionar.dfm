@@ -4,7 +4,7 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
   BorderStyle = bsNone
   Caption = 'NEZZViewsUsuarioAdicionar'
   ClientHeight = 232
-  ClientWidth = 361
+  ClientWidth = 366
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,25 +12,27 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  PopupMode = pmAuto
   Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel
     Left = 0
     Top = 41
-    Width = 361
+    Width = 366
     Height = 191
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 197
+    OnClick = pnContentClick
+    ExplicitLeft = 8
+    ExplicitWidth = 527
+    ExplicitHeight = 201
     object lbCadastrar: TLabel
       Left = 0
       Top = 0
-      Width = 361
+      Width = 366
       Height = 16
       Align = alTop
       Alignment = taCenter
@@ -45,7 +47,7 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
     end
     object edNome: TcxTextEdit
       Left = 6
-      Top = 32
+      Top = 34
       TabOrder = 0
       TextHint = 'Nome'
       Width = 165
@@ -88,16 +90,16 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
     object pnButtons: TPanel
       Left = 0
       Top = 150
-      Width = 361
+      Width = 366
       Height = 41
       Align = alBottom
       BevelOuter = bvNone
       Color = clYellow
       ParentBackground = False
       TabOrder = 6
-      ExplicitTop = 156
+      ExplicitWidth = 361
       object btnLimpar: TcxButton
-        Left = 268
+        Left = 273
         Top = 0
         Width = 93
         Height = 41
@@ -133,9 +135,10 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
         SpeedButtonOptions.Flat = True
         TabOrder = 0
         OnClick = btnLimparClick
+        ExplicitLeft = 268
       end
       object btnSalvar: TcxButton
-        Left = 175
+        Left = 180
         Top = 0
         Width = 93
         Height = 41
@@ -167,19 +170,29 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
         SpeedButtonOptions.Flat = True
         TabOrder = 1
         OnClick = btnSalvarClick
+        ExplicitLeft = 175
       end
+    end
+    object edCEP: TcxTextEdit
+      Left = 177
+      Top = 90
+      TabOrder = 7
+      TextHint = 'CEP'
+      Width = 165
     end
   end
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 361
+    Width = 366
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = clNone
     ParentBackground = False
     TabOrder = 1
+    ExplicitLeft = 8
+    ExplicitWidth = 527
     object lbusuarios: TLabel
       Left = 0
       Top = 0
@@ -197,13 +210,14 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       ExplicitHeight = 21
     end
     object pnClose: TPanel
-      Left = 303
+      Left = 308
       Top = 0
       Width = 58
       Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 303
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -243,15 +257,8 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       end
     end
   end
-  object edCEP: TcxTextEdit
-    Left = 177
-    Top = 130
-    TabOrder = 2
-    TextHint = 'CEP'
-    Width = 165
-  end
   object dsUsuarios: TDataSource
-    Left = 488
+    Left = 496
     Top = 209
   end
 end
