@@ -20,9 +20,10 @@ uses
   NEZZ.Views.MSG_CRUD in 'Sources\Views\MSG_CRUD\NEZZ.Views.MSG_CRUD.pas' {Form1},
   NEZZ.Views.Usuario in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.pas' {NEZZViewsUsuario},
   NEZZ.Models.Usuario in 'Sources\Models\NEZZ.Models.Usuario.pas',
-  NEZZ.Views.Usuario.Adicionar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Adicionar.pas',
   NEZZ.Factory.Usuario in 'Sources\Factories\NEZZ.Factory.Usuario.pas',
-  NEZZ.Factory.Autenticacao in 'Sources\Factories\NEZZ.Factory.Autenticacao.pas';
+  NEZZ.Factory.Autenticacao in 'Sources\Factories\NEZZ.Factory.Autenticacao.pas',
+  NEZZ.Views.Usuario.Adicionar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Adicionar.pas' {NEZZViewsUsuarioAdicionar},
+  NEZZ.Views.Vendas in 'Sources\Views\Vendas\NEZZ.Views.Vendas.pas' {NEZZViewsClientes1};
 
 {$R *.res}
 
@@ -39,5 +40,7 @@ begin
   Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TNEZZViewsUsuario, NEZZViewsUsuario);
+  Application.CreateForm(TNEZZViewsUsuarioAdicionar, NEZZViewsUsuarioAdicionar);
+  Application.CreateForm(TNEZZViewsClientes1, NEZZViewsClientes1);
   Application.Run;
 end.

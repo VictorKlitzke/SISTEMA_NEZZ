@@ -25,7 +25,6 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    OnClick = pnContentClick
     ExplicitLeft = 8
     ExplicitWidth = 527
     ExplicitHeight = 201

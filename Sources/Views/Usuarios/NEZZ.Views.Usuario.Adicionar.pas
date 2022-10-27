@@ -48,7 +48,6 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnLimparClick(Sender: TObject);
-    procedure pnContentClick(Sender: TObject);
   private
     { Private declarations }
   public

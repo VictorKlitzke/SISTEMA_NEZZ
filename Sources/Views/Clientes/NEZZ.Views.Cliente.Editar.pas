@@ -69,9 +69,6 @@ var
 
 implementation
 
-uses
-  NEZZ.Views.Clientes;
-
 {$R *.dfm}
 
 procedure TNEZZViewsClienteEditar.btnCloseClick(Sender: TObject);
@@ -101,18 +98,15 @@ begin
     FNEZZModelsClientes
       .Salvar;
 
+  finally
     MessageDlg('Otimo! Cliente atualizado com sucesso', mtInformation, mbYesNo, 0);
     Close;
-  except
-    on e: Exception do
-    begin
-      MessageDlg('Erro ao editar registro do cliente!' + #13 + e.message , mtWarning , [mbOk] , 0);
-    end;
   end;
 end;
 
 procedure TNEZZViewsClienteEditar.FormCreate(Sender: TObject);
 begin
+  inherited;
   FNEZZModelsClientes := TNEZZModelsCliente.New.DataSource(dsDadosEditar);
 end;
 
