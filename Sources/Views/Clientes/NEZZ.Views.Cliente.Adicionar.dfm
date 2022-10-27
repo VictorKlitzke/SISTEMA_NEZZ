@@ -209,6 +209,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
+      OnClick = btnLimparClick
     end
     object btnSalvar: TcxButton
       Left = 300
