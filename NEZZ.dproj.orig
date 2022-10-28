@@ -144,6 +144,7 @@
             <Form>NEZZViewsUsuario</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+<<<<<<< HEAD
         <DCCReference Include="Sources\Models\NEZZ.Models.Usuario.pas"/>
         <DCCReference Include="Sources\Factories\NEZZ.Factory.Usuario.pas"/>
         <DCCReference Include="Sources\Factories\NEZZ.Factory.Autenticacao.pas"/>
@@ -153,8 +154,10 @@
         </DCCReference>
         <DCCReference Include="Sources\Views\Vendas\NEZZ.Views.Vendas.pas">
             <Form>NEZZViewsVendas</Form>
+=======
         <DCCReference Include="C:\Users\HIFUZION\Desktop\paraovitao\login.pas">
             <Form>Form2</Form>
+>>>>>>> TelaLogin
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
