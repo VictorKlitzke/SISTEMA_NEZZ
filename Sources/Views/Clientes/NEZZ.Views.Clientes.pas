@@ -166,17 +166,16 @@ procedure TNEZZViewsClientes.dsDadosClienteDBTableView1CellDblClick(
   AButton: TMouseButton; AShift: TShiftState;
   var AHandled: Boolean);
 begin
-  try
-    if not Assigned(NEZZViewsClienteEditar) then
-      Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
 
-    NEZZViewsClienteEditar.Cliente(dsClientes.DataSet.FieldByName('ID').AsInteger);
-    NEZZViewsClienteEditar.ShowModal;
-    FreeAndNil(NEZZViewsClienteEditar);
+  if not Assigned(NEZZViewsClienteEditar) then
+    Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
 
-  finally
-    CarregarDados;
-  end;
+  NEZZViewsClienteEditar.Cliente(dsClientes.DataSet.FieldByName('ID').AsInteger);
+  NEZZViewsClienteEditar.ShowModal;
+  FreeAndNil(NEZZViewsClienteEditar);
+
+  CarregarDados;
+
 end;
 
 procedure TNEZZViewsClientes.edPesquisarChange(Sender: TObject);

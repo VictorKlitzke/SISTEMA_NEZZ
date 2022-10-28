@@ -26,8 +26,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Color = -1
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 784
-    ExplicitHeight = 512
     object imgNEZZ: TImage
       AlignWithMargins = True
       Left = 3
@@ -148,8 +146,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 569
-    ExplicitWidth = 921
     object pnVersao: TPanel
       Left = 0
       Top = 0
@@ -202,7 +198,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Color = -1
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 921
     object pnUsuario: TPanel
       Left = 800
       Top = 0
@@ -212,8 +207,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       BevelOuter = bvNone
       Caption = 'pnUsuario'
       TabOrder = 0
-      ExplicitLeft = 789
-      object btnEnviar: TcxButton
+      object btnUsuario: TcxButton
         Left = 0
         Top = 0
         Width = 48
@@ -265,7 +259,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         SpeedButtonOptions.CanBeFocused = False
         SpeedButtonOptions.Flat = True
         TabOrder = 0
-        OnClick = btnEnviarClick
+        OnClick = btnUsuarioClick
       end
     end
     object pnNomeUsuario: TPanel
@@ -276,7 +270,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitLeft = 709
       object lbl3: TLabel
         Left = 0
         Top = 16
@@ -346,7 +339,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       BevelOuter = bvNone
       Caption = 'pnClose'
       TabOrder = 3
-      ExplicitLeft = 837
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -396,7 +388,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Color = clYellow
     ParentBackground = False
     TabOrder = 3
-    ExplicitHeight = 512
     object BtnClientes: TcxButton
       Left = 0
       Top = 300
@@ -448,7 +439,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = BtnClientesClick
-      ExplicitTop = 225
     end
     object BtnFornecedores: TcxButton
       Left = 0
@@ -596,8 +586,9 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = BtnVendasClick
     end
-    object cxButton1: TcxButton
+    object btnFaturar: TcxButton
       Left = 0
       Top = 225
       Width = 137

@@ -2,8 +2,8 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  ClientHeight = 513
-  ClientWidth = 807
+  ClientHeight = 700
+  ClientWidth = 1145
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,21 +18,37 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 807
+    Width = 1145
     Height = 48
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 807
+    object Label1: TLabel
+      Left = 0
+      Top = 0
+      Width = 1145
+      Height = 48
+      Align = alLeft
+      Caption = 'US'#218'ARIOS'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object pnClone: TPanel
-      Left = 761
+      Left = 1099
       Top = 0
       Width = 46
       Height = 48
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 761
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -73,16 +89,18 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 465
-    Width = 807
+    Top = 652
+    Width = 1145
     Height = 48
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 465
+    ExplicitWidth = 807
     object btnAdicionar: TcxButton
-      Left = 705
+      Left = 1043
       Top = 0
       Width = 102
       Height = 48
@@ -125,9 +143,10 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnAdicionarClick
+      ExplicitLeft = 705
     end
     object cxButton1: TcxButton
-      Left = 603
+      Left = 941
       Top = 0
       Width = 102
       Height = 48
@@ -154,27 +173,29 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
-      ExplicitLeft = 624
-      ExplicitTop = 6
-      ExplicitHeight = 25
+      ExplicitLeft = 603
     end
   end
   object pnContent: TPanel
     Left = 0
     Top = 48
-    Width = 807
-    Height = 417
+    Width = 1145
+    Height = 604
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
+    ExplicitWidth = 807
+    ExplicitHeight = 417
     object GridUsuarios: TcxGrid
       Left = 0
       Top = 0
-      Width = 807
-      Height = 417
+      Width = 1145
+      Height = 604
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitWidth = 807
+      ExplicitHeight = 417
       object GridUsuariosDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsUsuarios

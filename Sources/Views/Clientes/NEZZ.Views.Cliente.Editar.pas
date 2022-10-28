@@ -62,6 +62,7 @@ type
   public
     FNEZZFactoryUsuario: TNEZZFactoryCliente;
     function Cliente(UID: integer): Integer;
+
   end;
 
 var
@@ -121,5 +122,4 @@ begin
     0) = mrOk then
     Close
 end;
-
 end.

@@ -152,7 +152,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Sources\Views\Vendas\NEZZ.Views.Vendas.pas">
-            <Form>NEZZViewsClientes1</Form>
+            <Form>NEZZViewsVendas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

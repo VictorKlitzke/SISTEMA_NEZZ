@@ -23,7 +23,7 @@ uses
   NEZZ.Factory.Usuario in 'Sources\Factories\NEZZ.Factory.Usuario.pas',
   NEZZ.Factory.Autenticacao in 'Sources\Factories\NEZZ.Factory.Autenticacao.pas',
   NEZZ.Views.Usuario.Adicionar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Adicionar.pas' {NEZZViewsUsuarioAdicionar},
-  NEZZ.Views.Vendas in 'Sources\Views\Vendas\NEZZ.Views.Vendas.pas' {NEZZViewsClientes1};
+  NEZZ.Views.Vendas in 'Sources\Views\Vendas\NEZZ.Views.Vendas.pas' {NEZZViewsVendas};
 
 {$R *.res}
 
@@ -41,6 +41,6 @@ begin
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TNEZZViewsUsuario, NEZZViewsUsuario);
   Application.CreateForm(TNEZZViewsUsuarioAdicionar, NEZZViewsUsuarioAdicionar);
-  Application.CreateForm(TNEZZViewsClientes1, NEZZViewsClientes1);
+  Application.CreateForm(TNEZZViewsVendas, NEZZViewsVendas);
   Application.Run;
 end.
