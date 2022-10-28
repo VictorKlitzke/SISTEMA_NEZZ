@@ -2,8 +2,13 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   Left = 0
   Top = 0
   BorderStyle = bsNone
+<<<<<<< HEAD
   ClientHeight = 700
   ClientWidth = 1145
+=======
+  ClientHeight = 446
+  ClientWidth = 921
+>>>>>>> TelaLogin
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,13 +16,17 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+<<<<<<< HEAD
   Position = poScreenCenter
   OnCreate = FormCreate
+=======
+>>>>>>> TelaLogin
   PixelsPerInch = 96
   TextHeight = 13
   object pnHeader: TPanel
     Left = 0
     Top = 0
+<<<<<<< HEAD
     Width = 1145
     Height = 48
     Align = alTop
@@ -54,6 +63,30 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
         Top = 0
         Width = 46
         Height = 48
+=======
+    Width = 921
+    Height = 41
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = 168
+    ExplicitTop = 96
+    ExplicitWidth = 185
+    object pnClose: TPanel
+      Left = 863
+      Top = 0
+      Width = 58
+      Height = 41
+      Align = alRight
+      BevelOuter = bvNone
+      TabOrder = 0
+      ExplicitLeft = 800
+      object btnClose: TcxButton
+        Left = 0
+        Top = 0
+        Width = 58
+        Height = 41
+>>>>>>> TelaLogin
         Align = alClient
         BiDiMode = bdRightToLeftReadingOnly
         OptionsImage.Glyph.SourceDPI = 96
@@ -83,6 +116,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
+<<<<<<< HEAD
         OnClick = btnCloseClick
       end
     end
@@ -215,5 +249,47 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   object dsUsuarios: TDataSource
     Left = 400
     Top = 120
+=======
+        ExplicitWidth = 51
+      end
+    end
+  end
+  object pnGRID: TPanel
+    Left = 0
+    Top = 41
+    Width = 185
+    Height = 364
+    Align = alLeft
+    BevelOuter = bvNone
+    TabOrder = 1
+    ExplicitLeft = 376
+    ExplicitTop = 216
+    ExplicitHeight = 41
+  end
+  object pnContent: TPanel
+    Left = 185
+    Top = 41
+    Width = 736
+    Height = 364
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 2
+    ExplicitLeft = 376
+    ExplicitTop = 352
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+  end
+  object pnFooter: TPanel
+    Left = 0
+    Top = 405
+    Width = 921
+    Height = 41
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 3
+    ExplicitLeft = 480
+    ExplicitTop = 136
+    ExplicitWidth = 185
+>>>>>>> TelaLogin
   end
 end

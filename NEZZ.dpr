@@ -19,11 +19,15 @@ uses
   NEZZ.Views.Cliente.Editar in 'Sources\Views\Clientes\NEZZ.Views.Cliente.Editar.pas' {NEZZViewsClienteEditar},
   NEZZ.Views.MSG_CRUD in 'Sources\Views\MSG_CRUD\NEZZ.Views.MSG_CRUD.pas' {Form1},
   NEZZ.Views.Usuario in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.pas' {NEZZViewsUsuario},
+<<<<<<< HEAD
   NEZZ.Models.Usuario in 'Sources\Models\NEZZ.Models.Usuario.pas',
   NEZZ.Factory.Usuario in 'Sources\Factories\NEZZ.Factory.Usuario.pas',
   NEZZ.Factory.Autenticacao in 'Sources\Factories\NEZZ.Factory.Autenticacao.pas',
   NEZZ.Views.Usuario.Adicionar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Adicionar.pas' {NEZZViewsUsuarioAdicionar},
   NEZZ.Views.Vendas in 'Sources\Views\Vendas\NEZZ.Views.Vendas.pas' {NEZZViewsVendas};
+=======
+  login in 'C:\Users\HIFUZION\Desktop\paraovitao\login.pas' {Form2};
+>>>>>>> TelaLogin
 
 {$R *.res}
 
@@ -40,7 +44,11 @@ begin
   Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TNEZZViewsUsuario, NEZZViewsUsuario);
+<<<<<<< HEAD
   Application.CreateForm(TNEZZViewsUsuarioAdicionar, NEZZViewsUsuarioAdicionar);
   Application.CreateForm(TNEZZViewsVendas, NEZZViewsVendas);
+=======
+  Application.CreateForm(TForm2, Form2);
+>>>>>>> TelaLogin
   Application.Run;
 end.

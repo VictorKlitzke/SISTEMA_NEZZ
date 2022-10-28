@@ -3,6 +3,7 @@ unit NEZZ.Views.Usuario;
 interface
 
 uses
+<<<<<<< HEAD
   Winapi.Windows,
   Winapi.Messages,
   System.SysUtils,
@@ -45,10 +46,16 @@ uses
   NEZZ.Models.Usuario,
   NEZZ.Services.Conexao,
   NEZZ.Services.Query;
+=======
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxLookAndFeels,
+  cxLookAndFeelPainters, Vcl.Menus, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls;
+>>>>>>> TelaLogin
 
 type
   TNEZZViewsUsuario = class(TForm)
     pnHeader: TPanel;
+<<<<<<< HEAD
     pnFooter: TPanel;
     pnContent: TPanel;
     GridUsuariosDBTableView1: TcxGridDBTableView;
@@ -67,6 +74,17 @@ type
     FNEZZFactoryUsuario: iNEZZFactoryUsuario;
   public
     procedure CarregarDados;
+=======
+    pnGRID: TPanel;
+    pnContent: TPanel;
+    pnFooter: TPanel;
+    pnClose: TPanel;
+    btnClose: TcxButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+>>>>>>> TelaLogin
   end;
 
 var
@@ -76,6 +94,7 @@ implementation
 
 {$R *.dfm}
 
+<<<<<<< HEAD
 procedure TNEZZViewsUsuario.btnAdicionarClick(Sender: TObject);
 begin
   try
@@ -115,4 +134,6 @@ begin
   CarregarDados;
 end;
 
+=======
+>>>>>>> TelaLogin
 end.

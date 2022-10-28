@@ -87,7 +87,10 @@ type
       var ErrorText: TCaption;
       var Error: Boolean);
     procedure btnLimparClick(Sender: TObject);
+<<<<<<< HEAD
     procedure FormCreate(Sender: TObject);
+=======
+>>>>>>> TelaLogin
 
   private
     FNEZZQuery: iNEZZServicesCadastrar;
