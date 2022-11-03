@@ -35,7 +35,7 @@ type
     lbl2: TLabel;
     pnHeader: TPanel;
     pnUsuario: TPanel;
-    btnUsuario: TcxButton;
+    btnEnviar: TcxButton;
     pnNomeUsuario: TPanel;
     lbl3: TLabel;
     pnEmpresafilial: TPanel;
@@ -48,13 +48,13 @@ type
     BtnFornecedores: TcxButton;
     BtnProdutos: TcxButton;
     BtnVendas: TcxButton;
-    btnFaturar: TcxButton;
+    BtnFaturar: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure btnCloseKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure BtnClientesClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure btnUsuarioClick(Sender: TObject);
+    procedure btnEnviarClick(Sender: TObject);
     procedure BtnVendasClick(Sender: TObject);
   private
     FConexao : iNEZZServicesConexao;
@@ -68,8 +68,7 @@ var
 implementation
 
 uses
-  NEZZ.Views.Usuario,
-  NEZZ.Views.Vendas;
+  NEZZ.Views.Usuario, NEZZ.Views.Vendas;
 
 {$R *.dfm}
 
@@ -105,24 +104,24 @@ begin
   end;
 end;
 
-procedure TNEZZViewsPrincipal.btnUsuarioClick(Sender: TObject);
+procedure TNEZZViewsPrincipal.btnEnviarClick(Sender: TObject);
 begin
   if Assigned(NEZZViewsUsuario) then FreeAndNil(NEZZViewsUsuario);
-  if not Assigned(NEZZViewsUsuario) then
-    Application.CreateForm(TNEZZViewsUsuario, NEZZViewsUsuario);
+    if not Assigned(NEZZViewsUsuario) then
+      Application.CreateForm(TNEZZViewsUsuario, NEZZViewsUsuario);
 
-  NEZZViewsUsuario.Parent := pnContent;
-  NEZZViewsUsuario.Show;
+    NEZZViewsUsuario.Parent := pnContent;
+    NEZZViewsUsuario.Show;
 end;
 
 procedure TNEZZViewsPrincipal.BtnVendasClick(Sender: TObject);
 begin
-  if Assigned(NEZZViewsVendas) then FreeAndNil(NEZZViewsVendas);
-    if not Assigned(NEZZViewsVendas) then
-      Application.CreateForm(TNEZZViewsVendas, NEZZViewsVendas);
+  if Assigned(NEZZViewsVenda) then FreeAndNil(NEZZViewsVenda);
+  if not Assigned(NEZZViewsVenda) then
+    Application.CreateForm(TNEZZViewsVenda, NEZZViewsVenda);
 
-  NEZZViewsVendas.Parent := pnContent;
-  NEZZViewsVendas.Show;
+  NEZZViewsVenda.Parent := pnContent;
+  NEZZViewsVenda.Show;
 
 end;
 

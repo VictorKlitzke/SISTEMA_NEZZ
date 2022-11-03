@@ -3,8 +3,8 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   Top = 0
   BorderStyle = bsNone
   Caption = 'NEZZViewsPrincipal'
-  ClientHeight = 642
-  ClientWidth = 932
+  ClientHeight = 622
+  ClientWidth = 921
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,8 +19,8 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   object pnContent: TPanel
     Left = 137
     Top = 57
-    Width = 795
-    Height = 532
+    Width = 784
+    Height = 512
     Align = alClient
     BevelOuter = bvNone
     Color = -1
@@ -30,8 +30,8 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       AlignWithMargins = True
       Left = 3
       Top = 3
-      Width = 789
-      Height = 526
+      Width = 778
+      Height = 506
       Align = alClient
       Anchors = []
       AutoSize = True
@@ -130,14 +130,16 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         A2108290288420240A210889420842A2108290288420240A210889420842A210
         8290288420240A210889420842A2108290288420240A210889420842A2108290
         288420240A2108894208E26799257893F8A87C020000000049454E44AE426082}
-      ExplicitLeft = 0
+      ExplicitLeft = 6
       ExplicitTop = 6
+      ExplicitWidth = 909
+      ExplicitHeight = 489
     end
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 589
-    Width = 932
+    Top = 569
+    Width = 921
     Height = 53
     Align = alBottom
     BevelOuter = bvNone
@@ -189,7 +191,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 932
+    Width = 921
     Height = 57
     Align = alTop
     BevelOuter = bvNone
@@ -197,7 +199,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     ParentBackground = False
     TabOrder = 2
     object pnUsuario: TPanel
-      Left = 800
+      Left = 789
       Top = 0
       Width = 48
       Height = 57
@@ -205,7 +207,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       BevelOuter = bvNone
       Caption = 'pnUsuario'
       TabOrder = 0
-      object btnUsuario: TcxButton
+      object btnEnviar: TcxButton
         Left = 0
         Top = 0
         Width = 48
@@ -257,11 +259,11 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         SpeedButtonOptions.CanBeFocused = False
         SpeedButtonOptions.Flat = True
         TabOrder = 0
-        OnClick = btnUsuarioClick
+        OnClick = btnEnviarClick
       end
     end
     object pnNomeUsuario: TPanel
-      Left = 720
+      Left = 709
       Top = 0
       Width = 80
       Height = 57
@@ -329,7 +331,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       end
     end
     object pnClose: TPanel
-      Left = 848
+      Left = 837
       Top = 0
       Width = 84
       Height = 57
@@ -373,6 +375,8 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         ParentFont = False
         OnClick = btnCloseClick
         OnKeyDown = btnCloseKeyDown
+        ExplicitLeft = 6
+        ExplicitTop = -3
       end
     end
   end
@@ -380,7 +384,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Left = 0
     Top = 57
     Width = 137
-    Height = 532
+    Height = 512
     Align = alLeft
     BevelOuter = bvNone
     Color = clYellow
@@ -586,7 +590,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       ParentFont = False
       OnClick = BtnVendasClick
     end
-    object btnFaturar: TcxButton
+    object BtnFaturar: TcxButton
       Left = 0
       Top = 225
       Width = 137
@@ -631,10 +635,10 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 4
-      Font.Charset = DEFAULT_CHARSET
+      Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
-      Font.Name = 'Tahoma'
+      Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
     end

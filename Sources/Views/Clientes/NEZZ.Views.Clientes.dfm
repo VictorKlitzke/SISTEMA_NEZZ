@@ -3,8 +3,8 @@ object NEZZViewsClientes: TNEZZViewsClientes
   Top = 0
   BorderStyle = bsNone
   Caption = 'NEZZViewsClientes'
-  ClientHeight = 700
-  ClientWidth = 1145
+  ClientHeight = 629
+  ClientWidth = 969
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,27 +19,29 @@ object NEZZViewsClientes: TNEZZViewsClientes
   TextHeight = 13
   object pnContent: TPanel
     Left = 0
-    Top = 65
-    Width = 1145
-    Height = 587
+    Top = 59
+    Width = 969
+    Height = 522
     Align = alClient
     BevelOuter = bvNone
     Color = clBlack
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = 55
+    ExplicitHeight = 526
     object dsDadosCliente: TcxGrid
       Left = 0
       Top = 0
-      Width = 1145
-      Height = 587
+      Width = 969
+      Height = 522
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitHeight = 526
       object dsDadosClienteDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         OnCellDblClick = dsDadosClienteDBTableView1CellDblClick
         DataController.DataSource = dsClientes
-        DataController.DetailKeyFieldNames = 'NOME'
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
         DataController.Summary.SummaryGroups = <>
@@ -54,16 +56,17 @@ object NEZZViewsClientes: TNEZZViewsClientes
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 652
-    Width = 1145
+    Top = 581
+    Width = 969
     Height = 48
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
+    OnClick = pnFooterClick
     object btnEditar: TcxButton
-      Left = 941
+      Left = 765
       Top = 0
       Width = 102
       Height = 48
@@ -93,7 +96,7 @@ object NEZZViewsClientes: TNEZZViewsClientes
       OnClick = btnEditarClick
     end
     object btnDeletar: TcxButton
-      Left = 1043
+      Left = 867
       Top = 0
       Width = 102
       Height = 48
@@ -123,7 +126,7 @@ object NEZZViewsClientes: TNEZZViewsClientes
       OnClick = btnDeletarClick
     end
     object btnAdicionar: TcxButton
-      Left = 839
+      Left = 663
       Top = 0
       Width = 102
       Height = 48
@@ -171,7 +174,7 @@ object NEZZViewsClientes: TNEZZViewsClientes
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 1145
+    Width = 969
     Height = 41
     Align = alTop
     BevelOuter = bvNone
@@ -194,7 +197,7 @@ object NEZZViewsClientes: TNEZZViewsClientes
       ExplicitHeight = 37
     end
     object pnClose: TPanel
-      Left = 1093
+      Left = 917
       Top = 0
       Width = 52
       Height = 41
@@ -242,77 +245,55 @@ object NEZZViewsClientes: TNEZZViewsClientes
   object pnPesquisa: TPanel
     Left = 0
     Top = 41
-    Width = 1145
-    Height = 24
+    Width = 969
+    Height = 18
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 3
     object checkoutNome: TCheckBox
-      Left = 973
+      Left = 797
       Top = 0
       Width = 60
-      Height = 24
+      Height = 18
       Align = alRight
       Caption = 'Nome'
       TabOrder = 0
+      ExplicitHeight = 14
     end
     object checkoutCodigo: TCheckBox
-      Left = 1033
+      Left = 857
       Top = 0
       Width = 60
-      Height = 24
+      Height = 18
       Align = alRight
       Caption = 'Codigo'
       TabOrder = 2
+      ExplicitHeight = 14
     end
     object checkoutCNPJ: TCheckBox
-      Left = 1093
+      Left = 917
       Top = 0
       Width = 52
-      Height = 24
+      Height = 18
       Align = alRight
       Caption = 'CNPJ'
       TabOrder = 3
+      ExplicitHeight = 14
     end
     object edPesquisar: TEdit
       Left = 0
       Top = 0
-      Width = 689
-      Height = 24
+      Width = 529
+      Height = 18
       Align = alLeft
+      BevelInner = bvNone
+      BorderStyle = bsNone
       TabOrder = 1
       TextHint = 'Pesquisar'
       OnChange = edPesquisarChange
-      ExplicitHeight = 21
-    end
-    object btnBuscar: TcxButton
-      Left = 689
-      Top = 0
-      Width = 30
-      Height = 24
-      Align = alLeft
-      OptionsImage.Glyph.SourceDPI = 96
-      OptionsImage.Glyph.Data = {
-        89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
-        F80000000970485973000000B1000000B101C62D498D0000001974455874536F
-        667477617265007777772E696E6B73636170652E6F72679BEE3C1A0000014A49
-        4441544889DDD4BF2B85511CC7F1D7A51895F26336287F80F223625026FE0C06
-        C96060B0FA27944C946C8ACD8FED2E06835206068A497191AE5FC3736EF7D075
-        9FE77619F8D4E99C3A9FF3799FBECFF739FC75E5AAEC356200A368C1238EB08B
-        E77AC1E338C57B85718DE97AC267F11A05DEE23804C7A055D52B505163780B01
-        17989494AAA47EE423C8422DE1399C45E19DDFF89AB11F7C0F68CB0A18896E36
-        91E2ED423178E7B30216956BDE98E285C3E0DFAA666A88D6A5925C4A3E729ACE
-        C35CB54431E026CB81481D617EC80A38890EF6A584B76228ACF3192FA4095792
-        BAE625DDF29D5683EF053D590130A5DC49FB926E89D51A85BF63A396F09256A2
-        80220EB0861D147CFE9B0B18AE1590C31C9E547E8B8A58C77D3D1068C70C36B1
-        876D2CA13BEC0FFF04244D83B8537E3646FF2CE46BB97A7F0B52EAB2E5DF0090
-        DC7C59F919F907FA000A9969242782C8540000000049454E44AE426082}
-      SpeedButtonOptions.CanBeFocused = False
-      SpeedButtonOptions.Flat = True
-      TabOrder = 4
-      OnClick = btnBuscarClick
+      ExplicitHeight = 14
     end
   end
   object dsClientes: TDataSource

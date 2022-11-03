@@ -13,48 +13,49 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   cxGraphics,
-  cxControls,
   cxLookAndFeels,
   cxLookAndFeelPainters,
-  cxContainer,
-  cxEdit,
   Vcl.Menus,
   Vcl.StdCtrls,
   cxButtons,
-  cxTextEdit,
   Vcl.ExtCtrls,
-  Data.DB,
-  System.UITypes;
+  cxControls,
+  cxContainer,
+  cxEdit,
+  cxTextEdit,
+  NEZZ.Factory.Usuario,
+  NEZZ.Models.Usuario,
+  NEZZ.Services.Query,
+  NEZZ.Views.MSG_CRUD,
+  NEZZ.Views.Usuario.Login;
 
 type
   TNEZZViewsUsuarioAdicionar = class(TForm)
-    dsUsuarios: TDataSource;
+    pnHeader: TPanel;
     pnContent: TPanel;
-    lbCadastrar: TLabel;
+    pnFooter: TPanel;
+    btnClose: TcxButton;
+    pnClose: TPanel;
     edNome: TcxTextEdit;
     edLogin: TcxTextEdit;
     edSenha: TcxTextEdit;
     edCidade: TcxTextEdit;
-    edEndereco: TcxTextEdit;
     edBairro: TcxTextEdit;
-    pnButtons: TPanel;
-    btnLimpar: TcxButton;
-    btnSalvar: TcxButton;
-    pnHeader: TPanel;
-    lbusuarios: TLabel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
+    edEndereco: TcxTextEdit;
     edCEP: TcxTextEdit;
+    Label1: TLabel;
+    btnSalvar: TcxButton;
+    BtnLimpar: TcxButton;
     procedure btnCloseClick(Sender: TObject);
+    procedure BtnLimparClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
-    procedure btnLimparClick(Sender: TObject);
   private
-    { Private declarations }
-  public
-    procedure ValidarUsuario(Sender: TObject;
+    procedure validarLogin(Sender: TObject;
     var DisplayValue: Variant;
     var ErrorText: TCaption;
     var Error: Boolean);
+  public
+
   end;
 
 var
@@ -62,27 +63,7 @@ var
 
 implementation
 
-uses
-  NEZZ.Factory.Autenticacao,
-  NEZZ.Factory.Usuario;
-
 {$R *.dfm}
-
-procedure TNEZZViewsUsuarioAdicionar.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TNEZZViewsUsuarioAdicionar.btnLimparClick(Sender: TObject);
-begin
-  edNome.Clear;
-  edLogin.Clear;
-  edSenha.Clear;
-  edCidade.Clear;
-  edEndereco.Clear;
-  edBairro.Clear;
-  edCEP.Clear;
-end;
 
 procedure TNEZZViewsUsuarioAdicionar.btnSalvarClick(Sender: TObject);
 begin
@@ -91,8 +72,8 @@ begin
   edLogin.ValidateEdit();
   edSenha.ValidateEdit();
   edCidade.ValidateEdit();
-  edEndereco.ValidateEdit();
   edBairro.ValidateEdit();
+  edEndereco.ValidateEdit();
   edCEP.ValidateEdit();
 
   try
@@ -103,12 +84,12 @@ begin
         edLogin.Text,
         edSenha.Text,
         edCidade.Text,
-        edEndereco.Text,
         edBairro.Text,
+        edEndereco.Text,
         edCEP.Text
       );
 
-    MessageDlg('Usúario registrado com sucesso' , mtInformation , [mbOk] , 0);
+    MessageDlg('Usúario registrado com sucesso!!' , mtInformation , [mbOK] , 0);
     Close;
   except
     on e: Exception do
@@ -117,28 +98,44 @@ begin
       edNome.SetFocus;
     end;
   end;
-
 end;
 
-procedure TNEZZViewsUsuarioAdicionar.ValidarUsuario(Sender: TObject;
-  var DisplayValue: Variant;
-  var ErrorText: TCaption;
-  var Error: Boolean);
+procedure TNEZZViewsUsuarioAdicionar.validarLogin(Sender: TObject;
+  var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
 
 var
-  LUsuario: Boolean;
+  LUsuario : Boolean;
 begin
+  inherited;
+
   LUsuario := TNEZZFactoryUsuario.New.ExisteUsuario(edLogin.Text);
-  LUsuario := TNEZZFactoryUsuario.New.ExisteUsuario(edSenha.Text);
 
   if LUsuario then
   begin
     Error := True;
-    ErrorText := 'Esse Usúario já existe!!!';
+    ErrorText := 'Já existe um usuário com esse login. Tenta outro';
     Exit;
   end;
-    Error := DisplayValue = '';
-    ErrorText := 'O campo é obrigatório'
+
+  Error := DisplayValue = '';
+  ErrorText := 'O campo é obrigatório';
+
+end;
+
+procedure TNEZZViewsUsuarioAdicionar.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TNEZZViewsUsuarioAdicionar.BtnLimparClick(Sender: TObject);
+begin
+  edNome.Clear;
+  edLogin.Clear;
+  edSenha.Clear;
+  edCidade.Clear;
+  edBairro.Clear;
+  edEndereco.Clear;
+  edCEP.Clear;
 end;
 
 end.

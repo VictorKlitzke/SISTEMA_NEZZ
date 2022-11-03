@@ -13,7 +13,6 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnHeader: TPanel
@@ -163,6 +162,13 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       TextHint = 'CEP'
       Width = 67
     end
+    object edEmail: TcxTextEdit
+      Left = 87
+      Top = 157
+      TabOrder = 8
+      TextHint = 'Email'
+      Width = 153
+    end
   end
   object pnFooter: TPanel
     Left = 0
@@ -247,16 +253,9 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       OnClick = btnSalvarClick
     end
   end
-  object edEmail: TcxTextEdit
-    Left = 87
-    Top = 198
-    TabOrder = 3
-    TextHint = 'Email'
-    Width = 153
-  end
   object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList
-    Left = 152
-    Top = 288
+    Left = 144
+    Top = 264
     object dxLayoutStandardLookAndFeel1: TdxLayoutStandardLookAndFeel
       PixelsPerInch = 96
     end

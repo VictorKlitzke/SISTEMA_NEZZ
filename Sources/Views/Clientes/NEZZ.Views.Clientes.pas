@@ -64,7 +64,6 @@ type
     checkoutNome: TCheckBox;
     checkoutCodigo: TCheckBox;
     edPesquisar: TEdit;
-    btnBuscar: TcxButton;
     dsDadosClienteDBTableView1: TcxGridDBTableView;
     dsDadosClienteLevel1: TcxGridLevel;
     dsDadosCliente: TcxGrid;
@@ -80,8 +79,9 @@ type
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
       AShift: TShiftState; var AHandled: Boolean);
     procedure btnDeletarClick(Sender: TObject);
+    procedure pnFooterClick(Sender: TObject);
   private
-    FNEZZServicesCliente: TNEZZServicesCadastrar;
+    FNEZZCliente: iNEZZServicesCadastrar;
     FNEZZFactoryCliente: iNEZZFactoryCliente;
     FNEZZModelsCliente : iNEZZModelsCliente;
   public
@@ -126,19 +126,18 @@ procedure TNEZZViewsClientes.btnDeletarClick(Sender: TObject);
 begin
   inherited;
   try
-    FNEZZServicesCliente
-    .Deletar
-    .Salvar;
+    FNEZZModelsCliente := TNEZZModelsCliente
+      .New
+      .Apagar;
 
-    MessageDlg('Deseja realmente deletar esse cliente?', mtInformation, mbYesNo, 0);
-    Close
+    MessageDlg('Cliente deletado com sucesso!!' , mtInformation , [mbOk] , 0);
+    Close;
   except
-   on e: Exception do
-   begin
-     MessageDlg('Erro ao deletar registro do cliente!' + #13 + e.message , mtWarning , [mbOk] , 0);
-   end;
+    on e: Exception do
+    begin
+      MessageDlg('Erro ao deletar registro do cliente!' + #13 + e.message , mtWarning , [mbOk] , 0);
+    end;
   end;
-  CarregarDados;
 end;
 
 procedure TNEZZViewsClientes.btnEditarClick(Sender: TObject);
@@ -163,10 +162,8 @@ end;
 
 procedure TNEZZViewsClientes.dsDadosClienteDBTableView1CellDblClick(
   Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
-  AButton: TMouseButton; AShift: TShiftState;
-  var AHandled: Boolean);
+  AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
 begin
-
   if not Assigned(NEZZViewsClienteEditar) then
     Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
 
@@ -175,7 +172,6 @@ begin
   FreeAndNil(NEZZViewsClienteEditar);
 
   CarregarDados;
-
 end;
 
 procedure TNEZZViewsClientes.edPesquisarChange(Sender: TObject);
@@ -200,9 +196,17 @@ procedure TNEZZViewsClientes.FormCreate(Sender: TObject);
 begin
   CarregarDados;
 end;
+
 procedure TNEZZViewsClientes.FormShow(Sender: TObject);
 begin
-  pnContent.Top :=  Trunc((ClientHeight/2) - (pnContent.Height/2));
-  pnContent.Left:= Trunc((ClientWidth/2) - (pnContent.Width/2));
+pnContent.Top :=  Trunc((ClientHeight/2) - (pnContent.Height/2));
+pnContent.Left:= Trunc((ClientWidth/2) - (pnContent.Width/2));
 end;
+
+procedure TNEZZViewsClientes.pnFooterClick(Sender: TObject);
+begin
+  Width := 969;
+  Height := 48;
+end;
+
 end.

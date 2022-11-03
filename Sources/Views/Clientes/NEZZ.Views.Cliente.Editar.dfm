@@ -2,8 +2,8 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  ClientHeight = 269
-  ClientWidth = 483
+  ClientHeight = 242
+  ClientWidth = 415
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,13 +19,14 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 483
+    Width = 415
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 483
     object lbCRUD: TLabel
       Left = 0
       Top = 0
@@ -42,13 +43,14 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
       ExplicitHeight = 19
     end
     object pnClose: TPanel
-      Left = 436
+      Left = 368
       Top = 0
       Width = 47
       Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 436
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -89,16 +91,18 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 228
-    Width = 483
+    Top = 201
+    Width = 415
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    object btnSalvar: TcxButton
-      Left = 383
+    ExplicitTop = 228
+    ExplicitWidth = 483
+    object BtnSalvar: TcxButton
+      Left = 315
       Top = 0
       Width = 100
       Height = 41
@@ -144,86 +148,160 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      OnClick = btnSalvarClick
+      OnClick = BtnSalvarClick
+      ExplicitLeft = 383
     end
   end
   object pnContent: TPanel
     Left = 0
     Top = 41
-    Width = 483
-    Height = 187
+    Width = 415
+    Height = 160
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    object edNome: TcxTextEdit
+    ExplicitWidth = 483
+    ExplicitHeight = 187
+    object lbNome: TLabel
+      Left = 8
+      Top = 3
+      Width = 27
+      Height = 13
+      Caption = 'Nome'
+    end
+    object lbRazao: TLabel
+      Left = 215
+      Top = 3
+      Width = 60
+      Height = 13
+      Caption = 'Raz'#227'o Social'
+    end
+    object lbCidade: TLabel
+      Left = 7
+      Top = 77
+      Width = 33
+      Height = 13
+      Caption = 'Cidade'
+    end
+    object lbCEP: TLabel
+      Left = 8
+      Top = 113
+      Width = 19
+      Height = 13
+      Caption = 'CEP'
+    end
+    object lbEmail: TLabel
+      Left = 71
+      Top = 113
+      Width = 24
+      Height = 13
+      Caption = 'Email'
+    end
+    object lbCPF: TLabel
+      Left = 8
+      Top = 39
+      Width = 19
+      Height = 13
+      Caption = 'CPF'
+    end
+    object Label7: TLabel
+      Left = 216
+      Top = 39
+      Width = 39
+      Height = 13
+      Caption = 'Contato'
+    end
+    object Label8: TLabel
+      Left = 217
+      Top = 77
+      Width = 28
+      Height = 13
+      Caption = 'Bairro'
+    end
+    object Label9: TLabel
+      Left = 214
+      Top = 113
+      Width = 45
+      Height = 13
+      Caption = 'Endere'#231'o'
+    end
+    object edNome: TcxDBTextEdit
       Left = 6
-      Top = 12
+      Top = 16
+      DataBinding.DataField = 'NOME'
+      DataBinding.DataSource = dsEditarCliente
       TabOrder = 0
-      TextHint = 'Cliente'
-      Width = 226
+      Width = 195
     end
-    object edRazao: TcxTextEdit
-      Left = 248
-      Top = 12
+    object edRazao: TcxDBTextEdit
+      Left = 214
+      Top = 16
+      DataBinding.DataField = 'RAZAO_SOCIAL'
+      DataBinding.DataSource = dsEditarCliente
       TabOrder = 1
-      TextHint = 'Raz'#227'o Social'
-      Width = 226
+      Width = 195
     end
-    object edCPF: TcxTextEdit
+    object edCPF: TcxDBTextEdit
       Left = 6
-      Top = 58
-      Style.BorderStyle = ebs3D
+      Top = 54
+      DataBinding.DataField = 'CPF'
+      DataBinding.DataSource = dsEditarCliente
       TabOrder = 2
-      TextHint = 'CPF'
-      Width = 226
+      Width = 195
     end
-    object edContato: TcxTextEdit
-      Left = 248
-      Top = 58
+    object edContato: TcxDBTextEdit
+      Left = 214
+      Top = 54
+      DataBinding.DataField = 'CONTATO'
+      DataBinding.DataSource = dsEditarCliente
       TabOrder = 3
-      TextHint = 'Telefone'
-      Width = 226
+      Width = 195
     end
-    object edCidade: TcxTextEdit
-      Left = 6
-      Top = 104
+    object edCidade: TcxDBTextEdit
+      Left = 5
+      Top = 91
+      DataBinding.DataField = 'CIDADE'
+      DataBinding.DataSource = dsEditarCliente
       TabOrder = 4
-      TextHint = 'Cidade'
-      Width = 226
+      Width = 195
     end
-    object edBairro: TcxTextEdit
-      Left = 248
-      Top = 104
+    object edBairro: TcxDBTextEdit
+      Left = 216
+      Top = 91
+      DataBinding.DataField = 'BAIRRO'
+      DataBinding.DataSource = dsEditarCliente
       TabOrder = 5
-      TextHint = 'Bairro'
-      Width = 226
+      Width = 195
     end
-    object edEndereco: TcxTextEdit
-      Left = 248
-      Top = 149
+    object edEndereco: TcxDBTextEdit
+      Left = 214
+      Top = 128
+      DataBinding.DataField = 'ENDERECO'
+      DataBinding.DataSource = dsEditarCliente
       TabOrder = 6
-      TextHint = 'Endere'#231'o'
-      Width = 226
+      Width = 195
     end
-    object edCEP: TcxTextEdit
-      Left = 6
-      Top = 149
+    object edEmail: TcxDBTextEdit
+      Left = 71
+      Top = 128
+      DataBinding.DataField = 'EMAIL'
+      DataBinding.DataSource = dsEditarCliente
       TabOrder = 7
-      TextHint = 'CEP'
-      Width = 67
+      Width = 129
     end
-    object edEmail: TcxTextEdit
-      Left = 79
-      Top = 149
+    object edCEP: TcxDBTextEdit
+      Left = 6
+      Top = 128
+      DataBinding.DataField = 'CEP'
+      DataBinding.DataSource = dsEditarCliente
       TabOrder = 8
-      TextHint = 'Email'
-      Width = 153
+      Width = 59
     end
   end
-  object dsDadosEditar: TDataSource
-    Left = 224
-    Top = 120
+  object dsEditarCliente: TDataSource
+    Left = 192
+    Top = 192
   end
 end

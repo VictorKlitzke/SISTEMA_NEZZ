@@ -10,12 +10,14 @@ uses
   NEZZ.Models.Cliente;
 
 type
+  TNEZZFactoryTaskLog = procedure(AValue : string) of object;
+
   iNEZZFactoryCliente = interface
     ['{1592C510-8A28-408D-BD1A-F6430ADE3590}']
 
     function ClienteExiste(ANome : string): Boolean;
     function AdicionarCliente(ANome,ARazao,AContato,ACEP,AEmail,ACidade,ABairro,AEndereco,ACPF : string): iNEZZFactoryCliente;
-    function AtualizarCliente(ANome,ARazao,AContato,ACEP,AEmail,ACidade,ABairro,AEndereco,ACPF : string): iNEZZFactoryCliente;
+    function AtualizarCliente(ANome : string): iNEZZFactoryCliente;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryCliente;
     function DeletarCliente(ANome : integer): iNEZZFactoryCliente;
     function FiltrarCliente(ANome : string): iNEZZFactoryCliente;
@@ -26,7 +28,7 @@ type
 
   TNEZZFactoryCliente = class(TInterfacedObject, iNEZZFactoryCliente)
   private
-    FNEZZSessao : iNEZZControllerSessao;
+    FNEZZSesao : iNEZZControllerSessao;
     FNEZZCliente: iNEZZServicesCadastrar;
 
   public
@@ -38,7 +40,7 @@ type
     function ClienteExiste(ANome : string): Boolean;
 
     function AdicionarCliente(ANome,ARazao,AContato,ACEP,AEmail,ACidade,ABairro,AEndereco,ACPF : string): iNEZZFactoryCliente;
-    function AtualizarCliente(ANome,ARazao,AContato,ACEP,AEmail,ACidade,ABairro,AEndereco,ACPF : string): iNEZZFactoryCliente;
+    function AtualizarCliente(ANome : string): iNEZZFactoryCliente;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryCliente;
     function DeletarCliente(ANome : integer): iNEZZFactoryCliente;
     function FiltrarCliente(ANome : string): iNEZZFactoryCliente;
@@ -51,13 +53,13 @@ implementation
 { TNEZZFactoryCliente }
 
 function TNEZZFactoryCliente.AdicionarCliente(ANome,
-  ARazao,
-  AContato,
-  ACEP,
-  AEmail,
-  ACidade,
-  ABairro,
-  AEndereco,
+ARazao,
+AContato,
+ACEP,
+AEmail,
+ACidade,
+ABairro,
+AEndereco,
 ACPF: string): iNEZZFactoryCliente;
 begin
   Result := Self;
@@ -77,23 +79,16 @@ begin
     .Salvar;
 end;
 
-function TNEZZFactoryCliente.AtualizarCliente(ANome,
-  ARazao,
-  AContato,
-  ACEP,
-  AEmail,
-  ACidade,
-  ABairro,
-  AEndereco,
-  ACPF: string): iNEZZFactoryCliente;
+function TNEZZFactoryCliente.AtualizarCliente(
+  ANome: string): iNEZZFactoryCliente;
 begin
   Result := Self;
 
   TNEZZModelsCliente
     .New
-    .Filtrar('ID' , ANome)
+    .Filtrar('NOME' , ANome)
     .Editar
-    .Salvar;
+    .Salvar
 end;
 
 function TNEZZFactoryCliente.ClienteExiste(ANome: string): Boolean;
@@ -115,6 +110,7 @@ end;
 
 constructor TNEZZFactoryCliente.Create;
 begin
+
   FNEZZCliente := TNEZZServicesCadastrar
     .New
     .Apelido('ID', '#')
@@ -180,7 +176,6 @@ begin
   Result := Self;
 
   FNEZZCliente
-    .SomenteLeitura
     .Abrir;
 end;
 

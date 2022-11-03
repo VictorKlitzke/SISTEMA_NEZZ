@@ -1,26 +1,42 @@
-unit login;
+unit NEZZ.Views.Login;
 
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxLookAndFeels,
-  cxLookAndFeelPainters, Vcl.Menus, cxControls, cxContainer, cxEdit, cxTextEdit,
-  Vcl.StdCtrls, dxGDIPlusClasses, Vcl.ExtCtrls, cxButtons;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  cxGraphics,
+  cxLookAndFeels,
+  cxLookAndFeelPainters,
+  Vcl.Menus,
+  cxControls,
+  cxContainer,
+  cxEdit,
+  cxTextEdit,
+  Vcl.StdCtrls,
+  dxGDIPlusClasses,
+  Vcl.ExtCtrls,
+  cxButtons;
 
 type
-  TForm2 = class(TForm)
-    Panel1: TPanel;
-    cxButton1: TcxButton;
-    Image2: TImage;
+  TNEZZViewsUsuarioLogin = class(TForm)
+    pnContent: TPanel;
+    btnLogin: TcxButton;
     Label1: TLabel;
     Label2: TLabel;
     Image3: TImage;
     Image4: TImage;
-    Panel2: TPanel;
-    Panel3: TPanel;
-    cxTextEdit1: TcxTextEdit;
-    cxTextEdit2: TcxTextEdit;
+    pnRigth: TPanel;
+    pnUsuario: TPanel;
+    edLogin: TcxTextEdit;
+    edSenha: TcxTextEdit;
 
 
 
@@ -31,14 +47,11 @@ type
   end;
 
 var
-  Form2: TForm2;
+  NEZZViewsUsuarioLogin: TNEZZViewsUsuarioLogin;
 
 implementation
 
 {$R *.dfm}
-
-
-
 
 
 end.

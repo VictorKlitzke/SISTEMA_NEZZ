@@ -3,7 +3,6 @@ unit NEZZ.Views.Usuario;
 interface
 
 uses
-<<<<<<< HEAD
   Winapi.Windows,
   Winapi.Messages,
   System.SysUtils,
@@ -11,8 +10,7 @@ uses
   System.Classes,
   Vcl.Graphics,
   Vcl.Controls,
-  Vcl.Forms,
-  Vcl.Dialogs,
+  Vcl.Forms, Vcl.Dialogs,
   cxGraphics,
   cxLookAndFeels,
   cxLookAndFeelPainters,
@@ -21,7 +19,7 @@ uses
   cxButtons,
   Vcl.ExtCtrls,
   cxControls,
-   cxStyles,
+  cxStyles,
   cxCustomData,
   cxFilter,
   cxData,
@@ -31,8 +29,6 @@ uses
   dxDateRanges,
   Data.DB,
   cxDBData,
-  cxContainer,
-  cxTextEdit,
   cxGridLevel,
   cxClasses,
   cxGridCustomView,
@@ -40,51 +36,35 @@ uses
   cxGridTableView,
   cxGridDBTableView,
   cxGrid,
-  NEZZ.Views.Usuario.Adicionar,
-  NEZZ.Views.Clientes,
   NEZZ.Factory.Usuario,
-  NEZZ.Models.Usuario,
-  NEZZ.Services.Conexao,
+  NEZZ.Views.Usuario.Adicionar,
+  Vcl.WinXCtrls,
   NEZZ.Services.Query;
-=======
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxLookAndFeels,
-  cxLookAndFeelPainters, Vcl.Menus, Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls;
->>>>>>> TelaLogin
 
 type
   TNEZZViewsUsuario = class(TForm)
     pnHeader: TPanel;
-<<<<<<< HEAD
-    pnFooter: TPanel;
-    pnContent: TPanel;
-    GridUsuariosDBTableView1: TcxGridDBTableView;
-    GridUsuariosLevel1: TcxGridLevel;
-    GridUsuarios: TcxGrid;
-    dsUsuarios: TDataSource;
-    btnClose: TcxButton;
-    pnClone: TPanel;
-    btnAdicionar: TcxButton;
-    cxButton1: TcxButton;
-    Label1: TLabel;
-    procedure btnCloseClick(Sender: TObject);
-    procedure btnAdicionarClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
-  private
-    FNEZZFactoryUsuario: iNEZZFactoryUsuario;
-  public
-    procedure CarregarDados;
-=======
-    pnGRID: TPanel;
     pnContent: TPanel;
     pnFooter: TPanel;
     pnClose: TPanel;
     btnClose: TcxButton;
+    dsUsuariosGridDBTableView1: TcxGridDBTableView;
+    dsUsuariosGridLevel1: TcxGridLevel;
+    dsUsuariosGrid: TcxGrid;
+    btnAdicionar: TcxButton;
+    lbUsuario: TLabel;
+    dsUsuarios: TDataSource;
+    pnPesquisa: TPanel;
+    edPesquisa: TEdit;
+    procedure btnCloseClick(Sender: TObject);
+    procedure btnAdicionarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure edPesquisaChange(Sender: TObject);
+    procedure btnBuscarClick(Sender: TObject);
   private
-    { Private declarations }
+      FNEZZFactoryUsuario: iNEZZFactoryUsuario;
   public
-    { Public declarations }
->>>>>>> TelaLogin
+    procedure CarregarDados;
   end;
 
 var
@@ -94,20 +74,27 @@ implementation
 
 {$R *.dfm}
 
-<<<<<<< HEAD
+{ TNEZZViewsUsuario }
+
 procedure TNEZZViewsUsuario.btnAdicionarClick(Sender: TObject);
 begin
   try
     if not Assigned(NEZZViewsUsuarioAdicionar) then
       Application.CreateForm(TNEZZViewsUsuarioAdicionar, NEZZViewsUsuarioAdicionar);
 
-  NEZZViewsUsuarioAdicionar.ShowModal;
-  NEZZViewsUsuarioAdicionar.Free;
+    NEZZViewsUsuarioAdicionar.ShowModal;
+    NEZZViewsUsuarioAdicionar.Free;
 
-  CarregarDados;
+    CarregarDados;
+
   finally
     FreeAndNil(NEZZViewsUsuarioAdicionar);
   end;
+end;
+
+procedure TNEZZViewsUsuario.btnBuscarClick(Sender: TObject);
+begin
+  CarregarDados;
 end;
 
 procedure TNEZZViewsUsuario.btnCloseClick(Sender: TObject);
@@ -122,18 +109,34 @@ begin
     .DataSource(dsUsuarios)
     .ListarUsuarios;
 
-  with GridUsuariosDBTableView1 do
+  with dsUsuariosGridDBTableView1 do
   begin
     ClearItems;
     DataController.CreateAllItems();
     ApplyBestFit();
   end;
 end;
+
+procedure TNEZZViewsUsuario.edPesquisaChange(Sender: TObject);
+begin
+//  if edPesquisa.Text = '' then
+//    FNEZZFactoryUsuario := TNEZZFactoryUsuario
+//      .New
+//      .DataSource(dsUsuarios)
+//      .ListarUsuarios;
+//  end
+//  else
+//  begin
+//    FNEZZFactoryUsuario := TNEZZFactoryUsuario
+//      .New
+//      .DataSource(dsUsuarios)
+//      .FiltrarUsuario(edPesquisa.Text);
+//  end;
+end;
+
 procedure TNEZZViewsUsuario.FormCreate(Sender: TObject);
 begin
   CarregarDados;
 end;
 
-=======
->>>>>>> TelaLogin
 end.

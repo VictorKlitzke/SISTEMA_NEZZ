@@ -3,56 +3,28 @@ unit NEZZ.Views.Vendas;
 interface
 
 uses
-  Winapi.Windows,
-  Winapi.Messages,
-  System.SysUtils,
-  System.Variants,
-  System.Classes,
-  Vcl.Graphics,
-  Vcl.Controls,
-  Vcl.Forms,
-  Vcl.Dialogs,
-  Vcl.ExtCtrls,
-  cxGraphics,
-  cxLookAndFeels,
-  cxLookAndFeelPainters,
-  Vcl.Menus,
-  cxControls,
-  cxStyles,
-  cxCustomData,
-  cxFilter,
-  cxData,
-  cxDataStorage,
-  cxEdit,
-  cxNavigator,
-  dxDateRanges,
-  Data.DB,
-  cxDBData,
-  cxGridLevel,
-  cxClasses,
-  cxGridCustomView,
-  cxGridCustomTableView,
-  cxGridTableView,
-  cxGridDBTableView,
-  cxGrid,
-  Vcl.StdCtrls,
-  cxButtons;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxStyles, cxCustomData, cxFilter, cxData,
+  cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB, cxDBData,
+  Vcl.Menus, Vcl.StdCtrls, cxButtons, cxGridLevel, cxClasses, cxGridCustomView,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid,
+  Vcl.ExtCtrls;
 
 type
-  TNEZZViewsVendas = class(TForm)
+  TNEZZViewsVenda = class(TForm)
+    dsVendas: TDataSource;
     pnContent: TPanel;
-    pnFooter: TPanel;
-    pnClose: TPanel;
-    pnHeader: TPanel;
-    btnClose: TcxButton;
-    lbVendas: TLabel;
+    dsVendasGrid: TcxGrid;
     dsVendasGridDBTableView1: TcxGridDBTableView;
     dsVendasGridLevel1: TcxGridLevel;
-    dsVendasGrid: TcxGrid;
-    dsVendas: TDataSource;
+    pnFooter: TPanel;
     btnDeletar: TcxButton;
     btnImprimir: TcxButton;
-    procedure btnCloseClick(Sender: TObject);
+    pnHeader: TPanel;
+    lbVendas: TLabel;
+    pnClose: TPanel;
+    btnClose: TcxButton;
   private
     { Private declarations }
   public
@@ -60,15 +32,10 @@ type
   end;
 
 var
-  NEZZViewsVendas: TNEZZViewsVendas;
+  NEZZViewsVenda: TNEZZViewsVenda;
 
 implementation
 
 {$R *.dfm}
-
-procedure TNEZZViewsVendas.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
 
 end.

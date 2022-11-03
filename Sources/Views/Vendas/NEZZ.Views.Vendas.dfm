@@ -1,9 +1,10 @@
-object NEZZViewsVendas: TNEZZViewsVendas
+object NEZZViewsVenda: TNEZZViewsVenda
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  ClientHeight = 700
-  ClientWidth = 1145
+  Caption = 'NEZZViewsVenda'
+  ClientHeight = 629
+  ClientWidth = 969
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,25 +18,24 @@ object NEZZViewsVendas: TNEZZViewsVendas
   object pnContent: TPanel
     Left = 0
     Top = 48
-    Width = 1145
-    Height = 604
+    Width = 969
+    Height = 533
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 40
-    ExplicitTop = 41
-    ExplicitHeight = 594
+    ExplicitLeft = -618
+    ExplicitTop = -362
+    ExplicitWidth = 1145
+    ExplicitHeight = 604
     object dsVendasGrid: TcxGrid
       Left = 0
       Top = 0
-      Width = 1145
-      Height = 604
+      Width = 969
+      Height = 533
       Align = alClient
       TabOrder = 0
-      ExplicitLeft = 680
-      ExplicitTop = 328
-      ExplicitWidth = 250
-      ExplicitHeight = 200
+      ExplicitWidth = 1145
+      ExplicitHeight = 604
       object dsVendasGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.Summary.DefaultGroupSummaryItems = <>
@@ -52,17 +52,19 @@ object NEZZViewsVendas: TNEZZViewsVendas
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 652
-    Width = 1145
+    Top = 581
+    Width = 969
     Height = 48
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 658
+    ExplicitLeft = -618
+    ExplicitTop = 194
+    ExplicitWidth = 1145
     object btnDeletar: TcxButton
-      Left = 1043
+      Left = 867
       Top = 0
       Width = 102
       Height = 48
@@ -89,10 +91,10 @@ object NEZZViewsVendas: TNEZZViewsVendas
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
-      ExplicitLeft = 1070
+      ExplicitLeft = 1043
     end
     object btnImprimir: TcxButton
-      Left = 941
+      Left = 765
       Top = 0
       Width = 102
       Height = 48
@@ -133,20 +135,21 @@ object NEZZViewsVendas: TNEZZViewsVendas
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
-      ExplicitLeft = 935
-      ExplicitTop = 6
+      ExplicitLeft = 941
     end
   end
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 1145
+    Width = 969
     Height = 48
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
+    ExplicitLeft = -618
+    ExplicitWidth = 1145
     object lbVendas: TLabel
       Left = 0
       Top = 0
@@ -163,14 +166,14 @@ object NEZZViewsVendas: TNEZZViewsVendas
       ExplicitHeight = 37
     end
     object pnClose: TPanel
-      Left = 1080
+      Left = 904
       Top = 0
       Width = 65
       Height = 48
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitHeight = 65
+      ExplicitLeft = 1080
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -205,14 +208,11 @@ object NEZZViewsVendas: TNEZZViewsVendas
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
-        OnClick = btnCloseClick
-        ExplicitWidth = 52
-        ExplicitHeight = 41
       end
     end
   end
   object dsVendas: TDataSource
-    Left = 800
-    Top = 592
+    Left = 499
+    Top = 214
   end
 end

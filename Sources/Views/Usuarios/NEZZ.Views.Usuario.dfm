@@ -2,13 +2,8 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   Left = 0
   Top = 0
   BorderStyle = bsNone
-<<<<<<< HEAD
-  ClientHeight = 700
-  ClientWidth = 1145
-=======
-  ClientHeight = 446
-  ClientWidth = 921
->>>>>>> TelaLogin
+  ClientHeight = 629
+  ClientWidth = 969
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,30 +11,25 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-<<<<<<< HEAD
   Position = poScreenCenter
   OnCreate = FormCreate
-=======
->>>>>>> TelaLogin
   PixelsPerInch = 96
   TextHeight = 13
   object pnHeader: TPanel
     Left = 0
     Top = 0
-<<<<<<< HEAD
-    Width = 1145
-    Height = 48
+    Width = 969
+    Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 807
-    object Label1: TLabel
+    object lbUsuario: TLabel
       Left = 0
       Top = 0
-      Width = 1145
-      Height = 48
+      Width = 136
+      Height = 41
       Align = alLeft
       Caption = 'US'#218'ARIOS'
       Font.Charset = ANSI_CHARSET
@@ -48,45 +38,21 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitHeight = 37
     end
-    object pnClone: TPanel
-      Left = 1099
-      Top = 0
-      Width = 46
-      Height = 48
-      Align = alRight
-      BevelOuter = bvNone
-      TabOrder = 0
-      ExplicitLeft = 761
-      object btnClose: TcxButton
-        Left = 0
-        Top = 0
-        Width = 46
-        Height = 48
-=======
-    Width = 921
-    Height = 41
-    Align = alTop
-    BevelOuter = bvNone
-    TabOrder = 0
-    ExplicitLeft = 168
-    ExplicitTop = 96
-    ExplicitWidth = 185
     object pnClose: TPanel
-      Left = 863
+      Left = 911
       Top = 0
       Width = 58
       Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 800
       object btnClose: TcxButton
         Left = 0
         Top = 0
         Width = 58
         Height = 41
->>>>>>> TelaLogin
         Align = alClient
         BiDiMode = bdRightToLeftReadingOnly
         OptionsImage.Glyph.SourceDPI = 96
@@ -116,25 +82,56 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
-<<<<<<< HEAD
         OnClick = btnCloseClick
+      end
+    end
+  end
+  object pnContent: TPanel
+    Left = 0
+    Top = 59
+    Width = 969
+    Height = 522
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 1
+    ExplicitTop = 55
+    ExplicitHeight = 526
+    object dsUsuariosGrid: TcxGrid
+      Left = 0
+      Top = 0
+      Width = 969
+      Height = 522
+      Align = alClient
+      TabOrder = 0
+      ExplicitHeight = 526
+      object dsUsuariosGridDBTableView1: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        DataController.DataSource = dsUsuarios
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsSelection.CellSelect = False
+        OptionsView.CellAutoHeight = True
+        OptionsView.ColumnAutoWidth = True
+        OptionsView.GroupByBox = False
+      end
+      object dsUsuariosGridLevel1: TcxGridLevel
+        GridView = dsUsuariosGridDBTableView1
       end
     end
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 652
-    Width = 1145
+    Top = 581
+    Width = 969
     Height = 48
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
-    TabOrder = 1
-    ExplicitTop = 465
-    ExplicitWidth = 807
+    TabOrder = 2
     object btnAdicionar: TcxButton
-      Left = 1043
+      Left = 867
       Top = 0
       Width = 102
       Height = 48
@@ -177,119 +174,34 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnAdicionarClick
-      ExplicitLeft = 705
-    end
-    object cxButton1: TcxButton
-      Left = 941
-      Top = 0
-      Width = 102
-      Height = 48
-      Align = alRight
-      Caption = 'Deletar'
-      OptionsImage.Glyph.SourceDPI = 96
-      OptionsImage.Glyph.Data = {
-        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-        F40000000473424954080808087C0864880000000970485973000000F8000000
-        F801CFC1E6650000001974455874536F667477617265007777772E696E6B7363
-        6170652E6F72679BEE3C1A0000016E494441545885ED97BF4AC3501487BF535B
-        5B544497D2C1417D882E5DDCBBB988A3EEAE5D7C021FC14D70E9E8EA1F5C7C01
-        413BE9505D8552B58348F438E408E1725B93180395FCE072C397C339BF8473C9
-        09AA4AD2052C0387401F78052E8156AA5C298ACF017780021FC073E4BA9D8781
-        7D2B7801AC015560CFD8631E06CEAC58CBE137C6D793E42B915C75DB7B0EEF39
-        F763A90C2022E5EFEB1812DBAB22528BF019DB671D3E4E81AA06004D6044F8FA
-        F25C23A0590606C02DB064CEEA84C7EC0178F338AF0115C2E317550598078663
-        9E78D562EECDC01018F89AECC80236D29CEB09CDDBB7BCB5DF3661A62A0CC436
-        20226D116938AC21226D4FEC96882C646A0038063A0EEB188F165F04BAC06ED6
-        064A9EF8712C76EEE9E981C24061A030501800025B3FB14FC2EFBECBBD8A3B07
-        026C03D70E3B004EA340555F446493707ACECE80AA9E7BD813E0E32771F34E55
-        0FFC4F03937AA02B22BEB13CAD56BCD4333EEF00EFFCCDCFC8955BEF0BA5D50D
-        4D1D7D0D270000000049454E44AE426082}
-      SpeedButtonOptions.CanBeFocused = False
-      SpeedButtonOptions.Flat = True
-      TabOrder = 1
-      ExplicitLeft = 603
     end
   end
-  object pnContent: TPanel
+  object pnPesquisa: TPanel
     Left = 0
-    Top = 48
-    Width = 1145
-    Height = 604
-    Align = alClient
+    Top = 41
+    Width = 969
+    Height = 18
+    Align = alTop
     BevelOuter = bvNone
-    TabOrder = 2
-    ExplicitWidth = 807
-    ExplicitHeight = 417
-    object GridUsuarios: TcxGrid
+    Color = clYellow
+    ParentBackground = False
+    TabOrder = 3
+    object edPesquisa: TEdit
       Left = 0
       Top = 0
-      Width = 1145
-      Height = 604
-      Align = alClient
-      BevelOuter = bvNone
+      Width = 401
+      Height = 18
+      Align = alLeft
+      BevelInner = bvNone
+      BorderStyle = bsNone
       TabOrder = 0
-      ExplicitWidth = 807
-      ExplicitHeight = 417
-      object GridUsuariosDBTableView1: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        DataController.DataSource = dsUsuarios
-        DataController.DetailKeyFieldNames = 'NOME'
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
-        DataController.Summary.SummaryGroups = <>
-        OptionsSelection.CellSelect = False
-        OptionsView.ColumnAutoWidth = True
-        OptionsView.GroupByBox = False
-      end
-      object GridUsuariosLevel1: TcxGridLevel
-        GridView = GridUsuariosDBTableView1
-      end
+      TextHint = 'Pesquisar'
+      OnChange = edPesquisaChange
+      ExplicitHeight = 32
     end
   end
   object dsUsuarios: TDataSource
-    Left = 400
-    Top = 120
-=======
-        ExplicitWidth = 51
-      end
-    end
-  end
-  object pnGRID: TPanel
-    Left = 0
-    Top = 41
-    Width = 185
-    Height = 364
-    Align = alLeft
-    BevelOuter = bvNone
-    TabOrder = 1
-    ExplicitLeft = 376
-    ExplicitTop = 216
-    ExplicitHeight = 41
-  end
-  object pnContent: TPanel
-    Left = 185
-    Top = 41
-    Width = 736
-    Height = 364
-    Align = alClient
-    BevelOuter = bvNone
-    TabOrder = 2
-    ExplicitLeft = 376
-    ExplicitTop = 352
-    ExplicitWidth = 185
-    ExplicitHeight = 41
-  end
-  object pnFooter: TPanel
-    Left = 0
-    Top = 405
-    Width = 921
-    Height = 41
-    Align = alBottom
-    BevelOuter = bvNone
-    TabOrder = 3
-    ExplicitLeft = 480
-    ExplicitTop = 136
-    ExplicitWidth = 185
->>>>>>> TelaLogin
+    Left = 448
+    Top = 208
   end
 end

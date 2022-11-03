@@ -3,34 +3,33 @@ unit NEZZ.Factory.Autenticacao;
 interface
 
 uses
-  System.SysUtils;
+  System.SysUtils,
+  NEZZ.Services.Query,
+  NEZZ.Models.Usuario;
 
 type
-  AutenticacaoError = class(Exception);
+AutenticacaoError = class(Exception);
 
   iNEZZFactoryAutenticacao = interface
     ['{F34EBE29-0585-4700-B5EB-199C56E3F6B7}']
-    function Login(ALogin, ASenha : string): iNEZZFactoryAutenticacao;
+    function Login(ALogin, ASenha: string): iNEZZFactoryAutenticacao;
   end;
 
-  TNEZZFactoryAutenticacao = class(TInterfacedObject, iNEZZFactoryAutenticacao)
+  TNEZZFactoryAutenticacao = class (TInterfacedObject, iNEZZFactoryAutenticacao)
   private
 
   public
-  constructor Create;
-  destructor Destroy;
+    constructor Create;
+    destructor Destroy; override;
+    class function New: iNEZZFactoryAutenticacao;
 
-  class function New: iNEZZFactoryAutenticacao;
-
-  function Login(ALogin, ASenha : string): iNEZZFactoryAutenticacao;
+    function Login(ALogin, ASenha: string): iNEZZFactoryAutenticacao;
   end;
-
 implementation
 
 uses
-  BCrypt,
-  NEZZ.Models.Usuario,
-  NEZZ.Controllers.Sessao;
+  NEZZ.Controllers.Sessao,
+  BCrypt;
 
 { TNEZZFactoryAutenticacao }
 
@@ -42,6 +41,7 @@ end;
 destructor TNEZZFactoryAutenticacao.Destroy;
 begin
 
+  inherited;
 end;
 
 function TNEZZFactoryAutenticacao.Login(ALogin,
@@ -61,8 +61,9 @@ begin
   if not TBCrypt.CompareHash(ASenha, LModel.Senha) then
     raise AutenticacaoError.Create('Senha inválida');
 
-  TNEZZControllerSessao.New.Entrar(LModel.ID , LModel.Nome);
+  TNEZZControllerSessao.New.Entrar(LModel.ID , LModel.Login);
 end;
+
 
 class function TNEZZFactoryAutenticacao.New: iNEZZFactoryAutenticacao;
 begin

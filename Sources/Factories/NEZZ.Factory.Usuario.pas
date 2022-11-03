@@ -18,7 +18,7 @@ type
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryUsuario;
     function AtualizarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
     function DeletarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
-    function FiltrarCliente(ALogin,ANome : string): iNEZZFactoryUsuario;
+    function FiltrarUsuario(ALogin,ANome : string): iNEZZFactoryUsuario;
 
     function ListarUsuarios: iNEZZFactoryUsuario;
   end;
@@ -38,7 +38,7 @@ type
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryUsuario;
     function AtualizarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
     function DeletarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
-    function FiltrarCliente(ALogin,ANome : string): iNEZZFactoryUsuario;
+    function FiltrarUsuario(ALogin,ANome : string): iNEZZFactoryUsuario;
 
     function ListarUsuarios: iNEZZFactoryUsuario;
   end;
@@ -60,6 +60,7 @@ begin
 
   TNEZZModelsUsuario
     .New
+    .Inserir
     .Nome(ANome)
     .Senha(ASenha)
     .Login(ALogin)
@@ -80,9 +81,10 @@ function TNEZZFactoryUsuario.AtualizarUsuario(
   ACEP: string): iNEZZFactoryUsuario;
 begin
   Result := Self;
+
   TNEZZModelsUsuario
     .New
-    .Filtrar('ID' , ANome)
+    .Filtrar('NOME' , ANome)
     .Editar
     .Salvar;
 end;
@@ -94,7 +96,6 @@ begin
     .Apelido('ID', '#')
     .Apelido('NOME', 'CLIENTE')
     .Apelido('LOGIN', 'LOGIN')
-    .Apelido('SENHA', 'SENHA')
     .Apelido('STATUS_DESC', 'STATUS')
     .Apelido('CEP', 'CEP')
     .Apelido('CIDADE', 'CIDADE')
@@ -137,6 +138,7 @@ function TNEZZFactoryUsuario.DeletarUsuario(
   ACEP: string): iNEZZFactoryUsuario;
 begin
   Result := Self;
+
   TNEZZModelsUsuario
     .New
     .Filtrar('ID' , ALogin)
@@ -166,20 +168,21 @@ begin
     .AsInteger <> 0
 end;
 
-function TNEZZFactoryUsuario.FiltrarCliente(
+function TNEZZFactoryUsuario.FiltrarUsuario(
   ALogin,
   ANome: string): iNEZZFactoryUsuario;
 begin
   Result := Self;
+
   FNEZZUsuario
     .Filtrar('LOGIN' , ALogin)
-    .Filtrar('NOME' , ANome)
     .Abrir;
 end;
 
 function TNEZZFactoryUsuario.ListarUsuarios: iNEZZFactoryUsuario;
 begin
   Result := Self;
+
   FNEZZUsuario
     .Abrir;
 end;

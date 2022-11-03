@@ -30,8 +30,7 @@ uses
   NEZZ.Services.Query,
   NEZZViewBase,
   Data.DB,
-  NEZZ.Models.Cliente,
-  System.UITypes;
+  NEZZ.Models.Cliente, cxDBEdit;
 
 type
   TNEZZViewsClienteEditar = class(TForm)
@@ -41,28 +40,35 @@ type
     pnClose: TPanel;
     btnClose: TcxButton;
     lbCRUD: TLabel;
-    edNome: TcxTextEdit;
-    edRazao: TcxTextEdit;
-    edCPF: TcxTextEdit;
-    edContato: TcxTextEdit;
-    edCidade: TcxTextEdit;
-    edBairro: TcxTextEdit;
-    edEndereco: TcxTextEdit;
-    edCEP: TcxTextEdit;
-    edEmail: TcxTextEdit;
-    btnSalvar: TcxButton;
-    dsDadosEditar: TDataSource;
+    BtnSalvar: TcxButton;
+    dsEditarCliente: TDataSource;
+    edNome: TcxDBTextEdit;
+    edRazao: TcxDBTextEdit;
+    edCPF: TcxDBTextEdit;
+    edContato: TcxDBTextEdit;
+    edCidade: TcxDBTextEdit;
+    edBairro: TcxDBTextEdit;
+    edEndereco: TcxDBTextEdit;
+    edEmail: TcxDBTextEdit;
+    edCEP: TcxDBTextEdit;
+    lbNome: TLabel;
+    lbRazao: TLabel;
+    lbCidade: TLabel;
+    lbCEP: TLabel;
+    lbEmail: TLabel;
+    lbCPF: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
     procedure btnCloseClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject;
       var Key: Word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
-    procedure btnSalvarClick(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
   private
     FNEZZModelsClientes : iNEZZModelsCliente;
   public
-    FNEZZFactoryUsuario: TNEZZFactoryCliente;
     function Cliente(UID: integer): Integer;
-
   end;
 
 var
@@ -82,7 +88,7 @@ begin
   FNEZZModelsClientes.Filtrar('ID', UID).Editar;
 end;
 
-procedure TNEZZViewsClienteEditar.btnSalvarClick(Sender: TObject);
+procedure TNEZZViewsClienteEditar.BtnSalvarClick(Sender: TObject);
 begin
   inherited;
   edNome.ValidateEdit();
@@ -96,19 +102,21 @@ begin
   edCEP.ValidateEdit();
 
   try
-    FNEZZModelsClientes
-      .Salvar;
+    FNEZZModelsClientes.Salvar;
 
-  finally
-    MessageDlg('Otimo! Cliente atualizado com sucesso', mtInformation, mbYesNo, 0);
-    Close;
+    MessageDlg('Show! Cliente atualizado com sucesso', mtInformation, mbYesNo, 0); Close;
+  except
+    on e: Exception do
+    begin
+      MessageDlg('Ocorreu um erro ao atualizar o cliente' + #13 + e.message , mtWarning , [mbOk] , 0);
+      edNome.SetFocus;
+    end;
   end;
 end;
 
 procedure TNEZZViewsClienteEditar.FormCreate(Sender: TObject);
 begin
-  inherited;
-  FNEZZModelsClientes := TNEZZModelsCliente.New.DataSource(dsDadosEditar);
+  FNEZZModelsClientes := TNEZZModelsCliente.New.DataSource(dsEditarCliente);
 end;
 
 procedure TNEZZViewsClienteEditar.FormKeyDown(Sender: TObject; var Key: Word;
@@ -122,4 +130,5 @@ begin
     0) = mrOk then
     Close
 end;
+
 end.
