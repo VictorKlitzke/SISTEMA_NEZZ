@@ -14,10 +14,10 @@ type
     ['{1592C510-8A28-408D-BD1A-F6430ADE3590}']
 
     function ExisteUsuario(ALogin : string): Boolean;
-    function AdicionarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
+    function AdicionarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryUsuario;
-    function AtualizarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
-    function DeletarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
+    function AtualizarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
+    function DeletarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
     function FiltrarUsuario(ALogin,ANome : string): iNEZZFactoryUsuario;
 
     function ListarUsuarios: iNEZZFactoryUsuario;
@@ -34,10 +34,10 @@ type
     class function New: iNEZZFactoryUsuario;
 
     function ExisteUsuario(ALogin : string): Boolean;
-    function AdicionarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
+    function AdicionarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryUsuario;
-    function AtualizarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
-    function DeletarUsuario(ALogin,ANome,ASenha,ACidade,ABairro,AEndereco,ACEP : string): iNEZZFactoryUsuario;
+    function AtualizarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
+    function DeletarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
     function FiltrarUsuario(ALogin,ANome : string): iNEZZFactoryUsuario;
 
     function ListarUsuarios: iNEZZFactoryUsuario;
@@ -51,10 +51,7 @@ function TNEZZFactoryUsuario.AdicionarUsuario(
   ALogin,
   ANome,
   ASenha,
-  ACidade,
-  ABairro,
-  AEndereco,
-  ACEP: string): iNEZZFactoryUsuario;
+  ATelefone: string): iNEZZFactoryUsuario;
 begin
   Result := Self;
 
@@ -64,10 +61,7 @@ begin
     .Nome(ANome)
     .Senha(ASenha)
     .Login(ALogin)
-    .Cidade(ACidade)
-    .Bairro(ABairro)
-    .Endereco(AEndereco)
-    .CEP(ACEP)
+    .Telefone(ATelefone)
     .Salvar;
 end;
 
@@ -75,10 +69,7 @@ function TNEZZFactoryUsuario.AtualizarUsuario(
   ALogin,
   ANome,
   ASenha,
-  ACidade,
-  ABairro,
-  AEndereco,
-  ACEP: string): iNEZZFactoryUsuario;
+  ATelefone: string): iNEZZFactoryUsuario;
 begin
   Result := Self;
 
@@ -97,10 +88,7 @@ begin
     .Apelido('NOME', 'CLIENTE')
     .Apelido('LOGIN', 'LOGIN')
     .Apelido('STATUS_DESC', 'STATUS')
-    .Apelido('CEP', 'CEP')
-    .Apelido('CIDADE', 'CIDADE')
-    .Apelido('BAIRRO', 'BAIRRO')
-    .Apelido('ENDERECO', 'ENDERECO')
+    .Apelido('TELEFONE', 'TELEFONE')
     .SQL('  SELECT')
     .SQL('    U.ID,')
     .SQL('    U.NOME,')
@@ -113,10 +101,7 @@ begin
     .SQL('      ''ERRONOCODIGO''')
     .SQL('    ) AS STATUS_DESC,')
     .SQL('    U.STATUS,')
-    .SQL('    U.CIDADE,')
-    .SQL('    U.BAIRRO,')
-    .SQL('    U.ENDERECO,')
-    .SQL('    U.CEP')
+    .SQL('    U.TELEFONE')
     .SQL('  FROM')
     .SQL('    USUARIOS U')
 end;
@@ -132,10 +117,7 @@ function TNEZZFactoryUsuario.DeletarUsuario(
   ALogin,
   ANome,
   ASenha,
-  ACidade,
-  ABairro,
-  AEndereco,
-  ACEP: string): iNEZZFactoryUsuario;
+  ATelefone: string): iNEZZFactoryUsuario;
 begin
   Result := Self;
 
@@ -175,7 +157,7 @@ begin
   Result := Self;
 
   FNEZZUsuario
-    .Filtrar('LOGIN' , ALogin)
+    .Filtrar('NOME' , ANome)
     .Abrir;
 end;
 

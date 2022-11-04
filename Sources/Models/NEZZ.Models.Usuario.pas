@@ -19,10 +19,7 @@ type
     function Senha: string; overload;
     function Login: string; overload;
     function Status: Integer; overload;
-    function Cidade: string; overload;
-    function Endereco: string; overload;
-    function Bairro: string; overload;
-    function CEP: string; overload;
+    function Telefone: string; overload;
 
     //SETs
     function Id(AValue: Integer): iNEZZModelsUsuario; overload;
@@ -30,10 +27,7 @@ type
     function Senha(AValue: string): iNEZZModelsUsuario; overload;
     function Login(AValue: string): iNEZZModelsUsuario; overload;
     function Status(AValue: Integer): iNEZZModelsUsuario; overload;
-    function Cidade(AValue: string): iNEZZModelsUsuario; overload;
-    function Endereco(AValue: string): iNEZZModelsUsuario; overload;
-    function Bairro(AValue: string): iNEZZModelsUsuario; overload;
-    function CEP(AValue: string): iNEZZModelsUsuario; overload;
+    function Telefone(AValue: string): iNEZZModelsUsuario; overload;
 
     //AÇÕES
     function Inserir: iNEZZModelsUsuario;
@@ -66,10 +60,7 @@ type
     function Senha: string; overload;
     function Login: string; overload;
     function Status: Integer; overload;
-    function Cidade: string; overload;
-    function Endereco: string; overload;
-    function Bairro: string; overload;
-    function CEP: string; overload;
+    function Telefone: string; overload;
 
     //SETs
     function Id(AValue: Integer): iNEZZModelsUsuario; overload;
@@ -77,10 +68,7 @@ type
     function Senha(AValue: string): iNEZZModelsUsuario; overload;
     function Login(AValue: string): iNEZZModelsUsuario; overload;
     function Status(AValue: Integer): iNEZZModelsUsuario; overload;
-    function Cidade(AValue: string): iNEZZModelsUsuario; overload;
-    function Endereco(AValue: string): iNEZZModelsUsuario; overload;
-    function Bairro(AValue: string): iNEZZModelsUsuario; overload;
-    function CEP(AValue: string): iNEZZModelsUsuario; overload;
+    function Telefone(AValue: string): iNEZZModelsUsuario; overload;
 
     //AÇÕES
     function Inserir: iNEZZModelsUsuario;
@@ -98,43 +86,21 @@ implementation
 
 { TNEZZModelsUsuario }
 
-function TNEZZModelsUsuario.Bairro(AValue: string): iNEZZModelsUsuario;
-begin
-  Result := Self;
-  FNEZZServicesUsuario.Campo('BAIRRO' , AValue);
-end;
-
-function TNEZZModelsUsuario.Bairro: string;
-begin
-  Result := FNEZZServicesUsuario.Campo('BAIRRO').AsString;
-end;
-
 function TNEZZModelsUsuario.CampoChave(AValue: string): iNEZZModelsUsuario;
 begin
   Result := Self;
   FNEZZServicesUsuario.CampoChave(AValue);
 end;
 
-function TNEZZModelsUsuario.CEP: string;
+function TNEZZModelsUsuario.Telefone: string;
 begin
-  Result := FNEZZServicesUsuario.Campo('CEP').AsString;
+  Result := FNEZZServicesUsuario.Campo('TELEFONE').AsString;
 end;
 
-function TNEZZModelsUsuario.CEP(AValue: string): iNEZZModelsUsuario;
+function TNEZZModelsUsuario.Telefone(AValue: string): iNEZZModelsUsuario;
 begin
   Result := Self;
-  FNEZZServicesUsuario.Campo('CEP' , AValue);
-end;
-
-function TNEZZModelsUsuario.Cidade: string;
-begin
-  Result := FNEZZServicesUsuario.Campo('CIDADE').AsString;
-end;
-
-function TNEZZModelsUsuario.Cidade(AValue: string): iNEZZModelsUsuario;
-begin
-  Result := Self;
-  FNEZZServicesUsuario.Campo('CIDADE' , AValue);
+  FNEZZServicesUsuario.Campo('TELEFONE' , AValue);
 end;
 
 constructor TNEZZModelsUsuario.Create;
@@ -169,17 +135,6 @@ function TNEZZModelsUsuario.Editar: iNEZZModelsUsuario;
 begin
   Result := Self;
   FNEZZServicesUsuario.Editar;
-end;
-
-function TNEZZModelsUsuario.Endereco: string;
-begin
-  Result := FNEZZServicesUsuario.Campo('ENDERECO').AsString;
-end;
-
-function TNEZZModelsUsuario.Endereco(AValue: string): iNEZZModelsUsuario;
-begin
-  Result := Self;
-  FNEZZServicesUsuario.Campo('ENDERECO' , AValue);
 end;
 
 function TNEZZModelsUsuario.Filtrar(ACampo: string;

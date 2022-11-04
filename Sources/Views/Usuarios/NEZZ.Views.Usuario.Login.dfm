@@ -24,8 +24,6 @@ object NEZZViewsUsuarioLogin: TNEZZViewsUsuarioLogin
     Color = clNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 510
-    ExplicitHeight = 307
     object Image1: TImage
       Left = 0
       Top = 53
@@ -239,8 +237,6 @@ object NEZZViewsUsuarioLogin: TNEZZViewsUsuarioLogin
       Color = clYellow
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 271
-      ExplicitHeight = 261
       object Label1: TLabel
         Left = 46
         Top = 12
@@ -293,12 +289,11 @@ object NEZZViewsUsuarioLogin: TNEZZViewsUsuarioLogin
         SpeedButtonOptions.Flat = True
         TabOrder = 0
         OnClick = btnLoginClick
-        ExplicitTop = 264
-        ExplicitWidth = 190
       end
       object edLogin: TcxTextEdit
         Left = 48
         Top = 37
+        Properties.OnValidate = edLoginPropertiesValidate
         TabOrder = 1
         Width = 190
       end
@@ -308,7 +303,9 @@ object NEZZViewsUsuarioLogin: TNEZZViewsUsuarioLogin
         Properties.EchoMode = eemPassword
         Properties.PasswordChar = '*'
         Properties.ReadOnly = False
+        Properties.OnValidate = edSenhaPropertiesValidate
         TabOrder = 2
+        OnKeyDown = edSenhaKeyDown
         Width = 190
       end
     end
@@ -321,9 +318,6 @@ object NEZZViewsUsuarioLogin: TNEZZViewsUsuarioLogin
       BevelOuter = bvNone
       Caption = 'pnClose'
       TabOrder = 1
-      ExplicitLeft = 120
-      ExplicitTop = 128
-      ExplicitWidth = 185
       object pnClose1: TPanel
         Left = 212
         Top = 0
@@ -334,7 +328,6 @@ object NEZZViewsUsuarioLogin: TNEZZViewsUsuarioLogin
         Color = clYellow
         ParentBackground = False
         TabOrder = 0
-        ExplicitLeft = 271
         object btnClose: TcxButton
           Left = 230
           Top = 0
@@ -371,7 +364,6 @@ object NEZZViewsUsuarioLogin: TNEZZViewsUsuarioLogin
           ParentFont = False
           OnClick = btnCloseClick
           OnKeyDown = btnCloseKeyDown
-          ExplicitLeft = 8
         end
       end
     end

@@ -94,8 +94,6 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitTop = 55
-    ExplicitHeight = 526
     object dsUsuariosGrid: TcxGrid
       Left = 0
       Top = 0
@@ -103,10 +101,11 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       Height = 522
       Align = alClient
       TabOrder = 0
-      ExplicitHeight = 526
       object dsUsuariosGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
+        OnCellDblClick = dsUsuariosGridDBTableView1CellDblClick
         DataController.DataSource = dsUsuarios
+        DataController.DetailKeyFieldNames = 'NOME'
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
         DataController.Summary.SummaryGroups = <>
@@ -197,7 +196,6 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       TabOrder = 0
       TextHint = 'Pesquisar'
       OnChange = edPesquisaChange
-      ExplicitHeight = 32
     end
   end
   object dsUsuarios: TDataSource

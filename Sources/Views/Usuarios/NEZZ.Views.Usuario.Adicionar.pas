@@ -21,6 +21,7 @@ uses
   Vcl.ExtCtrls,
   cxControls,
   cxContainer,
+  System.UITypes,
   cxEdit,
   cxTextEdit,
   NEZZ.Factory.Usuario,
@@ -39,16 +40,30 @@ type
     edNome: TcxTextEdit;
     edLogin: TcxTextEdit;
     edSenha: TcxTextEdit;
-    edCidade: TcxTextEdit;
-    edBairro: TcxTextEdit;
-    edEndereco: TcxTextEdit;
-    edCEP: TcxTextEdit;
+    edTelefone: TcxTextEdit;
     Label1: TLabel;
     btnSalvar: TcxButton;
     BtnLimpar: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure BtnLimparClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
+    procedure edNomePropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
+    procedure edLoginPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
+    procedure edSenhaPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
+    procedure FormCreate(Sender: TObject);
+    procedure edContatoPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
   private
     procedure validarLogin(Sender: TObject;
     var DisplayValue: Variant;
@@ -71,10 +86,7 @@ begin
   edNome.ValidateEdit();
   edLogin.ValidateEdit();
   edSenha.ValidateEdit();
-  edCidade.ValidateEdit();
-  edBairro.ValidateEdit();
-  edEndereco.ValidateEdit();
-  edCEP.ValidateEdit();
+  edTelefone.ValidateEdit();
 
   try
     TNEZZFactoryUsuario
@@ -83,10 +95,7 @@ begin
         edNome.Text,
         edLogin.Text,
         edSenha.Text,
-        edCidade.Text,
-        edBairro.Text,
-        edEndereco.Text,
-        edCEP.Text
+        edTelefone.Text
       );
 
     MessageDlg('Usúario registrado com sucesso!!' , mtInformation , [mbOK] , 0);
@@ -100,8 +109,52 @@ begin
   end;
 end;
 
+procedure TNEZZViewsUsuarioAdicionar.edContatoPropertiesValidate(
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Telefone para contato é obrigatório';
+end;
+
+procedure TNEZZViewsUsuarioAdicionar.edLoginPropertiesValidate(Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Login é obrigatório';
+end;
+
+procedure TNEZZViewsUsuarioAdicionar.edNomePropertiesValidate(Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Nome é obrigatório';
+end;
+
+procedure TNEZZViewsUsuarioAdicionar.edSenhaPropertiesValidate(Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Senha é obrigatório';
+end;
+
+procedure TNEZZViewsUsuarioAdicionar.FormCreate(Sender: TObject);
+begin
+  edLogin.Properties.OnValidate := validarLogin;
+end;
+
 procedure TNEZZViewsUsuarioAdicionar.validarLogin(Sender: TObject;
-  var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
 
 var
   LUsuario : Boolean;
@@ -109,6 +162,8 @@ begin
   inherited;
 
   LUsuario := TNEZZFactoryUsuario.New.ExisteUsuario(edLogin.Text);
+  LUsuario := TNEZZFactoryUsuario.New.ExisteUsuario(edNome.Text);
+  LUsuario := TNEZZFactoryUsuario.New.ExisteUsuario(edSenha.Text);
 
   if LUsuario then
   begin
@@ -132,10 +187,7 @@ begin
   edNome.Clear;
   edLogin.Clear;
   edSenha.Clear;
-  edCidade.Clear;
-  edBairro.Clear;
-  edEndereco.Clear;
-  edCEP.Clear;
+  edTelefone.Clear;
 end;
 
 end.

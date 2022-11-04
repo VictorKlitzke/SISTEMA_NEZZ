@@ -87,9 +87,15 @@ type
       var ErrorText: TCaption;
       var Error: Boolean);
     procedure btnLimparClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     FNEZZQuery: iNEZZServicesCadastrar;
+
+    procedure ValidarCliente(Sender: TObject;
+    var DisplayValue: Variant;
+    var ErrorText: TCaption;
+    var Error: Boolean);
 
   public
   end;
@@ -237,5 +243,34 @@ begin
   Error := DisplayValue = '';
   ErrorText := 'O Contato é obrigatório';
 end;
+
+procedure TNEZZViewsClienteAdicionar.FormCreate(Sender: TObject);
+begin
+  edNome.Properties.OnValidate := ValidarCliente;
+end;
+
+procedure TNEZZViewsClienteAdicionar.ValidarCliente(Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
+
+var
+  LCliente : Boolean;
+begin
+
+  LCliente := TNEZZFactoryCliente.New.ClienteExiste(edNome.Text);
+  LCliente := TNEZZFactoryCliente.New.ClienteExiste(edCPF.Text);
+  LCliente := TNEZZFactoryCliente.New.ClienteExiste(edRazao.Text);
+
+  if LCliente then
+  begin
+    Error := True;
+    ErrorText := 'Já existe um usuário com esse login. Tenta outro';
+    Exit;
+  end;
+
+  Error := DisplayValue = '';
+  ErrorText := 'O campo é obrigatório';
+  end;
 
 end.

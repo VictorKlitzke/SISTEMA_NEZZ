@@ -56,6 +56,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnEnviarClick(Sender: TObject);
     procedure BtnVendasClick(Sender: TObject);
+    procedure lbl3DblClick(Sender: TObject);
   private
     FConexao : iNEZZServicesConexao;
   public
@@ -68,7 +69,7 @@ var
 implementation
 
 uses
-  NEZZ.Views.Usuario, NEZZ.Views.Vendas;
+  NEZZ.Views.Usuario, NEZZ.Views.Vendas, NEZZ.Controllers.Sessao;
 
 {$R *.dfm}
 
@@ -138,6 +139,11 @@ begin
       Application.Terminate;
     end;
   end;
+end;
+
+procedure TNEZZViewsPrincipal.lbl3DblClick(Sender: TObject);
+begin
+  ShowMessage(TNEZZControllerSessao.New.Nome);
 end;
 
 end.

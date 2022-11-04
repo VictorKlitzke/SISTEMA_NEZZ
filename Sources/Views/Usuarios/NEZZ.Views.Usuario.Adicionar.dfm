@@ -3,8 +3,8 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
   Top = 0
   BorderStyle = bsNone
   Caption = 'NEZZViewsUsuarioAdicionar'
-  ClientHeight = 230
-  ClientWidth = 347
+  ClientHeight = 204
+  ClientWidth = 349
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,18 +13,20 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 347
+    Width = 349
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 347
     object Label1: TLabel
       Left = 0
       Top = 0
@@ -42,13 +44,14 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       ExplicitHeight = 32
     end
     object pnClose: TPanel
-      Left = 292
+      Left = 294
       Top = 0
       Width = 55
       Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 292
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -90,75 +93,64 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
   object pnContent: TPanel
     Left = 0
     Top = 41
-    Width = 347
-    Height = 148
+    Width = 349
+    Height = 122
     Align = alClient
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 347
+    ExplicitHeight = 148
     object edNome: TcxTextEdit
       Left = 8
-      Top = 24
+      Top = 40
+      Properties.OnValidate = edNomePropertiesValidate
       TabOrder = 0
       TextHint = 'Nome'
       Width = 161
     end
     object edLogin: TcxTextEdit
       Left = 8
-      Top = 51
+      Top = 67
+      Properties.OnValidate = edLoginPropertiesValidate
       TabOrder = 1
       TextHint = 'Login'
       Width = 161
     end
     object edSenha: TcxTextEdit
-      Left = 8
-      Top = 78
+      Left = 175
+      Top = 40
+      Properties.EchoMode = eemPassword
+      Properties.PasswordChar = '*'
+      Properties.OnValidate = edSenhaPropertiesValidate
       TabOrder = 2
       TextHint = 'Senha'
       Width = 161
     end
-    object edCidade: TcxTextEdit
+    object edTelefone: TcxTextEdit
       Left = 175
-      Top = 24
+      Top = 67
+      Properties.OnValidate = edContatoPropertiesValidate
       TabOrder = 3
-      TextHint = 'Cidade'
-      Width = 161
-    end
-    object edBairro: TcxTextEdit
-      Left = 175
-      Top = 51
-      TabOrder = 4
-      TextHint = 'Bairro'
-      Width = 161
-    end
-    object edEndereco: TcxTextEdit
-      Left = 175
-      Top = 78
-      TabOrder = 5
-      TextHint = 'Endere'#231'o'
-      Width = 161
-    end
-    object edCEP: TcxTextEdit
-      Left = 88
-      Top = 105
-      TabOrder = 6
-      TextHint = 'CEP'
+      TextHint = 'Telefone'
       Width = 161
     end
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 189
-    Width = 347
+    Top = 163
+    Width = 349
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
+    ExplicitTop = 189
+    ExplicitWidth = 347
     object btnSalvar: TcxButton
-      Left = 147
+      Left = 149
       Top = 0
       Width = 100
       Height = 41
@@ -190,9 +182,10 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnSalvarClick
+      ExplicitLeft = 147
     end
     object BtnLimpar: TcxButton
-      Left = 247
+      Left = 249
       Top = 0
       Width = 100
       Height = 41
@@ -228,6 +221,7 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = BtnLimparClick
+      ExplicitLeft = 247
     end
   end
 end

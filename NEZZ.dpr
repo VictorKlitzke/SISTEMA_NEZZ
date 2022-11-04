@@ -34,7 +34,8 @@ uses
   NEZZ.Models.Usuario in 'Sources\Models\NEZZ.Models.Usuario.pas',
   NEZZ.Views.Usuario.Adicionar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Adicionar.pas' {NEZZViewsUsuarioAdicionar},
   NEZZ.Views.Vendas in 'Sources\Views\Vendas\NEZZ.Views.Vendas.pas' {NEZZViewsVenda},
-  NEZZ.Factory.Autenticacao in 'Sources\Factories\NEZZ.Factory.Autenticacao.pas';
+  NEZZ.Factory.Autenticacao in 'Sources\Factories\NEZZ.Factory.Autenticacao.pas',
+  NEZZ.Views.Usuario.Editar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Editar.pas' {NEZZViewsUsuarioEditar};
 
 {$R *.res}
 
@@ -56,18 +57,16 @@ begin
   Application.CreateForm(TNEZZViewsUsuario, NEZZViewsUsuario);
   Application.CreateForm(TNEZZViewsUsuarioAdicionar, NEZZViewsUsuarioAdicionar);
   Application.CreateForm(TNEZZViewsVenda, NEZZViewsVenda);
-
+  Application.CreateForm(TNEZZViewsUsuarioEditar, NEZZViewsUsuarioEditar);
   NEZZViewsUsuarioLogin.ShowModal;
 
     if NEZZViewsUsuarioLogin.ModalResult = mrCancel then
   begin
-//    NEZZViewsPrincipal.FSessao.DisposeOf;
     FreeAndNil(NEZZViewsUsuarioLogin);
     FreeAndNil(NEZZViewsPrincipal);
     Application.Terminate;
   end else
   begin
-//    NEZZViewsPrincipal.FSessao.Conectar(NEZZViewsUsuarioLogin.Usuario, TNEZZViewsUsuarioLogin.Nome);
     Application.Run;
   end;
 end.

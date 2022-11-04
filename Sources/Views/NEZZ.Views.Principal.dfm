@@ -278,7 +278,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         Align = alBottom
         Alignment = taCenter
         AutoSize = False
-        Caption = 'VICTOR'
         Color = clWhite
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
@@ -287,6 +286,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
+        OnDblClick = lbl3DblClick
       end
     end
     object pnEmpresafilial: TPanel
@@ -375,8 +375,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         ParentFont = False
         OnClick = btnCloseClick
         OnKeyDown = btnCloseKeyDown
-        ExplicitLeft = 6
-        ExplicitTop = -3
       end
     end
   end

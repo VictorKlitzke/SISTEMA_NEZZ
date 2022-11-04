@@ -61,8 +61,13 @@ type
     procedure FormCreate(Sender: TObject);
     procedure edPesquisaChange(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
+    procedure dsUsuariosGridDBTableView1CellDblClick(
+      Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState;
+      var AHandled: Boolean);
   private
-      FNEZZFactoryUsuario: iNEZZFactoryUsuario;
+    FNEZZFactoryUsuario: iNEZZFactoryUsuario;
   public
     procedure CarregarDados;
   end;
@@ -71,6 +76,9 @@ var
   NEZZViewsUsuario: TNEZZViewsUsuario;
 
 implementation
+
+uses
+  NEZZ.Views.Usuario.Editar;
 
 {$R *.dfm}
 
@@ -117,21 +125,39 @@ begin
   end;
 end;
 
+procedure TNEZZViewsUsuario.dsUsuariosGridDBTableView1CellDblClick(
+  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
+  AButton: TMouseButton; AShift: TShiftState;
+  var AHandled: Boolean);
+begin
+  if not Assigned(NEZZViewsUsuarioEditar) then
+    Application.CreateForm(TNEZZViewsUsuarioEditar , NEZZViewsUsuarioEditar);
+
+  NEZZViewsUsuarioEditar.Usuario(dsUsuarios.DataSet.FieldByName('ID').AsInteger);
+
+  NEZZViewsUsuarioEditar.ShowModal;
+  FreeAndNil(NEZZViewsUsuarioEditar);
+
+  CarregarDados;
+
+end;
+
 procedure TNEZZViewsUsuario.edPesquisaChange(Sender: TObject);
 begin
-//  if edPesquisa.Text = '' then
-//    FNEZZFactoryUsuario := TNEZZFactoryUsuario
-//      .New
-//      .DataSource(dsUsuarios)
-//      .ListarUsuarios;
-//  end
-//  else
-//  begin
-//    FNEZZFactoryUsuario := TNEZZFactoryUsuario
-//      .New
-//      .DataSource(dsUsuarios)
-//      .FiltrarUsuario(edPesquisa.Text);
-//  end;
+  if edPesquisa.Text = '' then
+  begin
+    FNEZZFactoryUsuario := TNEZZFactoryUsuario
+      .New
+      .DataSource(dsUsuarios)
+      .ListarUsuarios;
+  end
+  else
+  begin
+    FNEZZFactoryUsuario := TNEZZFactoryUsuario
+      .New
+      .DataSource(dsUsuarios)
+      .FiltrarUsuario(edPesquisa.Text);
+  end;
 end;
 
 procedure TNEZZViewsUsuario.FormCreate(Sender: TObject);

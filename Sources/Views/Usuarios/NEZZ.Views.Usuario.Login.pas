@@ -23,6 +23,7 @@ uses
   cxButtons,
   dxGDIPlusClasses,
   Vcl.ExtCtrls,
+  ConexaoDados,
   NEZZ.Factory.Autenticacao,
   System.UITypes;
 
@@ -43,6 +44,12 @@ type
     procedure btnCloseKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure btnCloseClick(Sender: TObject);
+    procedure edSenhaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edLoginPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edSenhaPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
   private
     { Private declarations }
   public
@@ -55,8 +62,7 @@ var
 implementation
 
 uses
-  NEZZ.Views.Clientes,
-  ConexaoDados;
+  NEZZ.Views.Clientes;
 
 {$R *.dfm}
 
@@ -91,6 +97,35 @@ begin
     on e: Exception do
     MessageDlg('Falha no login!', mtWarning, [mbOK], 0);
   end;
+end;
+
+procedure TNEZZViewsUsuarioLogin.edLoginPropertiesValidate(Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O usuário é obrigatório';
+end;
+
+procedure TNEZZViewsUsuarioLogin.edSenhaKeyDown(Sender: TObject;
+  var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    if edSenha.Text <> '' then
+      btnLogin.Click;
+  end;
+end;
+
+procedure TNEZZViewsUsuarioLogin.edSenhaPropertiesValidate(Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O senha é obrigatório';
 end;
 
 end.
