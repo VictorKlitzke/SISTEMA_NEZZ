@@ -39,7 +39,9 @@ uses
   NEZZ.Factory.Usuario,
   NEZZ.Views.Usuario.Adicionar,
   Vcl.WinXCtrls,
-  NEZZ.Services.Query;
+  NEZZ.Services.Query,
+  LfResizerVcl,
+  NEZZ.Views.Usuario.Editar;
 
 type
   TNEZZViewsUsuario = class(TForm)
@@ -56,6 +58,8 @@ type
     dsUsuarios: TDataSource;
     pnPesquisa: TPanel;
     edPesquisa: TEdit;
+    LFResizerVcl1: TLFResizerVcl;
+    cxButton1: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -76,9 +80,6 @@ var
   NEZZViewsUsuario: TNEZZViewsUsuario;
 
 implementation
-
-uses
-  NEZZ.Views.Usuario.Editar;
 
 {$R *.dfm}
 
@@ -139,7 +140,6 @@ begin
   FreeAndNil(NEZZViewsUsuarioEditar);
 
   CarregarDados;
-
 end;
 
 procedure TNEZZViewsUsuario.edPesquisaChange(Sender: TObject);

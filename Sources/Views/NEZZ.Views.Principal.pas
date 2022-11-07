@@ -23,7 +23,7 @@ uses
   NEZZ.Views.Clientes,
   NEZZ.Services.Conexao,
   NEZZ.Services.Query,
-  System.UITypes;
+  System.UITypes, NEZZ.Views.Fornecedor;
 
 type
   TNEZZViewsPrincipal = class(TForm)
@@ -57,6 +57,7 @@ type
     procedure btnEnviarClick(Sender: TObject);
     procedure BtnVendasClick(Sender: TObject);
     procedure lbl3DblClick(Sender: TObject);
+    procedure BtnFornecedoresClick(Sender: TObject);
   private
     FConexao : iNEZZServicesConexao;
   public
@@ -108,11 +109,22 @@ end;
 procedure TNEZZViewsPrincipal.btnEnviarClick(Sender: TObject);
 begin
   if Assigned(NEZZViewsUsuario) then FreeAndNil(NEZZViewsUsuario);
-    if not Assigned(NEZZViewsUsuario) then
-      Application.CreateForm(TNEZZViewsUsuario, NEZZViewsUsuario);
+  if not Assigned(NEZZViewsUsuario) then
+    Application.CreateForm(TNEZZViewsUsuario, NEZZViewsUsuario);
 
     NEZZViewsUsuario.Parent := pnContent;
     NEZZViewsUsuario.Show;
+end;
+
+procedure TNEZZViewsPrincipal.BtnFornecedoresClick(Sender: TObject);
+begin
+  if Assigned(NEZZViewsFornecedor) then FreeAndNil(NEZZViewsFornecedor);
+  if not Assigned(NEZZViewsFornecedor) then
+    Application.CreateForm(TNEZZViewsFornecedor, NEZZViewsFornecedor);
+
+  NEZZViewsFornecedor.Parent := pnContent;
+  NEZZViewsFornecedor.Show;
+
 end;
 
 procedure TNEZZViewsPrincipal.BtnVendasClick(Sender: TObject);

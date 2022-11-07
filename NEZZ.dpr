@@ -35,7 +35,8 @@ uses
   NEZZ.Views.Usuario.Adicionar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Adicionar.pas' {NEZZViewsUsuarioAdicionar},
   NEZZ.Views.Vendas in 'Sources\Views\Vendas\NEZZ.Views.Vendas.pas' {NEZZViewsVenda},
   NEZZ.Factory.Autenticacao in 'Sources\Factories\NEZZ.Factory.Autenticacao.pas',
-  NEZZ.Views.Usuario.Editar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Editar.pas' {NEZZViewsUsuarioEditar};
+  NEZZ.Views.Usuario.Editar in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Editar.pas' {NEZZViewsUsuarioEditar},
+  NEZZ.Views.Fornecedor in 'Sources\Views\Fornecedores\NEZZ.Views.Fornecedor.pas' {NEZZViewsFornecedor};
 
 {$R *.res}
 
@@ -58,6 +59,7 @@ begin
   Application.CreateForm(TNEZZViewsUsuarioAdicionar, NEZZViewsUsuarioAdicionar);
   Application.CreateForm(TNEZZViewsVenda, NEZZViewsVenda);
   Application.CreateForm(TNEZZViewsUsuarioEditar, NEZZViewsUsuarioEditar);
+  Application.CreateForm(TNEZZViewsFornecedor, NEZZViewsFornecedor);
   NEZZViewsUsuarioLogin.ShowModal;
 
     if NEZZViewsUsuarioLogin.ModalResult = mrCancel then

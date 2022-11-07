@@ -55,24 +55,32 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
     object edNome: TcxDBTextEdit
       Left = 8
       Top = 22
+      DataBinding.DataField = 'NOME'
+      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 0
       Width = 170
     end
     object edLogin: TcxDBTextEdit
       Left = 8
       Top = 70
+      DataBinding.DataField = 'SENHA'
+      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 1
       Width = 170
     end
     object edSenha: TcxDBTextEdit
       Left = 215
       Top = 22
+      DataBinding.DataField = 'LOGIN'
+      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 2
       Width = 170
     end
     object edTelefone: TcxDBTextEdit
       Left = 215
       Top = 70
+      DataBinding.DataField = 'TELEFONE'
+      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 3
       Width = 170
     end
@@ -134,6 +142,7 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      OnClick = BtnSalvarClick
     end
   end
   object pnHeader: TPanel

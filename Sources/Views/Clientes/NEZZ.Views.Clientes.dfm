@@ -3,7 +3,7 @@ object NEZZViewsClientes: TNEZZViewsClientes
   Top = 0
   BorderStyle = bsNone
   Caption = 'NEZZViewsClientes'
-  ClientHeight = 629
+  ClientHeight = 550
   ClientWidth = 969
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,30 +14,26 @@ object NEZZViewsClientes: TNEZZViewsClientes
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel
     Left = 0
     Top = 59
     Width = 969
-    Height = 522
+    Height = 443
     Align = alClient
     BevelOuter = bvNone
     Color = clBlack
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 55
-    ExplicitHeight = 526
     object dsDadosCliente: TcxGrid
       Left = 0
       Top = 0
       Width = 969
-      Height = 522
+      Height = 443
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitHeight = 526
       object dsDadosClienteDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         OnCellDblClick = dsDadosClienteDBTableView1CellDblClick
@@ -56,7 +52,7 @@ object NEZZViewsClientes: TNEZZViewsClientes
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 581
+    Top = 502
     Width = 969
     Height = 48
     Align = alBottom
@@ -64,7 +60,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    OnClick = pnFooterClick
     object btnEditar: TcxButton
       Left = 765
       Top = 0
@@ -185,7 +180,7 @@ object NEZZViewsClientes: TNEZZViewsClientes
       Left = 0
       Top = 0
       Width = 120
-      Height = 41
+      Height = 37
       Align = alLeft
       Caption = 'CLIENTES'
       Font.Charset = ANSI_CHARSET
@@ -194,7 +189,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitHeight = 37
     end
     object pnClose: TPanel
       Left = 917
@@ -260,7 +254,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
       Align = alRight
       Caption = 'Nome'
       TabOrder = 0
-      ExplicitHeight = 14
     end
     object checkoutCodigo: TCheckBox
       Left = 857
@@ -270,7 +263,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
       Align = alRight
       Caption = 'Codigo'
       TabOrder = 2
-      ExplicitHeight = 14
     end
     object checkoutCNPJ: TCheckBox
       Left = 917
@@ -280,7 +272,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
       Align = alRight
       Caption = 'CNPJ'
       TabOrder = 3
-      ExplicitHeight = 14
     end
     object edPesquisar: TEdit
       Left = 0
@@ -293,7 +284,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
       TabOrder = 1
       TextHint = 'Pesquisar'
       OnChange = edPesquisarChange
-      ExplicitHeight = 14
     end
   end
   object dsClientes: TDataSource

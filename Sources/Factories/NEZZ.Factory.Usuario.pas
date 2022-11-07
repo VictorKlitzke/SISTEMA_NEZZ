@@ -10,6 +10,8 @@ uses
   NEZZ.Models.Usuario;
 
 type
+  TNEZZFactoryUsuarioLog = procedure(Value: string) of object;
+
   iNEZZFactoryUsuario = interface
     ['{1592C510-8A28-408D-BD1A-F6430ADE3590}']
 
@@ -18,15 +20,19 @@ type
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryUsuario;
     function AtualizarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
     function DeletarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
-    function FiltrarUsuario(ALogin,ANome : string): iNEZZFactoryUsuario;
+    function FiltrarUsuario(ALogin : string): iNEZZFactoryUsuario;
+    function DesativarUsuario(ALogin: Integer): iNEZZFactoryUsuario;
 
     function ListarUsuarios: iNEZZFactoryUsuario;
+
+    function Log(AValue: TNEZZFactoryUsuarioLog): iNEZZFactoryUsuario;
   end;
 
   TNEZZFactoryUsuario = class(TInterfacedObject, iNEZZFactoryUsuario)
   private
     FNEZZSessao: iNEZZControllerSessao;
     FNEZZUsuario: iNEZZServicesCadastrar;
+    FLOG: TNEZZFactoryUsuarioLog;
   public
     constructor Create;
     destructor Destroy;
@@ -38,9 +44,11 @@ type
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryUsuario;
     function AtualizarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
     function DeletarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
-    function FiltrarUsuario(ALogin,ANome : string): iNEZZFactoryUsuario;
-
+    function FiltrarUsuario(ALogin : string): iNEZZFactoryUsuario;
+    function DesativarUsuario(ALogin: Integer): iNEZZFactoryUsuario;
     function ListarUsuarios: iNEZZFactoryUsuario;
+
+    function Log(AValue: TNEZZFactoryUsuarioLog): iNEZZFactoryUsuario;
   end;
 
 implementation
@@ -128,6 +136,18 @@ begin
     .Salvar;
 end;
 
+function TNEZZFactoryUsuario.DesativarUsuario(
+  ALogin: Integer): iNEZZFactoryUsuario;
+begin
+  Result := Self;
+
+  TNEZZModelsUsuario
+    .New
+    .Filtrar('ID' , ALogin)
+    .Status(1)
+    .Salvar;
+end;
+
 destructor TNEZZFactoryUsuario.Destroy;
 begin
   inherited;
@@ -150,14 +170,12 @@ begin
     .AsInteger <> 0
 end;
 
-function TNEZZFactoryUsuario.FiltrarUsuario(
-  ALogin,
-  ANome: string): iNEZZFactoryUsuario;
+function TNEZZFactoryUsuario.FiltrarUsuario(ALogin : string): iNEZZFactoryUsuario;
 begin
   Result := Self;
 
   FNEZZUsuario
-    .Filtrar('NOME' , ANome)
+    .Filtrar('LOGIN' , ALogin)
     .Abrir;
 end;
 
@@ -167,6 +185,12 @@ begin
 
   FNEZZUsuario
     .Abrir;
+end;
+
+function TNEZZFactoryUsuario.Log(AValue: TNEZZFactoryUsuarioLog): iNEZZFactoryUsuario;
+begin
+  Result := Self;
+  FLOG := AValue;
 end;
 
 class function TNEZZFactoryUsuario.New: iNEZZFactoryUsuario;

@@ -51,6 +51,7 @@ type
     dsUsuariosEditar: TDataSource;
     procedure FormCreate(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure BtnSalvarClick(Sender: TObject);
   private
     FNEZZModelsUsuario : iNEZZModelsUsuario;
   public
@@ -67,6 +68,26 @@ implementation
 procedure TNEZZViewsUsuarioEditar.btnCloseClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TNEZZViewsUsuarioEditar.BtnSalvarClick(Sender: TObject);
+begin
+  edNome.ValidateEdit();
+  edLogin.ValidateEdit();
+  edSenha.ValidateEdit();
+  edTelefone.ValidateEdit();
+
+  try
+    FNEZZModelsUsuario.Salvar;
+
+    MessageDlg('Show! usuário atualizado com sucesso', mtInformation, mbYesNo, 0); Close;
+  except
+    on e: Exception do
+    begin
+      MessageDlg('Ocorreu um erro ao atualizar o usuário!' + #13 + e.message , mtWarning , [mbOk] , 0);
+      edNome.SetFocus;
+    end;
+  end;
 end;
 
 procedure TNEZZViewsUsuarioEditar.FormCreate(Sender: TObject);

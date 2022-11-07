@@ -141,6 +141,7 @@ function TNEZZModelsUsuario.Filtrar(ACampo: string;
   AValor: Variant): iNEZZModelsUsuario;
 begin
   Result := Self;
+
   FNEZZServicesUsuario
     .Filtrar(ACampo , AValor)
     .Abrir;

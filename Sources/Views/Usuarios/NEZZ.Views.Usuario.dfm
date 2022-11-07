@@ -2,7 +2,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  ClientHeight = 629
+  ClientHeight = 550
   ClientWidth = 969
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -90,7 +90,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
     Left = 0
     Top = 59
     Width = 969
-    Height = 522
+    Height = 443
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
@@ -98,7 +98,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       Left = 0
       Top = 0
       Width = 969
-      Height = 522
+      Height = 443
       Align = alClient
       TabOrder = 0
       object dsUsuariosGridDBTableView1: TcxGridDBTableView
@@ -121,7 +121,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 581
+    Top = 502
     Width = 969
     Height = 48
     Align = alBottom
@@ -174,6 +174,38 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       TabOrder = 0
       OnClick = btnAdicionarClick
     end
+    object cxButton1: TcxButton
+      Left = 765
+      Top = 0
+      Width = 102
+      Height = 48
+      Align = alRight
+      Caption = 'Deletar'
+      OptionsImage.Glyph.SourceDPI = 96
+      OptionsImage.Glyph.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000000473424954080808087C0864880000000970485973000000F8000000
+        F801CFC1E6650000001974455874536F667477617265007777772E696E6B7363
+        6170652E6F72679BEE3C1A0000016E494441545885ED97BF4AC3501487BF535B
+        5B544497D2C1417D882E5DDCBBB988A3EEAE5D7C021FC14D70E9E8EA1F5C7C01
+        413BE9505D8552B58348F438E408E1725B93180395FCE072C397C339BF8473C9
+        09AA4AD2052C0387401F78052E8156AA5C298ACF017780021FC073E4BA9D8781
+        7D2B7801AC015560CFD8631E06CEAC58CBE137C6D793E42B915C75DB7B0EEF39
+        F763A90C2022E5EFEB1812DBAB22528BF019DB671D3E4E81AA06004D6044F8FA
+        F25C23A0590606C02DB064CEEA84C7EC0178F338AF0115C2E317550598078663
+        9E78D562EECDC01018F89AECC80236D29CEB09CDDBB7BCB5DF3661A62A0CC436
+        20226D116938AC21226D4FEC96882C646A0038063A0EEB188F165F04BAC06ED6
+        064A9EF8712C76EEE9E981C24061A030501800025B3FB14FC2EFBECBBD8A3B07
+        026C03D70E3B004EA340555F446493707ACECE80AA9E7BD813E0E32771F34E55
+        0FFC4F03937AA02B22BEB13CAD56BCD4333EEF00EFFCCDCFC8955BEF0BA5D50D
+        4D1D7D0D270000000049454E44AE426082}
+      PopupAlignment = paCenter
+      SpeedButtonOptions.CanBeFocused = False
+      SpeedButtonOptions.Flat = True
+      TabOrder = 1
+      ExplicitLeft = 664
+      ExplicitTop = 32
+    end
   end
   object pnPesquisa: TPanel
     Left = 0
@@ -188,10 +220,11 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
     object edPesquisa: TEdit
       Left = 0
       Top = 0
-      Width = 401
+      Width = 529
       Height = 18
       Align = alLeft
       BevelInner = bvNone
+      BevelOuter = bvNone
       BorderStyle = bsNone
       TabOrder = 0
       TextHint = 'Pesquisar'
@@ -201,5 +234,25 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   object dsUsuarios: TDataSource
     Left = 448
     Top = 208
+  end
+  object LFResizerVcl1: TLFResizerVcl
+    Active = True
+    AspectRatioForm = True
+    FormFullScreen = False
+    ShowInfoResize = True
+    HideTaskBar = False
+    Version = '1.5'
+    ResizeFonts = True
+    MinFontSize = 0
+    MaxFontSize = 99
+    FormMaxHeight = 0
+    FormMaxWidth = 0
+    FormMinHeight = 629
+    FormMinWidth = 969
+    SaveStatusForm = False
+    PropertyFonts.Strings = (
+      'HeaderFont;Style;Appearance;Caption;DefaultFont')
+    Left = 472
+    Top = 304
   end
 end
