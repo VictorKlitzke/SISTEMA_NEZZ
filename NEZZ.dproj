@@ -159,12 +159,12 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Sources\Factories\NEZZ.Factory.Autenticacao.pas"/>
-        <DCCReference Include="Sources\Views\Usuarios\NEZZ.Views.Usuario.Editar.pas">
-            <Form>NEZZViewsUsuarioEditar</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="Sources\Views\Fornecedores\NEZZ.Views.Fornecedor.pas">
             <Form>NEZZViewsFornecedor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Sources\Views\Usuarios\NEZZ.Views.Usuario.Editar.pas">
+            <Form>NEZZViewsUsuarioEditar</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

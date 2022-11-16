@@ -154,12 +154,12 @@ end;
 procedure TNEZZViewsUsuario.BtnEditarClick(Sender: TObject);
 begin
   if not Assigned(NEZZViewsUsuarioEditar) then
-    Application.CreateForm(TNEZZViewsUsuarioEditar, TNEZZViewsUsuarioEditar);
+    Application.CreateForm(TNEZZViewsUsuarioEditar, NEZZViewsUsuarioEditar);
 
-  TNEZZViewsUsuarioEditar.Usuario(dsUsuarios.DataSet.FieldByName('ID').AsInteger);
+  NEZZViewsUsuarioEditar.Usuario(dsUsuarios.DataSet.FieldByName('ID').AsInteger);
 
-  TNEZZViewsUsuarioEditar.ShowModal;
-  FreeAndNil(TNEZZViewsUsuarioEditar);
+  NEZZViewsUsuarioEditar.ShowModal;
+  FreeAndNil(NEZZViewsUsuarioEditar);
 
   CarregarDados;
 end;
