@@ -2,8 +2,9 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  ClientHeight = 214
-  ClientWidth = 418
+  Caption = 'NEZZViewsUsuarioEditar'
+  ClientHeight = 201
+  ClientWidth = 402
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,19 +12,21 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel
     Left = 0
     Top = 41
-    Width = 418
-    Height = 132
+    Width = 402
+    Height = 119
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 418
+    ExplicitHeight = 132
     object lbNome: TLabel
       Left = 11
       Top = 3
@@ -56,23 +59,20 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Left = 8
       Top = 22
       DataBinding.DataField = 'NOME'
-      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 0
       Width = 170
     end
-    object edLogin: TcxDBTextEdit
+    object edSenha: TcxDBTextEdit
       Left = 8
       Top = 70
       DataBinding.DataField = 'SENHA'
-      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 1
       Width = 170
     end
-    object edSenha: TcxDBTextEdit
+    object edLogin: TcxDBTextEdit
       Left = 215
       Top = 22
       DataBinding.DataField = 'LOGIN'
-      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 2
       Width = 170
     end
@@ -80,23 +80,23 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Left = 215
       Top = 70
       DataBinding.DataField = 'TELEFONE'
-      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 3
       Width = 170
     end
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 173
-    Width = 418
+    Top = 160
+    Width = 402
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 418
     object BtnSalvar: TcxButton
-      Left = 318
+      Left = 302
       Top = 0
       Width = 100
       Height = 41
@@ -142,19 +142,22 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      OnClick = BtnSalvarClick
+      ExplicitLeft = 318
     end
   end
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 418
+    Width = 402
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 2
+    ExplicitLeft = 8
+    ExplicitTop = 8
+    ExplicitWidth = 418
     object lbCRUD: TLabel
       Left = 0
       Top = 0
@@ -171,13 +174,14 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       ExplicitHeight = 19
     end
     object pnClose: TPanel
-      Left = 371
+      Left = 355
       Top = 0
       Width = 47
       Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 371
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -217,7 +221,7 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
     end
   end
   object dsUsuariosEditar: TDataSource
-    Left = 184
-    Top = 136
+    Left = 128
+    Top = 144
   end
 end

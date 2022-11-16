@@ -38,16 +38,16 @@ type
     lbRazao: TLabel;
     Label1: TLabel;
     pnFooter: TPanel;
-    BtnSalvar: TcxButton;
     pnHeader: TPanel;
     lbCRUD: TLabel;
     pnClose: TPanel;
     btnClose: TcxButton;
     edNome: TcxDBTextEdit;
-    edLogin: TcxDBTextEdit;
     edSenha: TcxDBTextEdit;
+    edLogin: TcxDBTextEdit;
     edTelefone: TcxDBTextEdit;
     lbSenha: TLabel;
+    BtnSalvar: TcxButton;
     dsUsuariosEditar: TDataSource;
     procedure FormCreate(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
@@ -92,7 +92,7 @@ end;
 
 procedure TNEZZViewsUsuarioEditar.FormCreate(Sender: TObject);
 begin
-  TNEZZModelsUsuario.New.DataSource(dsUsuariosEditar);
+ FNEZZModelsUsuario := TNEZZModelsUsuario.New.DataSource(dsUsuariosEditar);
 end;
 
 function TNEZZViewsUsuarioEditar.Usuario(UID: integer): Integer;

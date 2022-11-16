@@ -44,7 +44,7 @@ type
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryUsuario;
     function AtualizarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
     function DeletarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
-    function FiltrarUsuario(ALogin : string): iNEZZFactoryUsuario;
+    function FiltrarUsuario(ANome : string): iNEZZFactoryUsuario;
     function DesativarUsuario(ALogin: Integer): iNEZZFactoryUsuario;
     function ListarUsuarios: iNEZZFactoryUsuario;
 
@@ -70,7 +70,11 @@ begin
     .Senha(ASenha)
     .Login(ALogin)
     .Telefone(ATelefone)
+    .Status(0)
     .Salvar;
+
+    if Assigned(FLOG) then
+      FLOG('Funcionando corretamente!');
 end;
 
 function TNEZZFactoryUsuario.AtualizarUsuario(
@@ -144,6 +148,7 @@ begin
   TNEZZModelsUsuario
     .New
     .Filtrar('ID' , ALogin)
+    .Editar
     .Status(1)
     .Salvar;
 end;
@@ -163,19 +168,19 @@ begin
     .SQL('FROM')
     .SQL('  USUARIOS U')
     .SQL('WHERE')
-    .SQL('  UPPER(U.NOME) = UPPER(:NOME)')
+    .SQL('  UPPER(U.LOGIN) = UPPER(:LOGIN)')
     .Parametro('LOGIN', ALogin)
     .Abrir
     .Campo('QTD')
     .AsInteger <> 0
 end;
 
-function TNEZZFactoryUsuario.FiltrarUsuario(ALogin : string): iNEZZFactoryUsuario;
+function TNEZZFactoryUsuario.FiltrarUsuario(ANome : string): iNEZZFactoryUsuario;
 begin
   Result := Self;
 
   FNEZZUsuario
-    .Filtrar('LOGIN' , ALogin)
+    .Filtrar('NOME' , ANome)
     .Abrir;
 end;
 

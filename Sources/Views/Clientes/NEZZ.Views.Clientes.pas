@@ -54,7 +54,6 @@ type
   TNEZZViewsClientes = class(TForm)
     pnContent: TPanel;
     pnFooter: TPanel;
-    btnEditar: TcxButton;
     btnDeletar: TcxButton;
     btnAdicionar: TcxButton;
     pnHeader: TPanel;
@@ -67,6 +66,7 @@ type
     dsDadosClienteDBTableView1: TcxGridDBTableView;
     dsDadosClienteLevel1: TcxGridLevel;
     dsDadosCliente: TcxGrid;
+    Editar: TcxButton;
     procedure btnAdicionarClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -78,6 +78,7 @@ type
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
       AShift: TShiftState; var AHandled: Boolean);
     procedure btnDeletarClick(Sender: TObject);
+    procedure EditarClick(Sender: TObject);
   private
     FNEZZCliente: iNEZZServicesCadastrar;
     FNEZZFactoryCliente: iNEZZFactoryCliente;
@@ -160,7 +161,21 @@ end;
 
 procedure TNEZZViewsClientes.dsDadosClienteDBTableView1CellDblClick(
   Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
-  AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+  AButton: TMouseButton; AShift: TShiftState;
+  var AHandled: Boolean);
+begin
+  if not Assigned(NEZZViewsClienteEditar) then
+    Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
+
+  NEZZViewsClienteEditar.Cliente(dsClientes.DataSet.FieldByName('ID').AsInteger);
+
+  NEZZViewsClienteEditar.ShowModal;
+  FreeAndNil(NEZZViewsClienteEditar);
+
+  CarregarDados;
+end;
+
+procedure TNEZZViewsClientes.EditarClick(Sender: TObject);
 begin
   if not Assigned(NEZZViewsClienteEditar) then
     Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);

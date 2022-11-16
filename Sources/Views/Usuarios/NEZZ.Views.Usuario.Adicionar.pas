@@ -42,8 +42,8 @@ type
     edSenha: TcxTextEdit;
     edTelefone: TcxTextEdit;
     Label1: TLabel;
-    btnSalvar: TcxButton;
     BtnLimpar: TcxButton;
+    BtnSalvar: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure BtnLimparClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
@@ -168,7 +168,7 @@ begin
   if LUsuario then
   begin
     Error := True;
-    ErrorText := 'Já existe um usuário com esse login. Tenta outro';
+    ErrorText := 'Já existe um usuário com esse login. Tente outro';
     Exit;
   end;
 

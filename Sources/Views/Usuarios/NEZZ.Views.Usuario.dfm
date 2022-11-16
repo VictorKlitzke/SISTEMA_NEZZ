@@ -105,7 +105,6 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
         Navigator.Buttons.CustomButtons = <>
         OnCellDblClick = dsUsuariosGridDBTableView1CellDblClick
         DataController.DataSource = dsUsuarios
-        DataController.DetailKeyFieldNames = 'NOME'
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
         DataController.Summary.SummaryGroups = <>
@@ -129,6 +128,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
+    ExplicitTop = 508
     object btnAdicionar: TcxButton
       Left = 867
       Top = 0
@@ -203,8 +203,37 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
-      ExplicitLeft = 664
-      ExplicitTop = 32
+    end
+    object BtnEditar: TcxButton
+      Left = 663
+      Top = 0
+      Width = 102
+      Height = 48
+      Align = alRight
+      Caption = 'Editar'
+      OptionsImage.Glyph.SourceDPI = 96
+      OptionsImage.Glyph.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000000473424954080808087C0864880000000970485973000000B2000000
+        B2016B9468E00000001974455874536F667477617265007777772E696E6B7363
+        6170652E6F72679BEE3C1A00000170494441545885EDD53D4B1C5114C6F19FBB
+        428C6B91269A3469042368B04D155259A594FD24829F41480AAB45AC6D828D85
+        5F6111024B0A21846D429A60A3854A3431ACC538B0CA9DD97B871D48B10F9C66
+        EEB9F7FF9C33F78589262AD71C36D1C5197EA38F0EDED40D7F875F1814C43F6C
+        A35917FCA6043E1C7BE386CF29AF3C14ED711AD84C840FF02D91B18046D160B7
+        8281015622E16DFCC5119E8412CE2B1AD84880E7730E426D9889ACE4B19E46C0
+        F7313DF4ED5528B1AF5A07DE97C0373CAC3CDF372F43C99D0AF00BC59D4B82C3
+        2A6E130D7C2C81FF4981E7DA4E80F7F12CB0C67AA0F213D9111CA9A6EC868B81
+        2F15ACB11B80CFC7C087D596B52CF4CF3F09579E6B27063E15696405CB68E127
+        8E713D62CE0B7C903D5A87B2D7F4FF560B5BE8E14AFC26BCC497FBB9ADAAF045
+        7C4F8016C50FACA5C25B6382E771AAE08A2DD2D618E1797C4E31D0ABC1C0ADC8
+        33DFC0EB14B7916AE26DAC81D91A0CC0F358035F6B805FCBAEE989261AA93B45
+        931E53038397C50000000049454E44AE426082}
+      SpeedButtonOptions.CanBeFocused = False
+      SpeedButtonOptions.Flat = True
+      TabOrder = 2
+      OnClick = BtnEditarClick
+      ExplicitLeft = 690
     end
   end
   object pnPesquisa: TPanel

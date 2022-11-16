@@ -265,7 +265,7 @@ begin
   if LCliente then
   begin
     Error := True;
-    ErrorText := 'Já existe um usuário com esse login. Tenta outro';
+    ErrorText := 'Já existe um cliente com essa Razão Social. Tente outro!';
     Exit;
   end;
 

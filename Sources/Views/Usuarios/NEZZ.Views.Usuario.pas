@@ -41,6 +41,7 @@ uses
   Vcl.WinXCtrls,
   NEZZ.Services.Query,
   LfResizerVcl,
+  System.UITypes,
   NEZZ.Views.Usuario.Editar;
 
 type
@@ -60,6 +61,7 @@ type
     edPesquisa: TEdit;
     LFResizerVcl1: TLFResizerVcl;
     cxButton1: TcxButton;
+    BtnEditar: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -70,6 +72,7 @@ type
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
       AShift: TShiftState;
       var AHandled: Boolean);
+    procedure BtnEditarClick(Sender: TObject);
   private
     FNEZZFactoryUsuario: iNEZZFactoryUsuario;
   public
@@ -131,13 +134,32 @@ procedure TNEZZViewsUsuario.dsUsuariosGridDBTableView1CellDblClick(
   AButton: TMouseButton; AShift: TShiftState;
   var AHandled: Boolean);
 begin
+  if MessageDlg('Deseja realmente desativar esse usuário?', mtConfirmation, mbYesNo, 0) = mrYes then
+  begin
+    if dsUsuarios.DataSet.FieldByName('STATUS').AsInteger <> 0 then
+    begin
+      MessageDlg('Usuário já foi desativado. Tente outro!', mtInformation, [mbOK], 0);
+      Exit;
+    end;
+    try
+      FNEZZFactoryUsuario
+        .DesativarUsuario(dsUsuarios.DataSet.FieldByName('ID').AsInteger);
+        MessageDlg('Usuário desativado com sucesso!', mtInformation, [mbOK], 0);
+    except
+    end;
+    CarregarDados;
+  end;
+end;
+
+procedure TNEZZViewsUsuario.BtnEditarClick(Sender: TObject);
+begin
   if not Assigned(NEZZViewsUsuarioEditar) then
-    Application.CreateForm(TNEZZViewsUsuarioEditar , NEZZViewsUsuarioEditar);
+    Application.CreateForm(TNEZZViewsUsuarioEditar, TNEZZViewsUsuarioEditar);
 
-  NEZZViewsUsuarioEditar.Usuario(dsUsuarios.DataSet.FieldByName('ID').AsInteger);
+  TNEZZViewsUsuarioEditar.Usuario(dsUsuarios.DataSet.FieldByName('ID').AsInteger);
 
-  NEZZViewsUsuarioEditar.ShowModal;
-  FreeAndNil(NEZZViewsUsuarioEditar);
+  TNEZZViewsUsuarioEditar.ShowModal;
+  FreeAndNil(TNEZZViewsUsuarioEditar);
 
   CarregarDados;
 end;
