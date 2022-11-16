@@ -128,7 +128,6 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 508
     object btnAdicionar: TcxButton
       Left = 867
       Top = 0
@@ -174,7 +173,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       TabOrder = 0
       OnClick = btnAdicionarClick
     end
-    object cxButton1: TcxButton
+    object BtnDeletar: TcxButton
       Left = 765
       Top = 0
       Width = 102
@@ -203,6 +202,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
+      OnClick = BtnDeletarClick
     end
     object BtnEditar: TcxButton
       Left = 663
@@ -233,7 +233,6 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       SpeedButtonOptions.Flat = True
       TabOrder = 2
       OnClick = BtnEditarClick
-      ExplicitLeft = 690
     end
   end
   object pnPesquisa: TPanel
@@ -265,8 +264,8 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
     Top = 208
   end
   object LFResizerVcl1: TLFResizerVcl
-    Active = True
-    AspectRatioForm = True
+    Active = False
+    AspectRatioForm = False
     FormFullScreen = False
     ShowInfoResize = True
     HideTaskBar = False

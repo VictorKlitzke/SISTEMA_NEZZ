@@ -55,7 +55,7 @@ type
   private
     FNEZZModelsUsuario : iNEZZModelsUsuario;
   public
-    function Usuario(UID: integer): Integer;
+    function Usuario(UID : integer): Integer;
   end;
 
 var

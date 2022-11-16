@@ -121,19 +121,22 @@ end;
 
 procedure TNEZZViewsClientes.btnDeletarClick(Sender: TObject);
 begin
-  inherited;
+  if MessageDlg('Deseja realmente remover esse cliente?', mtConfirmation, mbYesNo, 0) = mrYes then
+  begin
+    try
+      FNEZZFactoryCliente
+        .DeletarCliente(
+          dsClientes.DataSet.FieldByName('ID').AsInteger
+        );
 
-  try
-    FNEZZModelsCliente
-      .Apagar;
-
-    MessageDlg('Cliente deletado com sucesso!!' , mtInformation , [mbOk] , 0);
-    Close;
-  except
+        MessageDlg('Cliente removido com sucesso!!', mtInformation, [mbOK], 0);
+    except
     on e: Exception do
     begin
-      MessageDlg('Erro ao deletar registro do cliente!' + #13 + e.message , mtWarning , [mbOk] , 0);
+      MessageDlg('Ocorreu um erro ao deletar o cliente' + #13 + e.message , mtWarning , [mbOk] , 0)
     end;
+    end;
+    CarregarDados;
   end;
 end;
 

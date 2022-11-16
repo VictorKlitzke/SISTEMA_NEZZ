@@ -143,7 +143,7 @@ begin
   Result := Self;
 
   FNEZZServicesUsuario
-    .Filtrar(ACampo , AValor)
+    .Filtrar(ACampo, AValor)
     .Abrir;
 end;
 

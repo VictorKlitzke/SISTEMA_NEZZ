@@ -19,7 +19,7 @@ type
     function AdicionarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryUsuario;
     function AtualizarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
-    function DeletarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
+    function DeletarUsuario(ANome : Integer): iNEZZFactoryUsuario;
     function FiltrarUsuario(ALogin : string): iNEZZFactoryUsuario;
     function DesativarUsuario(ALogin: Integer): iNEZZFactoryUsuario;
 
@@ -43,7 +43,7 @@ type
     function AdicionarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryUsuario;
     function AtualizarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
-    function DeletarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
+    function DeletarUsuario(ANome : Integer): iNEZZFactoryUsuario;
     function FiltrarUsuario(ANome : string): iNEZZFactoryUsuario;
     function DesativarUsuario(ALogin: Integer): iNEZZFactoryUsuario;
     function ListarUsuarios: iNEZZFactoryUsuario;
@@ -126,16 +126,13 @@ begin
 end;
 
 function TNEZZFactoryUsuario.DeletarUsuario(
-  ALogin,
-  ANome,
-  ASenha,
-  ATelefone: string): iNEZZFactoryUsuario;
+  ANome : Integer): iNEZZFactoryUsuario;
 begin
   Result := Self;
 
   TNEZZModelsUsuario
     .New
-    .Filtrar('ID' , ALogin)
+    .Filtrar('ID' , ANome)
     .Deletar
     .Salvar;
 end;

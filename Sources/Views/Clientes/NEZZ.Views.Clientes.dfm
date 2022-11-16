@@ -89,7 +89,8 @@ object NEZZViewsClientes: TNEZZViewsClientes
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnDeletarClick
-      ExplicitLeft = 867
+      ExplicitLeft = 759
+      ExplicitTop = 6
     end
     object btnAdicionar: TcxButton
       Left = 867
@@ -135,8 +136,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = btnAdicionarClick
-      ExplicitLeft = 893
-      ExplicitTop = -8
     end
   end
   object pnHeader: TPanel

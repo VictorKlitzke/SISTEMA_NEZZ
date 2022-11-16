@@ -25,8 +25,6 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 418
-    ExplicitHeight = 132
     object lbNome: TLabel
       Left = 11
       Top = 3
@@ -59,6 +57,7 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Left = 8
       Top = 22
       DataBinding.DataField = 'NOME'
+      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 0
       Width = 170
     end
@@ -66,6 +65,7 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Left = 8
       Top = 70
       DataBinding.DataField = 'SENHA'
+      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 1
       Width = 170
     end
@@ -73,6 +73,7 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Left = 215
       Top = 22
       DataBinding.DataField = 'LOGIN'
+      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 2
       Width = 170
     end
@@ -80,6 +81,7 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Left = 215
       Top = 70
       DataBinding.DataField = 'TELEFONE'
+      DataBinding.DataSource = dsUsuariosEditar
       TabOrder = 3
       Width = 170
     end
@@ -94,7 +96,6 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 418
     object BtnSalvar: TcxButton
       Left = 302
       Top = 0
@@ -142,7 +143,7 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 318
+      OnClick = BtnSalvarClick
     end
   end
   object pnHeader: TPanel
@@ -155,9 +156,6 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
     Color = -1
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 418
     object lbCRUD: TLabel
       Left = 0
       Top = 0
@@ -181,7 +179,6 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 371
       object btnClose: TcxButton
         Left = 0
         Top = 0

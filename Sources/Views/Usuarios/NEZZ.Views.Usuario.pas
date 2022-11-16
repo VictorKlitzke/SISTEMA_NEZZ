@@ -60,7 +60,7 @@ type
     pnPesquisa: TPanel;
     edPesquisa: TEdit;
     LFResizerVcl1: TLFResizerVcl;
-    cxButton1: TcxButton;
+    BtnDeletar: TcxButton;
     BtnEditar: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
@@ -73,6 +73,7 @@ type
       AShift: TShiftState;
       var AHandled: Boolean);
     procedure BtnEditarClick(Sender: TObject);
+    procedure BtnDeletarClick(Sender: TObject);
   private
     FNEZZFactoryUsuario: iNEZZFactoryUsuario;
   public
@@ -127,6 +128,25 @@ begin
     DataController.CreateAllItems();
     ApplyBestFit();
   end;
+end;
+
+procedure TNEZZViewsUsuario.BtnDeletarClick(Sender: TObject);
+begin
+  if MessageDlg('Deseja relamente remover esse usuário?', mtConfirmation, mbYesNo, 0) = mrYes then
+  try
+    FNEZZFactoryUsuario
+      .DeletarUsuario(
+        dsUsuarios.DataSet.FieldByName('ID').AsInteger
+      );
+
+      MessageDlg('Usuário removido com sucesso!!', mtInformation, [mbOK], 0);
+  except
+  on e: Exception do
+  begin
+    MessageDlg('Ocorreu um erro ao deletar o cliente' + #13 + e.message , mtWarning , [mbOk] , 0);
+  end;
+  end;
+  CarregarDados;
 end;
 
 procedure TNEZZViewsUsuario.dsUsuariosGridDBTableView1CellDblClick(
