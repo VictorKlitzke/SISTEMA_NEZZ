@@ -169,6 +169,12 @@
         </DCCReference>
         <DCCReference Include="Sources\Models\NEZZ.Models.Fornecedor.pas"/>
         <DCCReference Include="Sources\Factories\NEZZ.Factory.Fornecedor.pas"/>
+        <DCCReference Include="Sources\Models\NEZZ.Models.Produto.pas"/>
+        <DCCReference Include="Sources\Factories\NEZZ.Factory.Produto.pas"/>
+        <DCCReference Include="Sources\Views\Fornecedores\NEZZ.Views.Fornecedor.Adicionar.pas">
+            <Form>NEZZViewsFornecedorAdicionar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

@@ -13,6 +13,7 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel
@@ -23,7 +24,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = -16
     object dsFornecedoresGrid: TcxGrid
       Left = 0
       Top = 0
@@ -33,7 +33,7 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       TabOrder = 0
       object dsFornecedoresGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
-        DataController.DetailKeyFieldNames = 'NOME'
+        DataController.DataSource = dsFornecedores
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
         DataController.Summary.SummaryGroups = <>
@@ -57,8 +57,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -16
-    ExplicitTop = 463
     object btnAdicionar: TcxButton
       Left = 867
       Top = 0
@@ -102,6 +100,7 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
+      OnClick = btnAdicionarClick
     end
     object BtnImprimir: TcxButton
       Left = 663
@@ -145,8 +144,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
-      ExplicitLeft = 448
-      ExplicitTop = 16
     end
     object btnDeletar: TcxButton
       Left = 765
@@ -176,8 +173,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 2
-      ExplicitLeft = 560
-      ExplicitTop = 6
     end
   end
   object pnHeader: TPanel
@@ -190,7 +185,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = -16
     object lbUsuario: TLabel
       Left = 0
       Top = 0
@@ -248,6 +242,7 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
+        OnClick = btnCloseClick
       end
     end
   end
@@ -261,7 +256,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
     Color = clYellow
     ParentBackground = False
     TabOrder = 3
-    ExplicitLeft = -16
     object edPesquisa: TEdit
       Left = 0
       Top = 0

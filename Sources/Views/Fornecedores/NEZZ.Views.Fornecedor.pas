@@ -36,7 +36,9 @@ uses
   cxGridTableView,
   cxGridDBTableView,
   cxGrid,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls,
+  NEZZ.Factory.Fornecedor,
+  NEZZ.Models.Fornecedor;
 
 type
   TNEZZViewsFornecedor = class(TForm)
@@ -55,8 +57,12 @@ type
     dsFornecedores: TDataSource;
     BtnImprimir: TcxButton;
     btnDeletar: TcxButton;
+    procedure FormCreate(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+    procedure btnAdicionarClick(Sender: TObject);
   private
-    { Private declarations }
+    FNEZZFactoryFornecedor: iNEZZFactoryFornecedor;
+    FNEZZModelsFornecedor: iNEZZModelsFornecedor;
   public
     procedure CarregarDados;
   end;
@@ -70,9 +76,34 @@ implementation
 
 { TNEZZViewsFornecedor }
 
+procedure TNEZZViewsFornecedor.btnAdicionarClick(Sender: TObject);
+begin
+// ADD
+end;
+
+procedure TNEZZViewsFornecedor.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
 procedure TNEZZViewsFornecedor.CarregarDados;
 begin
+  FNEZZFactoryFornecedor := TNEZZFactoryFronecedor
+    .New
+    .DataSource(dsFornecedores)
+    .ListarFornecedor;
 
+  with dsFornecedoresGridDBTableView1 do
+  begin
+    ClearItems;
+    DataController.CreateAllItems();
+    ApplyBestFit();
+  end;
+end;
+
+procedure TNEZZViewsFornecedor.FormCreate(Sender: TObject);
+begin
+  CarregarDados;
 end;
 
 end.
