@@ -49,6 +49,7 @@ type
     BtnProdutos: TcxButton;
     BtnVendas: TcxButton;
     BtnFaturar: TcxButton;
+    cxButton1: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure btnCloseKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -58,6 +59,7 @@ type
     procedure BtnVendasClick(Sender: TObject);
     procedure lbl3DblClick(Sender: TObject);
     procedure BtnFornecedoresClick(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
   private
     FConexao : iNEZZServicesConexao;
   public
@@ -70,7 +72,7 @@ var
 implementation
 
 uses
-  NEZZ.Views.Usuario, NEZZ.Views.Vendas, NEZZ.Controllers.Sessao;
+  NEZZ.Views.Usuario, NEZZ.Views.Vendas, NEZZ.Controllers.Sessao, NEZZ.Views.Caixa.Adicionar;
 
 {$R *.dfm}
 
@@ -135,6 +137,17 @@ begin
 
   NEZZViewsVenda.Parent := pnContent;
   NEZZViewsVenda.Show;
+
+end;
+
+procedure TNEZZViewsPrincipal.cxButton1Click(Sender: TObject);
+begin
+  if Assigned(NEZZViewsCaixaAbrir) then FreeAndNil(NEZZViewsCaixaAbrir);
+  if not Assigned(NEZZViewsCaixaAbrir) then
+    Application.CreateForm(TNEZZViewsCaixaAbrir, NEZZViewsCaixaAbrir);
+
+  NEZZViewsCaixaAbrir.Parent := pnContent;
+  NEZZViewsCaixaAbrir.Show;
 
 end;
 

@@ -3,7 +3,7 @@ object NEZZViewsClientes: TNEZZViewsClientes
   Top = 0
   BorderStyle = bsNone
   Caption = 'NEZZViewsClientes'
-  ClientHeight = 550
+  ClientHeight = 549
   ClientWidth = 969
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,20 +20,22 @@ object NEZZViewsClientes: TNEZZViewsClientes
     Left = 0
     Top = 59
     Width = 969
-    Height = 443
+    Height = 442
     Align = alClient
     BevelOuter = bvNone
     Color = clBlack
     ParentBackground = False
     TabOrder = 0
+    ExplicitHeight = 443
     object dsDadosCliente: TcxGrid
       Left = 0
       Top = 0
       Width = 969
-      Height = 443
+      Height = 442
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitHeight = 443
       object dsDadosClienteDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         OnCellDblClick = dsDadosClienteDBTableView1CellDblClick
@@ -52,7 +54,7 @@ object NEZZViewsClientes: TNEZZViewsClientes
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 502
+    Top = 501
     Width = 969
     Height = 48
     Align = alBottom
@@ -60,6 +62,7 @@ object NEZZViewsClientes: TNEZZViewsClientes
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 502
     object btnDeletar: TcxButton
       Left = 765
       Top = 0
@@ -89,8 +92,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnDeletarClick
-      ExplicitLeft = 759
-      ExplicitTop = 6
     end
     object btnAdicionar: TcxButton
       Left = 867

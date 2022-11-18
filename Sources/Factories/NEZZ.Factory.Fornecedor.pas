@@ -16,7 +16,7 @@ type
     ['{1592C510-8A28-408D-BD1A-F6430ADE3590}']
 
     function ExisteFornecedor(ANome : string): Boolean;
-    function AdicionarFornecedor(ANome,ARazao_social,ACNPJ,ABairro,AEndereco,ATelefone,ACidade,ACEP,AStatus : string): iNEZZFactoryFornecedor;
+    function AdicionarFornecedor(ANome,ARazao_social,ACNPJ,ABairro,AEndereco,ATelefone,ACidade,ACEP : string): iNEZZFactoryFornecedor;
     function DeletarFornecedor(ANome : Integer): iNEZZFactoryFornecedor;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryFornecedor;
     function AtualizarFornecedor(ANome : string): iNEZZFactoryFornecedor;
@@ -36,7 +36,7 @@ type
     class function New: iNEZZFactoryFornecedor;
 
     function ExisteFornecedor(ANome : string): Boolean;
-    function AdicionarFornecedor(ANome,ARazao_social,ACNPJ,ABairro,AEndereco,ATelefone,ACidade,ACEP,AStatus : string): iNEZZFactoryFornecedor;
+    function AdicionarFornecedor(ANome,ARazao_social,ACNPJ,ABairro,AEndereco,ATelefone,ACidade,ACEP : string): iNEZZFactoryFornecedor;
     function DeletarFornecedor(ANome : Integer): iNEZZFactoryFornecedor;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryFornecedor;
     function AtualizarFornecedor(ANome : string): iNEZZFactoryFornecedor;
@@ -57,8 +57,7 @@ function TNEZZFactoryFronecedor.AdicionarFornecedor(
   AEndereco,
   ATelefone,
   ACidade,
-  ACEP,
-  AStatus: string): iNEZZFactoryFornecedor;
+  ACEP: string): iNEZZFactoryFornecedor;
 begin
   Result := Self;
 

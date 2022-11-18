@@ -38,7 +38,8 @@ uses
   cxGrid,
   Vcl.ExtCtrls,
   NEZZ.Factory.Fornecedor,
-  NEZZ.Models.Fornecedor;
+  NEZZ.Models.Fornecedor,
+  NEZZ.Views.Fornecedor.Adicionar;
 
 type
   TNEZZViewsFornecedor = class(TForm)
@@ -57,9 +58,11 @@ type
     dsFornecedores: TDataSource;
     BtnImprimir: TcxButton;
     btnDeletar: TcxButton;
+    cxButton1: TcxButton;
     procedure FormCreate(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
   private
     FNEZZFactoryFornecedor: iNEZZFactoryFornecedor;
     FNEZZModelsFornecedor: iNEZZModelsFornecedor;
@@ -72,13 +75,26 @@ var
 
 implementation
 
+uses
+  NEZZ.Views.Fornecedor.Editar;
+
 {$R *.dfm}
 
 { TNEZZViewsFornecedor }
 
 procedure TNEZZViewsFornecedor.btnAdicionarClick(Sender: TObject);
 begin
-// ADD
+  try
+    if not Assigned(NEZZViewsFornecedorAdicionar) then
+      Application.CreateForm(TNEZZViewsFornecedorAdicionar, NEZZViewsFornecedorAdicionar);
+
+    NEZZViewsFornecedorAdicionar.ShowModal;
+    NEZZViewsFornecedorAdicionar.Free;
+
+    CarregarDados;
+  finally
+     FreeAndNil(NEZZViewsFornecedorAdicionar);
+  end;
 end;
 
 procedure TNEZZViewsFornecedor.btnCloseClick(Sender: TObject);
@@ -99,6 +115,19 @@ begin
     DataController.CreateAllItems();
     ApplyBestFit();
   end;
+end;
+
+procedure TNEZZViewsFornecedor.cxButton1Click(Sender: TObject);
+begin
+  if not Assigned(NEZZViewsFornecedorEditar) then
+    Application.CreateForm(TNEZZViewsFornecedorEditar, NEZZViewsFornecedorEditar);
+
+  NEZZViewsFornecedorEditar.Fornecedor(dsFornecedores.DataSet.FieldByName('ID').AsInteger);
+
+  NEZZViewsFornecedorEditar.ShowModal;
+  FreeAndNil(NEZZViewsFornecedorEditar);
+
+  CarregarDados;
 end;
 
 procedure TNEZZViewsFornecedor.FormCreate(Sender: TObject);

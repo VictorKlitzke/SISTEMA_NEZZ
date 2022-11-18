@@ -25,9 +25,6 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
     Color = clNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 27
-    ExplicitWidth = 500
-    ExplicitHeight = 215
     object edNome: TcxTextEdit
       Left = 14
       Top = 20
@@ -36,7 +33,7 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
       Width = 226
     end
     object edRazao: TcxTextEdit
-      Left = 256
+      Left = 246
       Top = 20
       TabOrder = 1
       TextHint = 'Raz'#227'o Social'
@@ -96,8 +93,6 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 201
-    ExplicitWidth = 500
     object btnLimpar: TcxButton
       Left = 398
       Top = 0
@@ -134,7 +129,7 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
-      ExplicitLeft = 400
+      OnClick = btnLimparClick
     end
     object btnSalvar: TcxButton
       Left = 298
@@ -168,7 +163,7 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
-      ExplicitLeft = 300
+      OnClick = btnSalvarClick
     end
   end
   object pnHeader: TPanel
@@ -181,9 +176,6 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
     Color = clNone
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 500
     object lblCRUD: TLabel
       Left = 0
       Top = 0
@@ -208,7 +200,6 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 449
       object btnClose: TcxButton
         Left = 0
         Top = 0

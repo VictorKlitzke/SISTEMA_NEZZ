@@ -12,6 +12,8 @@ program NEZZ;
 
 
 
+
+
 uses
   Vcl.Forms,
   Vcl.Controls,
@@ -41,7 +43,9 @@ uses
   NEZZ.Factory.Fornecedor in 'Sources\Factories\NEZZ.Factory.Fornecedor.pas',
   NEZZ.Models.Produto in 'Sources\Models\NEZZ.Models.Produto.pas',
   NEZZ.Factory.Produto in 'Sources\Factories\NEZZ.Factory.Produto.pas',
-  NEZZ.Views.Fornecedor.Adicionar in 'Sources\Views\Fornecedores\NEZZ.Views.Fornecedor.Adicionar.pas' {NEZZViewsFornecedorAdicionar};
+  NEZZ.Views.Fornecedor.Adicionar in 'Sources\Views\Fornecedores\NEZZ.Views.Fornecedor.Adicionar.pas' {NEZZViewsFornecedorAdicionar},
+  NEZZ.Views.Fornecedor.Editar in 'Sources\Views\Fornecedores\NEZZ.Views.Fornecedor.Editar.pas' {NEZZViewsFornecedorEditar},
+  NEZZ.Views.Caixa.Adicionar in 'Sources\Views\Caixa\NEZZ.Views.Caixa.Adicionar.pas' {NEZZViewsCaixaAbrir};
 
 {$R *.res}
 
@@ -66,6 +70,8 @@ begin
   Application.CreateForm(TNEZZViewsFornecedor, NEZZViewsFornecedor);
   Application.CreateForm(TNEZZViewsUsuarioEditar, NEZZViewsUsuarioEditar);
   Application.CreateForm(TNEZZViewsFornecedorAdicionar, NEZZViewsFornecedorAdicionar);
+  Application.CreateForm(TNEZZViewsFornecedorEditar, NEZZViewsFornecedorEditar);
+  Application.CreateForm(TNEZZViewsCaixaAbrir, NEZZViewsCaixaAbrir);
   NEZZViewsUsuarioLogin.ShowModal;
 
     if NEZZViewsUsuarioLogin.ModalResult = mrCancel then
