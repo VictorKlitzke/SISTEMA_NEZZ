@@ -25,12 +25,10 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 280
-    ExplicitHeight = 119
     object Label2: TLabel
       Left = 13
       Top = 52
-      Width = 46
+      Width = 40
       Height = 21
       Caption = 'Valor'
       Font.Charset = ANSI_CHARSET
@@ -76,7 +74,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 149
     object BtnApagar: TcxButton
       Left = 202
       Top = 0
@@ -114,8 +111,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
-      ExplicitLeft = 130
-      ExplicitHeight = 41
     end
     object BtnSalvar: TcxButton
       Left = 0
@@ -151,8 +146,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = BtnSalvarClick
-      ExplicitLeft = 205
-      ExplicitHeight = 41
     end
   end
   object pnHeader: TPanel
@@ -165,9 +158,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 280
     object Label1: TLabel
       Left = 0
       Top = 0
@@ -191,7 +181,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 226
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -240,8 +229,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     Color = clYellow
     ParentBackground = False
     TabOrder = 3
-    ExplicitLeft = 168
-    ExplicitHeight = 120
     object Image1: TImage
       Left = 40
       Top = 16

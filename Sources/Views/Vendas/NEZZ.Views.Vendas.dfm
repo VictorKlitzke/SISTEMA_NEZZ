@@ -23,7 +23,6 @@ object NEZZViewsVenda: TNEZZViewsVenda
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitHeight = 533
     object dsVendasGrid: TcxGrid
       Left = 0
       Top = 0
@@ -31,7 +30,6 @@ object NEZZViewsVenda: TNEZZViewsVenda
       Height = 454
       Align = alClient
       TabOrder = 0
-      ExplicitHeight = 533
       object dsVendasGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsVendas
@@ -57,7 +55,6 @@ object NEZZViewsVenda: TNEZZViewsVenda
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 581
     object btnDeletar: TcxButton
       Left = 867
       Top = 0
@@ -198,6 +195,7 @@ object NEZZViewsVenda: TNEZZViewsVenda
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
+        OnClick = btnCloseClick
       end
     end
   end

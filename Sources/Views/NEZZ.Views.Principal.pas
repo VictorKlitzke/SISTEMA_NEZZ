@@ -47,9 +47,14 @@ type
     BtnClientes: TcxButton;
     BtnFornecedores: TcxButton;
     BtnProdutos: TcxButton;
-    BtnVendas: TcxButton;
+    BtnCaixa: TcxButton;
+    pnSubGrupoVendas: TPanel;
     BtnFaturar: TcxButton;
-    cxButton1: TcxButton;
+    BtnMovimentacao: TcxButton;
+    BtnVendas: TcxButton;
+    pnSubGrupoCaixa: TPanel;
+    edAbrirCaixa: TcxButton;
+    edListagemCaixa: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure btnCloseKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -59,11 +64,14 @@ type
     procedure BtnVendasClick(Sender: TObject);
     procedure lbl3DblClick(Sender: TObject);
     procedure BtnFornecedoresClick(Sender: TObject);
-    procedure cxButton1Click(Sender: TObject);
+    procedure imgNEZZMouseEnter(Sender: TObject);
+    procedure BtnMovimentacaoMouseEnter(Sender: TObject);
+    procedure BtnCaixaMouseEnter(Sender: TObject);
+    procedure edAbrirCaixaClick(Sender: TObject);
   private
     FConexao : iNEZZServicesConexao;
   public
-    { Public declarations }
+    procedure SubGrupos;
   end;
 
 var
@@ -72,7 +80,10 @@ var
 implementation
 
 uses
-  NEZZ.Views.Usuario, NEZZ.Views.Vendas, NEZZ.Controllers.Sessao, NEZZ.Views.Caixa.Adicionar;
+  NEZZ.Views.Usuario,
+  NEZZ.Views.Vendas,
+  NEZZ.Controllers.Sessao,
+  NEZZ.Views.Caixa.Adicionar;
 
 {$R *.dfm}
 
@@ -137,10 +148,9 @@ begin
 
   NEZZViewsVenda.Parent := pnContent;
   NEZZViewsVenda.Show;
-
 end;
 
-procedure TNEZZViewsPrincipal.cxButton1Click(Sender: TObject);
+procedure TNEZZViewsPrincipal.edAbrirCaixaClick(Sender: TObject);
 begin
   if Assigned(NEZZViewsCaixaAbrir) then FreeAndNil(NEZZViewsCaixaAbrir);
   if not Assigned(NEZZViewsCaixaAbrir) then
@@ -148,7 +158,22 @@ begin
 
   NEZZViewsCaixaAbrir.Parent := pnContent;
   NEZZViewsCaixaAbrir.Show;
+end;
 
+procedure TNEZZViewsPrincipal.BtnCaixaMouseEnter(Sender: TObject);
+begin
+  SubGrupos;
+  pnSubGrupoCaixa.Top := 300;
+  pnSubGrupoCaixa.Left := 0;
+  pnSubGrupoCaixa.Visible := True;
+end;
+
+procedure TNEZZViewsPrincipal.BtnMovimentacaoMouseEnter(Sender: TObject);
+begin
+  SubGrupos;
+  pnSubGrupoVendas.Top := 150;
+  pnSubGrupoVendas.Left := 0;
+  pnSubGrupoVendas.Visible := True;
 end;
 
 procedure TNEZZViewsPrincipal.FormCreate(Sender: TObject);
@@ -166,9 +191,20 @@ begin
   end;
 end;
 
+procedure TNEZZViewsPrincipal.imgNEZZMouseEnter(Sender: TObject);
+begin
+  pnSubGrupoVendas.Visible := False;
+  pnSubGrupoCaixa.Visible := False;
+end;
+
 procedure TNEZZViewsPrincipal.lbl3DblClick(Sender: TObject);
 begin
   ShowMessage(TNEZZControllerSessao.New.Nome);
+end;
+
+procedure TNEZZViewsPrincipal.SubGrupos;
+begin
+  pnSubGrupoVendas.Visible := False;
 end;
 
 end.

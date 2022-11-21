@@ -10,23 +10,28 @@ uses
   System.Classes,
   Vcl.Graphics,
   Vcl.Controls,
-  Vcl.Forms, Vcl.Dialogs,
-  cxGraphics, cxControls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  cxGraphics,
+  cxControls,
   cxLookAndFeels,
   cxLookAndFeelPainters,
   cxContainer,
-  cxEdit, Vcl.Menus,
+  cxEdit,
+  Vcl.Menus,
   Vcl.StdCtrls,
   cxButtons,
   cxTextEdit,
   Vcl.ExtCtrls,
   Vcl.ComCtrls,
-  dxCore, cxDateUtils,
+  dxCore,
+  cxDateUtils,
   dxGDIPlusClasses,
   cxMaskEdit,
   cxDropDownEdit,
   cxCalendar,
-  NEZZ.Services.Query, Data.DB;
+  NEZZ.Services.Query,
+  Data.DB;
 
 type
   TNEZZViewsCaixaAbrir = class(TForm)
@@ -60,6 +65,9 @@ var
 
 implementation
 
+uses
+  NEZZ.Controllers.Sessao;
+
 {$R *.dfm}
 
 procedure TNEZZViewsCaixaAbrir.btnCloseClick(Sender: TObject);
@@ -75,20 +83,20 @@ end;
 
 procedure TNEZZViewsCaixaAbrir.FormCreate(Sender: TObject);
 begin
-  FNEZZPosicao := 0;
-
-  FNEZZCaixa := TNEZZServicesCadastrar
-    .New
-    .DataSource(dsCaixa)
-    .SQL('SELECT * FROM CAIXA_ABRIR WHERE ID = :ID')
-    .Parametro('ID' , 0)
-    .Abrir
-    .Inserir
-    .Campo('STATUS' , 0)
-    .Campo('DATA_ABERTURA' , Date)
-    .Campo('DINHEIRO' , 0)
-    .Salvar
-    .Editar;
+//  FNEZZPosicao := 0;
+//
+//  FNEZZCaixa := TNEZZServicesCadastrar
+//    .New
+//    .DataSource(dsCaixa)
+//    .SQL('SELECT * FROM CAIXA_ABRIR WHERE ID = :ID')
+//    .Parametro('ID' , 0)
+//    .Abrir
+//    .Inserir
+//    .Campo('STATUS' , 0)
+//    .Campo('DATA_ABERTURA' , Date)
+//    .Campo('DINHEIRO' , 0)
+//    .Salvar
+//    .Editar;
 end;
 
 end.

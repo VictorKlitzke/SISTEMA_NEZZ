@@ -30,14 +30,28 @@ type
     function Nome: string;
 
   Function Entrar(Aid: integer; ANome: string): iNEZZControllerSessao;
+  function CaixaAberto: Boolean; overload;
   end;
 
 implementation
+
+uses
+  NEZZ.Views.Caixa.Adicionar;
 
 var
   GControllerSessao : iNEZZControllerSessao;
 
 { TNEZZControllerSessao }
+
+function TNEZZControllerSessao.CaixaAberto: Boolean;
+begin
+  Result := TNEZZServicesCadastrar
+    .New
+    .SQL('SELECT ID FROM CAIXA_ABRIR WHERE STATUS = 0')
+    .Abrir
+    .Campo('ID')
+    .AsInteger > 0;
+end;
 
 constructor TNEZZControllerSessao.Create;
 begin
