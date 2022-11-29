@@ -31,7 +31,10 @@ uses
   cxDropDownEdit,
   cxCalendar,
   NEZZ.Services.Query,
-  Data.DB, cxCurrencyEdit, cxDBEdit;
+  Data.DB,
+  cxCurrencyEdit,
+  cxDBEdit,
+  System.UITypes;
 
 type
   TNEZZViewsCaixaAbrir = class(TForm)
@@ -54,7 +57,7 @@ type
     procedure BtnSalvarClick(Sender: TObject);
     procedure BtnApagarClick(Sender: TObject);
   private
-    FNEZZAbrirCaixa: iNEZZServicesCadastrar;
+//    FNEZZAbrirCaixa: iNEZZServicesCadastrar;
   public
 
   end;
@@ -65,7 +68,9 @@ var
 implementation
 
 uses
-  NEZZ.Controllers.Sessao, NEZZ.Factory.Caixa, NEZZ.Models.Caixa;
+  NEZZ.Controllers.Sessao,
+  NEZZ.Factory.Caixa,
+  NEZZ.Models.Caixa;
 
 {$R *.dfm}
 
@@ -84,23 +89,27 @@ begin
   edValor.ValidateEdit();
   Date.ValidateEdit();
 
-  try
-    TNEZZFactoryCaixa
-      .New
-      .Abrircaixa(
-        edValor.Value,
-        Date.Date
-      );
+  if TNEZZControllerSessao.New.CaixaAberto then
+  begin
+    try
+      TNEZZFactoryCaixa
+        .New
+        .Abrircaixa(
+          edValor.Value,
+          Date.Date
+        );
 
     MessageDlg('Caixa aberto com sucesso!!' , mtInformation , [mbOk] , 0);
     Close;
-  except
-  on e: Exception do
-  begin
-    MessageDlg('Erro ao abrir caixa!' + #13 + e.message , mtWarning , [mbOk] , 0);
-    edValor.SetFocus;
+    except
+    on e: Exception do
+    begin
+      MessageDlg('Caixa existente com esse usuário!!' + #13 + e.message , mtWarning , [mbOk] , 0);
+      edValor.SetFocus;
+    end;
+    end;
   end;
-  end;
+
 end;
 
 end.

@@ -1,0 +1,8 @@
+1 - Usuário não está editando.
+2 - Melhorar a estrutura do projeto.
+3 - Fazer tala de Venda.
+4 - Fazer tela de fechamento de caixa.
+5 - terminar abertura de caixa.
+6 - Fazer tela de Produto.
+7 - Mudar usuários junto de parceiros.
+8 - Campo de valor não está colocando valor nenhum.

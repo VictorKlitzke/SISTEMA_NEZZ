@@ -26,8 +26,6 @@ object NEZZViewsFornecedorEditar: TNEZZViewsFornecedorEditar
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 415
-    ExplicitHeight = 160
     object lbNome: TLabel
       Left = 8
       Top = 3
@@ -159,8 +157,6 @@ object NEZZViewsFornecedorEditar: TNEZZViewsFornecedorEditar
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 196
-    ExplicitWidth = 415
     object BtnSalvar: TcxButton
       Left = 319
       Top = 0
@@ -209,7 +205,6 @@ object NEZZViewsFornecedorEditar: TNEZZViewsFornecedorEditar
       Font.Style = []
       ParentFont = False
       OnClick = BtnSalvarClick
-      ExplicitLeft = 315
     end
   end
   object pnHeader: TPanel
@@ -222,9 +217,6 @@ object NEZZViewsFornecedorEditar: TNEZZViewsFornecedorEditar
     Color = -1
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 415
     object lbCRUD: TLabel
       Left = 0
       Top = 0
@@ -248,7 +240,6 @@ object NEZZViewsFornecedorEditar: TNEZZViewsFornecedorEditar
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 368
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -283,6 +274,7 @@ object NEZZViewsFornecedorEditar: TNEZZViewsFornecedorEditar
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
+        OnClick = btnCloseClick
       end
     end
   end

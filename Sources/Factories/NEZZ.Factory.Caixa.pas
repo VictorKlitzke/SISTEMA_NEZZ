@@ -14,8 +14,6 @@ type
 
   iNEZZFactoryCaixa = interface
     ['{1592C510-8A28-408D-BD1A-F6430ADE3590}']
-
-    function ExisteCaixaAberto(AId: Integer): iNEZZFactoryCaixa;
     function Abrircaixa(ADinheiro : Float32; ADataAbertura : TDate): iNEZZFactoryCaixa;
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryCaixa;
     function FechamentoCaixa(ADinheiro, ADataFechamento : string): iNEZZFactoryCaixa;
@@ -37,7 +35,6 @@ type
 
     class function New: iNEZZFactoryCaixa;
 
-    function ExisteCaixaAberto(AId: Integer): iNEZZFactoryCaixa;
     function Abrircaixa(ADinheiro : Float32; ADataAbertura : TDate): iNEZZFactoryCaixa;
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryCaixa;
     function FechamentoCaixa(ADinheiro, ADataFechamento : string): iNEZZFactoryCaixa;
@@ -58,8 +55,8 @@ begin
     .Inserir
     .Dinheiro(ADinheiro)
     .DataAbertura(ADataAbertura)
-    .idUsuario(FCaixaUsuario.id)
     .Status(0)
+    .idUsuario(FCaixaUsuario.id)
     .Salvar;
 
     if Assigned(FLOG) then
@@ -73,8 +70,10 @@ begin
     .Apelido('ID', '#')
     .Apelido('DATA_ABERTURA', 'DATA')
     .Apelido('STATUS_DESC', 'STATUS')
+    .Apelido('ID_USUÁRIO', 'ID_USUÁRIO')
+    .Apelido('LOGIN', 'USUÁRIO')
     .SQL('  SELECT')
-    .SQL('    C.ID AS ID_CAIXA,,')
+    .SQL('    C.ID AS ID_CAIXA,')
     .SQL('    C.DATA_ABERTURA,')
     .SQL('    DECODE(')
     .SQL('      C.STATUS,')
@@ -88,8 +87,6 @@ begin
     .SQL('  FROM')
     .SQL('    CAIXA_ABRIR C')
     .SQL('    JOIN USUARIOS U ON U.ID = C.ID')
-    .SQL('  WHERE')
-    .SQL('    C.ID = :ID_CAIXA')
 end;
 
 function TNEZZFactoryCaixa.DataSource(
@@ -102,23 +99,6 @@ end;
 destructor TNEZZFactoryCaixa.Destroy;
 begin
 
-end;
-
-function TNEZZFactoryCaixa.ExisteCaixaAberto(AId: Integer): iNEZZFactoryCaixa;
-begin
-//  Result := TNEZZServicesCadastrar
-//    .New
-//    .SQLLimpar
-//    .SQL('SELECT')
-//    .SQL('  COUNT(*) AS QTD')
-//    .SQL('FROM')
-//    .SQL('  CAIXA_ABRIR C')
-//    .SQL('WHERE')
-//    .SQL('  UPPER(C.ID) = UPPER(:ID)')
-//    .Parametro('ID', AId)
-//    .Abrir
-//    .Campo('QTD')
-//    .AsInteger <> 0
 end;
 
 function TNEZZFactoryCaixa.FechamentoCaixa(ADinheiro,

@@ -36,7 +36,7 @@ uses
   cxGridTableView,
   cxGridDBTableView,
   cxGrid,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, frxTableObject, frxClass;
 
 type
   TNEZZViewsVenda = class(TForm)
@@ -52,6 +52,8 @@ type
     lbVendas: TLabel;
     pnClose: TPanel;
     btnClose: TcxButton;
+    FrxVendas: TfrxReport;
+    frxReportTableObject1: TfrxReportTableObject;
     procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }

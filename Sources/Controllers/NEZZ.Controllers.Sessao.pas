@@ -14,6 +14,7 @@ type
     function Nome: string;
 
     Function Entrar(Aid: integer; ANome: string): iNEZZControllerSessao;
+    function CaixaAberto: Boolean; overload;
   end;
 
   TNEZZControllerSessao = class(TInterfacedObject, iNEZZControllerSessao)
@@ -29,8 +30,8 @@ type
     function id: integer;
     function Nome: string;
 
-  Function Entrar(Aid: integer; ANome: string): iNEZZControllerSessao;
-  function CaixaAberto: Boolean; overload;
+    Function Entrar(Aid: integer; ANome: string): iNEZZControllerSessao;
+    function CaixaAberto: Boolean; overload;
   end;
 
 implementation

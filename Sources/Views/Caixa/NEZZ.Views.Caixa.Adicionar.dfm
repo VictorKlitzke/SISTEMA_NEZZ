@@ -2,8 +2,8 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  ClientHeight = 205
-  ClientWidth = 277
+  ClientHeight = 324
+  ClientWidth = 475
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,67 +17,76 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
   object pnContent: TPanel
     Left = 0
     Top = 41
-    Width = 108
-    Height = 117
+    Width = 306
+    Height = 207
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
+    ExplicitLeft = -6
+    ExplicitTop = 35
+    ExplicitWidth = 356
+    ExplicitHeight = 295
     object Label2: TLabel
-      Left = 13
-      Top = 52
-      Width = 40
-      Height = 21
-      Caption = 'Valor'
+      Left = 40
+      Top = 107
+      Width = 61
+      Height = 25
+      Caption = 'VALOR'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
-      Font.Height = -16
+      Font.Height = -19
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
     end
     object Label3: TLabel
-      Left = 15
-      Top = 7
-      Width = 36
-      Height = 21
-      Caption = 'Data'
+      Left = 44
+      Top = 45
+      Width = 49
+      Height = 25
+      Caption = 'DATA'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
-      Font.Height = -16
+      Font.Height = -19
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
     end
     object Date: TcxDateEdit
-      Left = 14
-      Top = 25
+      Left = 40
+      Top = 72
       TabOrder = 0
-      Width = 91
+      Width = 223
     end
     object edValor: TcxDBCurrencyEdit
-      Left = 15
-      Top = 79
+      Left = 40
+      Top = 134
+      Properties.DisplayFormat = ' ,0.00;- ,0.00'
+      Properties.EditFormat = ' ,0.00;- ,0.00'
       TabOrder = 1
-      Width = 91
+      Width = 222
     end
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 158
-    Width = 277
-    Height = 47
+    Top = 248
+    Width = 475
+    Height = 76
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 360
+    ExplicitWidth = 525
     object BtnApagar: TcxButton
-      Left = 202
+      Left = 326
       Top = 0
-      Width = 75
-      Height = 47
+      Width = 149
+      Height = 76
+      Cursor = crHandPoint
       Align = alRight
       Caption = 'Apagar'
       Colors.DefaultText = clBlack
@@ -110,13 +119,22 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
       OnClick = BtnApagarClick
+      ExplicitLeft = 376
+      ExplicitHeight = 100
     end
     object BtnSalvar: TcxButton
       Left = 0
       Top = 0
-      Width = 75
-      Height = 47
+      Width = 149
+      Height = 76
+      Cursor = crHandPoint
       Align = alLeft
       Caption = 'Salvar'
       Colors.DefaultText = clBlack
@@ -145,20 +163,27 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
       OnClick = BtnSalvarClick
-      ExplicitTop = 6
+      ExplicitHeight = 100
     end
   end
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 277
+    Width = 475
     Height = 41
     Align = alTop
     BevelOuter = bvNone
-    Color = clYellow
+    Color = clBlack
     ParentBackground = False
     TabOrder = 2
+    ExplicitWidth = 277
     object Label1: TLabel
       Left = 0
       Top = 0
@@ -167,7 +192,7 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       Align = alLeft
       Caption = 'ABRIR CAIXA'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clYellow
       Font.Height = -21
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
@@ -175,13 +200,14 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       ExplicitHeight = 30
     end
     object pnClose: TPanel
-      Left = 223
+      Left = 421
       Top = 0
       Width = 54
       Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 223
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -221,20 +247,22 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     end
   end
   object pnRight: TPanel
-    Left = 108
+    Left = 306
     Top = 41
     Width = 169
-    Height = 117
+    Height = 207
     Align = alRight
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 3
+    ExplicitLeft = 108
+    ExplicitHeight = 117
     object Image1: TImage
-      Left = 40
-      Top = 16
-      Width = 97
-      Height = 81
+      Left = 16
+      Top = 45
+      Width = 145
+      Height = 141
       Picture.Data = {
         0B546478504E47496D61676589504E470D0A1A0A0000000D4948445200000100
         0000010008060000005C72A8660000000473424954080808087C086488000000
@@ -619,7 +647,7 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     end
   end
   object dsCaixa: TDataSource
-    Left = 128
-    Top = 88
+    Left = 240
+    Top = 376
   end
 end

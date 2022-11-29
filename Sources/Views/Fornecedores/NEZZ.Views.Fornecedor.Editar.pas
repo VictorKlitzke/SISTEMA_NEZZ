@@ -55,6 +55,7 @@ type
     btnClose: TcxButton;
     procedure BtnSalvarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
   private
     FNEZZModelsFornecedor: iNEZZModelsFornecedor;
   public
@@ -67,6 +68,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TNEZZViewsFornecedorEditar.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
 
 procedure TNEZZViewsFornecedorEditar.BtnSalvarClick(Sender: TObject);
 begin

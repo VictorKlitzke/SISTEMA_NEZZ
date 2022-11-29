@@ -75,7 +75,6 @@ begin
   Application.CreateForm(TNEZZViewsFornecedorAdicionar, NEZZViewsFornecedorAdicionar);
   Application.CreateForm(TNEZZViewsFornecedorEditar, NEZZViewsFornecedorEditar);
   Application.CreateForm(TNEZZViewsCaixaAbrir, NEZZViewsCaixaAbrir);
-  Application.CreateForm(TForm2, Form2);
   NEZZViewsUsuarioLogin.ShowModal;
 
     if NEZZViewsUsuarioLogin.ModalResult = mrCancel then
