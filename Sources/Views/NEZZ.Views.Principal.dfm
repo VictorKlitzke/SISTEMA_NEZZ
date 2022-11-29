@@ -1,6 +1,7 @@
 object NEZZViewsPrincipal: TNEZZViewsPrincipal
   Left = 0
   Top = 0
+  Align = alClient
   BorderStyle = bsNone
   Caption = 'NEZZViewsPrincipal'
   ClientHeight = 622
@@ -12,7 +13,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  WindowState = wsMaximized
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -216,9 +216,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
-        ExplicitLeft = 6
-        ExplicitTop = -5
-        ExplicitWidth = 135
       end
       object BtnVendas: TcxButton
         Left = 0
@@ -293,9 +290,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = BtnVendasClick
-        ExplicitLeft = 1
-        ExplicitTop = 41
-        ExplicitWidth = 135
       end
     end
     object pnSubGrupoCaixa: TPanel
@@ -371,9 +365,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = edAbrirCaixaClick
-        ExplicitLeft = 6
-        ExplicitTop = 6
-        ExplicitWidth = 135
       end
       object edListagemCaixa: TcxButton
         Left = 0
@@ -381,7 +372,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         Width = 193
         Height = 40
         Align = alTop
-        Caption = 'Reimpress'#227'o de Caixa'
+        Caption = 'Listagem de Caixa'
         Colors.DefaultText = clWhite
         OptionsImage.Glyph.SourceDPI = 96
         OptionsImage.Glyph.Data = {
@@ -457,9 +448,9 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
-        ExplicitLeft = 1
-        ExplicitTop = 41
-        ExplicitWidth = 135
+        OnClick = edListagemCaixaClick
+        ExplicitLeft = 6
+        ExplicitTop = 46
       end
     end
   end
@@ -792,8 +783,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = BtnClientesClick
-      ExplicitLeft = -3
-      ExplicitTop = 294
     end
     object BtnFornecedores: TcxButton
       Left = 0
@@ -1014,7 +1003,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitTop = 375
     end
     object BtnMovimentacao: TcxButton
       Left = 0
@@ -1094,7 +1082,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitTop = 158
     end
   end
 end

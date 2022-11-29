@@ -12,7 +12,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel
@@ -51,15 +50,15 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object edValor: TcxTextEdit
-      Left = 14
-      Top = 73
-      TabOrder = 0
-      Width = 94
-    end
-    object cxDateEdit1: TcxDateEdit
+    object Date: TcxDateEdit
       Left = 14
       Top = 25
+      TabOrder = 0
+      Width = 91
+    end
+    object edValor: TcxDBCurrencyEdit
+      Left = 15
+      Top = 79
       TabOrder = 1
       Width = 91
     end
@@ -111,6 +110,7 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
+      OnClick = BtnApagarClick
     end
     object BtnSalvar: TcxButton
       Left = 0
@@ -146,6 +146,7 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = BtnSalvarClick
+      ExplicitTop = 6
     end
   end
   object pnHeader: TPanel

@@ -68,6 +68,7 @@ type
     procedure BtnMovimentacaoMouseEnter(Sender: TObject);
     procedure BtnCaixaMouseEnter(Sender: TObject);
     procedure edAbrirCaixaClick(Sender: TObject);
+    procedure edListagemCaixaClick(Sender: TObject);
   private
     FConexao : iNEZZServicesConexao;
   public
@@ -83,7 +84,7 @@ uses
   NEZZ.Views.Usuario,
   NEZZ.Views.Vendas,
   NEZZ.Controllers.Sessao,
-  NEZZ.Views.Caixa.Adicionar;
+  NEZZ.Views.Caixa.Adicionar, NEZZ.Views.Caixa.Listagem;
 
 {$R *.dfm}
 
@@ -158,6 +159,16 @@ begin
 
   NEZZViewsCaixaAbrir.Parent := pnContent;
   NEZZViewsCaixaAbrir.Show;
+end;
+
+procedure TNEZZViewsPrincipal.edListagemCaixaClick(Sender: TObject);
+begin
+  if Assigned(NEZZViewsCaixaListagem) then FreeAndNil(NEZZViewsCaixaListagem);
+  if not Assigned(NEZZViewsCaixaListagem) then
+    Application.CreateForm(TNEZZViewsCaixaListagem, NEZZViewsCaixaListagem);
+
+  NEZZViewsCaixaListagem.Parent := pnContent;
+  NEZZViewsCaixaListagem.Show;
 end;
 
 procedure TNEZZViewsPrincipal.BtnCaixaMouseEnter(Sender: TObject);

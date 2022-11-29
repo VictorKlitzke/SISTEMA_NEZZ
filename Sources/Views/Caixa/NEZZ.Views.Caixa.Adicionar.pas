@@ -31,13 +31,12 @@ uses
   cxDropDownEdit,
   cxCalendar,
   NEZZ.Services.Query,
-  Data.DB;
+  Data.DB, cxCurrencyEdit, cxDBEdit;
 
 type
   TNEZZViewsCaixaAbrir = class(TForm)
     pnContent: TPanel;
     Label2: TLabel;
-    edValor: TcxTextEdit;
     pnFooter: TPanel;
     BtnApagar: TcxButton;
     BtnSalvar: TcxButton;
@@ -45,17 +44,17 @@ type
     Label1: TLabel;
     pnClose: TPanel;
     btnClose: TcxButton;
-    cxDateEdit1: TcxDateEdit;
+    Date: TcxDateEdit;
     Label3: TLabel;
     pnRight: TPanel;
     Image1: TImage;
     dsCaixa: TDataSource;
+    edValor: TcxDBCurrencyEdit;
     procedure btnCloseClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure BtnApagarClick(Sender: TObject);
   private
-    FNEZZCaixa: iNEZZServicesCadastrar;
-    FNEZZPosicao: Integer;
+    FNEZZAbrirCaixa: iNEZZServicesCadastrar;
   public
 
   end;
@@ -66,9 +65,14 @@ var
 implementation
 
 uses
-  NEZZ.Controllers.Sessao;
+  NEZZ.Controllers.Sessao, NEZZ.Factory.Caixa, NEZZ.Models.Caixa;
 
 {$R *.dfm}
+
+procedure TNEZZViewsCaixaAbrir.BtnApagarClick(Sender: TObject);
+begin
+  edValor.Clear;
+end;
 
 procedure TNEZZViewsCaixaAbrir.btnCloseClick(Sender: TObject);
 begin
@@ -77,26 +81,26 @@ end;
 
 procedure TNEZZViewsCaixaAbrir.BtnSalvarClick(Sender: TObject);
 begin
-  FNEZZCaixa.Salvar;
-  ModalResult := mrOk;
-end;
+  edValor.ValidateEdit();
+  Date.ValidateEdit();
 
-procedure TNEZZViewsCaixaAbrir.FormCreate(Sender: TObject);
-begin
-//  FNEZZPosicao := 0;
-//
-//  FNEZZCaixa := TNEZZServicesCadastrar
-//    .New
-//    .DataSource(dsCaixa)
-//    .SQL('SELECT * FROM CAIXA_ABRIR WHERE ID = :ID')
-//    .Parametro('ID' , 0)
-//    .Abrir
-//    .Inserir
-//    .Campo('STATUS' , 0)
-//    .Campo('DATA_ABERTURA' , Date)
-//    .Campo('DINHEIRO' , 0)
-//    .Salvar
-//    .Editar;
+  try
+    TNEZZFactoryCaixa
+      .New
+      .Abrircaixa(
+        edValor.Value,
+        Date.Date
+      );
+
+    MessageDlg('Caixa aberto com sucesso!!' , mtInformation , [mbOk] , 0);
+    Close;
+  except
+  on e: Exception do
+  begin
+    MessageDlg('Erro ao abrir caixa!' + #13 + e.message , mtWarning , [mbOk] , 0);
+    edValor.SetFocus;
+  end;
+  end;
 end;
 
 end.
