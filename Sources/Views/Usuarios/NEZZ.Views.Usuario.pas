@@ -173,15 +173,15 @@ end;
 
 procedure TNEZZViewsUsuario.BtnEditarClick(Sender: TObject);
 begin
-  if not Assigned(NEZZViewsUsuarioEditar) then
-    Application.CreateForm(TNEZZViewsUsuarioEditar, NEZZViewsUsuarioEditar);
-
-  NEZZViewsUsuarioEditar.Usuario(dsUsuarios.DataSet.FieldByName('ID').AsInteger);
-
-  NEZZViewsUsuarioEditar.ShowModal;
-  FreeAndNil(NEZZViewsUsuarioEditar);
-
-  CarregarDados;
+//  if not Assigned(NEZZViewsUsuarioEditar) then
+//    Application.CreateForm(TNEZZViewsUsuarioEditar, NEZZViewsUsuarioEditar);
+//
+//  NEZZViewsUsuarioEditar.Usuario(dsUsuarios.DataSet.FieldByName('ID').AsInteger);
+//
+//  NEZZViewsUsuarioEditar.ShowModal;
+//  FreeAndNil(NEZZViewsUsuarioEditar);
+//
+//  CarregarDados;
 end;
 
 procedure TNEZZViewsUsuario.edPesquisaChange(Sender: TObject);

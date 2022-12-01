@@ -56,7 +56,7 @@ begin
     .Dinheiro(ADinheiro)
     .DataAbertura(ADataAbertura)
     .Status(0)
-    .idUsuario(FCaixaUsuario.id)
+//    .idUsuario(FCaixaUsuario.id)
     .Salvar;
 
     if Assigned(FLOG) then
@@ -99,6 +99,7 @@ end;
 destructor TNEZZFactoryCaixa.Destroy;
 begin
 
+  inherited;
 end;
 
 function TNEZZFactoryCaixa.FechamentoCaixa(ADinheiro,

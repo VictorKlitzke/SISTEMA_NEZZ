@@ -12,6 +12,7 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel
@@ -24,10 +25,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -6
-    ExplicitTop = 35
-    ExplicitWidth = 356
-    ExplicitHeight = 295
     object Label2: TLabel
       Left = 40
       Top = 107
@@ -63,6 +60,8 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     object edValor: TcxDBCurrencyEdit
       Left = 40
       Top = 134
+      DataBinding.DataField = 'DINHEIRO'
+      DataBinding.DataSource = dsCaixa
       Properties.DisplayFormat = ' ,0.00;- ,0.00'
       Properties.EditFormat = ' ,0.00;- ,0.00'
       TabOrder = 1
@@ -79,8 +78,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 360
-    ExplicitWidth = 525
     object BtnApagar: TcxButton
       Left = 326
       Top = 0
@@ -126,8 +123,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = BtnApagarClick
-      ExplicitLeft = 376
-      ExplicitHeight = 100
     end
     object BtnSalvar: TcxButton
       Left = 0
@@ -170,7 +165,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = BtnSalvarClick
-      ExplicitHeight = 100
     end
   end
   object pnHeader: TPanel
@@ -183,7 +177,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     Color = clBlack
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 277
     object Label1: TLabel
       Left = 0
       Top = 0
@@ -207,7 +200,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 223
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -256,8 +248,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     Color = clYellow
     ParentBackground = False
     TabOrder = 3
-    ExplicitLeft = 108
-    ExplicitHeight = 117
     object Image1: TImage
       Left = 16
       Top = 45

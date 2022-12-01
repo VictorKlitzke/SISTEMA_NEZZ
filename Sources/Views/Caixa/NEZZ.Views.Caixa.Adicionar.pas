@@ -34,7 +34,8 @@ uses
   Data.DB,
   cxCurrencyEdit,
   cxDBEdit,
-  System.UITypes;
+  System.UITypes,
+  NEZZ.Models.Caixa;
 
 type
   TNEZZViewsCaixaAbrir = class(TForm)
@@ -56,8 +57,10 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
     procedure BtnApagarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
-//    FNEZZAbrirCaixa: iNEZZServicesCadastrar;
+    FNEZZAbrirCaixa: iNEZZServicesCadastrar;
+    FNEZZModelsCaixa: iNEZZModelsCaixa;
   public
 
   end;
@@ -110,6 +113,10 @@ begin
     end;
   end;
 
+end;
+procedure TNEZZViewsCaixaAbrir.FormCreate(Sender: TObject);
+begin
+  FNEZZModelsCaixa := TNEZZModelsCaixa.New.DataSource(dsCaixa);
 end;
 
 end.
