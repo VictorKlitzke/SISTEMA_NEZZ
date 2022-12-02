@@ -181,7 +181,7 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       Left = 0
       Top = 0
       Width = 133
-      Height = 41
+      Height = 30
       Align = alLeft
       Caption = 'ABRIR CAIXA'
       Font.Charset = ANSI_CHARSET
@@ -190,7 +190,6 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitHeight = 30
     end
     object pnClose: TPanel
       Left = 421

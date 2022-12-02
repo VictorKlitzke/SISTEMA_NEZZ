@@ -75,6 +75,7 @@ type
     procedure edAbrirCaixaClick(Sender: TObject);
     procedure edListagemCaixaClick(Sender: TObject);
     procedure BtnParceirosMouseEnter(Sender: TObject);
+    procedure BtnFaturarClick(Sender: TObject);
   private
     FConexao : iNEZZServicesConexao;
   public
@@ -91,7 +92,7 @@ uses
   NEZZ.Views.Vendas,
   NEZZ.Controllers.Sessao,
   NEZZ.Views.Caixa.Adicionar,
-  NEZZ.Views.Caixa.Listagem;
+  NEZZ.Views.Caixa.Listagem, NEZZ.Views.Vendas.Adicionar.Produto;
 
 {$R *.dfm}
 
@@ -135,6 +136,17 @@ begin
 
     NEZZViewsUsuario.Parent := pnContent;
     NEZZViewsUsuario.Show;
+end;
+
+procedure TNEZZViewsPrincipal.BtnFaturarClick(Sender: TObject);
+begin
+  if Assigned(NEZZViewsAdicionarProdutoVendas) then FreeAndNil(NEZZViewsAdicionarProdutoVendas);
+  if not Assigned(NEZZViewsAdicionarProdutoVendas) then
+    Application.CreateForm(TNEZZViewsAdicionarProdutoVendas, NEZZViewsAdicionarProdutoVendas);
+
+  NEZZViewsAdicionarProdutoVendas.Parent := pnContent;
+  NEZZViewsAdicionarProdutoVendas.Show;
+
 end;
 
 procedure TNEZZViewsPrincipal.BtnFornecedoresClick(Sender: TObject);

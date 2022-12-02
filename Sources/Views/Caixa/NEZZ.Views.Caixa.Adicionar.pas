@@ -72,8 +72,7 @@ implementation
 
 uses
   NEZZ.Controllers.Sessao,
-  NEZZ.Factory.Caixa,
-  NEZZ.Models.Caixa;
+  NEZZ.Factory.Caixa;
 
 {$R *.dfm}
 

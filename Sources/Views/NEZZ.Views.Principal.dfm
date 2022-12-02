@@ -217,6 +217,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
+        OnClick = BtnFaturarClick
       end
       object BtnVendas: TcxButton
         Left = 0
@@ -450,8 +451,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = edListagemCaixaClick
-        ExplicitLeft = 6
-        ExplicitTop = 46
       end
     end
   end
@@ -653,7 +652,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Color = clYellow
     ParentBackground = False
     TabOrder = 3
-    ExplicitLeft = -3
     object BtnFornecedores: TcxButton
       Left = 0
       Top = 0
@@ -897,7 +895,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitTop = 375
       object BtnCaixa: TcxButton
         Left = 0
         Top = 0
@@ -961,7 +958,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
-        ExplicitTop = 308
       end
     end
     object BtnParceiros: TcxButton
@@ -1047,8 +1043,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitLeft = -3
-      ExplicitTop = 219
     end
   end
   object pnSubGrupoParceiros: TPanel
@@ -1121,7 +1115,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = BtnUsuarioClick
-      ExplicitTop = -6
     end
     object BtnClientes: TcxButton
       Left = 0
@@ -1204,7 +1197,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     end
   end
   object MainMenu1: TMainMenu
-    Left = 705
-    Top = 337
+    Left = 385
+    Top = 241
   end
 end
