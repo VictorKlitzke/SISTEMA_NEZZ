@@ -217,6 +217,12 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       OnClick = btnLimparClick
     end
     object btnSalvar: TcxButton
@@ -251,6 +257,12 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
       OnClick = btnSalvarClick
     end
   end

@@ -127,6 +127,7 @@ object NEZZViewsProdutos: TNEZZViewsProdutos
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 2
+      OnClick = BtnAdicionarClick
     end
   end
   object pnHeader: TPanel

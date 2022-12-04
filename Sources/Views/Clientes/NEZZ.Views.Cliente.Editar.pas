@@ -34,12 +34,8 @@ uses
 
 type
   TNEZZViewsClienteEditar = class(TForm)
-    pnHeader: TPanel;
     pnFooter: TPanel;
     pnContent: TPanel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
-    lbCRUD: TLabel;
     BtnSalvar: TcxButton;
     dsEditarCliente: TDataSource;
     edNome: TcxDBTextEdit;

@@ -40,7 +40,7 @@ uses
   NEZZ.Controllers.Sessao,
   NEZZ.Factory.Autenticacao,
   NEZZ.Factory.Produto,
-  NEZZ.Models.Produto;
+  NEZZ.Models.Produto, NEZZ.Views.Produtos.Adicionar;
 
 type
   TNEZZViewsProdutos = class(TForm)
@@ -59,6 +59,7 @@ type
     Label1: TLabel;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure BtnAdicionarClick(Sender: TObject);
   private
     FNEZZFactoryProduto: iNEZZFactoryProdutos;
     FNEZZModelsProdutos: iNEZZModelsProdutos;
@@ -73,6 +74,21 @@ implementation
 
 {$R *.dfm}
 
+
+procedure TNEZZViewsProdutos.BtnAdicionarClick(Sender: TObject);
+begin
+  try
+    if not Assigned(NEZZViewsProdutosAdicionar) then
+      Application.CreateForm(TNEZZViewsProdutosAdicionar, NEZZViewsProdutosAdicionar);
+
+    NEZZViewsProdutosAdicionar.ShowModal;
+    NEZZViewsProdutosAdicionar.Free;
+
+    CarregarDados;
+  finally
+    FreeAndNil(NEZZViewsProdutosAdicionar);
+  end;
+end;
 
 procedure TNEZZViewsProdutos.btnCloseClick(Sender: TObject);
 begin
