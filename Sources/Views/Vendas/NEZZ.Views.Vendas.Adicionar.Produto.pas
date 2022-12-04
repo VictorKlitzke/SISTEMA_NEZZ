@@ -16,31 +16,46 @@ uses
   cxLookAndFeels,
   cxLookAndFeelPainters,
   Vcl.Menus,
+  cxControls,
+  cxStyles,
+  cxCustomData,
+  cxFilter,
+  cxData,
+  cxDataStorage,
+  cxEdit,
+  cxNavigator,
+  dxDateRanges,
+  Data.DB,
+  cxDBData,
   Vcl.StdCtrls,
+  Vcl.WinXCtrls,
+  cxGridLevel,
+  cxClasses,
+  cxGridCustomView,
+  cxGridCustomTableView,
+  cxGridTableView,
+  cxGridDBTableView,
+  cxGrid,
   cxButtons,
-  Vcl.ExtCtrls, cxControls, cxContainer, cxEdit, cxTextEdit;
+  Vcl.ExtCtrls;
 
 type
   TNEZZViewsAdicionarProdutoVendas = class(TForm)
-    pnFooter: TPanel;
     pnHeader: TPanel;
-    pnMenu: TPanel;
-    pnPreco: TPanel;
+    pnContent: TPanel;
+    pnFooter: TPanel;
     pnClose: TPanel;
-    btnClose: TcxButton;
-    BtnAddProduto: TcxButton;
     pnExtraColor: TPanel;
-    pnExtraColors: TPanel;
-    Label1: TLabel;
-    edValorProduto: TcxTextEdit;
-    cxTextEdit2: TcxTextEdit;
-    edTotal: TcxTextEdit;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    pnProduto: TPanel;
+    pnColorExtra: TPanel;
+    BtnFinalizar: TcxButton;
+    dsVendasDBTableView1: TcxGridDBTableView;
+    dsVendasLevel1: TcxGridLevel;
+    GridVendas: TcxGrid;
+    dsAdicionarProdutos: TDataSource;
+    pnPesquisar: TPanel;
+    BoxPesquisa: TSearchBox;
+    btnClose: TcxButton;
     procedure btnCloseClick(Sender: TObject);
-    procedure BtnAddProdutoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -53,11 +68,6 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure TNEZZViewsAdicionarProdutoVendas.BtnAddProdutoClick(Sender: TObject);
-begin
-  pnProduto.Show;
-end;
 
 procedure TNEZZViewsAdicionarProdutoVendas.btnCloseClick(Sender: TObject);
 begin

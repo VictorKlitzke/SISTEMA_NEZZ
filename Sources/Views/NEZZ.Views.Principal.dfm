@@ -807,6 +807,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = BtnProdutosClick
     end
     object BtnMovimentacao: TcxButton
       Left = 0

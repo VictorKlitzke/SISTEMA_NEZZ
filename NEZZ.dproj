@@ -189,6 +189,14 @@
             <Form>Form2</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Sources\Views\Vendas\NEZZ.Views.Vendas.Adicionar.Produto.pas">
+            <Form>NEZZViewsAdicionarProdutoVendas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Sources\Views\Produtos\NEZZ.Views.Produtos.pas">
+            <Form>NEZZViewsProdutos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

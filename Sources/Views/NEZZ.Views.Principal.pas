@@ -24,7 +24,8 @@ uses
   NEZZ.Services.Conexao,
   NEZZ.Services.Query,
   System.UITypes,
-  NEZZ.Views.Fornecedor;
+  NEZZ.Views.Fornecedor, NEZZ.Views.Vendas.Adicionar.Produto,
+  NEZZ.Views.Produtos;
 
 type
   TNEZZViewsPrincipal = class(TForm)
@@ -76,6 +77,7 @@ type
     procedure edListagemCaixaClick(Sender: TObject);
     procedure BtnParceirosMouseEnter(Sender: TObject);
     procedure BtnFaturarClick(Sender: TObject);
+    procedure BtnProdutosClick(Sender: TObject);
   private
     FConexao : iNEZZServicesConexao;
   public
@@ -89,10 +91,10 @@ implementation
 
 uses
   NEZZ.Views.Usuario,
-  NEZZ.Views.Vendas,
   NEZZ.Controllers.Sessao,
   NEZZ.Views.Caixa.Adicionar,
-  NEZZ.Views.Caixa.Listagem, NEZZ.Views.Vendas.Adicionar.Produto;
+  NEZZ.Views.Caixa.Listagem,
+  NEZZ.Views.Vendas;
 
 {$R *.dfm}
 
@@ -212,6 +214,18 @@ begin
   pnSubGrupoParceiros.Top := 282;
   pnSubGrupoParceiros.Left := 137;
   pnSubGrupoParceiros.Visible := True;
+end;
+
+procedure TNEZZViewsPrincipal.BtnProdutosClick(Sender: TObject);
+begin
+  if Assigned(NEZZViewsProdutos) then FreeAndNil(NEZZViewsProdutos);
+  if not Assigned(NEZZViewsProdutos) then
+    Application.CreateForm(TNEZZViewsProdutos, NEZZViewsProdutos);
+
+  NEZZViewsProdutos.Parent := pnContent;
+  NEZZViewsProdutos.Show;
+
+
 end;
 
 procedure TNEZZViewsPrincipal.FormCreate(Sender: TObject);

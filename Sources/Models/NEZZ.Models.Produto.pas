@@ -49,7 +49,7 @@ type
 
   TNEZZModelsProdutos = class(TInterfacedObject, iNEZZModelsProdutos)
   private
-//    FNEZZSessao: iNEZZControllerSessao;
+    FNEZZSessao: iNEZZControllerSessao;
     FNEZZProdutos: iNEZZServicesCadastrar;
 
   public

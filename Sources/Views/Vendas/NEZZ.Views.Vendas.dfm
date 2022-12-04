@@ -196,36 +196,12 @@ object NEZZViewsVenda: TNEZZViewsVenda
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = btnCloseClick
+        ExplicitTop = -1
       end
     end
   end
   object dsVendas: TDataSource
     Left = 499
     Top = 214
-  end
-  object FrxVendas: TfrxReport
-    Version = '6.5.10'
-    DotMatrixReport = False
-    IniFile = '\Software\Fast Reports'
-    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
-    PreviewOptions.Zoom = 1.000000000000000000
-    PrintOptions.Printer = 'Padr'#227'o'
-    PrintOptions.PrintOnSheet = 0
-    ReportOptions.CreateDate = 44894.686486157410000000
-    ReportOptions.LastChange = 44894.686486157410000000
-    ScriptLanguage = 'PascalScript'
-    ScriptText.Strings = (
-      'begin'
-      ''
-      'end.')
-    Left = 264
-    Top = 336
-    Datasets = <>
-    Variables = <>
-    Style = <>
-  end
-  object frxReportTableObject1: TfrxReportTableObject
-    Left = 504
-    Top = 400
   end
 end
