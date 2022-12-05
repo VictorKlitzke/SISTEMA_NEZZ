@@ -32,16 +32,12 @@ uses
 
 type
   TNEZZViewsUsuarioAdicionar = class(TForm)
-    pnHeader: TPanel;
     pnContent: TPanel;
     pnFooter: TPanel;
-    btnClose: TcxButton;
-    pnClose: TPanel;
     edNome: TcxTextEdit;
     edLogin: TcxTextEdit;
     edSenha: TcxTextEdit;
     edTelefone: TcxTextEdit;
-    Label1: TLabel;
     BtnLimpar: TcxButton;
     BtnSalvar: TcxButton;
     procedure btnCloseClick(Sender: TObject);

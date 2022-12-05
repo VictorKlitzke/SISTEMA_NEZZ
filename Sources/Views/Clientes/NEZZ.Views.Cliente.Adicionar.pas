@@ -38,9 +38,6 @@ uses
 
 type
   TNEZZViewsClienteAdicionar = class(TForm)
-    pnHeader: TPanel;
-    lblCRUD: TLabel;
-    btnClose: TcxButton;
     dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList;
     dxLayoutStandardLookAndFeel1: TdxLayoutStandardLookAndFeel;
     edNome: TcxTextEdit;

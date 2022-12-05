@@ -49,10 +49,6 @@ type
     edCEP: TcxDBTextEdit;
     pnFooter: TPanel;
     BtnSalvar: TcxButton;
-    pnHeader: TPanel;
-    lbCRUD: TLabel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
     procedure BtnSalvarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);

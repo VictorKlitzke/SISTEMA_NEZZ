@@ -21,6 +21,13 @@ type
     cxDBTextEdit6: TcxDBTextEdit;
     cxDBTextEdit7: TcxDBTextEdit;
     cxDBTextEdit8: TcxDBTextEdit;
+    Label1: TLabel;
+    Referencia: TLabel;
+    Marca: TLabel;
+    Modelo: TLabel;
+    Label6: TLabel;
+    Quantidade: TLabel;
+    Label2: TLabel;
   private
     { Private declarations }
   public

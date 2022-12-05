@@ -225,7 +225,6 @@ begin
   NEZZViewsProdutos.Parent := pnContent;
   NEZZViewsProdutos.Show;
 
-
 end;
 
 procedure TNEZZViewsPrincipal.FormCreate(Sender: TObject);

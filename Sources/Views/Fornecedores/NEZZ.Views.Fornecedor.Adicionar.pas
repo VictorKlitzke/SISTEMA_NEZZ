@@ -44,10 +44,6 @@ type
     pnFooter: TPanel;
     btnLimpar: TcxButton;
     btnSalvar: TcxButton;
-    pnHeader: TPanel;
-    lblCRUD: TLabel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnLimparClick(Sender: TObject);

@@ -53,10 +53,7 @@ uses
 type
   TNEZZViewsCaixaListagem = class(TForm)
     pnContent: TPanel;
-    pnHeader: TPanel;
     pnFooter: TPanel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
     cxGrid1DBTableView1: TcxGridDBTableView;
     cxGrid1Level1: TcxGridLevel;
     cxGrid1: TcxGrid;
@@ -64,7 +61,6 @@ type
     pnPeriodo: TPanel;
     dateInicio: TcxDateEdit;
     dateFim: TcxDateEdit;
-    Label1: TLabel;
     cxButton1: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

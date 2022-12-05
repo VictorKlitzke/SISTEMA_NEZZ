@@ -69,7 +69,6 @@ begin
     .Estoque_Atual(AEstoqueAtual)
     .Cod_Barras(ACodBarras)
     .Salvar;
-
 end;
 
 function TNEZZFactoryProdutos.AtualizarProduto(

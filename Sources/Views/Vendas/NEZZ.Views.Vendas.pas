@@ -48,10 +48,6 @@ type
     pnFooter: TPanel;
     btnDeletar: TcxButton;
     btnImprimir: TcxButton;
-    pnHeader: TPanel;
-    lbVendas: TLabel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
     procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }

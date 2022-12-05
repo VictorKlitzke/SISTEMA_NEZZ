@@ -56,9 +56,6 @@ type
     pnFooter: TPanel;
     btnDeletar: TcxButton;
     btnAdicionar: TcxButton;
-    pnHeader: TPanel;
-    lblClientes: TLabel;
-    btnClose: TcxButton;
     dsClientes: TDataSource;
     checkoutNome: TCheckBox;
     checkoutCodigo: TCheckBox;

@@ -25,63 +25,60 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     Color = -1
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 96
-    ExplicitTop = 17
-    ExplicitHeight = 186
     object edProduto: TcxTextEdit
       Left = 8
       Top = 8
       TabOrder = 0
-      Text = 'Produto'
+      TextHint = 'Produto'
       Width = 226
     end
     object edReferencia: TcxTextEdit
       Left = 8
       Top = 48
       TabOrder = 1
-      Text = 'Referencia'
+      TextHint = 'Referencia'
       Width = 226
     end
     object edValorProduto: TcxTextEdit
       Left = 248
       Top = 87
       TabOrder = 2
-      Text = 'Pre'#231'o do Produto'
+      TextHint = 'Pre'#231'o do Produto'
       Width = 226
     end
     object edMarca: TcxTextEdit
       Left = 8
       Top = 87
       TabOrder = 3
-      Text = 'Marca'
+      TextHint = 'Marca'
       Width = 226
     end
     object edModelo: TcxTextEdit
       Left = 248
       Top = 8
       TabOrder = 4
-      Text = 'Modelo'
+      TextHint = 'Modelo'
       Width = 226
     end
     object edCodBarras: TcxTextEdit
       Left = 248
       Top = 48
       TabOrder = 5
-      Text = 'Codigo de Barras'
+      TextHint = 'Codigo de Barras'
       Width = 226
     end
     object edValorCusto: TcxTextEdit
       Left = 248
       Top = 120
       TabOrder = 6
-      Text = 'Pre'#231'o de Custo'
+      TextHint = 'Pre'#231'o de Custo'
       Width = 226
     end
     object edQuantidade: TcxTextEdit
       Left = 8
       Top = 120
       TabOrder = 7
-      Text = 'Quantidade'
+      TextHint = 'Quantidade'
       Width = 226
     end
   end
@@ -106,9 +103,6 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    ExplicitLeft = 296
-    ExplicitTop = 208
-    ExplicitWidth = 185
     object BtnSalvar: TcxButton
       Left = 294
       Top = 0
@@ -147,7 +141,7 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 319
+      OnClick = BtnSalvarClick
     end
     object BtnLimpar: TcxButton
       Left = 394
@@ -191,9 +185,7 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 376
-      ExplicitTop = 8
-      ExplicitHeight = 25
+      OnClick = BtnLimparClick
     end
   end
 end

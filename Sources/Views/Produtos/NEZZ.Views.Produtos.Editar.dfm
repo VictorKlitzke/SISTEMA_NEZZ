@@ -3,8 +3,8 @@ object NEZZViewsProdutosEditar: TNEZZViewsProdutosEditar
   Top = 0
   BorderStyle = bsSizeToolWin
   Caption = 'EDITAR PRODUTO'
-  ClientHeight = 223
-  ClientWidth = 444
+  ClientHeight = 208
+  ClientWidth = 358
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,80 +17,134 @@ object NEZZViewsProdutosEditar: TNEZZViewsProdutosEditar
   object pnContent: TPanel
     Left = 0
     Top = 0
-    Width = 444
-    Height = 182
+    Width = 358
+    Height = 167
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -6
-    ExplicitWidth = 399
-    ExplicitHeight = 162
+    ExplicitWidth = 444
+    ExplicitHeight = 182
+    object Label1: TLabel
+      Left = 18
+      Top = 2
+      Width = 38
+      Height = 13
+      Caption = 'Produto'
+    end
+    object Referencia: TLabel
+      Left = 18
+      Top = 43
+      Width = 52
+      Height = 13
+      Caption = 'Referencia'
+    end
+    object Marca: TLabel
+      Left = 192
+      Top = 2
+      Width = 29
+      Height = 13
+      Caption = 'Marca'
+    end
+    object Modelo: TLabel
+      Left = 16
+      Top = 123
+      Width = 34
+      Height = 13
+      Caption = 'Modelo'
+    end
+    object TLabel
+      Left = 192
+      Top = 43
+      Width = 75
+      Height = 13
+      Caption = 'Pre'#231'o de Venda'
+    end
+    object Label6: TLabel
+      Left = 192
+      Top = 83
+      Width = 73
+      Height = 13
+      Caption = 'Pre'#231'o de Custo'
+    end
+    object Quantidade: TLabel
+      Left = 18
+      Top = 83
+      Width = 56
+      Height = 13
+      Caption = 'Quantidade'
+    end
+    object Label2: TLabel
+      Left = 192
+      Top = 123
+      Width = 82
+      Height = 13
+      Caption = 'C'#243'digo de Barras'
+    end
     object cxDBTextEdit1: TcxDBTextEdit
-      Left = 24
-      Top = 32
+      Left = 16
+      Top = 16
       TabOrder = 0
-      Width = 121
+      Width = 150
     end
     object cxDBTextEdit2: TcxDBTextEdit
-      Left = 32
-      Top = 80
+      Left = 16
+      Top = 56
       TabOrder = 1
-      Width = 121
+      Width = 150
     end
     object cxDBTextEdit3: TcxDBTextEdit
-      Left = 40
-      Top = 112
+      Left = 16
+      Top = 96
       TabOrder = 2
-      Width = 121
+      Width = 150
     end
     object cxDBTextEdit4: TcxDBTextEdit
-      Left = 208
-      Top = 32
+      Left = 16
+      Top = 136
       TabOrder = 3
-      Width = 121
+      Width = 150
     end
     object cxDBTextEdit5: TcxDBTextEdit
-      Left = 208
-      Top = 72
+      Left = 192
+      Top = 16
       TabOrder = 4
-      Width = 121
+      Width = 150
     end
     object cxDBTextEdit6: TcxDBTextEdit
-      Left = 216
-      Top = 112
+      Left = 192
+      Top = 56
       TabOrder = 5
-      Width = 121
+      Width = 150
     end
     object cxDBTextEdit7: TcxDBTextEdit
-      Left = 352
-      Top = 32
+      Left = 192
+      Top = 96
       TabOrder = 6
-      Width = 121
+      Width = 150
     end
     object cxDBTextEdit8: TcxDBTextEdit
-      Left = 360
-      Top = 88
+      Left = 192
+      Top = 136
       TabOrder = 7
-      Width = 121
+      Width = 150
     end
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 182
-    Width = 444
+    Top = 167
+    Width = 358
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 96
-    ExplicitTop = 112
-    ExplicitWidth = 185
+    ExplicitTop = 182
+    ExplicitWidth = 444
     object cxButton1: TcxButton
-      Left = 344
+      Left = 258
       Top = 0
       Width = 100
       Height = 41
@@ -135,7 +189,7 @@ object NEZZViewsProdutosEditar: TNEZZViewsProdutosEditar
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 369
+      ExplicitLeft = 344
     end
   end
 end

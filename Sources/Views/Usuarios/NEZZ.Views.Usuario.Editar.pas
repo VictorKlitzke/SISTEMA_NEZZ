@@ -38,10 +38,6 @@ type
     lbRazao: TLabel;
     Label1: TLabel;
     pnFooter: TPanel;
-    pnHeader: TPanel;
-    lbCRUD: TLabel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
     edNome: TcxDBTextEdit;
     edSenha: TcxDBTextEdit;
     edLogin: TcxDBTextEdit;

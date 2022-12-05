@@ -46,16 +46,12 @@ uses
 
 type
   TNEZZViewsUsuario = class(TForm)
-    pnHeader: TPanel;
     pnContent: TPanel;
     pnFooter: TPanel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
     dsUsuariosGridDBTableView1: TcxGridDBTableView;
     dsUsuariosGridLevel1: TcxGridLevel;
     dsUsuariosGrid: TcxGrid;
     btnAdicionar: TcxButton;
-    lbUsuario: TLabel;
     dsUsuarios: TDataSource;
     pnPesquisa: TPanel;
     edPesquisa: TEdit;
