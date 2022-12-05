@@ -34,7 +34,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Width = 778
       Height = 506
       Align = alClient
-      Anchors = []
       AutoSize = True
       Center = True
       Picture.Data = {
@@ -132,10 +131,8 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         8290288420240A210889420842A2108290288420240A210889420842A2108290
         288420240A2108894208E26799257893F8A87C020000000049454E44AE426082}
       OnMouseEnter = imgNEZZMouseEnter
-      ExplicitLeft = 6
-      ExplicitTop = 6
-      ExplicitWidth = 909
-      ExplicitHeight = 489
+      ExplicitWidth = 197
+      ExplicitHeight = 130
     end
     object pnSubGrupoVendas: TPanel
       Left = 0

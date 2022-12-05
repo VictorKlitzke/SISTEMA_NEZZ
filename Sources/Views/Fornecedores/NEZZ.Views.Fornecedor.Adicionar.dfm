@@ -1,10 +1,10 @@
 object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
   Left = 0
   Top = 0
-  BorderStyle = bsSizeToolWin
+  BorderStyle = bsToolWindow
   Caption = 'CADASTRAR FORNECEDOR'
-  ClientHeight = 240
-  ClientWidth = 499
+  ClientHeight = 250
+  ClientWidth = 496
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,15 +18,15 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
   object pnContent: TPanel
     Left = 0
     Top = 0
-    Width = 499
-    Height = 199
+    Width = 496
+    Height = 209
     Align = alClient
     BevelOuter = bvNone
     Color = clNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 41
-    ExplicitWidth = 498
+    ExplicitWidth = 499
+    ExplicitHeight = 199
     object edNome: TcxTextEdit
       Left = 14
       Top = 20
@@ -87,18 +87,18 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 199
-    Width = 499
+    Top = 209
+    Width = 496
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 240
-    ExplicitWidth = 498
+    ExplicitTop = 199
+    ExplicitWidth = 499
     object btnLimpar: TcxButton
-      Left = 399
+      Left = 396
       Top = 0
       Width = 100
       Height = 41
@@ -134,10 +134,10 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnLimparClick
-      ExplicitLeft = 398
+      ExplicitLeft = 399
     end
     object btnSalvar: TcxButton
-      Left = 299
+      Left = 296
       Top = 0
       Width = 100
       Height = 41
@@ -169,7 +169,7 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = btnSalvarClick
-      ExplicitLeft = 298
+      ExplicitLeft = 299
     end
   end
   object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList

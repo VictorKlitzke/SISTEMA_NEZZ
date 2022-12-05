@@ -49,20 +49,16 @@ type
     dsFornecedoresGridLevel1: TcxGridLevel;
     pnFooter: TPanel;
     btnAdicionar: TcxButton;
-    pnHeader: TPanel;
-    lbUsuario: TLabel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
     pnPesquisa: TPanel;
     edPesquisa: TEdit;
     dsFornecedores: TDataSource;
     BtnImprimir: TcxButton;
     btnDeletar: TcxButton;
-    cxButton1: TcxButton;
+    BtnEditar: TcxButton;
     procedure FormCreate(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
-    procedure cxButton1Click(Sender: TObject);
+    procedure BtnEditarClick(Sender: TObject);
   private
     FNEZZFactoryFornecedor: iNEZZFactoryFornecedor;
     FNEZZModelsFornecedor: iNEZZModelsFornecedor;
@@ -117,7 +113,7 @@ begin
   end;
 end;
 
-procedure TNEZZViewsFornecedor.cxButton1Click(Sender: TObject);
+procedure TNEZZViewsFornecedor.BtnEditarClick(Sender: TObject);
 begin
   if not Assigned(NEZZViewsFornecedorEditar) then
     Application.CreateForm(TNEZZViewsFornecedorEditar, NEZZViewsFornecedorEditar);

@@ -41,12 +41,16 @@ type
     dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList;
     dxLayoutStandardLookAndFeel1: TdxLayoutStandardLookAndFeel;
     edNome: TcxTextEdit;
+    pnContent: TPanel;
+    pnFooter: TPanel;
     edRazao: TcxTextEdit;
     edCPF: TcxTextEdit;
     edContato: TcxTextEdit;
     edCidade: TcxTextEdit;
     edBairro: TcxTextEdit;
     edEndereco: TcxTextEdit;
+    BtnSalvar: TcxButton;
+    BtnLimpar: TcxButton;
     edCEP: TcxTextEdit;
     edEmail: TcxTextEdit;
     procedure btnCloseClick(Sender: TObject);
@@ -83,7 +87,7 @@ type
       var DisplayValue: Variant;
       var ErrorText: TCaption;
       var Error: Boolean);
-    procedure btnLimparClick(Sender: TObject);
+    procedure BtnLimparClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 
   private
@@ -114,7 +118,7 @@ begin
   Close;
 end;
 
-procedure TNEZZViewsClienteAdicionar.btnLimparClick(Sender: TObject);
+procedure TNEZZViewsClienteAdicionar.BtnLimparClick(Sender: TObject);
 begin
   edNome.Clear;
   edRazao.Clear;

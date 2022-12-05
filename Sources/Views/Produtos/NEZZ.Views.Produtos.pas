@@ -40,26 +40,29 @@ uses
   NEZZ.Controllers.Sessao,
   NEZZ.Factory.Autenticacao,
   NEZZ.Factory.Produto,
-  NEZZ.Models.Produto, NEZZ.Views.Produtos.Adicionar;
+  NEZZ.Models.Produto,
+  NEZZ.Views.Produtos.Adicionar,
+  Vcl.WinXCtrls;
 
 type
   TNEZZViewsProdutos = class(TForm)
     pnFooter: TPanel;
-    pnHeader: TPanel;
     pnContent: TPanel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
     GridProdutosDBTableView1: TcxGridDBTableView;
     GridProdutosLevel1: TcxGridLevel;
     GridProdutos: TcxGrid;
     dsProdutos: TDataSource;
-    cxButton1: TcxButton;
+    BtnEditar: TcxButton;
     BtnDeletar: TcxButton;
     BtnAdicionar: TcxButton;
-    Label1: TLabel;
+    pnPesquisa: TPanel;
+    BoxPesquisa: TSearchBox;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure BtnAdicionarClick(Sender: TObject);
+    procedure BoxPesquisaChange(Sender: TObject);
+    procedure BtnDeletarClick(Sender: TObject);
+    procedure BtnEditarClick(Sender: TObject);
   private
     FNEZZFactoryProduto: iNEZZFactoryProdutos;
     FNEZZModelsProdutos: iNEZZModelsProdutos;
@@ -72,8 +75,29 @@ var
 
 implementation
 
+uses
+  NEZZViewBase, NEZZ.Views.Produtos.Editar;
+
 {$R *.dfm}
 
+
+procedure TNEZZViewsProdutos.BoxPesquisaChange(Sender: TObject);
+begin
+  if BoxPesquisa.Text = '' then
+  begin
+    FNEZZFactoryProduto := TNEZZFactoryProdutos
+      .New
+      .DataSource(dsProdutos)
+      .ListarProdutos;
+  end
+  else
+  begin
+    FNEZZFactoryProduto := TNEZZFactoryProdutos
+      .New
+      .DataSource(dsProdutos)
+      .FiltrarProduto(BoxPesquisa.Text);
+  end;
+end;
 
 procedure TNEZZViewsProdutos.BtnAdicionarClick(Sender: TObject);
 begin
@@ -95,6 +119,26 @@ begin
   Close;
 end;
 
+procedure TNEZZViewsProdutos.BtnDeletarClick(Sender: TObject);
+begin
+  if MessageDlg('Deseja realmente deletar esse produto?', mtConfirmation, mbYesNo, 0) = mrYes then
+  try
+    FNEZZFactoryProduto := TNEZZFactoryProdutos
+      .New
+      .DeletarProduto(
+        dsProdutos.DataSet.FieldByName('ID').AsInteger
+      );
+
+    MessageDlg('Produto deletado com sucesso!!', mtInformation, [mbOK], 0);
+  except
+  on e: Exception do
+  begin
+    MessageDlg('Ocorreu um erro ao deletar o produto' + #13 + e.message , mtWarning , [mbOk] , 0);
+  end;
+  end;
+  CarregarDados;
+end;
+
 procedure TNEZZViewsProdutos.CarregarDados;
 begin
   FNEZZFactoryProduto := TNEZZFactoryProdutos
@@ -108,6 +152,20 @@ begin
     DataController.CreateAllItems();
     ApplyBestFit();
   end;
+end;
+
+procedure TNEZZViewsProdutos.BtnEditarClick(Sender: TObject);
+begin
+  if not Assigned(NEZZViewsProdutosEditar) then
+    Application.CreateForm(TNEZZViewsProdutosEditar, NEZZViewsProdutosEditar);
+
+  NEZZViewsProdutosEditar.Produto(dsProdutos.DataSet.FieldByName('ID').AsInteger);
+
+  NEZZViewsProdutosEditar.ShowModal;
+  FreeAndNil(NEZZViewsProdutosEditar);
+
+  CarregarDados;
+
 end;
 
 procedure TNEZZViewsProdutos.FormCreate(Sender: TObject);

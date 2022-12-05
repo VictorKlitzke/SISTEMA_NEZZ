@@ -1,10 +1,10 @@
 object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
   Left = 0
   Top = 0
-  BorderStyle = bsSizeToolWin
+  BorderStyle = bsToolWindow
   Caption = 'EDITAR USU'#193'RIO'
-  ClientHeight = 148
-  ClientWidth = 395
+  ClientHeight = 158
+  ClientWidth = 393
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,16 +18,15 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
   object pnContent: TPanel
     Left = 0
     Top = 0
-    Width = 395
-    Height = 107
+    Width = 393
+    Height = 117
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 41
-    ExplicitWidth = 402
-    ExplicitHeight = 119
+    ExplicitWidth = 395
+    ExplicitHeight = 107
     object lbNome: TLabel
       Left = 11
       Top = 3
@@ -91,18 +90,18 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 107
-    Width = 395
+    Top = 117
+    Width = 393
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 160
-    ExplicitWidth = 402
+    ExplicitTop = 107
+    ExplicitWidth = 395
     object BtnSalvar: TcxButton
-      Left = 295
+      Left = 293
       Top = 0
       Width = 100
       Height = 41
@@ -149,7 +148,7 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Font.Style = []
       ParentFont = False
       OnClick = BtnSalvarClick
-      ExplicitLeft = 302
+      ExplicitLeft = 295
     end
   end
   object dsUsuariosEditar: TDataSource

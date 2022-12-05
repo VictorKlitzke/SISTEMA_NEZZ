@@ -16,8 +16,8 @@ type
     ['{1592C510-8A28-408D-BD1A-F6430ADE3590}']
 
     function ProdutoExiste(AProduto : string): Boolean;
-    function AdicionarProduto(AProduto, AReferencia, AValorProduto, AValorCusto : string;
-      AQuantidade, ACodBarras, AEstoqueAtual : Integer; AMarca, AModelo : string): iNEZZFactoryProdutos;
+    function AdicionarProduto(AProduto, AReferencia, AValorProduto, AValorCusto,
+      AQuantidade, ACodBarras, AMarca, AModelo : string): iNEZZFactoryProdutos;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryProdutos;
     function DeletarProduto(AProduto : Integer): iNEZZFactoryProdutos;
     function AtualizarProduto(AProduto : string): iNEZZFactoryProdutos;
@@ -36,8 +36,8 @@ type
     class function New: iNEZZFactoryProdutos;
 
     function ProdutoExiste(AProduto : string): Boolean;
-    function AdicionarProduto(AProduto, AReferencia, AValorProduto, AValorCusto : string;
-      AQuantidade, ACodBarras, AEstoqueAtual : Integer; AMarca, AModelo : string): iNEZZFactoryProdutos;
+    function AdicionarProduto(AProduto, AReferencia, AValorProduto, AValorCusto,
+      AQuantidade, ACodBarras, AMarca, AModelo : string): iNEZZFactoryProdutos;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryProdutos;
     function DeletarProduto(AProduto : Integer): iNEZZFactoryProdutos;
     function AtualizarProduto(AProduto : string): iNEZZFactoryProdutos;
@@ -50,9 +50,8 @@ implementation
 { TNEZZFactoryProdutos }
 
 function TNEZZFactoryProdutos.AdicionarProduto(
-  AProduto, AReferencia, AValorProduto, AValorCusto : string;
-  AQuantidade, ACodBarras, AEstoqueAtual : Integer;
-  AMarca, AModelo : string): iNEZZFactoryProdutos;
+  AProduto, AReferencia, AValorProduto, AValorCusto,
+  AQuantidade, ACodBarras, AMarca, AModelo : string): iNEZZFactoryProdutos;
 begin
   Result := Self;
 
@@ -66,7 +65,6 @@ begin
     .Marca(AMarca)
     .Modelo(AModelo)
     .Quantidade(AQuantidade)
-    .Estoque_Atual(AEstoqueAtual)
     .Cod_Barras(ACodBarras)
     .Salvar;
 end;
@@ -89,7 +87,6 @@ begin
     .Apelido('MODELO', 'MODELO')
     .Apelido('VALOR_PRODUTO', 'VALOR PRODUTO')
     .Apelido('VALOR_CUSTO', 'VALOR CUSTO')
-    .Apelido('ESTOQUE_ATUAL', 'ESTOQUE ATUAL')
     .Apelido('COD_BARRAS', 'CODIGO BARRAS')
     .Apelido('QUANTIDADE', 'QUANTIDADE')
     .SQL('  SELECT')

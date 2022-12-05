@@ -1,10 +1,10 @@
 object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
   Left = 0
   Top = 0
-  BorderStyle = bsSizeToolWin
+  BorderStyle = bsToolWindow
   Caption = 'CADASTRAR US'#218'ARIOS'
-  ClientHeight = 161
-  ClientWidth = 346
+  ClientHeight = 171
+  ClientWidth = 348
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,16 +19,15 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
   object pnContent: TPanel
     Left = 0
     Top = 0
-    Width = 346
-    Height = 120
+    Width = 348
+    Height = 130
     Align = alClient
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 41
-    ExplicitWidth = 349
-    ExplicitHeight = 122
+    ExplicitWidth = 346
+    ExplicitHeight = 120
     object edNome: TcxTextEdit
       Left = 8
       Top = 40
@@ -66,18 +65,18 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 120
-    Width = 346
+    Top = 130
+    Width = 348
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 163
-    ExplicitWidth = 349
+    ExplicitTop = 120
+    ExplicitWidth = 346
     object BtnLimpar: TcxButton
-      Left = 246
+      Left = 248
       Top = 0
       Width = 100
       Height = 41
@@ -113,10 +112,10 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = BtnLimparClick
-      ExplicitLeft = 249
+      ExplicitLeft = 246
     end
     object BtnSalvar: TcxButton
-      Left = 146
+      Left = 148
       Top = 0
       Width = 100
       Height = 41
@@ -148,7 +147,8 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = btnSalvarClick
-      ExplicitLeft = 149
+      ExplicitLeft = 140
+      ExplicitTop = 6
     end
   end
 end

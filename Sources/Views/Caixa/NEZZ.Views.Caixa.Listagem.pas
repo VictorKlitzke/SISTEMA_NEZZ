@@ -61,7 +61,7 @@ type
     pnPeriodo: TPanel;
     dateInicio: TcxDateEdit;
     dateFim: TcxDateEdit;
-    cxButton1: TcxButton;
+    BtnImprimir: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private

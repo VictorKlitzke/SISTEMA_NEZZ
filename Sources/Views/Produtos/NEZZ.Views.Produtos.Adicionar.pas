@@ -31,7 +31,6 @@ uses
 type
   TNEZZViewsProdutosAdicionar = class(TForm)
     pnContent: TPanel;
-    pnHeader: TPanel;
     pnFooter: TPanel;
     BtnSalvar: TcxButton;
     BtnLimpar: TcxButton;

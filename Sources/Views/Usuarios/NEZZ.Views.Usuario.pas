@@ -54,14 +54,13 @@ type
     btnAdicionar: TcxButton;
     dsUsuarios: TDataSource;
     pnPesquisa: TPanel;
-    edPesquisa: TEdit;
     LFResizerVcl1: TLFResizerVcl;
     BtnDeletar: TcxButton;
     BtnEditar: TcxButton;
+    BoxPesquisa: TSearchBox;
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure edPesquisaChange(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure dsUsuariosGridDBTableView1CellDblClick(
       Sender: TcxCustomGridTableView;
@@ -70,6 +69,7 @@ type
       var AHandled: Boolean);
     procedure BtnEditarClick(Sender: TObject);
     procedure BtnDeletarClick(Sender: TObject);
+    procedure BoxPesquisaChange(Sender: TObject);
   private
     FNEZZFactoryUsuario: iNEZZFactoryUsuario;
   public
@@ -84,6 +84,24 @@ implementation
 {$R *.dfm}
 
 { TNEZZViewsUsuario }
+
+procedure TNEZZViewsUsuario.BoxPesquisaChange(Sender: TObject);
+begin
+  if BoxPesquisa.Text = '' then
+  begin
+    FNEZZFactoryUsuario := TNEZZFactoryUsuario
+      .New
+      .DataSource(dsUsuarios)
+      .ListarUsuarios;
+  end
+  else
+  begin
+    FNEZZFactoryUsuario := TNEZZFactoryUsuario
+      .New
+      .DataSource(dsUsuarios)
+      .FiltrarUsuario(BoxPesquisa.Text);
+  end;
+end;
 
 procedure TNEZZViewsUsuario.btnAdicionarClick(Sender: TObject);
 begin
@@ -178,24 +196,6 @@ begin
 //  FreeAndNil(NEZZViewsUsuarioEditar);
 //
 //  CarregarDados;
-end;
-
-procedure TNEZZViewsUsuario.edPesquisaChange(Sender: TObject);
-begin
-  if edPesquisa.Text = '' then
-  begin
-    FNEZZFactoryUsuario := TNEZZFactoryUsuario
-      .New
-      .DataSource(dsUsuarios)
-      .ListarUsuarios;
-  end
-  else
-  begin
-    FNEZZFactoryUsuario := TNEZZFactoryUsuario
-      .New
-      .DataSource(dsUsuarios)
-      .FiltrarUsuario(edPesquisa.Text);
-  end;
 end;
 
 procedure TNEZZViewsUsuario.FormCreate(Sender: TObject);

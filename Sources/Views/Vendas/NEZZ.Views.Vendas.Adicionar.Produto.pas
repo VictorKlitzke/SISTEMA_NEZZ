@@ -55,6 +55,8 @@ type
     pnPesquisar: TPanel;
     BoxPesquisa: TSearchBox;
     btnClose: TcxButton;
+    cxButton1: TcxButton;
+    Label1: TLabel;
     procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }

@@ -26,9 +26,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
     Color = clBlack
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 59
-    ExplicitWidth = 969
-    ExplicitHeight = 442
     object dsDadosCliente: TcxGrid
       Left = 0
       Top = 0
@@ -37,8 +34,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 969
-      ExplicitHeight = 442
       object dsDadosClienteDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         OnCellDblClick = dsDadosClienteDBTableView1CellDblClick
@@ -65,8 +60,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 501
-    ExplicitWidth = 969
     object btnDeletar: TcxButton
       Left = 749
       Top = 0
@@ -96,7 +89,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnDeletarClick
-      ExplicitLeft = 765
     end
     object btnAdicionar: TcxButton
       Left = 851
@@ -142,7 +134,6 @@ object NEZZViewsClientes: TNEZZViewsClientes
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = btnAdicionarClick
-      ExplicitLeft = 867
     end
   end
   object pnPesquisa: TPanel
@@ -155,49 +146,19 @@ object NEZZViewsClientes: TNEZZViewsClientes
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 41
-    ExplicitWidth = 969
-    object checkoutNome: TCheckBox
-      Left = 781
-      Top = 0
-      Width = 60
-      Height = 18
-      Align = alRight
-      Caption = 'Nome'
-      TabOrder = 0
-      ExplicitLeft = 797
-    end
-    object checkoutCodigo: TCheckBox
-      Left = 841
-      Top = 0
-      Width = 60
-      Height = 18
-      Align = alRight
-      Caption = 'Codigo'
-      TabOrder = 2
-      ExplicitLeft = 857
-    end
-    object checkoutCNPJ: TCheckBox
-      Left = 901
-      Top = 0
-      Width = 52
-      Height = 18
-      Align = alRight
-      Caption = 'CNPJ'
-      TabOrder = 3
-      ExplicitLeft = 917
-    end
-    object edPesquisar: TEdit
+    object BoxPesquisa: TSearchBox
       Left = 0
       Top = 0
-      Width = 529
+      Width = 953
       Height = 18
-      Align = alLeft
-      BevelInner = bvNone
-      BorderStyle = bsNone
-      TabOrder = 1
+      Align = alClient
+      TabOrder = 0
       TextHint = 'Pesquisar'
-      OnChange = edPesquisarChange
+      OnChange = BoxPesquisaChange
+      ExplicitLeft = 424
+      ExplicitTop = -3
+      ExplicitWidth = 121
+      ExplicitHeight = 21
     end
   end
   object dsClientes: TDataSource

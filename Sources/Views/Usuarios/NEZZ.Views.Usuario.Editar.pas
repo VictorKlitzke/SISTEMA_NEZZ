@@ -29,6 +29,7 @@ uses
   NEZZ.Factory.Usuario,
   NEZZ.Models.Usuario,
   NEZZ.Services.Conexao,
+  System.UITypes,
   NEZZ.Services.Query;
 
 type

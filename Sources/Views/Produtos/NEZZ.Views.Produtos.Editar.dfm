@@ -1,10 +1,10 @@
 object NEZZViewsProdutosEditar: TNEZZViewsProdutosEditar
   Left = 0
   Top = 0
-  BorderStyle = bsSizeToolWin
+  BorderStyle = bsToolWindow
   Caption = 'EDITAR PRODUTO'
-  ClientHeight = 208
-  ClientWidth = 358
+  ClientHeight = 218
+  ClientWidth = 359
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,20 +12,20 @@ object NEZZViewsProdutosEditar: TNEZZViewsProdutosEditar
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel
     Left = 0
     Top = 0
-    Width = 358
-    Height = 167
+    Width = 359
+    Height = 177
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 444
-    ExplicitHeight = 182
     object Label1: TLabel
       Left = 18
       Top = 2
@@ -82,69 +82,83 @@ object NEZZViewsProdutosEditar: TNEZZViewsProdutosEditar
       Height = 13
       Caption = 'C'#243'digo de Barras'
     end
-    object cxDBTextEdit1: TcxDBTextEdit
+    object edProduto: TcxDBTextEdit
       Left = 16
       Top = 16
+      DataBinding.DataField = 'PRODUTO'
+      DataBinding.DataSource = dsEditarProduto
       TabOrder = 0
       Width = 150
     end
-    object cxDBTextEdit2: TcxDBTextEdit
+    object edReferencia: TcxDBTextEdit
       Left = 16
       Top = 56
+      DataBinding.DataField = 'REFERENCIA'
+      DataBinding.DataSource = dsEditarProduto
       TabOrder = 1
       Width = 150
     end
-    object cxDBTextEdit3: TcxDBTextEdit
+    object edQuantidade: TcxDBTextEdit
       Left = 16
       Top = 96
+      DataBinding.DataField = 'QUANTIDADE'
+      DataBinding.DataSource = dsEditarProduto
       TabOrder = 2
       Width = 150
     end
-    object cxDBTextEdit4: TcxDBTextEdit
+    object edModelo: TcxDBTextEdit
       Left = 16
       Top = 136
+      DataBinding.DataField = 'MODELO'
+      DataBinding.DataSource = dsEditarProduto
       TabOrder = 3
       Width = 150
     end
-    object cxDBTextEdit5: TcxDBTextEdit
+    object edMarca: TcxDBTextEdit
       Left = 192
       Top = 16
+      DataBinding.DataField = 'MARCA'
+      DataBinding.DataSource = dsEditarProduto
       TabOrder = 4
       Width = 150
     end
-    object cxDBTextEdit6: TcxDBTextEdit
+    object edPrecoVenda: TcxDBTextEdit
       Left = 192
       Top = 56
+      DataBinding.DataField = 'VALOR_PRODUTO'
+      DataBinding.DataSource = dsEditarProduto
       TabOrder = 5
       Width = 150
     end
-    object cxDBTextEdit7: TcxDBTextEdit
+    object edPrecoCusto: TcxDBTextEdit
       Left = 192
       Top = 96
+      DataBinding.DataField = 'VALOR_CUSTO'
+      DataBinding.DataSource = dsEditarProduto
       TabOrder = 6
       Width = 150
     end
-    object cxDBTextEdit8: TcxDBTextEdit
+    object edCodBarras: TcxDBTextEdit
       Left = 192
       Top = 136
+      DataBinding.DataField = 'COD_BARRAS'
+      DataBinding.DataSource = dsEditarProduto
       TabOrder = 7
       Width = 150
     end
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 167
-    Width = 358
+    Top = 177
+    Width = 359
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 182
-    ExplicitWidth = 444
-    object cxButton1: TcxButton
-      Left = 258
+    object BtnSalvar: TcxButton
+      Left = 259
       Top = 0
       Width = 100
       Height = 41
@@ -189,7 +203,11 @@ object NEZZViewsProdutosEditar: TNEZZViewsProdutosEditar
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 344
+      OnClick = BtnSalvarClick
     end
+  end
+  object dsEditarProduto: TDataSource
+    Left = 168
+    Top = 112
   end
 end

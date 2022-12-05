@@ -1,10 +1,10 @@
 object NEZZViewsVenda: TNEZZViewsVenda
   Left = 0
   Top = 0
-  BorderStyle = bsSizeToolWin
+  BorderStyle = bsToolWindow
   Caption = 'GERENCIAMENTO DE VENDAS'
-  ClientHeight = 511
-  ClientWidth = 953
+  ClientHeight = 521
+  ClientWidth = 963
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,23 +18,23 @@ object NEZZViewsVenda: TNEZZViewsVenda
   object pnContent: TPanel
     Left = 0
     Top = 0
-    Width = 953
-    Height = 463
+    Width = 963
+    Height = 473
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 48
-    ExplicitWidth = 969
-    ExplicitHeight = 454
+    ExplicitWidth = 953
+    ExplicitHeight = 463
     object dsVendasGrid: TcxGrid
       Left = 0
-      Top = 0
-      Width = 953
-      Height = 463
+      Top = 29
+      Width = 963
+      Height = 444
       Align = alClient
       TabOrder = 0
-      ExplicitWidth = 969
-      ExplicitHeight = 454
+      ExplicitTop = 0
+      ExplicitWidth = 953
+      ExplicitHeight = 463
       object dsVendasGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsVendas
@@ -49,21 +49,41 @@ object NEZZViewsVenda: TNEZZViewsVenda
         GridView = dsVendasGridDBTableView1
       end
     end
+    object pnPesquisa: TPanel
+      Left = 0
+      Top = 0
+      Width = 963
+      Height = 29
+      Align = alTop
+      Color = clYellow
+      ParentBackground = False
+      TabOrder = 1
+      ExplicitWidth = 953
+      object BoxPesquisa: TSearchBox
+        Left = 1
+        Top = 1
+        Width = 952
+        Height = 27
+        Align = alLeft
+        TabOrder = 0
+        TextHint = 'Pesquisar'
+      end
+    end
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 463
-    Width = 953
+    Top = 473
+    Width = 963
     Height = 48
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 502
-    ExplicitWidth = 969
+    ExplicitTop = 463
+    ExplicitWidth = 953
     object btnDeletar: TcxButton
-      Left = 851
+      Left = 861
       Top = 0
       Width = 102
       Height = 48
@@ -90,10 +110,10 @@ object NEZZViewsVenda: TNEZZViewsVenda
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
-      ExplicitLeft = 867
+      ExplicitLeft = 851
     end
     object btnImprimir: TcxButton
-      Left = 749
+      Left = 759
       Top = 0
       Width = 102
       Height = 48
@@ -134,7 +154,7 @@ object NEZZViewsVenda: TNEZZViewsVenda
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
-      ExplicitLeft = 765
+      ExplicitLeft = 749
     end
   end
   object dsVendas: TDataSource

@@ -1,10 +1,10 @@
 object NEZZViewsFornecedor: TNEZZViewsFornecedor
   Left = 0
   Top = 0
-  BorderStyle = bsNone
-  Caption = 'NEZZViewsFornecedor'
-  ClientHeight = 550
-  ClientWidth = 969
+  BorderStyle = bsSizeToolWin
+  Caption = 'FORNECEDORES'
+  ClientHeight = 511
+  ClientWidth = 953
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,19 +18,23 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
   TextHeight = 13
   object pnContent: TPanel
     Left = 0
-    Top = 59
-    Width = 969
-    Height = 443
+    Top = 18
+    Width = 953
+    Height = 445
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitTop = 59
+    ExplicitWidth = 969
+    ExplicitHeight = 443
     object dsFornecedoresGrid: TcxGrid
       Left = 0
       Top = 0
-      Width = 969
-      Height = 443
+      Width = 953
+      Height = 445
       Align = alClient
       TabOrder = 0
+      ExplicitTop = -6
       object dsFornecedoresGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsFornecedores
@@ -49,16 +53,18 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 502
-    Width = 969
+    Top = 463
+    Width = 953
     Height = 48
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 502
+    ExplicitWidth = 969
     object btnAdicionar: TcxButton
-      Left = 867
+      Left = 851
       Top = 0
       Width = 102
       Height = 48
@@ -101,9 +107,10 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnAdicionarClick
+      ExplicitLeft = 867
     end
     object BtnImprimir: TcxButton
-      Left = 663
+      Left = 647
       Top = 0
       Width = 102
       Height = 48
@@ -144,9 +151,10 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
+      ExplicitLeft = 663
     end
     object btnDeletar: TcxButton
-      Left = 765
+      Left = 749
       Top = 0
       Width = 102
       Height = 48
@@ -173,9 +181,10 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 2
+      ExplicitLeft = 765
     end
-    object cxButton1: TcxButton
-      Left = 561
+    object BtnEditar: TcxButton
+      Left = 545
       Top = 0
       Width = 102
       Height = 48
@@ -216,92 +225,22 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 3
-      OnClick = cxButton1Click
-      ExplicitLeft = 568
-      ExplicitTop = -10
-    end
-  end
-  object pnHeader: TPanel
-    Left = 0
-    Top = 0
-    Width = 969
-    Height = 41
-    Align = alTop
-    BevelOuter = bvNone
-    Color = clYellow
-    ParentBackground = False
-    TabOrder = 2
-    object lbUsuario: TLabel
-      Left = 0
-      Top = 0
-      Width = 205
-      Height = 41
-      Align = alLeft
-      Caption = 'FORNECEDORES'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -27
-      Font.Name = 'Segoe UI'
-      Font.Style = [fsBold]
-      ParentFont = False
-      ExplicitHeight = 37
-    end
-    object pnClose: TPanel
-      Left = 911
-      Top = 0
-      Width = 58
-      Height = 41
-      Align = alRight
-      BevelOuter = bvNone
-      TabOrder = 0
-      object btnClose: TcxButton
-        Left = 0
-        Top = 0
-        Width = 58
-        Height = 41
-        Align = alClient
-        BiDiMode = bdRightToLeftReadingOnly
-        OptionsImage.Glyph.SourceDPI = 96
-        OptionsImage.Glyph.Data = {
-          89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
-          F80000000473424954080808087C0864880000000970485973000000B1000000
-          B101C62D498D0000001974455874536F667477617265007777772E696E6B7363
-          6170652E6F72679BEE3C1A0000015A494441544889ED93316EC23014867F879E
-          213BBBD38A4CA819DC13200531652BC760304A068ED15E00819413E021B035A2
-          C9DE4EDC22B8834B8A9390A6A65BFB6DF6B3BEFF29EF05F8E71BC8F9418EC72E
-          2CEB198053AD754082905714C594AC562FA74B4B7BD2EB3D01B83590AB66A5BC
-          FB7494E801523A06629D8AC3AA94AB6713AC8B871AB67D80EF2717EBBE9FC0B6
-          0F9DD36A78DE1B82C003E7A256E35C20083C0C87EFE601EBB58734DDC07118E6
-          F3AF90D94CDDE5B9401CDFB729F4359D4C64E32BCE452904004A19B24C208A58
-          A374B92CBDDD861A450C69BA01A50C94AAA00BF22ADDB7464A937FA36300E702
-          AEAB3ACF73014A59E3E08D02CE071A860C61C81A076F14E0FB09068307649992
-          9F582CD41DA50CA3D1B64D71D31A90247D14C516715C1F681429F96ED76F5374
-          5BD31FD2B6A6C75FF06B0E3D8090EC6A7DC5A10714C51484EC01987C2A0942F6
-          381E1FAF68EF2FF201F9DB7D65461D83000000000049454E44AE426082}
-        ParentBiDiMode = False
-        SpeedButtonOptions.CanBeFocused = False
-        SpeedButtonOptions.Flat = True
-        TabOrder = 0
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-        OnClick = btnCloseClick
-      end
+      OnClick = BtnEditarClick
+      ExplicitLeft = 561
     end
   end
   object pnPesquisa: TPanel
     Left = 0
-    Top = 41
-    Width = 969
+    Top = 0
+    Width = 953
     Height = 18
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
-    TabOrder = 3
+    TabOrder = 2
+    ExplicitTop = 41
+    ExplicitWidth = 969
     object edPesquisa: TEdit
       Left = 0
       Top = 0

@@ -36,7 +36,7 @@ uses
   cxGridTableView,
   cxGridDBTableView,
   cxGrid,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, Vcl.WinXCtrls;
 
 type
   TNEZZViewsVenda = class(TForm)
@@ -48,6 +48,8 @@ type
     pnFooter: TPanel;
     btnDeletar: TcxButton;
     btnImprimir: TcxButton;
+    pnPesquisa: TPanel;
+    BoxPesquisa: TSearchBox;
     procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }

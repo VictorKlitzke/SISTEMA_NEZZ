@@ -57,16 +57,13 @@ type
     btnDeletar: TcxButton;
     btnAdicionar: TcxButton;
     dsClientes: TDataSource;
-    checkoutNome: TCheckBox;
-    checkoutCodigo: TCheckBox;
-    edPesquisar: TEdit;
     dsDadosClienteDBTableView1: TcxGridDBTableView;
     dsDadosClienteLevel1: TcxGridLevel;
     dsDadosCliente: TcxGrid;
+    BoxPesquisa: TSearchBox;
     procedure btnAdicionarClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure edPesquisarChange(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure dsDadosClienteDBTableView1CellDblClick(
@@ -74,6 +71,7 @@ type
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
       AShift: TShiftState; var AHandled: Boolean);
     procedure btnDeletarClick(Sender: TObject);
+    procedure BoxPesquisaChange(Sender: TObject);
   private
     FNEZZCliente: iNEZZServicesCadastrar;
     FNEZZFactoryCliente: iNEZZFactoryCliente;
@@ -90,6 +88,24 @@ implementation
 {$R *.dfm}
 
 { TNEZZViewsClientes }
+
+procedure TNEZZViewsClientes.BoxPesquisaChange(Sender: TObject);
+begin
+  if BoxPesquisa.Text = '' then
+  begin
+    FNEZZFactoryCliente := TNEZZFactoryCliente
+      .New
+      .DataSource(dsClientes)
+      .ListarCliente;
+  end
+  else
+  begin
+    FNEZZFactoryCliente := TNEZZFactoryCliente
+      .New
+      .DataSource(dsClientes)
+      .FiltrarCliente(BoxPesquisa.Text);
+  end;
+end;
 
 procedure TNEZZViewsClientes.btnAdicionarClick(Sender: TObject);
 begin
@@ -171,24 +187,6 @@ begin
   FreeAndNil(NEZZViewsClienteEditar);
 
   CarregarDados;
-end;
-
-procedure TNEZZViewsClientes.edPesquisarChange(Sender: TObject);
-begin
-  if edPesquisar.Text = '' then
-  begin
-    FNEZZFactoryCliente := TNEZZFactoryCliente
-      .New
-      .DataSource(dsClientes)
-      .ListarCliente;
-  end
-  else
-  begin
-    FNEZZFactoryCliente := TNEZZFactoryCliente
-      .New
-      .DataSource(dsClientes)
-      .FiltrarCliente(edPesquisar.Text);
-  end;
 end;
 
 procedure TNEZZViewsClientes.FormCreate(Sender: TObject);

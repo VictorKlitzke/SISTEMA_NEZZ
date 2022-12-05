@@ -30,7 +30,6 @@ uses
 type
   TNEZZViewsPrincipal = class(TForm)
     pnContent: TPanel;
-    imgNEZZ: TImage;
     pnFooter: TPanel;
     pnVersao: TPanel;
     lbl1: TLabel;
@@ -61,6 +60,7 @@ type
     BtnUsuario: TcxButton;
     BtnClientes: TcxButton;
     BtnParceiros: TcxButton;
+    imgNEZZ: TImage;
     procedure btnCloseClick(Sender: TObject);
     procedure btnCloseKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);

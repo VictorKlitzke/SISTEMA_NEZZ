@@ -1,10 +1,10 @@
 object NEZZViewsCaixaListagem: TNEZZViewsCaixaListagem
   Left = 0
   Top = 0
-  BorderStyle = bsSizeToolWin
+  BorderStyle = bsToolWindow
   Caption = 'Caixas'
-  ClientHeight = 375
-  ClientWidth = 483
+  ClientHeight = 385
+  ClientWidth = 493
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,21 +19,22 @@ object NEZZViewsCaixaListagem: TNEZZViewsCaixaListagem
   object pnContent: TPanel
     Left = 0
     Top = 35
-    Width = 483
-    Height = 299
+    Width = 493
+    Height = 309
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 74
-    ExplicitWidth = 499
+    ExplicitWidth = 483
+    ExplicitHeight = 299
     object cxGrid1: TcxGrid
       Left = 0
       Top = 0
-      Width = 483
-      Height = 299
+      Width = 493
+      Height = 309
       Align = alClient
       TabOrder = 0
-      ExplicitWidth = 499
+      ExplicitWidth = 483
+      ExplicitHeight = 299
       object cxGrid1DBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsListagemCaixa
@@ -51,18 +52,18 @@ object NEZZViewsCaixaListagem: TNEZZViewsCaixaListagem
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 334
-    Width = 483
+    Top = 344
+    Width = 493
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 373
-    ExplicitWidth = 499
-    object cxButton1: TcxButton
-      Left = 391
+    ExplicitTop = 334
+    ExplicitWidth = 483
+    object BtnImprimir: TcxButton
+      Left = 401
       Top = 0
       Width = 92
       Height = 41
@@ -103,21 +104,20 @@ object NEZZViewsCaixaListagem: TNEZZViewsCaixaListagem
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
-      ExplicitLeft = 407
+      ExplicitLeft = 391
     end
   end
   object pnPeriodo: TPanel
     Left = 0
     Top = 0
-    Width = 483
+    Width = 493
     Height = 35
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 39
-    ExplicitWidth = 499
+    ExplicitWidth = 483
     object dateInicio: TcxDateEdit
       Left = 135
       Top = 6

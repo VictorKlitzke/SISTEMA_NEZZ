@@ -18,11 +18,10 @@ type
     function id: integer; overload;
     function Produto: string; overload;
     function Referencia: string; overload;
-    function Cod_Barras: Integer; overload;
+    function Cod_Barras: string; overload;
     function Valor_Produto: string; overload;
-    function Quantidade: Integer; overload;
+    function Quantidade: string; overload;
     function Valor_Custo: string; overload;
-    function Estoque_Atual: Integer; overload;
     function Marca: string; overload;
     function Modelo: string; overload;
 
@@ -30,11 +29,10 @@ type
     function ID(AValue: Integer): iNEZZModelsProdutos; overload;
     function Produto(AValue: string): iNEZZModelsProdutos; overload;
     function Referencia(AValue: string): iNEZZModelsProdutos; overload;
-    function Cod_Barras(AValue: Integer): iNEZZModelsProdutos; overload;
+    function Cod_Barras(AValue: string): iNEZZModelsProdutos; overload;
     function Valor_Produto(AValue: string): iNEZZModelsProdutos; overload;
-    function Quantidade(AValue: Integer): iNEZZModelsProdutos; overload;
+    function Quantidade(AValue: string): iNEZZModelsProdutos; overload;
     function Valor_Custo(AValue: string): iNEZZModelsProdutos; overload;
-    function Estoque_Atual(AValue: Integer): iNEZZModelsProdutos; overload;
     function Marca(AValue: string): iNEZZModelsProdutos; overload;
     function Modelo(AValue: string): iNEZZModelsProdutos; overload;
 
@@ -65,11 +63,10 @@ type
     function id: integer; overload;
     function Produto: string; overload;
     function Referencia: string; overload;
-    function Cod_Barras: Integer; overload;
+    function Cod_Barras: string; overload;
     function Valor_Produto: string; overload;
-    function Quantidade: Integer; overload;
+    function Quantidade: string; overload;
     function Valor_Custo: string; overload;
-    function Estoque_Atual: Integer; overload;
     function Marca: string; overload;
     function Modelo: string; overload;
 
@@ -77,11 +74,10 @@ type
     function ID(AValue: Integer): iNEZZModelsProdutos; overload;
     function Produto(AValue: string): iNEZZModelsProdutos; overload;
     function Referencia(AValue: string): iNEZZModelsProdutos; overload;
-    function Cod_Barras(AValue: Integer): iNEZZModelsProdutos; overload;
+    function Cod_Barras(AValue: string): iNEZZModelsProdutos; overload;
     function Valor_Produto(AValue: string): iNEZZModelsProdutos; overload;
-    function Quantidade(AValue: Integer): iNEZZModelsProdutos; overload;
+    function Quantidade(AValue: string): iNEZZModelsProdutos; overload;
     function Valor_Custo(AValue: string): iNEZZModelsProdutos; overload;
-    function Estoque_Atual(AValue: Integer): iNEZZModelsProdutos; overload;
     function Marca(AValue: string): iNEZZModelsProdutos; overload;
     function Modelo(AValue: string): iNEZZModelsProdutos; overload;
 
@@ -111,15 +107,15 @@ begin
   FNEZZProdutos.CampoChave(AValue);
 end;
 
-function TNEZZModelsProdutos.Cod_Barras(AValue: Integer): iNEZZModelsProdutos;
+function TNEZZModelsProdutos.Cod_Barras(AValue: string): iNEZZModelsProdutos;
 begin
   Result := Self;
   FNEZZProdutos.Campo('COD_BARRAS' , AValue);
 end;
 
-function TNEZZModelsProdutos.Cod_Barras: Integer;
+function TNEZZModelsProdutos.Cod_Barras: string;
 begin
-  Result := FNEZZProdutos.Campo('COD_BARRAS').AsInteger;
+  Result := FNEZZProdutos.Campo('COD_BARRAS').AsString;
 end;
 
 constructor TNEZZModelsProdutos.Create;
@@ -148,17 +144,6 @@ function TNEZZModelsProdutos.Editar: iNEZZModelsProdutos;
 begin
   Result := Self;
   FNEZZProdutos.Editar;
-end;
-
-function TNEZZModelsProdutos.Estoque_Atual(AValue: Integer): iNEZZModelsProdutos;
-begin
-  Result := Self;
-  FNEZZProdutos.Campo('ESTOQUE_ATUAL' , AValue);
-end;
-
-function TNEZZModelsProdutos.Estoque_Atual: Integer;
-begin
-  Result := FNEZZProdutos.Campo('ESTOQUE_ATUAL').AsInteger;
 end;
 
 function TNEZZModelsProdutos.Filtrar(ACampo: string;
@@ -226,15 +211,15 @@ begin
   Result := FNEZZProdutos.Campo('PRODUTO').AsString;
 end;
 
-function TNEZZModelsProdutos.Quantidade(AValue: Integer): iNEZZModelsProdutos;
+function TNEZZModelsProdutos.Quantidade(AValue: string): iNEZZModelsProdutos;
 begin
   Result := Self;
   FNEZZProdutos.Campo('QUANTIDADE' , AValue);
 end;
 
-function TNEZZModelsProdutos.Quantidade: Integer;
+function TNEZZModelsProdutos.Quantidade: string;
 begin
-  Result := FNEZZProdutos.Campo('QUANTIDADE').AsInteger;
+  Result := FNEZZProdutos.Campo('QUANTIDADE').AsString;
 end;
 
 function TNEZZModelsProdutos.Referencia: string;

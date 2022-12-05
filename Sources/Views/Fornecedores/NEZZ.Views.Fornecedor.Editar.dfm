@@ -1,10 +1,10 @@
 object NEZZViewsFornecedorEditar: TNEZZViewsFornecedorEditar
   Left = 0
   Top = 0
-  BorderStyle = bsSizeToolWin
+  BorderStyle = bsToolWindow
   Caption = 'EDITAR CLIENTE'
-  ClientHeight = 209
-  ClientWidth = 418
+  ClientHeight = 219
+  ClientWidth = 419
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,16 +19,13 @@ object NEZZViewsFornecedorEditar: TNEZZViewsFornecedorEditar
   object pnContent: TPanel
     Left = 0
     Top = 0
-    Width = 418
-    Height = 168
+    Width = 419
+    Height = 178
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 41
-    ExplicitWidth = 419
-    ExplicitHeight = 161
     object lbNome: TLabel
       Left = 8
       Top = 3
@@ -152,18 +149,16 @@ object NEZZViewsFornecedorEditar: TNEZZViewsFornecedorEditar
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 168
-    Width = 418
+    Top = 178
+    Width = 419
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 202
-    ExplicitWidth = 419
     object BtnSalvar: TcxButton
-      Left = 318
+      Left = 319
       Top = 0
       Width = 100
       Height = 41
@@ -210,7 +205,6 @@ object NEZZViewsFornecedorEditar: TNEZZViewsFornecedorEditar
       Font.Style = []
       ParentFont = False
       OnClick = BtnSalvarClick
-      ExplicitLeft = 319
     end
   end
   object dsEditarFornecedor: TDataSource

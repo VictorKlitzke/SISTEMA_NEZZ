@@ -1,10 +1,10 @@
 object NEZZViewsUsuario: TNEZZViewsUsuario
   Left = 0
   Top = 0
-  BorderStyle = bsSizeToolWin
+  BorderStyle = bsToolWindow
   Caption = 'US'#218'ARIOS'
-  ClientHeight = 511
-  ClientWidth = 953
+  ClientHeight = 521
+  ClientWidth = 963
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,23 +19,18 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   object pnContent: TPanel
     Left = 0
     Top = 18
-    Width = 953
-    Height = 445
+    Width = 963
+    Height = 455
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 59
-    ExplicitWidth = 969
-    ExplicitHeight = 443
     object dsUsuariosGrid: TcxGrid
       Left = 0
       Top = 0
-      Width = 953
-      Height = 445
+      Width = 963
+      Height = 455
       Align = alClient
       TabOrder = 0
-      ExplicitWidth = 969
-      ExplicitHeight = 443
       object dsUsuariosGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         OnCellDblClick = dsUsuariosGridDBTableView1CellDblClick
@@ -55,18 +50,16 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 463
-    Width = 953
+    Top = 473
+    Width = 963
     Height = 48
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 502
-    ExplicitWidth = 969
     object btnAdicionar: TcxButton
-      Left = 851
+      Left = 861
       Top = 0
       Width = 102
       Height = 48
@@ -109,10 +102,9 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnAdicionarClick
-      ExplicitLeft = 867
     end
     object BtnDeletar: TcxButton
-      Left = 749
+      Left = 759
       Top = 0
       Width = 102
       Height = 48
@@ -141,10 +133,9 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = BtnDeletarClick
-      ExplicitLeft = 765
     end
     object BtnEditar: TcxButton
-      Left = 647
+      Left = 657
       Top = 0
       Width = 102
       Height = 48
@@ -172,33 +163,31 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       SpeedButtonOptions.Flat = True
       TabOrder = 2
       OnClick = BtnEditarClick
-      ExplicitLeft = 663
     end
   end
   object pnPesquisa: TPanel
     Left = 0
     Top = 0
-    Width = 953
+    Width = 963
     Height = 18
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 41
-    ExplicitWidth = 969
-    object edPesquisa: TEdit
+    object BoxPesquisa: TSearchBox
       Left = 0
       Top = 0
-      Width = 529
+      Width = 963
       Height = 18
-      Align = alLeft
-      BevelInner = bvNone
-      BevelOuter = bvNone
-      BorderStyle = bsNone
+      Align = alClient
       TabOrder = 0
-      TextHint = 'Pesquisar'
-      OnChange = edPesquisaChange
+      Text = 'BoxPesquisa'
+      OnChange = BoxPesquisaChange
+      ExplicitLeft = 424
+      ExplicitTop = -3
+      ExplicitWidth = 121
+      ExplicitHeight = 21
     end
   end
   object dsUsuarios: TDataSource

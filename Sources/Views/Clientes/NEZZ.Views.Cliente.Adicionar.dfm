@@ -1,9 +1,9 @@
 object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
   Left = 0
   Top = 0
-  BorderStyle = bsSizeToolWin
+  BorderStyle = bsToolWindow
   Caption = 'CADASTRAR CLIENTES'
-  ClientHeight = 241
+  ClientHeight = 251
   ClientWidth = 499
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,15 +20,13 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
     Left = 0
     Top = 0
     Width = 499
-    Height = 200
+    Height = 210
     Align = alClient
     BevelOuter = bvNone
     Color = clNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 41
-    ExplicitWidth = 500
-    ExplicitHeight = 215
+    ExplicitHeight = 200
     object edNome: TcxTextEdit
       Left = 14
       Top = 20
@@ -104,7 +102,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 200
+    Top = 210
     Width = 499
     Height = 41
     Align = alBottom
@@ -112,9 +110,8 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 256
-    ExplicitWidth = 500
-    object btnLimpar: TcxButton
+    ExplicitTop = 200
+    object BtnLimpar: TcxButton
       Left = 399
       Top = 0
       Width = 100
@@ -156,8 +153,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      OnClick = btnLimparClick
-      ExplicitLeft = 400
+      OnClick = BtnLimparClick
     end
     object btnSalvar: TcxButton
       Left = 299
@@ -198,7 +194,6 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Font.Style = []
       ParentFont = False
       OnClick = btnSalvarClick
-      ExplicitLeft = 300
     end
   end
   object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList
