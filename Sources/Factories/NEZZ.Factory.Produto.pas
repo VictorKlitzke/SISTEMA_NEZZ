@@ -115,6 +115,12 @@ function TNEZZFactoryProdutos.DeletarProduto(
   AProduto: Integer): iNEZZFactoryProdutos;
 begin
   Result := Self;
+
+  TNEZZModelsProdutos
+    .New
+    .Filtrar('ID', AProduto)
+    .Apagar
+    .Salvar;
 end;
 
 destructor TNEZZFactoryProdutos.Destroy;

@@ -4,7 +4,7 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
   BorderStyle = bsToolWindow
   Caption = 'CADASTRAR PRODUTO'
   ClientHeight = 253
-  ClientWidth = 494
+  ClientWidth = 487
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,13 +18,14 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
   object pnContent: TPanel
     Left = 0
     Top = 25
-    Width = 494
+    Width = 487
     Height = 187
     Align = alClient
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 494
     object edProduto: TcxTextEdit
       Left = 8
       Top = 8
@@ -85,26 +86,28 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 494
+    Width = 487
     Height = 25
     Align = alTop
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 494
   end
   object pnFooter: TPanel
     Left = 0
     Top = 212
-    Width = 494
+    Width = 487
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
+    ExplicitWidth = 494
     object BtnSalvar: TcxButton
-      Left = 294
+      Left = 287
       Top = 0
       Width = 100
       Height = 41
@@ -142,9 +145,10 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
       Font.Style = []
       ParentFont = False
       OnClick = BtnSalvarClick
+      ExplicitLeft = 294
     end
     object BtnLimpar: TcxButton
-      Left = 394
+      Left = 387
       Top = 0
       Width = 100
       Height = 41
@@ -186,6 +190,7 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
       Font.Style = []
       ParentFont = False
       OnClick = BtnLimparClick
+      ExplicitLeft = 394
     end
   end
 end

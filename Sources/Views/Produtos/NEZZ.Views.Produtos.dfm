@@ -26,8 +26,6 @@ object NEZZViewsProdutos: TNEZZViewsProdutos
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 502
-    ExplicitWidth = 969
     object BtnEditar: TcxButton
       Left = 657
       Top = 0
@@ -57,7 +55,6 @@ object NEZZViewsProdutos: TNEZZViewsProdutos
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = BtnEditarClick
-      ExplicitLeft = 663
     end
     object BtnDeletar: TcxButton
       Left = 759
@@ -88,7 +85,6 @@ object NEZZViewsProdutos: TNEZZViewsProdutos
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = BtnDeletarClick
-      ExplicitLeft = 765
     end
     object BtnAdicionar: TcxButton
       Left = 861
@@ -134,7 +130,6 @@ object NEZZViewsProdutos: TNEZZViewsProdutos
       SpeedButtonOptions.Flat = True
       TabOrder = 2
       OnClick = BtnAdicionarClick
-      ExplicitLeft = 867
     end
   end
   object pnContent: TPanel
@@ -147,9 +142,6 @@ object NEZZViewsProdutos: TNEZZViewsProdutos
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 48
-    ExplicitWidth = 969
-    ExplicitHeight = 454
     object GridProdutos: TcxGrid
       Left = 0
       Top = 25
@@ -157,9 +149,6 @@ object NEZZViewsProdutos: TNEZZViewsProdutos
       Height = 448
       Align = alClient
       TabOrder = 0
-      ExplicitTop = 0
-      ExplicitWidth = 969
-      ExplicitHeight = 454
       object GridProdutosDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsProdutos
@@ -184,7 +173,6 @@ object NEZZViewsProdutos: TNEZZViewsProdutos
       Align = alTop
       Caption = 'pnPesquisa'
       TabOrder = 1
-      ExplicitWidth = 953
       object BoxPesquisa: TSearchBox
         Left = 1
         Top = 1
@@ -194,7 +182,7 @@ object NEZZViewsProdutos: TNEZZViewsProdutos
         TabOrder = 0
         TextHint = 'Pesquisar'
         OnChange = BoxPesquisaChange
-        ExplicitWidth = 952
+        ExplicitHeight = 21
       end
     end
   end

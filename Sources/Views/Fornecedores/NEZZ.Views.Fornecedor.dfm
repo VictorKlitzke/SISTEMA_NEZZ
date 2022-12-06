@@ -24,9 +24,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 59
-    ExplicitWidth = 969
-    ExplicitHeight = 443
     object dsFornecedoresGrid: TcxGrid
       Left = 0
       Top = 0
@@ -34,7 +31,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       Height = 445
       Align = alClient
       TabOrder = 0
-      ExplicitTop = -6
       object dsFornecedoresGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsFornecedores
@@ -61,8 +57,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 502
-    ExplicitWidth = 969
     object btnAdicionar: TcxButton
       Left = 851
       Top = 0
@@ -107,7 +101,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnAdicionarClick
-      ExplicitLeft = 867
     end
     object BtnImprimir: TcxButton
       Left = 647
@@ -151,7 +144,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
-      ExplicitLeft = 663
     end
     object btnDeletar: TcxButton
       Left = 749
@@ -181,7 +173,7 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 2
-      ExplicitLeft = 765
+      OnClick = btnDeletarClick
     end
     object BtnEditar: TcxButton
       Left = 545
@@ -226,7 +218,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
       SpeedButtonOptions.Flat = True
       TabOrder = 3
       OnClick = BtnEditarClick
-      ExplicitLeft = 561
     end
   end
   object pnPesquisa: TPanel
@@ -239,8 +230,6 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 41
-    ExplicitWidth = 969
     object edPesquisa: TEdit
       Left = 0
       Top = 0

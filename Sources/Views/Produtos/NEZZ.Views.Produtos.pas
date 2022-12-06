@@ -42,7 +42,8 @@ uses
   NEZZ.Factory.Produto,
   NEZZ.Models.Produto,
   NEZZ.Views.Produtos.Adicionar,
-  Vcl.WinXCtrls;
+  Vcl.WinXCtrls,
+  System.UITypes;
 
 type
   TNEZZViewsProdutos = class(TForm)

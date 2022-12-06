@@ -59,6 +59,7 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
+    procedure btnDeletarClick(Sender: TObject);
   private
     FNEZZFactoryFornecedor: iNEZZFactoryFornecedor;
     FNEZZModelsFornecedor: iNEZZModelsFornecedor;
@@ -96,6 +97,27 @@ end;
 procedure TNEZZViewsFornecedor.btnCloseClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TNEZZViewsFornecedor.btnDeletarClick(Sender: TObject);
+begin
+  if MessageDlg('Deseja realmente deletar esse produto?', mtConfirmation, mbYesNo, 0) = mrYes then
+  try
+    FNEZZFactoryFornecedor := TNEZZFactoryFronecedor
+      .New
+      .DeletarFornecedor(
+        dsFornecedores.DataSet.FieldByName('ID').AsInteger
+      );
+
+    MessageDlg('Produto deletado com sucesso!!', mtInformation, [mbOK], 0);
+
+  except
+  on e: Exception do
+  begin
+    MessageDlg('Ocorreu um erro ao deletar o produto' + #13 + e.message , mtWarning , [mbOk] , 0);
+  end;
+  end;
+  CarregarDados;
 end;
 
 procedure TNEZZViewsFornecedor.CarregarDados;
