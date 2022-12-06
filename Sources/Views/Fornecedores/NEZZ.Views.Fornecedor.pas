@@ -39,7 +39,7 @@ uses
   Vcl.ExtCtrls,
   NEZZ.Factory.Fornecedor,
   NEZZ.Models.Fornecedor,
-  NEZZ.Views.Fornecedor.Adicionar;
+  NEZZ.Views.Fornecedor.Adicionar, Vcl.WinXCtrls;
 
 type
   TNEZZViewsFornecedor = class(TForm)
@@ -50,16 +50,17 @@ type
     pnFooter: TPanel;
     btnAdicionar: TcxButton;
     pnPesquisa: TPanel;
-    edPesquisa: TEdit;
     dsFornecedores: TDataSource;
     BtnImprimir: TcxButton;
     btnDeletar: TcxButton;
     BtnEditar: TcxButton;
+    BoxPesquisa: TSearchBox;
     procedure FormCreate(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
     procedure BtnEditarClick(Sender: TObject);
     procedure btnDeletarClick(Sender: TObject);
+    procedure BoxPesquisaChange(Sender: TObject);
   private
     FNEZZFactoryFornecedor: iNEZZFactoryFornecedor;
     FNEZZModelsFornecedor: iNEZZModelsFornecedor;
@@ -78,6 +79,14 @@ uses
 {$R *.dfm}
 
 { TNEZZViewsFornecedor }
+
+procedure TNEZZViewsFornecedor.BoxPesquisaChange(Sender: TObject);
+begin
+  if BoxPesquisa.Text = '' then
+  begin
+    FNEZZFactoryFornecedor
+  end;
+end;
 
 procedure TNEZZViewsFornecedor.btnAdicionarClick(Sender: TObject);
 begin

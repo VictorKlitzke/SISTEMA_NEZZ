@@ -16,7 +16,7 @@ type
 
     //GETs
     function Id: Integer; overload;
-    function Dinheiro: Float32; overload;
+    function Dinheiro: string; overload;
     function DataAbertura: TDate; overload;
     function DataFechamento: TDate; overload;
     function idUsuario: Integer; overload;
@@ -24,7 +24,7 @@ type
 
     //SETs
     function Id(AValue: Integer): iNEZZModelsCaixa; overload;
-    function Dinheiro(AValue: Float32): iNEZZModelsCaixa; overload;
+    function Dinheiro(AValue: string): iNEZZModelsCaixa; overload;
     function DataAbertura(AValue: TDate): iNEZZModelsCaixa; overload;
     function DataFechamento(AValue: TDate): iNEZZModelsCaixa; overload;
     function idUsuario(AValue: Integer): iNEZZModelsCaixa; overload;
@@ -57,7 +57,7 @@ type
 
     //GETs
     function Id: Integer; overload;
-    function Dinheiro: Float32; overload;
+    function Dinheiro: string; overload;
     function DataAbertura: TDate; overload;
     function DataFechamento: TDate; overload;
     function idUsuario: Integer; overload;
@@ -65,7 +65,7 @@ type
 
     //SETs
     function Id(AValue: Integer): iNEZZModelsCaixa; overload;
-    function Dinheiro(AValue: Float32): iNEZZModelsCaixa; overload;
+    function Dinheiro(AValue: string): iNEZZModelsCaixa; overload;
     function DataAbertura(AValue: TDate): iNEZZModelsCaixa; overload;
     function DataFechamento(AValue: TDate): iNEZZModelsCaixa; overload;
     function idUsuario(AValue: Integer): iNEZZModelsCaixa; overload;
@@ -143,12 +143,12 @@ begin
   inherited;
 end;
 
-function TNEZZModelsCaixa.Dinheiro: Float32;
+function TNEZZModelsCaixa.Dinheiro: string;
 begin
-  Result := FNEZZServicesCaixa.Campo('DINHEIRO').AsFloat;
+  Result := FNEZZServicesCaixa.Campo('DINHEIRO').AsString;
 end;
 
-function TNEZZModelsCaixa.Dinheiro(AValue: Float32): iNEZZModelsCaixa;
+function TNEZZModelsCaixa.Dinheiro(AValue: string): iNEZZModelsCaixa;
 begin
   Result := Self;
   FNEZZServicesCaixa.Campo('DINHEIRO' , AValue);

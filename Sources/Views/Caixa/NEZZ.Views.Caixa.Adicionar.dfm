@@ -27,7 +27,7 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
     TabOrder = 0
     object Label2: TLabel
       Left = 40
-      Top = 107
+      Top = 121
       Width = 61
       Height = 25
       Caption = 'VALOR'
@@ -57,15 +57,11 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       TabOrder = 0
       Width = 223
     end
-    object edValor: TcxDBCurrencyEdit
+    object edValor: TcxTextEdit
       Left = 40
-      Top = 134
-      DataBinding.DataField = 'DINHEIRO'
-      DataBinding.DataSource = dsCaixa
-      Properties.DisplayFormat = ' ,0.00;- ,0.00'
-      Properties.EditFormat = ' ,0.00;- ,0.00'
+      Top = 152
       TabOrder = 1
-      Width = 222
+      Width = 223
     end
   end
   object pnFooter: TPanel
@@ -181,7 +177,7 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       Left = 0
       Top = 0
       Width = 133
-      Height = 30
+      Height = 41
       Align = alLeft
       Caption = 'ABRIR CAIXA'
       Font.Charset = ANSI_CHARSET
@@ -190,6 +186,7 @@ object NEZZViewsCaixaAbrir: TNEZZViewsCaixaAbrir
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitHeight = 30
     end
     object pnClose: TPanel
       Left = 421

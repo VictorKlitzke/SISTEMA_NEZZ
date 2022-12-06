@@ -53,7 +53,7 @@ type
     pnRight: TPanel;
     Image1: TImage;
     dsCaixa: TDataSource;
-    edValor: TcxDBCurrencyEdit;
+    edValor: TcxTextEdit;
     procedure btnCloseClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
     procedure BtnApagarClick(Sender: TObject);
@@ -92,23 +92,27 @@ begin
   Date.ValidateEdit();
 
   if TNEZZControllerSessao.New.CaixaAberto then
-  begin
-    try
-      TNEZZFactoryCaixa
-        .New
-        .Abrircaixa(
-          edValor.Value,
-          Date.Date
-        );
+  if MessageDlg('Certeza que deseja abrir o caixa?', mtInformation, [mbOK], 0) = mrYes then
 
-    MessageDlg('Caixa aberto com sucesso!!' , mtInformation , [mbOk] , 0);
-    Close;
-    except
-    on e: Exception do
+  begin
     begin
-      MessageDlg('Caixa existente com esse usuário!!' + #13 + e.message , mtWarning , [mbOk] , 0);
-      edValor.SetFocus;
-    end;
+      try
+        TNEZZFactoryCaixa
+          .New
+          .Abrircaixa(
+            edValor.Text,
+            Date.Date
+          );
+
+      MessageDlg('Caixa aberto com sucesso!!' , mtInformation , [mbOk] , 0);
+      Close;
+      except
+      on e: Exception do
+      begin
+        MessageDlg('Caixa existente com esse usuário!!' + #13 + e.message , mtWarning , [mbOk] , 0);
+        edValor.SetFocus;
+      end;
+      end;
     end;
   end;
 

@@ -230,17 +230,19 @@ object NEZZViewsFornecedor: TNEZZViewsFornecedor
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    object edPesquisa: TEdit
+    object BoxPesquisa: TSearchBox
       Left = 0
       Top = 0
-      Width = 529
+      Width = 953
       Height = 18
-      Align = alLeft
-      BevelInner = bvNone
-      BevelOuter = bvNone
-      BorderStyle = bsNone
+      Align = alClient
       TabOrder = 0
-      TextHint = 'Pesquisar'
+      TextHint = 'Pesquisar Fornecedor'
+      OnChange = BoxPesquisaChange
+      ExplicitLeft = 424
+      ExplicitTop = -3
+      ExplicitWidth = 121
+      ExplicitHeight = 21
     end
   end
   object dsFornecedores: TDataSource

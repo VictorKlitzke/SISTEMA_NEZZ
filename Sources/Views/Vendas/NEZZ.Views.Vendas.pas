@@ -36,7 +36,8 @@ uses
   cxGridTableView,
   cxGridDBTableView,
   cxGrid,
-  Vcl.ExtCtrls, Vcl.WinXCtrls;
+  Vcl.ExtCtrls,
+  Vcl.WinXCtrls;
 
 type
   TNEZZViewsVenda = class(TForm)

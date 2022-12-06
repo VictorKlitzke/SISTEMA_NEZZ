@@ -23,8 +23,6 @@ object NEZZViewsVenda: TNEZZViewsVenda
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 953
-    ExplicitHeight = 463
     object dsVendasGrid: TcxGrid
       Left = 0
       Top = 29
@@ -32,9 +30,6 @@ object NEZZViewsVenda: TNEZZViewsVenda
       Height = 444
       Align = alClient
       TabOrder = 0
-      ExplicitTop = 0
-      ExplicitWidth = 953
-      ExplicitHeight = 463
       object dsVendasGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsVendas
@@ -58,15 +53,16 @@ object NEZZViewsVenda: TNEZZViewsVenda
       Color = clYellow
       ParentBackground = False
       TabOrder = 1
-      ExplicitWidth = 953
       object BoxPesquisa: TSearchBox
         Left = 1
         Top = 1
-        Width = 952
+        Width = 961
         Height = 27
-        Align = alLeft
+        Align = alClient
         TabOrder = 0
         TextHint = 'Pesquisar'
+        ExplicitWidth = 952
+        ExplicitHeight = 21
       end
     end
   end
@@ -80,8 +76,6 @@ object NEZZViewsVenda: TNEZZViewsVenda
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 463
-    ExplicitWidth = 953
     object btnDeletar: TcxButton
       Left = 861
       Top = 0
@@ -110,7 +104,6 @@ object NEZZViewsVenda: TNEZZViewsVenda
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 0
-      ExplicitLeft = 851
     end
     object btnImprimir: TcxButton
       Left = 759
@@ -154,7 +147,6 @@ object NEZZViewsVenda: TNEZZViewsVenda
       SpeedButtonOptions.CanBeFocused = False
       SpeedButtonOptions.Flat = True
       TabOrder = 1
-      ExplicitLeft = 749
     end
   end
   object dsVendas: TDataSource

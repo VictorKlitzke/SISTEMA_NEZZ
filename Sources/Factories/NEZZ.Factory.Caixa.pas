@@ -14,7 +14,7 @@ type
 
   iNEZZFactoryCaixa = interface
     ['{1592C510-8A28-408D-BD1A-F6430ADE3590}']
-    function Abrircaixa(ADinheiro : Float32; ADataAbertura : TDate): iNEZZFactoryCaixa;
+    function Abrircaixa(ADinheiro : string; ADataAbertura : TDate): iNEZZFactoryCaixa;
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryCaixa;
     function FechamentoCaixa(ADinheiro, ADataFechamento : string): iNEZZFactoryCaixa;
 
@@ -35,7 +35,7 @@ type
 
     class function New: iNEZZFactoryCaixa;
 
-    function Abrircaixa(ADinheiro : Float32; ADataAbertura : TDate): iNEZZFactoryCaixa;
+    function Abrircaixa(ADinheiro : string; ADataAbertura : TDate): iNEZZFactoryCaixa;
     function DataSource(var ADataSource : TDataSource): iNEZZFactoryCaixa;
     function FechamentoCaixa(ADinheiro, ADataFechamento : string): iNEZZFactoryCaixa;
 
@@ -48,7 +48,7 @@ implementation
 
 { TNEZZFactoryCaixa }
 
-function TNEZZFactoryCaixa.Abrircaixa(ADinheiro : Float32; ADataAbertura : TDate): iNEZZFactoryCaixa;
+function TNEZZFactoryCaixa.Abrircaixa(ADinheiro : string; ADataAbertura : TDate): iNEZZFactoryCaixa;
 begin
   FNEZZModelsCaixa := TNEZZModelsCaixa
     .New
@@ -56,7 +56,7 @@ begin
     .Dinheiro(ADinheiro)
     .DataAbertura(ADataAbertura)
     .Status(0)
-//    .idUsuario(FCaixaUsuario.id)
+    .idUsuario(FCaixaUsuario.id)
     .Salvar;
 
     if Assigned(FLOG) then

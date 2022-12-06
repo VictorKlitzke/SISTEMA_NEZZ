@@ -1,8 +1,10 @@
 1 - Usuário não está editando.
 2 - Melhorar a estrutura do projeto.
-3 - Fazer tala de Venda.
+3 - Fazer tela de Venda.
 4 - Fazer tela de fechamento de caixa.
 5 - terminar abertura de caixa.
-6 - Fazer tela de Produto.
-7 - Mudar usuários junto de parceiros.
-8 - Campo de valor não está colocando valor nenhum.
+6 - Fazer tela de Produto. -- Feito
+7 - Mudar usuários junto de parceiros. -- Feito
+8 - Campo de valor não está colocando valor nenhum. -- Feito
+9 - Cadastro de Produtos com problema.
+10 - Modo de pesquisar mudar de todas as telas.
