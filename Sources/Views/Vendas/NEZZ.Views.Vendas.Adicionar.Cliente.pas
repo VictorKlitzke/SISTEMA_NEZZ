@@ -22,14 +22,14 @@ uses
 
 type
   TNEZZViewsVendasAdicionarCliente = class(TForm)
-    pnHeader: TPanel;
     pnContent: TPanel;
-    pnClose: TPanel;
-    btnClose: TcxButton;
     ComboCliente: TComboBox;
     pnFooter: TPanel;
     BtnFinalizar: TcxButton;
+    pnHeader: TPanel;
     lbCliente: TLabel;
+    pnClose: TPanel;
+    btnClose: TcxButton;
     procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }
