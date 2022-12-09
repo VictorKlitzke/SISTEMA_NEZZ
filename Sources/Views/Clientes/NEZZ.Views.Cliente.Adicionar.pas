@@ -34,7 +34,7 @@ uses
   cxClasses,
   System.UITypes,
   dxLayoutLookAndFeels,
-  dxLayoutControl;
+  dxLayoutControl, ACBrBase, ACBrValidador;
 
 type
   TNEZZViewsClienteAdicionar = class(TForm)
@@ -53,6 +53,7 @@ type
     BtnLimpar: TcxButton;
     edCEP: TcxTextEdit;
     edEmail: TcxTextEdit;
+    Validador: TACBrValidador;
     procedure btnCloseClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure edClientePropertiesValidate(Sender: TObject;
@@ -89,6 +90,8 @@ type
       var Error: Boolean);
     procedure BtnLimparClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure edCPFExit(Sender: TObject);
+    procedure edCEPExit(Sender: TObject);
 
   private
     FNEZZQuery: iNEZZServicesCadastrar;
@@ -179,6 +182,21 @@ begin
   ErrorText := 'O Bairro é obrigatório';
 end;
 
+procedure TNEZZViewsClienteAdicionar.edCEPExit(Sender: TObject);
+begin
+  if edCEP.Text <> '' then
+  begin
+    Validador.Documento := edCEP.Text;
+    Validador.TipoDocto := docCEP;
+
+    if not Validador.Validar then
+    begin
+      Application.MessageBox('ATENÇÃO: CEP INVALIDO','ERRO CEP', MB_ICONERROR + MB_OK);
+      edNome.SetFocus;
+    end;
+  end;
+end;
+
 procedure TNEZZViewsClienteAdicionar.edCEPPropertiesValidate(Sender: TObject;
   var DisplayValue: Variant;
   var ErrorText: TCaption;
@@ -214,6 +232,21 @@ procedure TNEZZViewsClienteAdicionar.edCNPJPropertiesValidate(Sender: TObject;
 begin
   Error := DisplayValue = '';
   ErrorText := 'O CPF é obrigatório';
+end;
+
+procedure TNEZZViewsClienteAdicionar.edCPFExit(Sender: TObject);
+begin
+  if ( edCPF.Text ) <> '' then
+  begin
+    Validador.Documento := edCPF.Text;
+    Validador.TipoDocto := docCPF;
+
+    if not Validador.Validar then
+    begin
+      Application.MessageBox('ATENÇÃO: CPF INVALIDO','ERRO CPF', MB_ICONERROR + MB_OK);
+      edNome.SetFocus;
+    end;
+  end;
 end;
 
 procedure TNEZZViewsClienteAdicionar.edEnderecoPropertiesValidate(

@@ -8,7 +8,9 @@ uses
   Winapi.Messages,
   System.SysUtils,
   System.Variants,
-  System.Classes, Vcl.Graphics,
+  System.Classes,
+  System.UITypes,
+  Vcl.Graphics,
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs,
@@ -39,7 +41,8 @@ uses
   Vcl.ExtCtrls,
   NEZZ.Factory.Fornecedor,
   NEZZ.Models.Fornecedor,
-  NEZZ.Views.Fornecedor.Adicionar, Vcl.WinXCtrls;
+  NEZZ.Views.Fornecedor.Adicionar,
+  Vcl.WinXCtrls;
 
 type
   TNEZZViewsFornecedor = class(TForm)
@@ -84,7 +87,17 @@ procedure TNEZZViewsFornecedor.BoxPesquisaChange(Sender: TObject);
 begin
   if BoxPesquisa.Text = '' then
   begin
-    FNEZZFactoryFornecedor
+    FNEZZFactoryFornecedor := TNEZZFactoryFronecedor
+      .New
+      .DataSource(dsFornecedores)
+      .ListarFornecedor
+  end
+  else
+  begin
+    FNEZZFactoryFornecedor := TNEZZFactoryFronecedor
+      .New
+      .DataSource(dsFornecedores)
+      .FiltrarFornecedor(BoxPesquisa.Text)
   end;
 end;
 

@@ -83,7 +83,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       object Label1: TLabel
         Left = 0
         Top = 0
-        Width = 457
+        Width = 304
         Height = 41
         Align = alLeft
         Caption = 'ADICIONAR PRODUTOS'
@@ -95,6 +95,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
+        ExplicitHeight = 37
       end
     end
   end
@@ -115,7 +116,6 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       Height = 285
       Align = alClient
       TabOrder = 0
-      ExplicitTop = 6
       object dsVendasDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.Summary.DefaultGroupSummaryItems = <>
@@ -193,6 +193,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
+        ExplicitTop = 6
       end
     end
     object cxButton1: TcxButton
@@ -228,9 +229,6 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitLeft = 824
-      ExplicitTop = 8
-      ExplicitHeight = 25
     end
   end
   object pnPesquisar: TPanel

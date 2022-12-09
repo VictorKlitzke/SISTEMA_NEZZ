@@ -21,7 +21,7 @@ uses
   Vcl.ExtCtrls;
 
 type
-  TNEZZViewsVendasAdicionarCliente = class(TForm)
+  TNEZZViewsVendaAdicionarCliente = class(TForm)
     pnContent: TPanel;
     ComboCliente: TComboBox;
     pnFooter: TPanel;
@@ -30,7 +30,6 @@ type
     lbCliente: TLabel;
     pnClose: TPanel;
     btnClose: TcxButton;
-    procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,15 +37,10 @@ type
   end;
 
 var
-  NEZZViewsVendasAdicionarCliente: TNEZZViewsVendasAdicionarCliente;
+  NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente;
 
 implementation
 
 {$R *.dfm}
-
-procedure TNEZZViewsVendasAdicionarCliente.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
 
 end.

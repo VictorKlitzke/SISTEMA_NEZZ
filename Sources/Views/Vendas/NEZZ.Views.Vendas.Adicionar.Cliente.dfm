@@ -1,10 +1,10 @@
-object NEZZViewsVendasAdicionarCliente: TNEZZViewsVendasAdicionarCliente
+object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  Caption = 'NEZZViewsVendasAdicionarCliente'
-  ClientHeight = 156
-  ClientWidth = 362
+  Caption = 'NEZZViewsVendaAdicionarCliente'
+  ClientHeight = 132
+  ClientWidth = 349
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,14 +18,15 @@ object NEZZViewsVendasAdicionarCliente: TNEZZViewsVendasAdicionarCliente
   object pnContent: TPanel
     Left = 0
     Top = 41
-    Width = 362
-    Height = 115
+    Width = 349
+    Height = 91
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 145
+    ExplicitWidth = 362
+    ExplicitHeight = 115
     object ComboCliente: TComboBox
       Left = 8
       Top = 24
@@ -36,15 +37,16 @@ object NEZZViewsVendasAdicionarCliente: TNEZZViewsVendasAdicionarCliente
     end
     object pnFooter: TPanel
       Left = 0
-      Top = 74
-      Width = 362
+      Top = 50
+      Width = 349
       Height = 41
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitTop = 104
+      ExplicitTop = 74
+      ExplicitWidth = 362
       object BtnFinalizar: TcxButton
-        Left = 287
+        Left = 274
         Top = 0
         Width = 75
         Height = 41
@@ -77,24 +79,28 @@ object NEZZViewsVendasAdicionarCliente: TNEZZViewsVendasAdicionarCliente
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ExplicitLeft = 287
       end
     end
   end
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 362
+    Width = 349
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
+    ExplicitLeft = 8
+    ExplicitTop = 8
+    ExplicitWidth = 362
     object lbCliente: TLabel
       Left = 0
       Top = 0
       Width = 245
-      Height = 41
+      Height = 37
       Align = alLeft
       Caption = 'ESCOLHER CLIENTE'
       Font.Charset = DEFAULT_CHARSET
@@ -103,16 +109,16 @@ object NEZZViewsVendasAdicionarCliente: TNEZZViewsVendasAdicionarCliente
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitHeight = 37
     end
     object pnClose: TPanel
-      Left = 308
+      Left = 295
       Top = 0
       Width = 54
       Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 308
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -147,7 +153,6 @@ object NEZZViewsVendasAdicionarCliente: TNEZZViewsVendasAdicionarCliente
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
-        OnClick = btnCloseClick
       end
     end
   end

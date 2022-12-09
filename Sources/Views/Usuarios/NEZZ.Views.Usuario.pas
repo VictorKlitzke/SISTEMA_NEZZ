@@ -58,6 +58,7 @@ type
     BtnDeletar: TcxButton;
     BtnEditar: TcxButton;
     BoxPesquisa: TSearchBox;
+    PaintBox1: TPaintBox;
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

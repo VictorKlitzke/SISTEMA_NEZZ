@@ -25,7 +25,6 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     Color = -1
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 494
     object edProduto: TcxTextEdit
       Left = 8
       Top = 8
@@ -93,7 +92,6 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 494
   end
   object pnFooter: TPanel
     Left = 0
@@ -105,7 +103,6 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 494
     object BtnSalvar: TcxButton
       Left = 287
       Top = 0
@@ -145,7 +142,6 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
       Font.Style = []
       ParentFont = False
       OnClick = BtnSalvarClick
-      ExplicitLeft = 294
     end
     object BtnLimpar: TcxButton
       Left = 387
@@ -190,7 +186,6 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
       Font.Style = []
       ParentFont = False
       OnClick = BtnLimparClick
-      ExplicitLeft = 394
     end
   end
 end

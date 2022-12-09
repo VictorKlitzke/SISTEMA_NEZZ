@@ -37,7 +37,9 @@ uses
   cxGridDBTableView,
   cxGrid,
   cxButtons,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls,
+  NEZZ.Views.Vendas.Adicionar.Cliente,
+  NEZZ.Views.Produtos,NEZZViewBase;
 
 type
   TNEZZViewsAdicionarProdutoVendas = class(TForm)
@@ -59,9 +61,7 @@ type
     Label1: TLabel;
     procedure btnCloseClick(Sender: TObject);
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var

@@ -26,7 +26,6 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
     Color = clNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 200
     object edNome: TcxTextEdit
       Left = 14
       Top = 20
@@ -50,6 +49,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Style.BorderStyle = ebs3D
       TabOrder = 2
       TextHint = 'CPF'
+      OnExit = edCPFExit
       Width = 226
     end
     object edContato: TcxTextEdit
@@ -90,6 +90,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Properties.OnValidate = edCEPPropertiesValidate
       TabOrder = 7
       TextHint = 'CEP'
+      OnExit = edCEPExit
       Width = 67
     end
     object edEmail: TcxTextEdit
@@ -110,7 +111,6 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 200
     object BtnLimpar: TcxButton
       Left = 399
       Top = 0
@@ -202,5 +202,10 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
     object dxLayoutStandardLookAndFeel1: TdxLayoutStandardLookAndFeel
       PixelsPerInch = 96
     end
+  end
+  object Validador: TACBrValidador
+    IgnorarChar = './-'
+    Left = 200
+    Top = 216
   end
 end

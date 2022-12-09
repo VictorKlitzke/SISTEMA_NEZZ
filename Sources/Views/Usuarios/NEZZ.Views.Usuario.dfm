@@ -16,6 +16,12 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object PaintBox1: TPaintBox
+    Left = 432
+    Top = 224
+    Width = 105
+    Height = 550
+  end
   object pnContent: TPanel
     Left = 0
     Top = 18
@@ -184,9 +190,6 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       TabOrder = 0
       Text = 'BoxPesquisa'
       OnChange = BoxPesquisaChange
-      ExplicitLeft = 424
-      ExplicitTop = -3
-      ExplicitWidth = 121
       ExplicitHeight = 21
     end
   end

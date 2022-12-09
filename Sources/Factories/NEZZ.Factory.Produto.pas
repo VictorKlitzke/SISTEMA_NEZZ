@@ -50,8 +50,10 @@ implementation
 { TNEZZFactoryProdutos }
 
 function TNEZZFactoryProdutos.AdicionarProduto(
-  AProduto, AReferencia, AValorProduto, AValorCusto,
-  AQuantidade, ACodBarras, AMarca, AModelo : string): iNEZZFactoryProdutos;
+  AProduto, AReferencia,
+  AValorProduto, AValorCusto,
+  AQuantidade, ACodBarras,
+  AMarca, AModelo : string): iNEZZFactoryProdutos;
 begin
   Result := Self;
 
@@ -82,13 +84,13 @@ begin
     .New
     .Apelido('ID', '#')
     .Apelido('PRODUTO', 'PRODUTO')
+    .Apelido('QUANTIDADE', 'QUANTIDADE')
+    .Apelido('COD_BARRAS', 'CODIGO BARRAS')
     .Apelido('REFERENCIA', 'REFERENCIA')
     .Apelido('MARCA', 'MARCA')
     .Apelido('MODELO', 'MODELO')
     .Apelido('VALOR_PRODUTO', 'VALOR PRODUTO')
     .Apelido('VALOR_CUSTO', 'VALOR CUSTO')
-    .Apelido('COD_BARRAS', 'CODIGO BARRAS')
-    .Apelido('QUANTIDADE', 'QUANTIDADE')
     .SQL('  SELECT')
     .SQL('    P.ID,')
     .SQL('    P.PRODUTO,')
@@ -97,7 +99,6 @@ begin
     .SQL('    P.MODELO,')
     .SQL('    P.VALOR_PRODUTO,')
     .SQL('    P.VALOR_CUSTO,')
-    .SQL('    P.ESTOQUE_ATUAL,')
     .SQL('    P.COD_BARRAS,')
     .SQL('    P.QUANTIDADE')
     .SQL('  FROM')

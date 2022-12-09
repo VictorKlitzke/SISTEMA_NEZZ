@@ -47,7 +47,7 @@ type
   private
     FNEZZFactoryProduto: iNEZZFactoryProdutos;
   public
-    { Public declarations }
+    procedure LimparEdits;
   end;
 
 var
@@ -59,14 +59,7 @@ implementation
 
 procedure TNEZZViewsProdutosAdicionar.BtnLimparClick(Sender: TObject);
 begin
-  edProduto.Clear;
-  edReferencia.Clear;
-  edValorProduto.Clear;
-  edMarca.Clear;
-  edModelo.Clear;
-  edCodBarras.Clear;
-  edValorCusto.Clear;
-  edQuantidade.Clear;
+  LimparEdits;
 end;
 
 procedure TNEZZViewsProdutosAdicionar.BtnSalvarClick(Sender: TObject);
@@ -103,6 +96,17 @@ begin
       edProduto.SetFocus;
     end;
   end;
+end;
+
+procedure TNEZZViewsProdutosAdicionar.LimparEdits;
+var
+  i: Integer;
+begin
+  for I := 0 to ComponentCount -1 do
+    if Components[i] is TcxTextEdit then
+    begin
+      TcxTextEdit(Components[i]).Text := '';
+    end;
 end;
 
 end.
