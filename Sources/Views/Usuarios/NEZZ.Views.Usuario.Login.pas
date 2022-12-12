@@ -25,7 +25,8 @@ uses
   Vcl.ExtCtrls,
   ConexaoDados,
   NEZZ.Factory.Autenticacao,
-  System.UITypes;
+  System.UITypes, NEZZ.Factory.Usuario,
+  NEZZ.Models.Produto, NEZZ.Models.Usuario;
 
 type
   TNEZZViewsUsuarioLogin = class(TForm)
@@ -51,7 +52,8 @@ type
     procedure edSenhaPropertiesValidate(Sender: TObject;
       var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
   private
-    { Private declarations }
+    FNEZZModelsUsuario: iNEZZModelsUsuario;
+    FNEZZFactoryUsario: iNEZZFactoryUsuario;
   public
     { Public declarations }
   end;
@@ -91,10 +93,16 @@ begin
         edSenha.Text
       );
 
-    ModalResult := mrOk;
-
+    if FNEZZModelsUsuario.Status = 1 then
+    begin
+      MessageDlg('ATENÇÃO, Usuário está desativado', mtInformation, [mbOK], 0)
+    end
+    else
+    begin
+      ModalResult := mrOk;
+    end;
   except
-    on e: Exception do
+  on e: Exception do
     MessageDlg('Falha no login!', mtWarning, [mbOK], 0);
   end;
 end;

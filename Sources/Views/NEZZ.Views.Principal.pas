@@ -25,7 +25,7 @@ uses
   NEZZ.Services.Query,
   System.UITypes,
   NEZZ.Views.Fornecedor, NEZZ.Views.Vendas.Adicionar.Produto,
-  NEZZ.Views.Produtos;
+  NEZZ.Views.Produtos, NEZZ.Factory.Usuario, NEZZ.Models.Usuario;
 
 type
   TNEZZViewsPrincipal = class(TForm)
