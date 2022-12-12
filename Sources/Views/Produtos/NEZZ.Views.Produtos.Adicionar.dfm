@@ -28,6 +28,7 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     object edProduto: TcxTextEdit
       Left = 8
       Top = 8
+      Properties.OnValidate = edProdutoPropertiesValidate
       TabOrder = 0
       TextHint = 'Produto'
       Width = 226
@@ -35,6 +36,7 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     object edReferencia: TcxTextEdit
       Left = 8
       Top = 48
+      Properties.OnValidate = edReferenciaPropertiesValidate
       TabOrder = 1
       TextHint = 'Referencia'
       Width = 226
@@ -42,6 +44,7 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     object edValorProduto: TcxTextEdit
       Left = 248
       Top = 87
+      Properties.OnValidate = edValorProdutoPropertiesValidate
       TabOrder = 2
       TextHint = 'Pre'#231'o do Produto'
       Width = 226
@@ -49,6 +52,7 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     object edMarca: TcxTextEdit
       Left = 8
       Top = 87
+      Properties.OnValidate = edMarcaPropertiesValidate
       TabOrder = 3
       TextHint = 'Marca'
       Width = 226
@@ -63,6 +67,7 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     object edCodBarras: TcxTextEdit
       Left = 248
       Top = 48
+      Properties.OnValidate = edCodBarrasPropertiesValidate
       TabOrder = 5
       TextHint = 'Codigo de Barras'
       Width = 226
@@ -70,6 +75,7 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     object edValorCusto: TcxTextEdit
       Left = 248
       Top = 120
+      Properties.OnValidate = edValorCustoPropertiesValidate
       TabOrder = 6
       TextHint = 'Pre'#231'o de Custo'
       Width = 226
@@ -77,6 +83,7 @@ object NEZZViewsProdutosAdicionar: TNEZZViewsProdutosAdicionar
     object edQuantidade: TcxTextEdit
       Left = 8
       Top = 120
+      Properties.OnValidate = edQuantidadePropertiesValidate
       TabOrder = 7
       TextHint = 'Quantidade'
       Width = 226

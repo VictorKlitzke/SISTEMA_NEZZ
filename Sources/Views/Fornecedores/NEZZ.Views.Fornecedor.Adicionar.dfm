@@ -25,11 +25,10 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
     Color = clNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 499
-    ExplicitHeight = 199
     object edNome: TcxTextEdit
       Left = 14
       Top = 20
+      Properties.OnValidate = edNomePropertiesValidate
       TabOrder = 0
       TextHint = 'Fornecedor'
       Width = 226
@@ -37,6 +36,7 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
     object edRazao: TcxTextEdit
       Left = 256
       Top = 20
+      Properties.OnValidate = edRazaoPropertiesValidate
       TabOrder = 1
       TextHint = 'Raz'#227'o Social'
       Width = 226
@@ -44,14 +44,17 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
     object edCNPJ: TcxTextEdit
       Left = 14
       Top = 66
+      Properties.OnValidate = edCNPJPropertiesValidate
       Style.BorderStyle = ebs3D
       TabOrder = 2
-      TextHint = 'CPF'
+      TextHint = 'CNPJ'
+      OnExit = edCNPJExit
       Width = 226
     end
     object edTelefone: TcxTextEdit
       Left = 256
       Top = 66
+      Properties.OnValidate = edTelefonePropertiesValidate
       TabOrder = 3
       TextHint = 'Telefone'
       Width = 226
@@ -66,6 +69,7 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
     object edBairro: TcxTextEdit
       Left = 256
       Top = 112
+      Properties.OnValidate = edBairroPropertiesValidate
       TabOrder = 5
       TextHint = 'Bairro'
       Width = 226
@@ -73,6 +77,7 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
     object edEndereco: TcxTextEdit
       Left = 256
       Top = 157
+      Properties.OnValidate = edEnderecoPropertiesValidate
       TabOrder = 6
       TextHint = 'Endere'#231'o'
       Width = 226
@@ -80,8 +85,10 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
     object edCEP: TcxTextEdit
       Left = 14
       Top = 157
+      Properties.OnValidate = edCEPPropertiesValidate
       TabOrder = 7
       TextHint = 'CEP'
+      OnExit = edCEPExit
       Width = 226
     end
   end
@@ -95,8 +102,6 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 199
-    ExplicitWidth = 499
     object btnLimpar: TcxButton
       Left = 396
       Top = 0
@@ -134,7 +139,6 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = btnLimparClick
-      ExplicitLeft = 399
     end
     object btnSalvar: TcxButton
       Left = 296
@@ -169,7 +173,6 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = btnSalvarClick
-      ExplicitLeft = 299
     end
   end
   object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList
@@ -178,5 +181,10 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
     object dxLayoutStandardLookAndFeel1: TdxLayoutStandardLookAndFeel
       PixelsPerInch = 96
     end
+  end
+  object Validador: TACBrValidador
+    IgnorarChar = './-'
+    Left = 368
+    Top = 152
   end
 end

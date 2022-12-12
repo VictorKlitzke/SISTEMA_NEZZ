@@ -25,8 +25,6 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 362
-    ExplicitHeight = 115
     object ComboCliente: TComboBox
       Left = 8
       Top = 24
@@ -43,8 +41,6 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitTop = 74
-      ExplicitWidth = 362
       object BtnFinalizar: TcxButton
         Left = 274
         Top = 0
@@ -79,7 +75,7 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        ExplicitLeft = 287
+        OnClick = BtnFinalizarClick
       end
     end
   end
@@ -93,14 +89,11 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitWidth = 362
     object lbCliente: TLabel
       Left = 0
       Top = 0
       Width = 245
-      Height = 37
+      Height = 41
       Align = alLeft
       Caption = 'ESCOLHER CLIENTE'
       Font.Charset = DEFAULT_CHARSET
@@ -109,6 +102,7 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitHeight = 37
     end
     object pnClose: TPanel
       Left = 295
@@ -118,7 +112,6 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 308
       object btnClose: TcxButton
         Left = 0
         Top = 0

@@ -27,8 +27,6 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
     Color = -1
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = 201
-    ExplicitWidth = 415
     object BtnSalvar: TcxButton
       Left = 344
       Top = 0
@@ -77,7 +75,6 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
       Font.Style = []
       ParentFont = False
       OnClick = BtnSalvarClick
-      ExplicitLeft = 315
     end
   end
   object pnContent: TPanel
@@ -90,9 +87,6 @@ object NEZZViewsClienteEditar: TNEZZViewsClienteEditar
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 41
-    ExplicitWidth = 415
-    ExplicitHeight = 160
     object lbNome: TLabel
       Left = 24
       Top = 19

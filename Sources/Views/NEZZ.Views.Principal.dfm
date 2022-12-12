@@ -4,8 +4,8 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   Align = alClient
   BorderStyle = bsNone
   Caption = 'NEZZViewsPrincipal'
-  ClientHeight = 622
-  ClientWidth = 921
+  ClientHeight = 633
+  ClientWidth = 1130
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,24 +15,27 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   Menu = MainMenu1
   OldCreateOrder = False
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel
     Left = 137
     Top = 57
-    Width = 784
-    Height = 512
+    Width = 993
+    Height = 523
     Align = alClient
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 784
+    ExplicitHeight = 512
     object imgNEZZ: TImage
       AlignWithMargins = True
       Left = 3
       Top = 3
-      Width = 778
-      Height = 506
+      Width = 987
+      Height = 517
       Align = alClient
       AutoSize = True
       Center = True
@@ -453,14 +456,16 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 569
-    Width = 921
+    Top = 580
+    Width = 1130
     Height = 53
     Align = alBottom
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 569
+    ExplicitWidth = 921
     object pnVersao: TPanel
       Left = 0
       Top = 0
@@ -506,31 +511,23 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 921
+    Width = 1130
     Height = 57
     Align = alTop
     BevelOuter = bvNone
     Color = -1
     ParentBackground = False
     TabOrder = 2
-    object pnUsuario: TPanel
-      Left = 789
-      Top = 0
-      Width = 48
-      Height = 57
-      Align = alRight
-      BevelOuter = bvNone
-      Caption = 'pnUsuario'
-      TabOrder = 0
-    end
+    ExplicitWidth = 921
     object pnNomeUsuario: TPanel
-      Left = 709
+      Left = 966
       Top = 0
       Width = 80
       Height = 57
       Align = alRight
       BevelOuter = bvNone
-      TabOrder = 1
+      TabOrder = 0
+      ExplicitLeft = 757
       object lbl3: TLabel
         Left = 0
         Top = 16
@@ -547,7 +544,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
-        OnDblClick = lbl3DblClick
       end
     end
     object pnEmpresafilial: TPanel
@@ -559,7 +555,7 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       BevelOuter = bvNone
       Color = clYellow
       ParentBackground = False
-      TabOrder = 2
+      TabOrder = 1
       object lblEMPRESA: TLabel
         Left = 0
         Top = 0
@@ -592,14 +588,15 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       end
     end
     object pnClose: TPanel
-      Left = 837
+      Left = 1046
       Top = 0
       Width = 84
       Height = 57
       Align = alRight
       BevelOuter = bvNone
       Caption = 'pnClose'
-      TabOrder = 3
+      TabOrder = 2
+      ExplicitLeft = 837
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -643,12 +640,13 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Left = 0
     Top = 57
     Width = 137
-    Height = 512
+    Height = 523
     Align = alLeft
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 3
+    ExplicitHeight = 512
     object BtnFornecedores: TcxButton
       Left = 0
       Top = 0

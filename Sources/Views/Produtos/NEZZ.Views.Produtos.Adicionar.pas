@@ -44,6 +44,20 @@ type
     edQuantidade: TcxTextEdit;
     procedure BtnLimparClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
+    procedure edValorProdutoPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edValorCustoPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edProdutoPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edCodBarrasPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edQuantidadePropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edMarcaPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edReferenciaPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
   private
     FNEZZFactoryProduto: iNEZZFactoryProdutos;
   public
@@ -96,6 +110,61 @@ begin
       edProduto.SetFocus;
     end;
   end;
+end;
+
+procedure TNEZZViewsProdutosAdicionar.edCodBarrasPropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Codígo de Barras é obrigatório';
+end;
+
+procedure TNEZZViewsProdutosAdicionar.edMarcaPropertiesValidate(Sender: TObject;
+  var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'A Marca é obrigatório';
+end;
+
+procedure TNEZZViewsProdutosAdicionar.edProdutoPropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Produto é obrigatório';
+end;
+
+procedure TNEZZViewsProdutosAdicionar.edQuantidadePropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'A Quantidade é obrigatório';
+end;
+
+procedure TNEZZViewsProdutosAdicionar.edReferenciaPropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'A Referencia é obrigatório';
+end;
+
+procedure TNEZZViewsProdutosAdicionar.edValorCustoPropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Preço de custo é obrigatório';
+end;
+
+procedure TNEZZViewsProdutosAdicionar.edValorProdutoPropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Preço do Produto é obrigatório';
 end;
 
 procedure TNEZZViewsProdutosAdicionar.LimparEdits;

@@ -89,7 +89,7 @@ end;
 
 procedure TNEZZViewsUsuarioEditar.FormCreate(Sender: TObject);
 begin
- FNEZZModelsUsuario := TNEZZModelsUsuario.New.DataSource(dsUsuariosEditar);
+  FNEZZModelsUsuario := TNEZZModelsUsuario.New.DataSource(dsUsuariosEditar);
 end;
 
 function TNEZZViewsUsuarioEditar.Usuario(UID: integer): Integer;

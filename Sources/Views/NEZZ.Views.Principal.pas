@@ -35,7 +35,6 @@ type
     lbl1: TLabel;
     lbl2: TLabel;
     pnHeader: TPanel;
-    pnUsuario: TPanel;
     pnNomeUsuario: TPanel;
     lbl3: TLabel;
     pnEmpresafilial: TPanel;
@@ -68,7 +67,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure BtnUsuarioClick(Sender: TObject);
     procedure BtnVendasClick(Sender: TObject);
-    procedure lbl3DblClick(Sender: TObject);
     procedure BtnFornecedoresClick(Sender: TObject);
     procedure imgNEZZMouseEnter(Sender: TObject);
     procedure BtnMovimentacaoMouseEnter(Sender: TObject);
@@ -78,6 +76,7 @@ type
     procedure BtnParceirosMouseEnter(Sender: TObject);
     procedure BtnFaturarClick(Sender: TObject);
     procedure BtnProdutosClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     FConexao : iNEZZServicesConexao;
   public
@@ -242,16 +241,16 @@ begin
   end;
 end;
 
+procedure TNEZZViewsPrincipal.FormShow(Sender: TObject);
+begin
+  lbl3.Caption := TNEZZControllerSessao.New.Nome;
+end;
+
 procedure TNEZZViewsPrincipal.imgNEZZMouseEnter(Sender: TObject);
 begin
   pnSubGrupoVendas.Visible := False;
   pnSubGrupoCaixa.Visible := False;
   pnSubGrupoParceiros.Visible := False;
-end;
-
-procedure TNEZZViewsPrincipal.lbl3DblClick(Sender: TObject);
-begin
-  ShowMessage(TNEZZControllerSessao.New.Nome);
 end;
 
 procedure TNEZZViewsPrincipal.SubGrupos;

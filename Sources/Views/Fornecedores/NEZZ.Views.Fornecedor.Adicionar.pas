@@ -26,7 +26,7 @@ uses
   cxClasses,
   dxLayoutLookAndFeels,
   NEZZ.Models.Fornecedor,
-  NEZZ.Factory.Fornecedor;
+  NEZZ.Factory.Fornecedor, ACBrBase, ACBrValidador;
 
 type
   TNEZZViewsFornecedorAdicionar = class(TForm)
@@ -44,11 +44,28 @@ type
     pnFooter: TPanel;
     btnLimpar: TcxButton;
     btnSalvar: TcxButton;
+    Validador: TACBrValidador;
     procedure btnCloseClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnLimparClick(Sender: TObject);
+    procedure edCEPExit(Sender: TObject);
+    procedure edCNPJExit(Sender: TObject);
+    procedure edNomePropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edCNPJPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edCEPPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edRazaoPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edTelefonePropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edBairroPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+    procedure edEnderecoPropertiesValidate(Sender: TObject;
+      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
   private
-    { Private declarations }
+    procedure LimparEdits;
   public
     { Public declarations }
   end;
@@ -67,14 +84,7 @@ end;
 
 procedure TNEZZViewsFornecedorAdicionar.btnLimparClick(Sender: TObject);
 begin
-  edNome.Clear;
-  edRazao.Clear;
-  edCNPJ.Clear;
-  edTelefone.Clear;
-  edCidade.Clear;
-  edBairro.Clear;
-  edEndereco.Clear;
-  edCEP.Clear;
+  LimparEdits;
 end;
 
 procedure TNEZZViewsFornecedorAdicionar.btnSalvarClick(Sender: TObject);
@@ -111,6 +121,102 @@ begin
       edNome.SetFocus;
     end;
   end;
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.edBairroPropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Bairro é obrigatório';
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.edCEPExit(Sender: TObject);
+begin
+  if ( edCEP.Text ) <> '' then
+  begin
+    Validador.Documento := edCEP.Text;
+    Validador.TipoDocto := docCEP;
+
+    if not Validador.Validar then
+    begin
+      Application.MessageBox('ATENÇÃO: CEP INVALIDO','ERRO CEP', MB_ICONERROR + MB_OK);
+      edNome.SetFocus;
+    end;
+  end;
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.edCEPPropertiesValidate(Sender: TObject;
+  var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O CEP é obrigatório';
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.edCNPJExit(Sender: TObject);
+begin
+  if ( edCEP.Text ) <> '' then
+  begin
+    Validador.Documento := edCEP.Text;
+    Validador.TipoDocto := docCEP;
+
+    if not Validador.Validar then
+    begin
+      Application.MessageBox('ATENÇÃO: CNPJ INVALIDO','ERRO CNPJ', MB_ICONERROR + MB_OK);
+      edNome.SetFocus;
+    end;
+  end;
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.edCNPJPropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O CNPJ é obrigatório';
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.edEnderecoPropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Endereço é obrigatório';
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.edNomePropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Fornecedor é obrigatório';
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.edRazaoPropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Nome Fantasia é obrigatório';
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.edTelefonePropertiesValidate(
+  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  var Error: Boolean);
+begin
+  Error := DisplayValue = '';
+  ErrorText := 'O Telefone é obrigatório';
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.LimparEdits;
+var
+  i:Integer;
+begin
+  for I := 0 to ComponentCount - 1 do
+    if Components[i] is TcxTextEdit then
+    begin
+      TcxTextEdit(Components[i]).Text := '';
+    end;
 end;
 
 end.

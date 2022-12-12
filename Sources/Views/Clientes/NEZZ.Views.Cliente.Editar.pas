@@ -30,7 +30,8 @@ uses
   NEZZ.Services.Query,
   NEZZViewBase,
   Data.DB,
-  NEZZ.Models.Cliente, cxDBEdit;
+  NEZZ.Models.Cliente,
+  cxDBEdit;
 
 type
   TNEZZViewsClienteEditar = class(TForm)

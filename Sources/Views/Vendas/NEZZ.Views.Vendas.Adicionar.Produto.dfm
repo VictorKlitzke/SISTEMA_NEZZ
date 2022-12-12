@@ -193,7 +193,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
-        ExplicitTop = 6
+        OnClick = BtnFinalizarClick
       end
     end
     object cxButton1: TcxButton

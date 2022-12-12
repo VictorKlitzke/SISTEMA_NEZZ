@@ -21,7 +21,6 @@ type
     function AtualizarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
     function DeletarUsuario(ANome : Integer): iNEZZFactoryUsuario;
     function FiltrarUsuario(ALogin : string): iNEZZFactoryUsuario;
-    function DesativarUsuario(ALogin: Integer): iNEZZFactoryUsuario;
 
     function ListarUsuarios: iNEZZFactoryUsuario;
 
@@ -45,7 +44,6 @@ type
     function AtualizarUsuario(ALogin,ANome,ASenha,ATelefone : string): iNEZZFactoryUsuario;
     function DeletarUsuario(ANome : Integer): iNEZZFactoryUsuario;
     function FiltrarUsuario(ANome : string): iNEZZFactoryUsuario;
-    function DesativarUsuario(ALogin: Integer): iNEZZFactoryUsuario;
     function ListarUsuarios: iNEZZFactoryUsuario;
 
     function Log(AValue: TNEZZFactoryUsuarioLog): iNEZZFactoryUsuario;
@@ -70,7 +68,6 @@ begin
     .Senha(ASenha)
     .Login(ALogin)
     .Telefone(ATelefone)
-    .Status(0)
     .Salvar;
 
     if Assigned(FLOG) then
@@ -97,22 +94,14 @@ begin
   FNEZZUsuario := TNEZZServicesCadastrar
     .New
     .Apelido('ID', '#')
-    .Apelido('NOME', 'CLIENTE')
+    .Apelido('NOME', 'USUÁRIO')
     .Apelido('LOGIN', 'LOGIN')
-    .Apelido('STATUS_DESC', 'STATUS')
     .Apelido('TELEFONE', 'TELEFONE')
     .SQL('  SELECT')
     .SQL('    U.ID,')
     .SQL('    U.NOME,')
     .SQL('    U.LOGIN,')
     .SQL('    U.SENHA,')
-    .SQL('    DECODE(')
-    .SQL('      U.STATUS,')
-    .SQL('      0, ''ATIVO'',')
-    .SQL('      1, ''DESATIVADO'',')
-    .SQL('      ''ERRONOCODIGO''')
-    .SQL('    ) AS STATUS_DESC,')
-    .SQL('    U.STATUS,')
     .SQL('    U.TELEFONE')
     .SQL('  FROM')
     .SQL('    USUARIOS U')
@@ -134,19 +123,6 @@ begin
     .New
     .Filtrar('ID' , ANome)
     .Deletar
-    .Salvar;
-end;
-
-function TNEZZFactoryUsuario.DesativarUsuario(
-  ALogin: Integer): iNEZZFactoryUsuario;
-begin
-  Result := Self;
-
-  TNEZZModelsUsuario
-    .New
-    .Filtrar('ID' , ALogin)
-    .Editar
-    .Status(1)
     .Salvar;
 end;
 

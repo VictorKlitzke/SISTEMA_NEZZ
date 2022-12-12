@@ -28,7 +28,7 @@ uses
   NEZZ.Models.Usuario,
   NEZZ.Services.Query,
   NEZZ.Views.MSG_CRUD,
-  NEZZ.Views.Usuario.Login;
+  NEZZ.Views.Usuario.Login, ACBrBase, ACBrValidador;
 
 type
   TNEZZViewsUsuarioAdicionar = class(TForm)
@@ -40,6 +40,7 @@ type
     edTelefone: TcxTextEdit;
     BtnLimpar: TcxButton;
     BtnSalvar: TcxButton;
+    Validador: TACBrValidador;
     procedure btnCloseClick(Sender: TObject);
     procedure BtnLimparClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
@@ -65,6 +66,7 @@ type
     var DisplayValue: Variant;
     var ErrorText: TCaption;
     var Error: Boolean);
+    procedure LimparEdits;
   public
 
   end;
@@ -147,6 +149,17 @@ begin
   edLogin.Properties.OnValidate := validarLogin;
 end;
 
+procedure TNEZZViewsUsuarioAdicionar.LimparEdits;
+var
+  i: Integer;
+begin
+  for I := 0 to ComponentCount - 1 do
+    if Components[i] is TcxTextEdit then
+    begin
+      TcxTextEdit(Components[i]).Text := '';
+    end;
+end;
+
 procedure TNEZZViewsUsuarioAdicionar.validarLogin(Sender: TObject;
   var DisplayValue: Variant;
   var ErrorText: TCaption;
@@ -180,10 +193,7 @@ end;
 
 procedure TNEZZViewsUsuarioAdicionar.BtnLimparClick(Sender: TObject);
 begin
-  edNome.Clear;
-  edLogin.Clear;
-  edSenha.Clear;
-  edTelefone.Clear;
+  LimparEdits;
 end;
 
 end.

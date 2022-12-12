@@ -86,6 +86,7 @@ begin
   edSenha.ValidateEdit();
 
   try
+
     TNEZZFactoryAutenticacao
       .New
       .Login(
@@ -93,17 +94,13 @@ begin
         edSenha.Text
       );
 
-    if FNEZZModelsUsuario.Status = 1 then
-    begin
-      MessageDlg('ATENÇÃO, Usuário está desativado', mtInformation, [mbOK], 0)
-    end
-    else
-    begin
       ModalResult := mrOk;
-    end;
+
   except
-  on e: Exception do
-    MessageDlg('Falha no login!', mtWarning, [mbOK], 0);
+    on e: Exception do
+    begin
+      MessageDlg('Falha no login!', mtWarning, [mbOK], 0);
+    end;
   end;
 end;
 
@@ -135,5 +132,4 @@ begin
   Error := DisplayValue = '';
   ErrorText := 'O senha é obrigatório';
 end;
-
 end.

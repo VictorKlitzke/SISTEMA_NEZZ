@@ -30,6 +30,7 @@ type
     lbCliente: TLabel;
     pnClose: TPanel;
     btnClose: TcxButton;
+    procedure BtnFinalizarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,6 +42,14 @@ var
 
 implementation
 
+uses
+  NEZZ.Views.Vendas.Finalizar;
+
 {$R *.dfm}
+
+procedure TNEZZViewsVendaAdicionarCliente.BtnFinalizarClick(Sender: TObject);
+begin
+  NEZZViewsVendasFinalizar.ShowModal;
+end;
 
 end.

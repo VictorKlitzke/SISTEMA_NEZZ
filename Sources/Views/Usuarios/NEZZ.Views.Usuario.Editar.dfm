@@ -13,6 +13,7 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel
@@ -25,8 +26,6 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 395
-    ExplicitHeight = 107
     object lbNome: TLabel
       Left = 11
       Top = 3
@@ -68,6 +67,8 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Top = 70
       DataBinding.DataField = 'SENHA'
       DataBinding.DataSource = dsUsuariosEditar
+      Properties.EchoMode = eemPassword
+      Properties.PasswordChar = '*'
       TabOrder = 1
       Width = 170
     end
@@ -98,8 +99,6 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 107
-    ExplicitWidth = 395
     object BtnSalvar: TcxButton
       Left = 293
       Top = 0
@@ -148,7 +147,6 @@ object NEZZViewsUsuarioEditar: TNEZZViewsUsuarioEditar
       Font.Style = []
       ParentFont = False
       OnClick = BtnSalvarClick
-      ExplicitLeft = 295
     end
   end
   object dsUsuariosEditar: TDataSource

@@ -60,6 +60,7 @@ type
     cxButton1: TcxButton;
     Label1: TLabel;
     procedure btnCloseClick(Sender: TObject);
+    procedure BtnFinalizarClick(Sender: TObject);
   private
   public
   end;
@@ -74,6 +75,11 @@ implementation
 procedure TNEZZViewsAdicionarProdutoVendas.btnCloseClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TNEZZViewsAdicionarProdutoVendas.BtnFinalizarClick(Sender: TObject);
+begin
+  NEZZViewsVendaAdicionarCliente.ShowModal;
 end;
 
 end.

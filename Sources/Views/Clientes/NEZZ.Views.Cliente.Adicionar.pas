@@ -92,6 +92,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure edCPFExit(Sender: TObject);
     procedure edCEPExit(Sender: TObject);
+    procedure edEmailExit(Sender: TObject);
 
   private
     FNEZZQuery: iNEZZServicesCadastrar;
@@ -100,6 +101,8 @@ type
     var DisplayValue: Variant;
     var ErrorText: TCaption;
     var Error: Boolean);
+
+    procedure LimparEdits;
 
   public
   end;
@@ -123,15 +126,7 @@ end;
 
 procedure TNEZZViewsClienteAdicionar.BtnLimparClick(Sender: TObject);
 begin
-  edNome.Clear;
-  edRazao.Clear;
-  edContato.Clear;
-  edCPF.Clear;
-  edCEP.Clear;
-  edEmail.Clear;
-  edEndereco.Clear;
-  edCidade.Clear;
-  edBairro.Clear;
+  LimparEdits;
 end;
 
 procedure TNEZZViewsClienteAdicionar.btnSalvarClick(Sender: TObject);
@@ -249,6 +244,21 @@ begin
   end;
 end;
 
+procedure TNEZZViewsClienteAdicionar.edEmailExit(Sender: TObject);
+begin
+  if ( edEmail.Text ) <> '' then
+  begin
+    Validador.Documento := edEmail.Text;
+    Validador.TipoDocto := docEmail;
+
+    if not Validador.Validar then
+    begin
+      Application.MessageBox('ATENÇÃO: EMAIL INVALIDO','ERRO EMAIL', MB_ICONERROR + MB_OK);
+      edEmail.SetFocus;
+    end;
+  end;
+end;
+
 procedure TNEZZViewsClienteAdicionar.edEnderecoPropertiesValidate(
   Sender: TObject;
   var DisplayValue: Variant;
@@ -281,6 +291,17 @@ end;
 procedure TNEZZViewsClienteAdicionar.FormCreate(Sender: TObject);
 begin
   edNome.Properties.OnValidate := ValidarCliente;
+end;
+
+procedure TNEZZViewsClienteAdicionar.LimparEdits;
+var
+  i: Integer;
+begin
+  for I := 0 to ComponentCount -1 do
+    if Components[i] is TcxTextEdit then
+    begin
+      TcxTextEdit(Components[i]).Text := '';
+    end;
 end;
 
 procedure TNEZZViewsClienteAdicionar.ValidarCliente(Sender: TObject;

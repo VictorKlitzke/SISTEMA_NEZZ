@@ -41,8 +41,7 @@ uses
   Vcl.WinXCtrls,
   NEZZ.Services.Query,
   LfResizerVcl,
-  System.UITypes,
-  NEZZ.Views.Usuario.Editar;
+  System.UITypes;
 
 type
   TNEZZViewsUsuario = class(TForm)
@@ -62,12 +61,6 @@ type
     procedure btnCloseClick(Sender: TObject);
     procedure btnAdicionarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure btnBuscarClick(Sender: TObject);
-    procedure dsUsuariosGridDBTableView1CellDblClick(
-      Sender: TcxCustomGridTableView;
-      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
-      AShift: TShiftState;
-      var AHandled: Boolean);
     procedure BtnEditarClick(Sender: TObject);
     procedure BtnDeletarClick(Sender: TObject);
     procedure BoxPesquisaChange(Sender: TObject);
@@ -81,6 +74,9 @@ var
   NEZZViewsUsuario: TNEZZViewsUsuario;
 
 implementation
+
+uses
+  NEZZ.Views.Usuario.Editar;
 
 {$R *.dfm}
 
@@ -114,15 +110,9 @@ begin
     NEZZViewsUsuarioAdicionar.Free;
 
     CarregarDados;
-
   finally
     FreeAndNil(NEZZViewsUsuarioAdicionar);
   end;
-end;
-
-procedure TNEZZViewsUsuario.btnBuscarClick(Sender: TObject);
-begin
-  CarregarDados;
 end;
 
 procedure TNEZZViewsUsuario.btnCloseClick(Sender: TObject);
@@ -164,39 +154,17 @@ begin
   CarregarDados;
 end;
 
-procedure TNEZZViewsUsuario.dsUsuariosGridDBTableView1CellDblClick(
-  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
-  AButton: TMouseButton; AShift: TShiftState;
-  var AHandled: Boolean);
-begin
-  if MessageDlg('Deseja realmente desativar esse usuário?', mtConfirmation, mbYesNo, 0) = mrYes then
-  begin
-    if dsUsuarios.DataSet.FieldByName('STATUS').AsInteger <> 0 then
-    begin
-      MessageDlg('Usuário já foi desativado. Tente outro!', mtInformation, [mbOK], 0);
-      Exit;
-    end;
-    try
-      FNEZZFactoryUsuario
-        .DesativarUsuario(dsUsuarios.DataSet.FieldByName('ID').AsInteger);
-        MessageDlg('Usuário desativado com sucesso!', mtInformation, [mbOK], 0);
-    except
-    end;
-    CarregarDados;
-  end;
-end;
-
 procedure TNEZZViewsUsuario.BtnEditarClick(Sender: TObject);
 begin
-//  if not Assigned(NEZZViewsUsuarioEditar) then
-//    Application.CreateForm(TNEZZViewsUsuarioEditar, NEZZViewsUsuarioEditar);
-//
-//  NEZZViewsUsuarioEditar.Usuario(dsUsuarios.DataSet.FieldByName('ID').AsInteger);
-//
-//  NEZZViewsUsuarioEditar.ShowModal;
-//  FreeAndNil(NEZZViewsUsuarioEditar);
-//
-//  CarregarDados;
+  if not Assigned(NEZZViewsUsuarioEditar) then
+    Application.CreateForm(TNEZZViewsUsuarioEditar, NEZZViewsUsuarioEditar);
+
+  NEZZViewsUsuarioEditar.Usuario(dsUsuarios.DataSet.FieldByName('ID').AsInteger);
+
+  NEZZViewsUsuarioEditar.ShowModal;
+  FreeAndNil(NEZZViewsUsuarioEditar);
+
+  CarregarDados;
 end;
 
 procedure TNEZZViewsUsuario.FormCreate(Sender: TObject);

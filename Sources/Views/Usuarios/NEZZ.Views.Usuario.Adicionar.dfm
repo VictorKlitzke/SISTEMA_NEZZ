@@ -26,8 +26,6 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
     Color = -1
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 346
-    ExplicitHeight = 120
     object edNome: TcxTextEdit
       Left = 8
       Top = 40
@@ -73,8 +71,6 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 120
-    ExplicitWidth = 346
     object BtnLimpar: TcxButton
       Left = 248
       Top = 0
@@ -112,7 +108,6 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 0
       OnClick = BtnLimparClick
-      ExplicitLeft = 246
     end
     object BtnSalvar: TcxButton
       Left = 148
@@ -147,8 +142,11 @@ object NEZZViewsUsuarioAdicionar: TNEZZViewsUsuarioAdicionar
       SpeedButtonOptions.Flat = True
       TabOrder = 1
       OnClick = btnSalvarClick
-      ExplicitLeft = 140
-      ExplicitTop = 6
     end
+  end
+  object Validador: TACBrValidador
+    IgnorarChar = './-'
+    Left = 40
+    Top = 128
   end
 end

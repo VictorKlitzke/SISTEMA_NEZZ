@@ -3,7 +3,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   Top = 0
   BorderStyle = bsToolWindow
   Caption = 'US'#218'ARIOS'
-  ClientHeight = 521
+  ClientHeight = 510
   ClientWidth = 963
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -26,7 +26,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
     Left = 0
     Top = 18
     Width = 963
-    Height = 455
+    Height = 444
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
@@ -34,12 +34,12 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       Left = 0
       Top = 0
       Width = 963
-      Height = 455
+      Height = 444
       Align = alClient
       TabOrder = 0
+      ExplicitTop = -6
       object dsUsuariosGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
-        OnCellDblClick = dsUsuariosGridDBTableView1CellDblClick
         DataController.DataSource = dsUsuarios
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
@@ -56,7 +56,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 473
+    Top = 462
     Width = 963
     Height = 48
     Align = alBottom

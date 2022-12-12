@@ -98,6 +98,7 @@ object NEZZViewsClienteAdicionar: TNEZZViewsClienteAdicionar
       Top = 157
       TabOrder = 8
       TextHint = 'Email'
+      OnExit = edEmailExit
       Width = 153
     end
   end
