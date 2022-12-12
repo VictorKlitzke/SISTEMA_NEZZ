@@ -209,6 +209,14 @@
             <Form>NEZZViewsVendaAdicionarCliente</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Sources\Views\Vendas\NEZZ.Views.Vendas.Finalizar.pas">
+            <Form>NEZZViewsVendasFinalizar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Sources\Views\Vendas\NEZZ.Views.Vendas.FormaPgt.Dinheiro.pas">
+            <Form>NEZZViewsFormaPgtDinheiro</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

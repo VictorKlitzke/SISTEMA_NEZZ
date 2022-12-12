@@ -4,7 +4,8 @@ interface
 
 uses
   NEZZ.Services.Query,
-  Data.DB, BCrypt;
+  Data.DB,
+  BCrypt;
 
 type
   iNEZZModelsUsuario = interface

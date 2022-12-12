@@ -59,7 +59,6 @@ type
     TOTAL: TLabel;
     Label3: TLabel;
     dsFinalizarVendas: TDataSource;
-    procedure Label4Click(Sender: TObject);
     procedure BtnVoltarClick(Sender: TObject);
     procedure BtnDinheiroClick(Sender: TObject);
   private
