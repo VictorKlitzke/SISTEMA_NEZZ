@@ -15,8 +15,9 @@ type
   iNEZZFactoryFornecedor = interface
     ['{1592C510-8A28-408D-BD1A-F6430ADE3590}']
 
-    function ExisteFornecedor(ANome : string): Boolean;
-    function AdicionarFornecedor(ANome,ARazao_social,ACNPJ,ABairro,AEndereco,ATelefone,ACidade,ACEP : string): iNEZZFactoryFornecedor;
+    function ExisteFornecedor(ACNPJ : string): Boolean;
+    function AdicionarFornecedor(ANome,ARazao_social,ACNPJ,
+      ABairro,AEndereco,ATelefone,ACidade,ACEP : string): iNEZZFactoryFornecedor;
     function DeletarFornecedor(ANome : Integer): iNEZZFactoryFornecedor;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryFornecedor;
     function AtualizarFornecedor(ANome : string): iNEZZFactoryFornecedor;
@@ -35,8 +36,9 @@ type
 
     class function New: iNEZZFactoryFornecedor;
 
-    function ExisteFornecedor(ANome : string): Boolean;
-    function AdicionarFornecedor(ANome,ARazao_social,ACNPJ,ABairro,AEndereco,ATelefone,ACidade,ACEP : string): iNEZZFactoryFornecedor;
+    function ExisteFornecedor(ACNPJ : string): Boolean;
+    function AdicionarFornecedor(ANome,ARazao_social,ACNPJ,ABairro,
+      AEndereco,ATelefone,ACidade,ACEP : string): iNEZZFactoryFornecedor;
     function DeletarFornecedor(ANome : Integer): iNEZZFactoryFornecedor;
     function DataSource(var ADataSource: TDataSource): iNEZZFactoryFornecedor;
     function AtualizarFornecedor(ANome : string): iNEZZFactoryFornecedor;
@@ -146,7 +148,7 @@ begin
   inherited;
 end;
 
-function TNEZZFactoryFronecedor.ExisteFornecedor(ANome: string): Boolean;
+function TNEZZFactoryFronecedor.ExisteFornecedor(ACNPJ: string): Boolean;
 begin
    Result := TNEZZServicesCadastrar
     .New
@@ -156,8 +158,8 @@ begin
     .SQL('FROM')
     .SQL('  FORNECEDOR F')
     .SQL('WHERE')
-    .SQL('  UPPER(F.NOME) = UPPER(:NOME)')
-    .Parametro('NOME', ANome)
+    .SQL('  UPPER(F.CNPJ) = UPPER(:CNPJ)')
+    .Parametro('CNPJ', ACNPJ)
     .Abrir
     .Campo('QTD')
     .AsInteger <> 0

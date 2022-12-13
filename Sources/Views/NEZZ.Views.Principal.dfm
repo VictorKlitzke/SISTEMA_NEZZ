@@ -28,8 +28,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Color = -1
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 784
-    ExplicitHeight = 512
     object imgNEZZ: TImage
       AlignWithMargins = True
       Left = 3
@@ -464,8 +462,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Color = -1
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 569
-    ExplicitWidth = 921
     object pnVersao: TPanel
       Left = 0
       Top = 0
@@ -518,7 +514,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Color = -1
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 921
     object pnNomeUsuario: TPanel
       Left = 966
       Top = 0
@@ -527,7 +522,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 757
       object lbl3: TLabel
         Left = 0
         Top = 16
@@ -596,7 +590,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       BevelOuter = bvNone
       Caption = 'pnClose'
       TabOrder = 2
-      ExplicitLeft = 837
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -646,7 +639,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
     Color = clYellow
     ParentBackground = False
     TabOrder = 3
-    ExplicitHeight = 512
     object BtnFornecedores: TcxButton
       Left = 0
       Top = 0
@@ -1111,6 +1103,8 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = BtnUsuarioClick
+      ExplicitLeft = 6
+      ExplicitTop = -6
     end
     object BtnClientes: TcxButton
       Left = 0

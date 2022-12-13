@@ -241,14 +241,16 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
     Color = clWhite
     ParentBackground = False
     TabOrder = 3
-    object BoxPesquisa: TSearchBox
+    object ComboProduto: TComboBox
       Left = 0
       Top = 0
       Width = 959
-      Height = 24
+      Height = 21
       Align = alClient
+      BevelInner = bvNone
+      BevelOuter = bvNone
       TabOrder = 0
-      ExplicitHeight = 21
+      TextHint = 'Pesquisar Produto'
     end
   end
   object dsAdicionarProdutos: TDataSource

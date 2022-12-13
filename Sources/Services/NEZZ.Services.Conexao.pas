@@ -6,10 +6,21 @@ uses
   System.SysUtils,
   InterBaseUniProvider,
   Uni,
-  UniSQLMonitor;
+  Data.DB,
+  System.Classes,
+  UniSQLMonitor,
+  System.IniFiles;
 
 type
   NEZZMSGERROR = class(Exception);
+
+  TNEZZConexaoParametro = record
+    Database: string;
+    Server: string;
+    Port: Integer;
+    User: string;
+    Password: string;
+  end;
 
   iNEZZServicesConexao = interface
     ['{5A7C2F90-15F7-4ECD-85B5-725244390826}']
@@ -67,7 +78,7 @@ end;
 
 procedure TNEZZServicesConexao.ConexaoConfig;
 begin
-  with FNEZZConexao do
+ with FNEZZConexao do
   begin
     LoginPrompt := False;
 
@@ -75,7 +86,7 @@ begin
     Server := '127.0.0.1';
     Username := 'SYSDBA';
     Password := 'masterkey';
-    Database := FPath + 'C:\SISTEMA_NEZZ\Dados\NEZZ.fdb';
+    Database := FPath + 'C:\SISTEMA_NEZZ\Dados\NEZZ.FDB';
     Port := 3050;
     SpecificOptions.Values['Charset'] := 'UTF8';
     SpecificOptions.Values['ClientLibrary'] := 'fbclient.dll';

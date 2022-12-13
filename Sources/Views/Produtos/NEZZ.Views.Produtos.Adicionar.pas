@@ -45,21 +45,41 @@ type
     procedure BtnLimparClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
     procedure edValorProdutoPropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edValorCustoPropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edProdutoPropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edCodBarrasPropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edQuantidadePropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edMarcaPropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edReferenciaPropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
+    procedure FormCreate(Sender: TObject);
   private
     FNEZZFactoryProduto: iNEZZFactoryProdutos;
+
+    procedure ValidarProduto(Sender: TObject;
+    var DisplayValue: Variant;
+    var ErrorText: TCaption;
+    var Error: Boolean);
   public
     procedure LimparEdits;
   end;
@@ -113,7 +133,9 @@ begin
 end;
 
 procedure TNEZZViewsProdutosAdicionar.edCodBarrasPropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
@@ -121,14 +143,18 @@ begin
 end;
 
 procedure TNEZZViewsProdutosAdicionar.edMarcaPropertiesValidate(Sender: TObject;
-  var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
 begin
   Error := DisplayValue = '';
   ErrorText := 'A Marca é obrigatório';
 end;
 
 procedure TNEZZViewsProdutosAdicionar.edProdutoPropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
@@ -136,7 +162,9 @@ begin
 end;
 
 procedure TNEZZViewsProdutosAdicionar.edQuantidadePropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
@@ -144,7 +172,9 @@ begin
 end;
 
 procedure TNEZZViewsProdutosAdicionar.edReferenciaPropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
@@ -152,7 +182,9 @@ begin
 end;
 
 procedure TNEZZViewsProdutosAdicionar.edValorCustoPropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
@@ -160,11 +192,18 @@ begin
 end;
 
 procedure TNEZZViewsProdutosAdicionar.edValorProdutoPropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
   ErrorText := 'O Preço do Produto é obrigatório';
+end;
+
+procedure TNEZZViewsProdutosAdicionar.FormCreate(Sender: TObject);
+begin
+  edProduto.Properties.OnValidate := ValidarProduto;
 end;
 
 procedure TNEZZViewsProdutosAdicionar.LimparEdits;
@@ -176,6 +215,29 @@ begin
     begin
       TcxTextEdit(Components[i]).Text := '';
     end;
+end;
+
+procedure TNEZZViewsProdutosAdicionar.ValidarProduto(Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
+
+var
+  LProduto: Boolean;
+begin
+  LProduto := TNEZZFactoryProdutos.New.ProdutoExiste(edProduto.Text);
+  LProduto := TNEZZFactoryProdutos.New.ProdutoExiste(edCodBarras.Text);
+  LProduto := TNEZZFactoryProdutos.New.ProdutoExiste(edReferencia.Text);
+
+  if LProduto then
+  begin
+    Error := True;
+    ErrorText := 'Produto existente. Tente outro!';
+    Exit;
+  end;
+
+  Error := DisplayValue = '';
+  ErrorText := 'O campo é obrigatório';
 end;
 
 end.

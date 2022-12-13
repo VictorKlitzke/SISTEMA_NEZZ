@@ -59,8 +59,10 @@ type
     TOTAL: TLabel;
     Label3: TLabel;
     dsFinalizarVendas: TDataSource;
+    Panel2: TPanel;
     procedure BtnVoltarClick(Sender: TObject);
     procedure BtnDinheiroClick(Sender: TObject);
+    procedure BtnPixClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,6 +74,9 @@ var
 
 implementation
 
+uses
+  NEZZ.Views.Vendas.FormaPgt.Pix;
+
 {$R *.dfm}
 
 procedure TNEZZViewsVendasFinalizar.BtnDinheiroClick(Sender: TObject);
@@ -80,9 +85,18 @@ begin
   NEZZViewsFormaPgtDinheiro.ShowModal;
 end;
 
+procedure TNEZZViewsVendasFinalizar.BtnPixClick(Sender: TObject);
+begin
+  if not Assigned(NEZZViewsVendasFormaPgtPix) then
+    Application.CreateForm(TNEZZViewsVendasFormaPgtPix, NEZZViewsVendasFormaPgtPix);
+
+  NEZZViewsVendasFormaPgtPix.Parent := pnListadeProdutos;
+  NEZZViewsVendasFormaPgtPix.Show;
+  NEZZViewsVendasFormaPgtPix.Free;
+end;
+
 procedure TNEZZViewsVendasFinalizar.BtnVoltarClick(Sender: TObject);
 begin
   Close;
 end;
-
 end.

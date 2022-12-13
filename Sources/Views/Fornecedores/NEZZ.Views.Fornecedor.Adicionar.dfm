@@ -13,6 +13,7 @@ object NEZZViewsFornecedorAdicionar: TNEZZViewsFornecedorAdicionar
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel

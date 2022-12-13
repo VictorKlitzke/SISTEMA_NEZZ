@@ -26,7 +26,9 @@ uses
   cxClasses,
   dxLayoutLookAndFeels,
   NEZZ.Models.Fornecedor,
-  NEZZ.Factory.Fornecedor, ACBrBase, ACBrValidador;
+  NEZZ.Factory.Fornecedor,
+  ACBrBase,
+  ACBrValidador;
 
 type
   TNEZZViewsFornecedorAdicionar = class(TForm)
@@ -51,21 +53,40 @@ type
     procedure edCEPExit(Sender: TObject);
     procedure edCNPJExit(Sender: TObject);
     procedure edNomePropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edCNPJPropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edCEPPropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edRazaoPropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edTelefonePropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edBairroPropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
     procedure edEnderecoPropertiesValidate(Sender: TObject;
-      var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+      var DisplayValue: Variant;
+      var ErrorText: TCaption;
+      var Error: Boolean);
+    procedure FormCreate(Sender: TObject);
   private
     procedure LimparEdits;
+    procedure ValidarFornecedor(Sender: TObject;
+    var DisplayValue: Variant;
+    var ErrorText: TCaption;
+    var Error: Boolean);
   public
     { Public declarations }
   end;
@@ -124,7 +145,9 @@ begin
 end;
 
 procedure TNEZZViewsFornecedorAdicionar.edBairroPropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
@@ -147,7 +170,9 @@ begin
 end;
 
 procedure TNEZZViewsFornecedorAdicionar.edCEPPropertiesValidate(Sender: TObject;
-  var DisplayValue: Variant; var ErrorText: TCaption; var Error: Boolean);
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
 begin
   Error := DisplayValue = '';
   ErrorText := 'O CEP é obrigatório';
@@ -157,8 +182,8 @@ procedure TNEZZViewsFornecedorAdicionar.edCNPJExit(Sender: TObject);
 begin
   if ( edCEP.Text ) <> '' then
   begin
-    Validador.Documento := edCEP.Text;
-    Validador.TipoDocto := docCEP;
+    Validador.Documento := edCNPJ.Text;
+    Validador.TipoDocto := docCNPJ;
 
     if not Validador.Validar then
     begin
@@ -169,7 +194,9 @@ begin
 end;
 
 procedure TNEZZViewsFornecedorAdicionar.edCNPJPropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
@@ -177,7 +204,9 @@ begin
 end;
 
 procedure TNEZZViewsFornecedorAdicionar.edEnderecoPropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
@@ -185,7 +214,9 @@ begin
 end;
 
 procedure TNEZZViewsFornecedorAdicionar.edNomePropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
@@ -193,7 +224,9 @@ begin
 end;
 
 procedure TNEZZViewsFornecedorAdicionar.edRazaoPropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
@@ -201,11 +234,18 @@ begin
 end;
 
 procedure TNEZZViewsFornecedorAdicionar.edTelefonePropertiesValidate(
-  Sender: TObject; var DisplayValue: Variant; var ErrorText: TCaption;
+  Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
   var Error: Boolean);
 begin
   Error := DisplayValue = '';
   ErrorText := 'O Telefone é obrigatório';
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.FormCreate(Sender: TObject);
+begin
+  edCNPJ.Properties.OnValidate := ValidarFornecedor;
 end;
 
 procedure TNEZZViewsFornecedorAdicionar.LimparEdits;
@@ -217,6 +257,28 @@ begin
     begin
       TcxTextEdit(Components[i]).Text := '';
     end;
+end;
+
+procedure TNEZZViewsFornecedorAdicionar.ValidarFornecedor(Sender: TObject;
+  var DisplayValue: Variant;
+  var ErrorText: TCaption;
+  var Error: Boolean);
+
+var
+  LFornecedor: Boolean;
+begin
+
+  LFornecedor := TNEZZFactoryFronecedor.New.ExisteFornecedor(edCNPJ.Text);
+
+  if LFornecedor then
+  begin
+    Error := True;
+    ErrorText := 'Já existe um fornecedor com essa CNPJ. Tente outro!';
+    Exit;
+  end;
+
+  Error := DisplayValue = '';
+  ErrorText := 'O campo é obrigatório';
 end;
 
 end.

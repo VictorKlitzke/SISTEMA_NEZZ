@@ -55,10 +55,10 @@ type
     GridVendas: TcxGrid;
     dsAdicionarProdutos: TDataSource;
     pnPesquisar: TPanel;
-    BoxPesquisa: TSearchBox;
     btnClose: TcxButton;
     cxButton1: TcxButton;
     Label1: TLabel;
+    ComboProduto: TComboBox;
     procedure btnCloseClick(Sender: TObject);
     procedure BtnFinalizarClick(Sender: TObject);
   private

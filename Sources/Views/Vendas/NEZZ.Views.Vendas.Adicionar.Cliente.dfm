@@ -146,6 +146,8 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
+        OnClick = btnCloseClick
+        ExplicitTop = -6
       end
     end
   end

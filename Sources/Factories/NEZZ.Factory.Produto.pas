@@ -50,10 +50,14 @@ implementation
 { TNEZZFactoryProdutos }
 
 function TNEZZFactoryProdutos.AdicionarProduto(
-  AProduto, AReferencia,
-  AValorProduto, AValorCusto,
-  AQuantidade, ACodBarras,
-  AMarca, AModelo : string): iNEZZFactoryProdutos;
+  AProduto,
+  AReferencia,
+  AValorProduto,
+  AValorCusto,
+  AQuantidade,
+  ACodBarras,
+  AMarca,
+  AModelo : string): iNEZZFactoryProdutos;
 begin
   Result := Self;
 

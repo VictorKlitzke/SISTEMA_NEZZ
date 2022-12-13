@@ -3,7 +3,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   Top = 0
   BorderStyle = bsToolWindow
   Caption = 'US'#218'ARIOS'
-  ClientHeight = 510
+  ClientHeight = 460
   ClientWidth = 963
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -26,18 +26,19 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
     Left = 0
     Top = 18
     Width = 963
-    Height = 444
+    Height = 394
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitHeight = 444
     object dsUsuariosGrid: TcxGrid
       Left = 0
       Top = 0
       Width = 963
-      Height = 444
+      Height = 394
       Align = alClient
       TabOrder = 0
-      ExplicitTop = -6
+      ExplicitHeight = 444
       object dsUsuariosGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsUsuarios
@@ -56,7 +57,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 462
+    Top = 412
     Width = 963
     Height = 48
     Align = alBottom
@@ -64,6 +65,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 462
     object btnAdicionar: TcxButton
       Left = 861
       Top = 0
@@ -169,6 +171,7 @@ object NEZZViewsUsuario: TNEZZViewsUsuario
       SpeedButtonOptions.Flat = True
       TabOrder = 2
       OnClick = BtnEditarClick
+      ExplicitLeft = 651
     end
   end
   object pnPesquisa: TPanel

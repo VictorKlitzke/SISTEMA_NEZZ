@@ -3,8 +3,8 @@
   Top = 0
   BorderStyle = bsNone
   Caption = 'NEZZViewsVendasFinalizar'
-  ClientHeight = 514
-  ClientWidth = 461
+  ClientHeight = 506
+  ClientWidth = 525
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,13 +19,13 @@
     Left = 0
     Top = 57
     Width = 97
-    Height = 457
+    Height = 449
     Align = alLeft
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 479
+    ExplicitHeight = 457
     object BtnDinheiro: TcxButton
       Left = 0
       Top = 0
@@ -73,7 +73,6 @@
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = BtnDinheiroClick
-      ExplicitWidth = 73
     end
     object BtnCartão: TcxButton
       Left = 0
@@ -139,7 +138,6 @@
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitWidth = 73
     end
     object BtnPix: TcxButton
       Left = 0
@@ -197,13 +195,11 @@
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
-      ExplicitLeft = 8
-      ExplicitTop = 184
-      ExplicitWidth = 75
+      OnClick = BtnPixClick
     end
     object BtnVoltar: TcxButton
       Left = 0
-      Top = 387
+      Top = 379
       Width = 97
       Height = 70
       Align = alBottom
@@ -236,15 +232,15 @@
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = BtnVoltarClick
-      ExplicitTop = 391
-      ExplicitWidth = 73
+      ExplicitLeft = -6
+      ExplicitTop = 382
     end
   end
   object pnListadeProdutos: TPanel
     Left = 97
     Top = 57
-    Width = 364
-    Height = 457
+    Width = 423
+    Height = 449
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
@@ -256,51 +252,49 @@
     ParentBackground = False
     ParentFont = False
     TabOrder = 1
-    ExplicitLeft = 0
-    ExplicitTop = 456
-    ExplicitWidth = 314
-    ExplicitHeight = 41
+    ExplicitWidth = 364
+    ExplicitHeight = 457
     object TOTAL: TLabel
-      Left = 64
-      Top = 32
-      Width = 40
-      Height = 17
+      Left = 35
+      Top = 45
+      Width = 56
+      Height = 25
       Caption = 'TOTAL'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -19
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
     end
     object Label3: TLabel
-      Left = 56
-      Top = 64
-      Width = 32
-      Height = 17
+      Left = 35
+      Top = 103
+      Width = 47
+      Height = 25
       Caption = 'DESC'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
-      Font.Height = -13
+      Font.Height = -19
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
     end
     object Panel1: TPanel
       Left = 0
-      Top = 409
-      Width = 364
-      Height = 48
+      Top = 389
+      Width = 423
+      Height = 60
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitTop = 368
-      ExplicitWidth = 233
+      ExplicitTop = 392
+      ExplicitWidth = 439
       object BtnFinalizar: TcxButton
-        Left = 289
+        Left = 328
         Top = 0
-        Width = 75
-        Height = 48
+        Width = 95
+        Height = 60
         Align = alRight
         Caption = 'Finalizar'
         OptionsImage.Glyph.SourceDPI = 96
@@ -324,18 +318,18 @@
         SpeedButtonOptions.CanBeFocused = False
         SpeedButtonOptions.Flat = True
         TabOrder = 0
-        ExplicitLeft = 24
-        ExplicitTop = 16
-        ExplicitHeight = 25
+        ExplicitLeft = 344
       end
     end
     object cxGrid1: TcxGrid
       Left = 0
-      Top = 168
-      Width = 364
+      Top = 148
+      Width = 423
       Height = 241
       Align = alBottom
       TabOrder = 1
+      ExplicitTop = 168
+      ExplicitWidth = 364
       object cxGrid1DBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.Summary.DefaultGroupSummaryItems = <>
@@ -352,14 +346,14 @@
   object pnTotal: TPanel
     Left = 0
     Top = 0
-    Width = 461
+    Width = 525
     Height = 57
     Align = alTop
     BevelOuter = bvNone
     Color = clBlack
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 314
+    ExplicitWidth = 461
     object Label1: TLabel
       Left = 0
       Top = 0
@@ -375,6 +369,17 @@
       ParentFont = False
       ExplicitHeight = 37
     end
+  end
+  object Panel2: TPanel
+    Left = 520
+    Top = 57
+    Width = 5
+    Height = 449
+    Align = alRight
+    BevelOuter = bvNone
+    Color = clYellow
+    ParentBackground = False
+    TabOrder = 3
   end
   object dsFinalizarVendas: TDataSource
     Left = 168

@@ -31,6 +31,7 @@ type
     pnClose: TPanel;
     btnClose: TcxButton;
     procedure BtnFinalizarClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,6 +47,11 @@ uses
   NEZZ.Views.Vendas.Finalizar;
 
 {$R *.dfm}
+
+procedure TNEZZViewsVendaAdicionarCliente.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
 
 procedure TNEZZViewsVendaAdicionarCliente.BtnFinalizarClick(Sender: TObject);
 begin
