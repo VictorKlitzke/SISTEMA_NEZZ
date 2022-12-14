@@ -13,6 +13,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnHeader: TPanel
@@ -101,21 +102,24 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
   end
   object pnContent: TPanel
     Left = 0
-    Top = 65
+    Top = 62
     Width = 959
-    Height = 285
+    Height = 288
     Align = alClient
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 65
+    ExplicitHeight = 285
     object GridVendas: TcxGrid
       Left = 0
       Top = 0
       Width = 959
-      Height = 285
+      Height = 288
       Align = alClient
       TabOrder = 0
+      ExplicitHeight = 285
       object dsVendasDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.Summary.DefaultGroupSummaryItems = <>
@@ -235,13 +239,14 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
     Left = 0
     Top = 41
     Width = 959
-    Height = 24
+    Height = 21
     Align = alTop
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
     TabOrder = 3
-    object ComboProduto: TComboBox
+    ExplicitTop = 35
+    object ComboBoxProduto: TDBComboBox
       Left = 0
       Top = 0
       Width = 959
@@ -249,8 +254,12 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       Align = alClient
       BevelInner = bvNone
       BevelOuter = bvNone
+      DataField = 'PRODUTO'
+      DataSource = dsAdicionarProdutos
       TabOrder = 0
-      TextHint = 'Pesquisar Produto'
+      OnChange = ComboBoxProdutoChange
+      ExplicitLeft = 320
+      ExplicitWidth = 145
     end
   end
   object dsAdicionarProdutos: TDataSource
