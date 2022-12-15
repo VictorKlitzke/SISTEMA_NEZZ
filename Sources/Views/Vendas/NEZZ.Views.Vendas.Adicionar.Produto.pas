@@ -39,10 +39,14 @@ uses
   cxButtons,
   Vcl.ExtCtrls,
   NEZZ.Views.Vendas.Adicionar.Cliente,
-  NEZZ.Views.Produtos,NEZZViewBase,
-  NEZZ.Services.Conexao, NEZZ.Services.Query,
-  NEZZ.Views.Vendas.FormaPgt.Pix,NEZZ.Models.Produto,
-  NEZZ.Factory.Produto, Vcl.DBCtrls;
+  NEZZ.Views.Produtos,
+  NEZZViewBase,
+  NEZZ.Services.Conexao,
+  NEZZ.Services.Query,
+  NEZZ.Views.Vendas.FormaPgt.Pix,
+  NEZZ.Models.Produto,
+  NEZZ.Factory.Produto,
+  Vcl.DBCtrls;
 
 type
   TNEZZViewsAdicionarProdutoVendas = class(TForm)
@@ -59,16 +63,23 @@ type
     dsAdicionarProdutos: TDataSource;
     pnPesquisar: TPanel;
     btnClose: TcxButton;
-    cxButton1: TcxButton;
+    BtnRemover: TcxButton;
     Label1: TLabel;
     ComboBoxProduto: TDBComboBox;
+    BtnNovo: TcxButton;
     procedure btnCloseClick(Sender: TObject);
     procedure BtnFinalizarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ComboBoxProdutoChange(Sender: TObject);
   private
+    FNEZZVenda: iNEZZServicesCadastrar;
+
     FNEZZModelsProdutoVendas: iNEZZModelsProdutos;
     FNEZZFactoryProdutoVendas: iNEZZFactoryProdutos;
+
+    procedure MontarQuerie;
+    procedure NovaVenda;
+
   public
     procedure CarregarComboVenda;
 
@@ -114,7 +125,21 @@ end;
 
 procedure TNEZZViewsAdicionarProdutoVendas.FormCreate(Sender: TObject);
 begin
-//  CarregarComboVenda;
+  MontarQuerie;
+end;
+
+procedure TNEZZViewsAdicionarProdutoVendas.MontarQuerie;
+begin
+  FNEZZVenda := TNEZZServicesCadastrar
+    .New
+    .Gerador('GEN_VENDA_ITEM_ID')
+    .CampoChave('NUM_PEDIDO')
+    .Tabela('VENDA_ITEM')
+end;
+
+procedure TNEZZViewsAdicionarProdutoVendas.NovaVenda;
+begin
+
 end;
 
 end.

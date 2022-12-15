@@ -110,8 +110,6 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
     Color = clYellow
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 65
-    ExplicitHeight = 285
     object GridVendas: TcxGrid
       Left = 0
       Top = 0
@@ -119,7 +117,6 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       Height = 288
       Align = alClient
       TabOrder = 0
-      ExplicitHeight = 285
       object dsVendasDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.Summary.DefaultGroupSummaryItems = <>
@@ -157,11 +154,11 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       ParentBackground = False
       TabOrder = 0
       object BtnFinalizar: TcxButton
-        Left = 0
+        Left = 344
         Top = 0
         Width = 113
         Height = 41
-        Align = alLeft
+        Align = alRight
         Caption = 'Finalizar'
         Colors.DefaultText = clWhite
         OptionsImage.Glyph.SourceDPI = 96
@@ -198,9 +195,49 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = BtnFinalizarClick
+        ExplicitLeft = 0
+      end
+      object BtnNovo: TcxButton
+        Left = 0
+        Top = 0
+        Width = 97
+        Height = 41
+        Align = alLeft
+        Caption = 'Novo(F1)'
+        Colors.DefaultText = clWhite
+        OptionsImage.Glyph.SourceDPI = 96
+        OptionsImage.Glyph.Data = {
+          89504E470D0A1A0A0000000D4948445200000018000000181006000000B0E7E1
+          BB0000000467414D410000B18F0BFC6105000000206348524D00007A26000080
+          840000FA00000080E8000075300000EA6000003A98000017709CBA513C000000
+          06624B4744000000000000F943BB7F0000000970485973000000600000006000
+          F06B42CF0000000774494D4507E60C020D0A1C850650230000010E4944415458
+          C3ED98316A42411445CFFBFC1558848FD8980DB882D4C12F2856122C046DAC53
+          6719D940C03ED888AE207536904A9CD1C2D2D29B4292EE13F80E198439CD3497
+          77B98FF718784620DCB304DD6EF605B058500098FD0A3C80644F00E3F1DDC80C
+          D6EB6B7DF35001EC11A0D95407A0D1A8D2E9F5A20BE59B852A148B1420362940
+          6C5280D8E4EE4382B2CCDE005AADBA85D406E8F5FE143E00F4FBFBB90479ED7F
+          E83C01D86ECD6F24708E0E4051FC6BFBAE2107381C6E7E845280D858B0251E02
+          94E5659706834AE127C07269EF00AB555DBF9F250ED609FF22C174EABD0452E5
+          BB9160360BE57BF3239402C42605884D0A109B6057099D009CCBE600C763D559
+          E57C0FB0DB85F2FD0634CE6081EA13C5D10000002574455874646174653A6372
+          6561746500323032322D31322D30325431333A31303A32382B30303A3030243E
+          ACC40000002574455874646174653A6D6F6469667900323032322D31322D3032
+          5431333A31303A32382B30303A3030556314780000002874455874646174653A
+          74696D657374616D7000323032322D31322D30325431333A31303A32382B3030
+          3A3030027635A70000000049454E44AE426082}
+        SpeedButtonOptions.CanBeFocused = False
+        SpeedButtonOptions.Flat = True
+        TabOrder = 1
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
       end
     end
-    object cxButton1: TcxButton
+    object BtnRemover: TcxButton
       Left = 859
       Top = 0
       Width = 100
@@ -245,7 +282,6 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
     Color = clWhite
     ParentBackground = False
     TabOrder = 3
-    ExplicitTop = 35
     object ComboBoxProduto: TDBComboBox
       Left = 0
       Top = 0
@@ -258,8 +294,6 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       DataSource = dsAdicionarProdutos
       TabOrder = 0
       OnChange = ComboBoxProdutoChange
-      ExplicitLeft = 320
-      ExplicitWidth = 145
     end
   end
   object dsAdicionarProdutos: TDataSource
