@@ -103,12 +103,16 @@ end;
 
 procedure TNEZZViewsAdicionarProdutoVendas.CarregarComboVenda;
 begin
-  with TDBComboBox do
-  begin
-    FNEZZFactoryProdutoVendas := TNEZZFactoryVendasProdutos
+  FNEZZFactoryProdutoVendas := TNEZZFactoryVendasProdutos
       .New
       .DataSource(dsAdicionarProdutos)
       .ListarVendaProdutos;
+
+  with dsVendasDBTableView1 do
+  begin
+    ClearItems;
+    DataController.CreateAllItems();
+    ApplyBestFit();
   end;
 end;
 
