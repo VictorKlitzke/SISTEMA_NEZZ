@@ -46,7 +46,7 @@ uses
   NEZZ.Views.Vendas.FormaPgt.Pix,
   NEZZ.Models.Produto,
   NEZZ.Factory.Produto,
-  Vcl.DBCtrls;
+  Vcl.DBCtrls, NEZZ.Factory.Vendas.Produtos, NEZZ.Models.Vendas.Produtos;
 
 type
   TNEZZViewsAdicionarProdutoVendas = class(TForm)
@@ -67,18 +67,17 @@ type
     Label1: TLabel;
     ComboBoxProduto: TDBComboBox;
     BtnNovo: TcxButton;
+    pnSubValores: TPanel;
+    lbTotal: TLabel;
+    lbValor: TLabel;
     procedure btnCloseClick(Sender: TObject);
     procedure BtnFinalizarClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure ComboBoxProdutoChange(Sender: TObject);
   private
     FNEZZVenda: iNEZZServicesCadastrar;
 
-    FNEZZModelsProdutoVendas: iNEZZModelsProdutos;
-    FNEZZFactoryProdutoVendas: iNEZZFactoryProdutos;
-
-    procedure MontarQuerie;
-    procedure NovaVenda;
+    FNEZZModelsProdutoVendas: iNEZZModelsVendasProdutos;
+    FNEZZFactoryProdutoVendas: iNEZZFactoryVendasProdutos;
 
   public
     procedure CarregarComboVenda;
@@ -104,16 +103,12 @@ end;
 
 procedure TNEZZViewsAdicionarProdutoVendas.CarregarComboVenda;
 begin
-FNEZZFactoryProdutoVendas := TNEZZFactoryProdutos
-    .New
-    .DataSource(dsAdicionarProdutos)
-    .ListarProdutos;
-
-  with dsVendasDBTableView1 do
+  with TDBComboBox do
   begin
-    ClearItems;
-    DataController.CreateAllItems();
-    ApplyBestFit();
+    FNEZZFactoryProdutoVendas := TNEZZFactoryVendasProdutos
+      .New
+      .DataSource(dsAdicionarProdutos)
+      .ListarVendaProdutos;
   end;
 end;
 
@@ -121,25 +116,6 @@ procedure TNEZZViewsAdicionarProdutoVendas.ComboBoxProdutoChange(
   Sender: TObject);
 begin
   CarregarComboVenda;
-end;
-
-procedure TNEZZViewsAdicionarProdutoVendas.FormCreate(Sender: TObject);
-begin
-  MontarQuerie;
-end;
-
-procedure TNEZZViewsAdicionarProdutoVendas.MontarQuerie;
-begin
-  FNEZZVenda := TNEZZServicesCadastrar
-    .New
-    .Gerador('GEN_VENDA_ITEM_ID')
-    .CampoChave('NUM_PEDIDO')
-    .Tabela('VENDA_ITEM')
-end;
-
-procedure TNEZZViewsAdicionarProdutoVendas.NovaVenda;
-begin
-
 end;
 
 end.

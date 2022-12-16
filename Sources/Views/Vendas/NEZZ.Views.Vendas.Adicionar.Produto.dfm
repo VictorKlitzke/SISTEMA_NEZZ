@@ -3,8 +3,8 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
   Top = 0
   BorderStyle = bsNone
   Caption = 'NEZZViewsAdicionarProdutoVendas'
-  ClientHeight = 391
-  ClientWidth = 959
+  ClientHeight = 609
+  ClientWidth = 1157
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,27 +13,28 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 959
+    Width = 1157
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 959
     object pnClose: TPanel
-      Left = 904
+      Left = 1102
       Top = 0
       Width = 55
       Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 904
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -74,7 +75,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
     object pnExtraColor: TPanel
       Left = 0
       Top = 0
-      Width = 457
+      Width = 569
       Height = 41
       Align = alLeft
       BevelOuter = bvNone
@@ -103,20 +104,22 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
   object pnContent: TPanel
     Left = 0
     Top = 62
-    Width = 959
-    Height = 288
+    Width = 1157
+    Height = 506
     Align = alClient
     BevelOuter = bvNone
-    Color = clYellow
+    Color = clWhite
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 56
     object GridVendas: TcxGrid
       Left = 0
       Top = 0
-      Width = 959
-      Height = 288
+      Width = 1157
+      Height = 465
       Align = alClient
       TabOrder = 0
+      ExplicitHeight = 433
       object dsVendasDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.Summary.DefaultGroupSummaryItems = <>
@@ -131,21 +134,62 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
         GridView = dsVendasDBTableView1
       end
     end
+    object pnSubValores: TPanel
+      Left = 0
+      Top = 465
+      Width = 1157
+      Height = 41
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 1
+      ExplicitTop = 471
+      object lbTotal: TLabel
+        Left = 0
+        Top = 0
+        Width = 97
+        Height = 41
+        Align = alLeft
+        Alignment = taCenter
+        Caption = 'TOTAL'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -21
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lbValor: TLabel
+        Left = 79
+        Top = 6
+        Width = 80
+        Height = 28
+        Alignment = taCenter
+        Caption = '150,14'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI Semibold'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 350
-    Width = 959
+    Top = 568
+    Width = 1157
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
+    ExplicitTop = 350
+    ExplicitWidth = 959
     object pnColorExtra: TPanel
       Left = 0
       Top = 0
-      Width = 457
+      Width = 569
       Height = 41
       Align = alLeft
       BevelOuter = bvNone
@@ -154,7 +198,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       ParentBackground = False
       TabOrder = 0
       object BtnFinalizar: TcxButton
-        Left = 344
+        Left = 456
         Top = 0
         Width = 113
         Height = 41
@@ -195,7 +239,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = BtnFinalizarClick
-        ExplicitLeft = 0
+        ExplicitLeft = 344
       end
       object BtnNovo: TcxButton
         Left = 0
@@ -238,7 +282,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       end
     end
     object BtnRemover: TcxButton
-      Left = 859
+      Left = 1057
       Top = 0
       Width = 100
       Height = 41
@@ -270,22 +314,24 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitLeft = 859
     end
   end
   object pnPesquisar: TPanel
     Left = 0
     Top = 41
-    Width = 959
+    Width = 1157
     Height = 21
     Align = alTop
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
     TabOrder = 3
+    ExplicitWidth = 959
     object ComboBoxProduto: TDBComboBox
       Left = 0
       Top = 0
-      Width = 959
+      Width = 1157
       Height = 21
       Align = alClient
       BevelInner = bvNone
@@ -294,6 +340,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       DataSource = dsAdicionarProdutos
       TabOrder = 0
       OnChange = ComboBoxProdutoChange
+      ExplicitWidth = 959
     end
   end
   object dsAdicionarProdutos: TDataSource
