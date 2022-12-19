@@ -56,7 +56,9 @@ uses
   NEZZ.Views.Vendas.Adicionar.Cliente in 'Sources\Views\Vendas\NEZZ.Views.Vendas.Adicionar.Cliente.pas' {NEZZViewsVendaAdicionarCliente},
   NEZZ.Views.Vendas.Finalizar in 'Sources\Views\Vendas\NEZZ.Views.Vendas.Finalizar.pas' {NEZZViewsVendasFinalizar},
   NEZZ.Views.Vendas.FormaPgt.Dinheiro in 'Sources\Views\Vendas\NEZZ.Views.Vendas.FormaPgt.Dinheiro.pas' {NEZZViewsFormaPgtDinheiro},
-  NEZZ.Views.Vendas.FormaPgt.Pix in 'Sources\Views\Vendas\NEZZ.Views.Vendas.FormaPgt.Pix.pas' {NEZZViewsVendasFormaPgtPix};
+  NEZZ.Views.Vendas.FormaPgt.Pix in 'Sources\Views\Vendas\NEZZ.Views.Vendas.FormaPgt.Pix.pas' {NEZZViewsVendasFormaPgtPix},
+  NEZZ.Generic.Mensagem in 'Sources\Generic\NEZZ.Generic.Mensagem.pas' {NEZZGenericMensagem},
+  NEZZ.Generic.Utilities in 'Sources\Generic\NEZZ.Generic.Utilities.pas';
 
 {$R *.res}
 
@@ -91,6 +93,7 @@ begin
   Application.CreateForm(TNEZZViewsVendasFinalizar, NEZZViewsVendasFinalizar);
   Application.CreateForm(TNEZZViewsFormaPgtDinheiro, NEZZViewsFormaPgtDinheiro);
   Application.CreateForm(TNEZZViewsVendasFormaPgtPix, NEZZViewsVendasFormaPgtPix);
+  Application.CreateForm(TNEZZGenericMensagem, NEZZGenericMensagem);
   NEZZViewsUsuarioLogin.ShowModal;
 
     if NEZZViewsUsuarioLogin.ModalResult = mrCancel then
