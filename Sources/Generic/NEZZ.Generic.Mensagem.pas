@@ -18,27 +18,28 @@ uses
   Vcl.Menus,
   Vcl.StdCtrls,
   cxButtons,
-  Vcl.ExtCtrls, NEZZ.Generic.Utilities;
+  Vcl.ExtCtrls,
+  NEZZ.Generic.Utilities;
 
 type
   TNEZZGenericMensagem = class(TForm)
     pnContent: TPanel;
     pnTitulo: TPanel;
     lbTitulo: TLabel;
-    lbTexto: TLabel;
     pnBotao: TPanel;
     BtnOK: TcxButton;
+    img_icone: TImage;
+    lbTexto: TLabel;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
-    procedure msgSuccess;
-    procedure msgDanger;
-    procedure msgInformation;
-    procedure msgNone;
-    procedure msgWarning;
+
   public
-    ActionSim: TNEZZEvent;
-    ActionNao: TNEZZEvent;
-    ActionOk: TNEZZEvent;
-    procedure init(aTipo:TTypeMsg;aMsg:String;aTitulo:String='');
+    var
+    FTypeAlert : TTypeMsg;
+    FTop,
+    FLeft      : Integer;
   end;
 
 var
@@ -48,39 +49,44 @@ implementation
 
 {$R *.dfm}
 
-{ TForm3 }
-
-procedure TNEZZGenericMensagem.init(aTipo: TTypeMsg; aMsg, aTitulo: String);
+procedure TNEZZGenericMensagem.FormClose(Sender: TObject;
+  var Action: TCloseAction);
 begin
-
+  Action := caFree;
+  NEZZGenericMensagem := nil;
 end;
 
-procedure TNEZZGenericMensagem.msgDanger;
+procedure TNEZZGenericMensagem.FormCreate(Sender: TObject);
 begin
-//  lbTitulo.TextSettings.HorzAlign := TTextAlign.Center;
-//  lbTitulo.TextSettings.FontColor := $FFC1392B;
-//  lbTitulo.Text := 'ERRO';
-//  pnBotao.Action := pnBotao;
+  FTop      :=  0;
+  FLeft     :=  Screen.PrimaryMonitor.Width - Width - 20;
+  Self.Top  :=  FTop;
+  Self.Left :=  FLeft;
 end;
 
-procedure TNEZZGenericMensagem.msgInformation;
+procedure TNEZZGenericMensagem.FormShow(Sender: TObject);
+var
+  LPath : string;
 begin
+  {$IFDEF DEBUG}
+  LPath :=  '..\';
+  {$ELSE}
+  LPath :=  '.\';
+  {$ENDIF}
 
+  case FTypeAlert of
+    tMsgDSuccess:         begin
+                            img_icone.Picture.LoadFromFile(LPath+'Assents\Img\success.png');
+                          end;
+    tMsgDError:           begin
+                            img_icone.Picture.LoadFromFile(LPath+'Assents\Img\error.png');
+                          end;
+    tMsgDInformation:    begin
+                            img_icone.Picture.LoadFromFile(LPath+'Assents\Img\info.png');
+                            end;
+    tMsgDWarning:        begin
+                            img_icone.Picture.LoadFromFile(LPath+'Assents\Img\warning.png');
+                          end;
+  end;
 end;
-
-procedure TNEZZGenericMensagem.msgNone;
-begin
-
-end;
-
-procedure TNEZZGenericMensagem.msgSuccess;
-begin
-
-end;
-
-procedure TNEZZGenericMensagem.msgWarning;
-begin
-
-end;
-
 end.
