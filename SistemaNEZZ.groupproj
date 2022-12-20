@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{294D5E16-07AF-4FC0-8657-06B8DE842BA3}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="NEZZ.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\VendaWK\PedidoVenda.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="NEZZ">
+        <MSBuild Projects="NEZZ.dproj"/>
+    </Target>
+    <Target Name="NEZZ:Clean">
+        <MSBuild Projects="NEZZ.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NEZZ:Make">
+        <MSBuild Projects="NEZZ.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PedidoVenda">
+        <MSBuild Projects="C:\VendaWK\PedidoVenda.dproj"/>
+    </Target>
+    <Target Name="PedidoVenda:Clean">
+        <MSBuild Projects="C:\VendaWK\PedidoVenda.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PedidoVenda:Make">
+        <MSBuild Projects="C:\VendaWK\PedidoVenda.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="NEZZ;PedidoVenda"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="NEZZ:Clean;PedidoVenda:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="NEZZ:Make;PedidoVenda:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
