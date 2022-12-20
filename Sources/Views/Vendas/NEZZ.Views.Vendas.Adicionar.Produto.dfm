@@ -2,9 +2,8 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  Caption = 'NEZZViewsAdicionarProdutoVendas'
-  ClientHeight = 391
-  ClientWidth = 959
+  ClientHeight = 648
+  ClientWidth = 1422
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,27 +12,29 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnCreate = FormCreate
+  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
   object pnHeader: TPanel
     Left = 0
     Top = 0
-    Width = 959
+    Width = 1422
     Height = 41
     Align = alTop
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 1470
     object pnClose: TPanel
-      Left = 904
+      Left = 1367
       Top = 0
       Width = 55
       Height = 41
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitLeft = 1415
       object btnClose: TcxButton
         Left = 0
         Top = 0
@@ -74,7 +75,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
     object pnExtraColor: TPanel
       Left = 0
       Top = 0
-      Width = 457
+      Width = 774
       Height = 41
       Align = alLeft
       BevelOuter = bvNone
@@ -84,10 +85,10 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       object Label1: TLabel
         Left = 0
         Top = 0
-        Width = 304
+        Width = 107
         Height = 41
         Align = alLeft
-        Caption = 'ADICIONAR PRODUTOS'
+        Caption = 'VENDAS'
         Color = clWhite
         Font.Charset = ANSI_CHARSET
         Font.Color = clWhite
@@ -103,49 +104,208 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
   object pnContent: TPanel
     Left = 0
     Top = 62
-    Width = 959
-    Height = 288
+    Width = 726
+    Height = 545
     Align = alClient
     BevelOuter = bvNone
-    Color = clYellow
+    Color = clWhite
     ParentBackground = False
     TabOrder = 1
-    object GridVendas: TcxGrid
+    ExplicitWidth = 774
+    ExplicitHeight = 634
+    object Label2: TLabel
+      Left = 64
+      Top = 49
+      Width = 84
+      Height = 15
+      Caption = 'C'#243'digo Produto'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label3: TLabel
       Left = 0
       Top = 0
-      Width = 959
-      Height = 288
-      Align = alClient
+      Width = 726
+      Height = 25
+      Align = alTop
+      Caption = 'ADICIONAR PRODUTOS'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ExplicitWidth = 207
+    end
+    object Label4: TLabel
+      Left = 223
+      Top = 49
+      Width = 62
+      Height = 15
+      Caption = 'Quantidade'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 382
+      Top = 49
+      Width = 72
+      Height = 15
+      Caption = 'Valor Unitario'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 72
+      Top = 184
+      Width = 417
+      Height = 33
+      Caption = 'Label6'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -21
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold, fsItalic]
+      ParentFont = False
+    end
+    object pnSubValores: TPanel
+      Left = 0
+      Top = 504
+      Width = 726
+      Height = 41
+      Align = alBottom
+      BevelOuter = bvNone
       TabOrder = 0
-      object dsVendasDBTableView1: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
-        DataController.Summary.SummaryGroups = <>
-        OptionsSelection.MultiSelect = True
-        OptionsSelection.CellMultiSelect = True
-        OptionsSelection.InvertSelect = False
-        OptionsView.GroupByBox = False
+      ExplicitTop = 593
+      ExplicitWidth = 774
+      object lbTotal: TLabel
+        Left = 0
+        Top = 0
+        Width = 63
+        Height = 41
+        Align = alLeft
+        Alignment = taCenter
+        Caption = 'TOTAL'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -21
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitHeight = 30
       end
-      object dsVendasLevel1: TcxGridLevel
-        GridView = dsVendasDBTableView1
+      object lbValor: TLabel
+        Left = 79
+        Top = 6
+        Width = 43
+        Height = 21
+        Alignment = taCenter
+        Caption = '150,14'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI Semibold'
+        Font.Style = [fsBold]
+        ParentFont = False
       end
+    end
+    object edCodProduto: TcxTextEdit
+      Left = 72
+      Top = 70
+      TabOrder = 1
+      Width = 135
+    end
+    object edQuantidade: TcxTextEdit
+      Left = 231
+      Top = 70
+      TabOrder = 2
+      Width = 135
+    end
+    object edValorUni: TcxTextEdit
+      Left = 390
+      Top = 70
+      TabOrder = 3
+      Width = 135
+    end
+    object BtnPesquisarProduto: TcxButton
+      Left = 541
+      Top = 67
+      Width = 150
+      Height = 25
+      Cursor = crHandPoint
+      Caption = 'Pesquisar Produtos'
+      OptionsImage.Glyph.SourceDPI = 96
+      OptionsImage.Glyph.Data = {
+        89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
+        F80000000473424954080808087C0864880000000970485973000000B1000000
+        B101C62D498D0000001974455874536F667477617265007777772E696E6B7363
+        6170652E6F72679BEE3C1A000000B1494441544889EDD2316A42411485E14F91
+        18E11526109BC4D6658895854B48E516CC22D228982E9097A5D8DAD96867E30E
+        140B89D859CC3CB01FBBCCDF0CC3C07F867B0F994CA616CF021F78C225D1D9C4
+        01739CA0831FBC268A6BD1056F28ABFB0CED4479217C72826F3C44E7B481471C
+        13034631608521FA58A0554F14576C3110C6F48E5DF550C759FA88D6D8E0134B
+        8C85C2FC111651A29B18724B0FBF78B9ADE904CFEE53D33DBEC49A6632FF9D2B
+        2ACE19E9D01DD0CE0000000049454E44AE426082}
+      SpeedButtonOptions.CanBeFocused = False
+      SpeedButtonOptions.Flat = True
+      TabOrder = 4
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsItalic]
+      ParentFont = False
+    end
+    object BtnAddCliente: TcxButton
+      Left = 64
+      Top = 144
+      Width = 129
+      Height = 34
+      Caption = 'Adicionar Cliente'
+      OptionsImage.Glyph.SourceDPI = 96
+      OptionsImage.Glyph.Data = {
+        89504E470D0A1A0A0000000D4948445200000018000000180806000000E0773D
+        F80000000473424954080808087C0864880000000970485973000000B1000000
+        B101C62D498D0000001974455874536F667477617265007777772E696E6B7363
+        6170652E6F72679BEE3C1A00000088494441544889ED933D0A80300C469F2288
+        5EC341B0DEC7337A1B051D1C3C8AD6C1803A88A93F83D007816F48783434A027
+        057AA9D4614E8D01AC94D10E850E82E024BF26B8851778C17322D6ABCC15B26C
+        970B20BEE89F8101D6D3B71F55174AF80A1BE0B6A25A72058C17FD13B2222D25
+        DBD34BEDD0FFBFA91778C1017B925F23015AA091AC6201B98F2A3B88142FFD00
+        00000049454E44AE426082}
+      SpeedButtonOptions.CanBeFocused = False
+      SpeedButtonOptions.Flat = True
+      TabOrder = 5
     end
   end
   object pnFooter: TPanel
     Left = 0
-    Top = 350
-    Width = 959
+    Top = 607
+    Width = 1422
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     Color = clYellow
     ParentBackground = False
     TabOrder = 2
+    ExplicitTop = 696
+    ExplicitWidth = 1470
     object pnColorExtra: TPanel
       Left = 0
       Top = 0
-      Width = 457
+      Width = 774
       Height = 41
       Align = alLeft
       BevelOuter = bvNone
@@ -154,7 +314,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       ParentBackground = False
       TabOrder = 0
       object BtnFinalizar: TcxButton
-        Left = 344
+        Left = 661
         Top = 0
         Width = 113
         Height = 41
@@ -194,8 +354,6 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
-        OnClick = BtnFinalizarClick
-        ExplicitLeft = 0
       end
       object BtnNovo: TcxButton
         Left = 0
@@ -238,7 +396,7 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       end
     end
     object BtnRemover: TcxButton
-      Left = 859
+      Left = 1322
       Top = 0
       Width = 100
       Height = 41
@@ -270,34 +428,71 @@ object NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
+      ExplicitLeft = 1370
     end
   end
   object pnPesquisar: TPanel
     Left = 0
     Top = 41
-    Width = 959
+    Width = 1422
     Height = 21
     Align = alTop
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
     TabOrder = 3
-    object ComboBoxProduto: TDBComboBox
+    ExplicitWidth = 1470
+  end
+  object Panel1: TPanel
+    Left = 726
+    Top = 62
+    Width = 696
+    Height = 545
+    Align = alRight
+    BevelOuter = bvNone
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 4
+    ExplicitLeft = 774
+    ExplicitHeight = 634
+    object Panel2: TPanel
       Left = 0
-      Top = 0
-      Width = 959
-      Height = 21
-      Align = alClient
-      BevelInner = bvNone
+      Top = 504
+      Width = 696
+      Height = 41
+      Align = alBottom
       BevelOuter = bvNone
-      DataField = 'PRODUTO'
-      DataSource = dsAdicionarProdutos
+      Color = clWhite
+      ParentBackground = False
       TabOrder = 0
-      OnChange = ComboBoxProdutoChange
+      ExplicitTop = 593
+    end
+    object GridVendas: TcxGrid
+      Left = 0
+      Top = -40
+      Width = 696
+      Height = 544
+      Align = alBottom
+      TabOrder = 1
+      ExplicitTop = 49
+      object GridVendasDBTableView1: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        DataController.DataSource = dsAdicionarProdutos
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsSelection.MultiSelect = True
+        OptionsSelection.CellMultiSelect = True
+        OptionsSelection.InvertSelect = False
+        OptionsView.GroupByBox = False
+      end
+      object GridVendasLevel1: TcxGridLevel
+        GridView = GridVendasDBTableView1
+      end
     end
   end
   object dsAdicionarProdutos: TDataSource
-    Left = 464
-    Top = 184
+    Left = 760
+    Top = 64
   end
 end

@@ -46,7 +46,7 @@ uses
   NEZZ.Views.Vendas.FormaPgt.Pix,
   NEZZ.Models.Produto,
   NEZZ.Factory.Produto,
-  Vcl.DBCtrls;
+  Vcl.DBCtrls, cxContainer, cxTextEdit;
 
 type
   TNEZZViewsAdicionarProdutoVendas = class(TForm)
@@ -57,31 +57,35 @@ type
     pnExtraColor: TPanel;
     pnColorExtra: TPanel;
     BtnFinalizar: TcxButton;
-    dsVendasDBTableView1: TcxGridDBTableView;
-    dsVendasLevel1: TcxGridLevel;
-    GridVendas: TcxGrid;
     dsAdicionarProdutos: TDataSource;
     pnPesquisar: TPanel;
     btnClose: TcxButton;
     BtnRemover: TcxButton;
     Label1: TLabel;
-    ComboBoxProduto: TDBComboBox;
     BtnNovo: TcxButton;
+    pnSubValores: TPanel;
+    lbTotal: TLabel;
+    lbValor: TLabel;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    edCodProduto: TcxTextEdit;
+    edQuantidade: TcxTextEdit;
+    edValorUni: TcxTextEdit;
+    BtnPesquisarProduto: TcxButton;
+    GridVendas: TcxGrid;
+    GridVendasDBTableView1: TcxGridDBTableView;
+    GridVendasLevel1: TcxGridLevel;
+    BtnAddCliente: TcxButton;
+    Label6: TLabel;
     procedure btnCloseClick(Sender: TObject);
-    procedure BtnFinalizarClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
-    procedure ComboBoxProdutoChange(Sender: TObject);
   private
     FNEZZVenda: iNEZZServicesCadastrar;
 
-    FNEZZModelsProdutoVendas: iNEZZModelsProdutos;
-    FNEZZFactoryProdutoVendas: iNEZZFactoryProdutos;
-
-    procedure MontarQuerie;
-    procedure NovaVenda;
-
   public
-    procedure CarregarComboVenda;
 
   end;
 
@@ -95,51 +99,6 @@ implementation
 procedure TNEZZViewsAdicionarProdutoVendas.btnCloseClick(Sender: TObject);
 begin
   Close;
-end;
-
-procedure TNEZZViewsAdicionarProdutoVendas.BtnFinalizarClick(Sender: TObject);
-begin
-  NEZZViewsVendaAdicionarCliente.ShowModal;
-end;
-
-procedure TNEZZViewsAdicionarProdutoVendas.CarregarComboVenda;
-begin
-FNEZZFactoryProdutoVendas := TNEZZFactoryProdutos
-    .New
-    .DataSource(dsAdicionarProdutos)
-    .ListarProdutos;
-
-  with dsVendasDBTableView1 do
-  begin
-    ClearItems;
-    DataController.CreateAllItems();
-    ApplyBestFit();
-  end;
-end;
-
-procedure TNEZZViewsAdicionarProdutoVendas.ComboBoxProdutoChange(
-  Sender: TObject);
-begin
-  CarregarComboVenda;
-end;
-
-procedure TNEZZViewsAdicionarProdutoVendas.FormCreate(Sender: TObject);
-begin
-  MontarQuerie;
-end;
-
-procedure TNEZZViewsAdicionarProdutoVendas.MontarQuerie;
-begin
-  FNEZZVenda := TNEZZServicesCadastrar
-    .New
-    .Gerador('GEN_VENDA_ITEM_ID')
-    .CampoChave('NUM_PEDIDO')
-    .Tabela('VENDA_ITEM')
-end;
-
-procedure TNEZZViewsAdicionarProdutoVendas.NovaVenda;
-begin
-
 end;
 
 end.

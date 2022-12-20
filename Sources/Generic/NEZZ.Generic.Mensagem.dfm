@@ -1,0 +1,110 @@
+object NEZZGenericMensagem: TNEZZGenericMensagem
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  ClientHeight = 178
+  ClientWidth = 390
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnContent: TPanel
+    Left = 0
+    Top = 0
+    Width = 390
+    Height = 178
+    Align = alClient
+    Color = clBlack
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitLeft = 104
+    ExplicitTop = 72
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object lbTexto: TLabel
+      Left = 1
+      Top = 42
+      Width = 388
+      Height = 94
+      Align = alClient
+      Alignment = taCenter
+      Caption = 'Texto'
+      Color = clWhite
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      ExplicitWidth = 49
+      ExplicitHeight = 25
+    end
+    object pnTitulo: TPanel
+      Left = 1
+      Top = 1
+      Width = 388
+      Height = 41
+      Align = alTop
+      BevelOuter = bvNone
+      Color = clYellow
+      ParentBackground = False
+      TabOrder = 0
+      ExplicitLeft = 2
+      ExplicitTop = 0
+      object lbTitulo: TLabel
+        Left = 0
+        Top = 0
+        Width = 105
+        Height = 41
+        Align = alLeft
+        Caption = 'TITULO'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -21
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object pnBotao: TPanel
+      Left = 1
+      Top = 136
+      Width = 388
+      Height = 41
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 1
+      ExplicitLeft = 104
+      ExplicitTop = 72
+      ExplicitWidth = 185
+      object BtnOK: TcxButton
+        Left = 313
+        Top = 0
+        Width = 75
+        Height = 41
+        Align = alRight
+        Caption = 'OK'
+        Colors.DefaultText = clWhite
+        SpeedButtonOptions.CanBeFocused = False
+        SpeedButtonOptions.Flat = True
+        TabOrder = 0
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitLeft = 288
+        ExplicitTop = 6
+        ExplicitHeight = 25
+      end
+    end
+  end
+end

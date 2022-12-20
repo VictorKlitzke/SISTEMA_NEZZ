@@ -1103,8 +1103,6 @@ object NEZZViewsPrincipal: TNEZZViewsPrincipal
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = BtnUsuarioClick
-      ExplicitLeft = 6
-      ExplicitTop = -6
     end
     object BtnClientes: TcxButton
       Left = 0

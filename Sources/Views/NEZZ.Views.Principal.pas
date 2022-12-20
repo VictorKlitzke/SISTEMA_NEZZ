@@ -145,8 +145,7 @@ begin
   if not Assigned(NEZZViewsAdicionarProdutoVendas) then
     Application.CreateForm(TNEZZViewsAdicionarProdutoVendas, NEZZViewsAdicionarProdutoVendas);
 
-  NEZZViewsAdicionarProdutoVendas.Parent := pnContent;
-  NEZZViewsAdicionarProdutoVendas.Show;
+  NEZZViewsAdicionarProdutoVendas.ShowModal;
 
 end;
 
