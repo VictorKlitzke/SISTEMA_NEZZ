@@ -136,10 +136,6 @@
             <Form>NEZZViewsClienteEditar</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Sources\Views\MSG_CRUD\NEZZ.Views.MSG_CRUD.pas">
-            <Form>Form1</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="Sources\Views\Usuarios\NEZZ.Views.Usuario.pas">
             <Form>NEZZViewsUsuario</Form>
             <FormType>dfm</FormType>
@@ -189,8 +185,8 @@
             <Form>Form2</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Sources\Views\Vendas\NEZZ.Views.Vendas.Adicionar.Produto.pas">
-            <Form>NEZZViewsAdicionarProdutoVendas</Form>
+        <DCCReference Include="Sources\Views\Vendas\NEZZ.Views.Vendas.Faturar.pas">
+            <Form>NEZZViewsVendasFaturar</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Sources\Views\Produtos\NEZZ.Views.Produtos.pas">

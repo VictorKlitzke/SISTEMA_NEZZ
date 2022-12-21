@@ -24,8 +24,8 @@ uses
   NEZZ.Services.Conexao,
   NEZZ.Services.Query,
   System.UITypes,
-  NEZZ.Views.Fornecedor, NEZZ.Views.Vendas.Adicionar.Produto,
-  NEZZ.Views.Produtos, NEZZ.Factory.Usuario, NEZZ.Models.Usuario;
+  NEZZ.Views.Fornecedor, NEZZ.Views.Vendas.Faturar,
+  NEZZ.Views.Produtos;
 
 type
   TNEZZViewsPrincipal = class(TForm)
@@ -89,11 +89,11 @@ var
 implementation
 
 uses
-  NEZZ.Views.Usuario,
   NEZZ.Controllers.Sessao,
   NEZZ.Views.Caixa.Adicionar,
   NEZZ.Views.Caixa.Listagem,
-  NEZZ.Views.Vendas;
+  NEZZ.Views.Vendas,
+  NEZZ.Views.Usuario;
 
 {$R *.dfm}
 
@@ -141,11 +141,12 @@ end;
 
 procedure TNEZZViewsPrincipal.BtnFaturarClick(Sender: TObject);
 begin
-  if Assigned(NEZZViewsAdicionarProdutoVendas) then FreeAndNil(NEZZViewsAdicionarProdutoVendas);
-  if not Assigned(NEZZViewsAdicionarProdutoVendas) then
-    Application.CreateForm(TNEZZViewsAdicionarProdutoVendas, NEZZViewsAdicionarProdutoVendas);
+  if Assigned(NEZZViewsVendasFaturar) then FreeAndNil(NEZZViewsVendasFaturar);
+  if not Assigned(NEZZViewsVendasFaturar) then
+    Application.CreateForm(TNEZZViewsVendasFaturar, NEZZViewsVendasFaturar);
 
-  NEZZViewsAdicionarProdutoVendas.ShowModal;
+  NEZZViewsVendasFaturar.Parent := pnContent;
+  NEZZViewsVendasFaturar.Show;
 
 end;
 

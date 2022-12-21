@@ -23,6 +23,7 @@ type
     function FiltrarCliente(ANome : string): iNEZZFactoryCliente;
 
     function ListarCliente: iNEZZFactoryCliente;
+    function PesquisarCliente: iNEZZFactoryCliente;
 
   end;
 
@@ -46,6 +47,7 @@ type
     function FiltrarCliente(ANome : string): iNEZZFactoryCliente;
 
     function ListarCliente: iNEZZFactoryCliente;
+    function PesquisarCliente: iNEZZFactoryCliente;
   end;
 
 implementation
@@ -182,6 +184,17 @@ end;
 class function TNEZZFactoryCliente.New: iNEZZFactoryCliente;
 begin
   Result := Self.Create;
+end;
+
+function TNEZZFactoryCliente.PesquisarCliente: iNEZZFactoryCliente;
+begin
+  Result := Self;
+
+  FNEZZCliente
+    .SQL('SELECT C.NOME FROM CLIENTE C WHERE C.NOME = :NOME')
+    .Abrir
+    .DataSet
+
 end;
 
 end.

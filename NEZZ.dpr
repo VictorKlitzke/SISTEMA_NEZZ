@@ -29,7 +29,6 @@ uses
   NEZZ.Factory.Cliente in 'Sources\Factories\NEZZ.Factory.Cliente.pas',
   ConexaoDados in 'ConexaoDados.pas' {DataModule1: TDataModule},
   NEZZ.Views.Cliente.Editar in 'Sources\Views\Clientes\NEZZ.Views.Cliente.Editar.pas' {NEZZViewsClienteEditar},
-  NEZZ.Views.MSG_CRUD in 'Sources\Views\MSG_CRUD\NEZZ.Views.MSG_CRUD.pas' {Form1},
   NEZZ.Views.Usuario in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.pas' {NEZZViewsUsuario},
   NEZZ.Views.Usuario.Login in 'Sources\Views\Usuarios\NEZZ.Views.Usuario.Login.pas' {NEZZViewsUsuarioLogin},
   NEZZ.Factory.Usuario in 'Sources\Factories\NEZZ.Factory.Usuario.pas',
@@ -49,7 +48,7 @@ uses
   NEZZ.Models.Caixa in 'Sources\Models\NEZZ.Models.Caixa.pas',
   NEZZ.Factory.Caixa in 'Sources\Factories\NEZZ.Factory.Caixa.pas',
   NEZZ.Views.Caixa.Listagem in 'Sources\Views\Caixa\NEZZ.Views.Caixa.Listagem.pas' {Form2},
-  NEZZ.Views.Vendas.Adicionar.Produto in 'Sources\Views\Vendas\NEZZ.Views.Vendas.Adicionar.Produto.pas' {NEZZViewsAdicionarProdutoVendas},
+  NEZZ.Views.Vendas.Faturar in 'Sources\Views\Vendas\NEZZ.Views.Vendas.Faturar.pas' {NEZZViewsVendasFaturar},
   NEZZ.Views.Produtos in 'Sources\Views\Produtos\NEZZ.Views.Produtos.pas' {NEZZViewsProdutos},
   NEZZ.Views.Produtos.Adicionar in 'Sources\Views\Produtos\NEZZ.Views.Produtos.Adicionar.pas' {NEZZViewsProdutosAdicionar},
   NEZZ.Views.Produtos.Editar in 'Sources\Views\Produtos\NEZZ.Views.Produtos.Editar.pas' {NEZZViewsProdutosEditar},
@@ -76,7 +75,6 @@ begin
   Application.CreateForm(TNEZZViewsClienteAdicionar, NEZZViewsClienteAdicionar);
   Application.CreateForm(TNEZZViewsClientes, NEZZViewsClientes);
   Application.CreateForm(TNEZZViewsClienteEditar, NEZZViewsClienteEditar);
-  Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TNEZZViewsUsuario, NEZZViewsUsuario);
   Application.CreateForm(TNEZZViewsUsuarioAdicionar, NEZZViewsUsuarioAdicionar);
   Application.CreateForm(TNEZZViewsVenda, NEZZViewsVenda);
@@ -85,7 +83,7 @@ begin
   Application.CreateForm(TNEZZViewsFornecedorAdicionar, NEZZViewsFornecedorAdicionar);
   Application.CreateForm(TNEZZViewsFornecedorEditar, NEZZViewsFornecedorEditar);
   Application.CreateForm(TNEZZViewsCaixaAbrir, NEZZViewsCaixaAbrir);
-  Application.CreateForm(TNEZZViewsAdicionarProdutoVendas, NEZZViewsAdicionarProdutoVendas);
+  Application.CreateForm(TNEZZViewsVendasFaturar, NEZZViewsVendasFaturar);
   Application.CreateForm(TNEZZViewsProdutos, NEZZViewsProdutos);
   Application.CreateForm(TNEZZViewsProdutosAdicionar, NEZZViewsProdutosAdicionar);
   Application.CreateForm(TNEZZViewsProdutosEditar, NEZZViewsProdutosEditar);

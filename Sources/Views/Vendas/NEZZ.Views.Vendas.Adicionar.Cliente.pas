@@ -18,33 +18,45 @@ uses
   Vcl.Menus,
   Vcl.StdCtrls,
   cxButtons,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls,
+  NEZZ.Views.Vendas.Finalizar,
+  NEZZ.Factory.Cliente,
+  NEZZ.Models.Cliente, cxControls,
+  cxContainer,
+  cxEdit, Data.DB,
+  cxTextEdit,
+  cxMaskEdit,
+  cxDropDownEdit,
+  cxLookupEdit,
+  cxDBLookupEdit,
+  cxDBLookupComboBox;
 
 type
   TNEZZViewsVendaAdicionarCliente = class(TForm)
     pnContent: TPanel;
-    ComboCliente: TComboBox;
     pnFooter: TPanel;
     BtnFinalizar: TcxButton;
     pnHeader: TPanel;
     lbCliente: TLabel;
     pnClose: TPanel;
     btnClose: TcxButton;
+    ComboCliente: TcxLookupComboBox;
+    dsBuscarClientes: TDataSource;
     procedure BtnFinalizarClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
-    { Private declarations }
+    FNEZZFactoryCliente: iNEZZFactoryCliente;
+    FNEZZModelsCliente: iNEZZModelsCliente;
+
   public
-    { Public declarations }
+    function Cliente(UID: integer): Integer;
   end;
 
 var
   NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente;
 
 implementation
-
-uses
-  NEZZ.Views.Vendas.Finalizar;
 
 {$R *.dfm}
 
@@ -56,6 +68,16 @@ end;
 procedure TNEZZViewsVendaAdicionarCliente.BtnFinalizarClick(Sender: TObject);
 begin
   NEZZViewsVendasFinalizar.ShowModal;
+end;
+
+function TNEZZViewsVendaAdicionarCliente.Cliente(UID: integer): Integer;
+begin
+  FNEZZModelsCliente.Filtrar('ID', UID);
+end;
+
+procedure TNEZZViewsVendaAdicionarCliente.FormCreate(Sender: TObject);
+begin
+  FNEZZModelsCliente := TNEZZModelsCliente.New.DataSource(dsBuscarClientes);
 end;
 
 end.

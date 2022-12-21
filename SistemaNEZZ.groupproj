@@ -1,12 +1,12 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{294D5E16-07AF-4FC0-8657-06B8DE842BA3}</ProjectGuid>
+        <ProjectGuid>{0752741D-23BE-4B8A-A6B8-54FA6B2D5FE0}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
         <Projects Include="NEZZ.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="C:\VendaWK\PedidoVenda.dproj">
+        <Projects Include="C:\Hifuzion\fontes\HiFuzion.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -26,23 +26,23 @@
     <Target Name="NEZZ:Make">
         <MSBuild Projects="NEZZ.dproj" Targets="Make"/>
     </Target>
-    <Target Name="PedidoVenda">
-        <MSBuild Projects="C:\VendaWK\PedidoVenda.dproj"/>
+    <Target Name="HiFuzion">
+        <MSBuild Projects="C:\Hifuzion\fontes\HiFuzion.dproj"/>
     </Target>
-    <Target Name="PedidoVenda:Clean">
-        <MSBuild Projects="C:\VendaWK\PedidoVenda.dproj" Targets="Clean"/>
+    <Target Name="HiFuzion:Clean">
+        <MSBuild Projects="C:\Hifuzion\fontes\HiFuzion.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="PedidoVenda:Make">
-        <MSBuild Projects="C:\VendaWK\PedidoVenda.dproj" Targets="Make"/>
+    <Target Name="HiFuzion:Make">
+        <MSBuild Projects="C:\Hifuzion\fontes\HiFuzion.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="NEZZ;PedidoVenda"/>
+        <CallTarget Targets="NEZZ;HiFuzion"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="NEZZ:Clean;PedidoVenda:Clean"/>
+        <CallTarget Targets="NEZZ:Clean;HiFuzion:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="NEZZ:Make;PedidoVenda:Make"/>
+        <CallTarget Targets="NEZZ:Make;HiFuzion:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

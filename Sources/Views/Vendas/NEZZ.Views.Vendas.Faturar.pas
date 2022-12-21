@@ -1,4 +1,4 @@
-unit NEZZ.Views.Vendas.Adicionar.Produto;
+unit NEZZ.Views.Vendas.Faturar;
 
 interface
 
@@ -46,10 +46,12 @@ uses
   NEZZ.Views.Vendas.FormaPgt.Pix,
   NEZZ.Models.Produto,
   NEZZ.Factory.Produto,
-  Vcl.DBCtrls, cxContainer, cxTextEdit;
+  Vcl.DBCtrls,
+  cxContainer,
+  cxTextEdit;
 
 type
-  TNEZZViewsAdicionarProdutoVendas = class(TForm)
+  TNEZZViewsVendasFaturar = class(TForm)
     pnHeader: TPanel;
     pnContent: TPanel;
     pnFooter: TPanel;
@@ -66,12 +68,11 @@ type
     pnSubValores: TPanel;
     lbTotal: TLabel;
     lbValor: TLabel;
-    Panel1: TPanel;
-    Panel2: TPanel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
+    pnDadosItens: TPanel;
+    LBCodProd: TLabel;
+    LBAddProd: TLabel;
+    LBQtd: TLabel;
+    LBValorUni: TLabel;
     edCodProduto: TcxTextEdit;
     edQuantidade: TcxTextEdit;
     edValorUni: TcxTextEdit;
@@ -80,8 +81,11 @@ type
     GridVendasDBTableView1: TcxGridDBTableView;
     GridVendasLevel1: TcxGridLevel;
     BtnAddCliente: TcxButton;
-    Label6: TLabel;
+    LBCliente: TLabel;
+    edNomeProduto: TcxTextEdit;
+    LBNomeProd: TLabel;
     procedure btnCloseClick(Sender: TObject);
+    procedure BtnAddClienteClick(Sender: TObject);
   private
     FNEZZVenda: iNEZZServicesCadastrar;
 
@@ -90,13 +94,22 @@ type
   end;
 
 var
-  NEZZViewsAdicionarProdutoVendas: TNEZZViewsAdicionarProdutoVendas;
+  NEZZViewsVendasFaturar: TNEZZViewsVendasFaturar;
 
 implementation
 
 {$R *.dfm}
 
-procedure TNEZZViewsAdicionarProdutoVendas.btnCloseClick(Sender: TObject);
+procedure TNEZZViewsVendasFaturar.BtnAddClienteClick(Sender: TObject);
+begin
+  if Assigned(NEZZViewsVendaAdicionarCliente) then
+  if not Assigned(NEZZViewsVendaAdicionarCliente) then
+    Application.CreateForm(TNEZZViewsVendaAdicionarCliente, NEZZViewsVendaAdicionarCliente);
+
+  NEZZViewsVendaAdicionarCliente.ShowModal;
+end;
+
+procedure TNEZZViewsVendasFaturar.btnCloseClick(Sender: TObject);
 begin
   Close;
 end;

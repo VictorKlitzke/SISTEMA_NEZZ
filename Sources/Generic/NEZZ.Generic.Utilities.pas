@@ -3,27 +3,28 @@ unit NEZZ.Generic.Utilities;
 interface
 
 type
-  TNEZZEvent = procedure of object;
 
-  TTypeMsg = ( tMsgDNone, tMsgDInformation, tMsgDWarning, tMsgDanger,tMsgDSuccess );
+  TTypeMsg = (tMsgDSuccess, tMsgDError, tMsgDInformation, tMsgDWarning);
 
-  TNEZZGenericMensagem = class
-    class function isNumerico(aText : string): Boolean;
-  end;
+  procedure MSG(aText, aMsg : string; ATipoAlerta: TTypeMsg);
+
 
 implementation
 
-{ TNEZZGenericMensagem }
+uses
+  NEZZ.Generic.Mensagem;
 
-class function TNEZZGenericMensagem.isNumerico(aText: string): Boolean;
+procedure MSG(aText, aMsg : string; ATipoAlerta: TTypeMsg);
 var
-  iValue, iCode : Integer;
+  TMsgGeneric : TNEZZGenericMensagem;
 begin
-  Val(aText,iValue,iCode);
-  if iCode = 0 then
-    Result := True
-  else
-    Result := False;
+
+  TMsgGeneric                       :=  TNEZZGenericMensagem.Create(nil);
+  TMsgGeneric.lbTitulo.Caption      :=  AText;
+  TMsgGeneric.lbTexto.Caption       :=  AMsg;
+  TMsgGeneric.FTypeAlert            :=  ATipoAlerta;
+  TMsgGeneric.Show;
+
 end;
 
 end.

@@ -13,6 +13,7 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnContent: TPanel
@@ -25,14 +26,6 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
     Color = clYellow
     ParentBackground = False
     TabOrder = 0
-    object ComboCliente: TComboBox
-      Left = 8
-      Top = 24
-      Width = 329
-      Height = 21
-      TabOrder = 0
-      TextHint = 'Pesquisar Cliente'
-    end
     object pnFooter: TPanel
       Left = 0
       Top = 50
@@ -40,7 +33,7 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
       Height = 41
       Align = alBottom
       BevelOuter = bvNone
-      TabOrder = 1
+      TabOrder = 0
       object BtnFinalizar: TcxButton
         Left = 274
         Top = 0
@@ -76,7 +69,20 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
         Font.Style = []
         ParentFont = False
         OnClick = BtnFinalizarClick
+        ExplicitTop = 1
       end
+    end
+    object ComboCliente: TcxLookupComboBox
+      Left = 8
+      Top = 23
+      Properties.KeyFieldNames = 'ID'
+      Properties.ListColumns = <
+        item
+          FieldName = 'NOME'
+        end>
+      Properties.ListSource = dsBuscarClientes
+      TabOrder = 1
+      Width = 329
     end
   end
   object pnHeader: TPanel
@@ -147,8 +153,11 @@ object NEZZViewsVendaAdicionarCliente: TNEZZViewsVendaAdicionarCliente
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = btnCloseClick
-        ExplicitTop = -6
       end
     end
+  end
+  object dsBuscarClientes: TDataSource
+    Left = 160
+    Top = 56
   end
 end

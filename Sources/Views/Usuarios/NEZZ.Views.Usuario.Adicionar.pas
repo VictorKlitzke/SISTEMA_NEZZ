@@ -27,7 +27,6 @@ uses
   NEZZ.Factory.Usuario,
   NEZZ.Models.Usuario,
   NEZZ.Services.Query,
-  NEZZ.Views.MSG_CRUD,
   NEZZ.Views.Usuario.Login, ACBrBase, ACBrValidador;
 
 type
